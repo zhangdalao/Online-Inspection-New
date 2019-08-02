@@ -1,0 +1,398 @@
+{
+  "suffix":{"test":"net","pre":"com.cn","prod":"com"},
+  "methods": {"method1": "POST", "method2": "GET", "method3": "PUT"},
+  "sms_url":"https://sms.fangdd.%s/admin/api/verify-codes?mobile=13058019302",
+  "robot_data":{
+    "ddsf":{
+      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=d745ca46d735e68906baa0d065d6916377d374f083c880841151d2c004e9e654",
+      "mobile":["18682236985"]
+    }
+  },
+  "url":{
+        "jgj_syb": {
+          "domain": "https://jr.fangdd.%s",
+          "jgj_login_url": "/jgj/api/user/login",
+          "jgj_sms_url": "/jgj/api/user/smgsend",
+          "syb_loan_url ": "/jgj/api/factoring/queryLoanSummary?merchantIdList%5B%5D=3&merchantIdList%5B%5D=4&merchantIdList%5B%5D=5&merchantIdList%5B%5D=7&merchantIdList%5B%5D=8&merchantIdList%5B%5D=9&merchantIdList%5B%5D=10&merchantIdList%5B%5D=11&merchantIdList%5B%5D=12&merchantIdList%5B%5D=13&merchantIdList%5B%5D=14&merchantIdList%5B%5D=15&merchantIdList%5B%5D=17&merchantIdList%5B%5D=18&merchantIdList%5B%5D=19&merchantIdList%5B%5D=20&merchantIdList%5B%5D=21&merchantIdList%5B%5D=22&merchantIdList%5B%5D=23&merchantIdList%5B%5D=24&merchantIdList%5B%5D=25&merchantIdList%5B%5D=26&merchantIdList%5B%5D=27&merchantIdList%5B%5D=29&merchantIdList%5B%5D=30&merchantIdList%5B%5D=31&merchantIdList%5B%5D=32&merchantIdList%5B%5D=33&merchantIdList%5B%5D=95092&merchantIdList%5B%5D=95161",
+          "syb_order_url": "/jgj/api/factoring/queryInitialOrderList?pageIndex=1&pageSize=10&merchantIdList%5B%5D=95092&merchantIdList%5B%5D=3&merchantIdList%5B%5D=4&merchantIdList%5B%5D=5&merchantIdList%5B%5D=7&merchantIdList%5B%5D=8&merchantIdList%5B%5D=9&merchantIdList%5B%5D=10&merchantIdList%5B%5D=11&merchantIdList%5B%5D=12&merchantIdList%5B%5D=13&merchantIdList%5B%5D=14&merchantIdList%5B%5D=15&merchantIdList%5B%5D=17&merchantIdList%5B%5D=18&merchantIdList%5B%5D=19&merchantIdList%5B%5D=20&merchantIdList%5B%5D=21&merchantIdList%5B%5D=22&merchantIdList%5B%5D=23&merchantIdList%5B%5D=24&merchantIdList%5B%5D=25&merchantIdList%5B%5D=26&merchantIdList%5B%5D=27&merchantIdList%5B%5D=29&merchantIdList%5B%5D=30&merchantIdList%5B%5D=31&merchantIdList%5B%5D=32&merchantIdList%5B%5D=33&merchantIdList%5B%5D=95161",
+          "syb_settlement_url": "/jgj/api/factoring/getBalanceRuleList?pageIndex=1&pageSize=10&merchantIdList%5B%5D=95092&merchantIdList%5B%5D=3&merchantIdList%5B%5D=4&merchantIdList%5B%5D=5&merchantIdList%5B%5D=7&merchantIdList%5B%5D=8&merchantIdList%5B%5D=9&merchantIdList%5B%5D=10&merchantIdList%5B%5D=11&merchantIdList%5B%5D=12&merchantIdList%5B%5D=13&merchantIdList%5B%5D=14&merchantIdList%5B%5D=15&merchantIdList%5B%5D=17&merchantIdList%5B%5D=18&merchantIdList%5B%5D=19&merchantIdList%5B%5D=20&merchantIdList%5B%5D=21&merchantIdList%5B%5D=22&merchantIdList%5B%5D=23&merchantIdList%5B%5D=24&merchantIdList%5B%5D=25&merchantIdList%5B%5D=26&merchantIdList%5B%5D=27&merchantIdList%5B%5D=29&merchantIdList%5B%5D=30&merchantIdList%5B%5D=31&merchantIdList%5B%5D=32&merchantIdList%5B%5D=33&merchantIdList%5B%5D=95161",
+          "syb_store_url": "/jgj/api/factoring/queryStoreAuditing?pageIndex=1",
+          "syb_project_url": "/jgj/api/factoring/getProjectApplyList?pageIndex=1&pageSize=10&merchantIdList%5B%5D=95092&merchantIdList%5B%5D=3&merchantIdList%5B%5D=4&merchantIdList%5B%5D=5&merchantIdList%5B%5D=7&merchantIdList%5B%5D=8&merchantIdList%5B%5D=9&merchantIdList%5B%5D=10&merchantIdList%5B%5D=11&merchantIdList%5B%5D=12&merchantIdList%5B%5D=13&merchantIdList%5B%5D=14&merchantIdList%5B%5D=15&merchantIdList%5B%5D=17&merchantIdList%5B%5D=18&merchantIdList%5B%5D=19&merchantIdList%5B%5D=20&merchantIdList%5B%5D=21&merchantIdList%5B%5D=22&merchantIdList%5B%5D=23&merchantIdList%5B%5D=24&merchantIdList%5B%5D=25&merchantIdList%5B%5D=26&merchantIdList%5B%5D=27&merchantIdList%5B%5D=29&merchantIdList%5B%5D=30&merchantIdList%5B%5D=31&merchantIdList%5B%5D=32&merchantIdList%5B%5D=33&merchantIdList%5B%5D=95161",
+          "syb_payment_url": "/jgj/api/payments/queryPayments?pageIndex=1&pageSize=10&merchantIdList%5B%5D=95092&merchantIdList%5B%5D=3&merchantIdList%5B%5D=4&merchantIdList%5B%5D=5&merchantIdList%5B%5D=7&merchantIdList%5B%5D=8&merchantIdList%5B%5D=9&merchantIdList%5B%5D=10&merchantIdList%5B%5D=11&merchantIdList%5B%5D=12&merchantIdList%5B%5D=13&merchantIdList%5B%5D=14&merchantIdList%5B%5D=15&merchantIdList%5B%5D=17&merchantIdList%5B%5D=18&merchantIdList%5B%5D=19&merchantIdList%5B%5D=20&merchantIdList%5B%5D=21&merchantIdList%5B%5D=22&merchantIdList%5B%5D=23&merchantIdList%5B%5D=24&merchantIdList%5B%5D=25&merchantIdList%5B%5D=26&merchantIdList%5B%5D=27&merchantIdList%5B%5D=29&merchantIdList%5B%5D=30&merchantIdList%5B%5D=31&merchantIdList%5B%5D=32&merchantIdList%5B%5D=33&merchantIdList%5B%5D=95161&bizBillTypeList%5B%5D=1",
+          "syb_channel_payment_url": "/jgj/api/factoring/queryRepayBills?pageIndex=1&pageSize=10&payerIdList%5B%5D=95092&payerIdList%5B%5D=3&payerIdList%5B%5D=4&payerIdList%5B%5D=5&payerIdList%5B%5D=7&payerIdList%5B%5D=8&payerIdList%5B%5D=9&payerIdList%5B%5D=10&payerIdList%5B%5D=11&payerIdList%5B%5D=12&payerIdList%5B%5D=13&payerIdList%5B%5D=14&payerIdList%5B%5D=15&payerIdList%5B%5D=17&payerIdList%5B%5D=18&payerIdList%5B%5D=19&payerIdList%5B%5D=20&payerIdList%5B%5D=21&payerIdList%5B%5D=22&payerIdList%5B%5D=23&payerIdList%5B%5D=24&payerIdList%5B%5D=25&payerIdList%5B%5D=26&payerIdList%5B%5D=27&payerIdList%5B%5D=29&payerIdList%5B%5D=30&payerIdList%5B%5D=31&payerIdList%5B%5D=32&payerIdList%5B%5D=33&payerIdList%5B%5D=95161",
+          "syb_changechannel_url": "/jgj/api/factoring/changeOrderChannel"
+        },
+        "skb":{
+          "domain": "https://jr.fangdd.%s",
+          "skb_login_url": "/shoukuanbao/api/user/login",
+          "skb_order_url": "/shoukuanbao/api/org/getStoreManageList?pageSize=20&pageIndex=1",
+          "skb_add_order_url": "/shoukuanbao/api/esf/postAddEsfOrder",
+          "skb_add_fee_url": "/shoukuanbao/api/esf/postAddFee",
+          "skb_get_trans_details_url": "/shoukuanbao/api/esf/postEsfTransConfirmDetail",
+          "skb_account_transfer_url" : "/shoukuanbao/api/wallet/postTransfer",
+          "skb_add_split_rule_url" : "/shoukuanbao/api/esf/postAddEsfRule"
+        },
+        "sdd":{
+          "domain": "https://jr.fangdd.%s",
+          "sdd_login_url": "/shangdd/data/user-login",
+          "sdd_sms_url": "/shangdd/data/user-smgsend",
+          "sdd_company_url": "/shangdd/data/company-getCompanyInfo",
+          "sdd_getcompanylist_url": "/shangdd/data/company-getCompanyList?pageSize=10&pageNum=1",
+          "sdd_getIssue_url": "/shangdd/data/issue-getIssueList?pageSize=10&pageNum=1",
+          "sdd_getConfirm_url": "/shangdd/data/issue-getConfirmList?pageSize=10&pageNum=1"
+        },
+        "m_web":{
+          "domain": "https://m.fangdd.%s",
+          "m_login_url": "/api/data/login-userLogin",
+          "m_zhuanche_url": "/api/data/loupanFollowCar",
+          "m_lingka_url": "/api/data/fetchCashBackInfo",
+          "m_qiangtejia_url": "/api/data/loupanFollowPrice",
+          "m_guanzhu1_url": "/api/data/loupanFollow",
+          "m_guanzhu2_url": "/api/data/flatFollow",
+          "m_guanzhu3_url": "/api/data/esfDetailFollow",
+          "m_guanzhu4_url": "/api/hookFocus",
+          "m_kanjia_url": "/api/data/esfBargain"
+        },
+        "shop":{
+          "domain": "https://shop.fangdd.%s",
+          "login_url": "/api/login/account",
+          "user_url": "/api/login/user",
+          "auth_url": "/api/login/authority",
+          "imgCode_url": "/api/boai/boai/user/authCode/image?uuid=3a202120-930c-11e9-8e4d-1363d2dea444",
+          "getCode_url": "/api/boai/boai/user/authCode/image/code?uuid=3a202120-930c-11e9-8e4d-1363d2dea444",
+          "shop_estateAll_url": "/api/estate/estate/all/list?pageNo=1&pageSize=10",
+          "shop_estateMyList_url": "/api/estate/estate/my/list?pageNo=1&pageSize=10",
+          "shop_estateBasic_url": "/api/estate/estate/basic/add",
+          "shop_basicEdit_url": "/api/estate/estate/basic/edit",
+          "shop_estateAmenity_url": "/api/estate/amenity/edit",
+          "shop_estateDev_url": "/api/estate/developer/update",
+          "shop_salesOff_url": "/api/estate/salesoffice/edit",
+          "shop_commit_url": "/api/estate/estate/commit/101209",
+          "shop_projectAll_url": "/api/project/project/list?pageNo=1&pageSize=10",
+          "shop_addProject_url": "/api/project/project/add",
+          "shop_projectBasEdit_url": "/api/project/project/edit",
+          "shop_addMarket_url": "/api/project/project/market/a/add",
+          "shop_siteProject_url": "/api/project/site/update",
+          "shop_addDynamic_url":"/apiproject/ddxf/dynamic/add",
+          "shop_editDynamic_url": "/api/project/ddxf/dynamic/edit"
+        },
+        "ddxf":{
+          "domain": "https://shopapi.fangdd.%s",
+          "shop_app_loginurl": "/ddxf/user/login",
+          "dingdan_url": "/ddxf/order",
+          "ddxf_dynamicList_url": "/project/ddxf/dynamic/list?pageNo=0&pageSize=10",
+          "ddxf_addDynamic_url": "/project/ddxf/dynamic/add/v2",
+          "ddxf_store_url": "/personal/ddxf/store/",
+          "ddxf_storeData_url": "/personal/ddxf/store/data",
+          "ddxf_storeProject": "/personal/ddxf/store/projects?pageNo=0&pageSize=1000",
+          "ddxf_storeShare_url": "/personal/ddxf/store/share",
+          "ddxf_booking_order_url": "/ddxf/order",
+          "ddxf_booking_to_order": "/ddxf/order/deal/status/",
+          "ddxf_order_list": "/ddxf/order/purchase?pageNo=0&orderStatus=0&pageSize=10",
+          "ddxf_order_detail": "/ddxf/order/purchase/"
+        },
+        "god":{
+          "domain": "https://god.fangdd.%s",
+          "god_login_url": "/data/user-login",
+          "god_getprivince_url": "/data/getProvinceList",
+          "god_create_carrie": "/data/boaiCreateCarrier",
+          "god_reviewhouse_url": "/data/reviewHouse",
+          "carries_citylist_url": "/data/getCitys",
+          "god_getRepetEstates_url": "/data/getRepetitionEstates?pageNo=1&pageSize=10",
+          "god_getDevList_url": "/data/getDeveloperBrandPaginationList?pageNo=1&pageSize=10",
+          "god_getPositionList_url": "/data/popularizationGetPositionList?pageNo=1&pageSize=10",
+          "god_GetProjectList_url": "/data/popularizationGetProjectList?pageNo=1&pageSize=10",
+          "god_AddOrUpdatePosition_url": "/data/popularizationAddOrUpdatePosition",
+          "god_AddOrUpdateProject_url": "/data/popularizationAddOrUpdateProject"
+        },
+        "ddjj":{
+          "domain": "https://ddjj.fangdd.%s",
+          "send_verify_code": "/user/sendVerifyCode",
+          "user_login": "/user/login",
+          "create_new_rent_house": "/saas/createNewRentHosue",
+          "update_rent_base_info": "/saas/updateRentBaseInfo",
+          "add_rent_follow_up": "/saas/addRentFollowUp",
+          "add_rent_key": "/saas/addRentKey",
+          "borrow_rent_key": "/saas/borrowRentKey",
+          "return_rent_key": "/saas/returnRentKey",
+          "edit_rent_key_info":"/saas/editRentKeyInfo",
+          "cancel_rent_key": "/saas/cancelRentKey"
+        },
+        "xf":{
+          "domain": "https://api-realtor.fangdd.%s",
+          "login_Path": "/user/users/login",
+          "xf_Path": "/estate/xf/projects/list",
+          "myhouse_Path": "/estate/xf/house/mine",
+          "xflp_Path": "/estate/xf/list",
+          "detail_Path": "/housingestate/estate/53101?modules=all",
+          "Flow_Path": "/housingestate/estate/53101/dynamicFlow?currentLiveCnt=0&pageSize=15&pageNo=1",
+          "referal_Path": "/distribution/custs/referal",
+          "myreferal_Path": "/housingestate/estate/53101?modules=my.referral",
+          "guide_Path": "/distribution/custs/guide/",
+          "cert_Path": "/distribution/custs/guide/cert/"
+        },
+        "RENT_SAAS":{
+          "domain":"https://ddjj.fangdd.%s",
+          "send_verify_code": "/user/sendVerifyCode",
+          "user_login":"/user/login",
+          "create_new_rent_house":"/saas/createNewRentHosue"
+        },
+        "ddsf":{
+          "domain": "https://as-web.fangdd.%s",
+          "Login":{
+              "ByPassword": "/ioux/loginByPassword",
+              "ByVerifyCode": "/data/listStaffOrg"
+            },
+          "Home" :{
+            "HomeInfo": "/data/getHomeInfo",
+            "ProfileInfo": "/data/getProfileInfo",
+            "StaffMessage":"/data/getStaffMessage",
+            "StaffOrg":"/data/listStaffOrg",
+            "SchedulePlanInfo":"/data/searchSchedulePlanInfo",
+            "CityList": "/ioux/queryCityList"
+          },
+          "Store":{
+            "StoreList":"/data/getStoreList",
+            "OrgStore":"/data/getOrgStoreResource",
+            "listAllStaff":"/data/listAllStaffByDepId",
+            "OrgTree":"/data/getOrgTree",
+            "RegionByCityId":"/data/getRegionByCityId"
+            },
+          "Company":{
+            "CompanyList": "/data/getCompanyList"
+          },
+          "Agent":{
+            "listAgent": "/data/listAgentByCodition"
+          },
+          "Myself":{},
+          "NewHouse":{
+            "listCity": "/data/listCity",
+            "listHouse": "/data/listHouseByCondition",
+            "XfdkStoreData": "/data/getXfdkStoreData",
+            "HouseDetail": "/data/getHouseDetail",
+            "ConfigList": "/data/activityConfigList",
+            "ShareTemplate": "/data/getShareTemplate"
+          },
+          "WorkRank":{
+            "PullNewAgentRank": "/data/getPullNewAgentRank",
+            "PullAgentInfo": "/data/searchPullAgentInfo",
+            "ActivityAchievement": "/data/getActivityAchievement"
+          },
+          "Datas":{
+            "XfdkAchievementData": "/data/getXfdkAchievementData",
+            "XfdkStoreData":"/data/getXfdkStoreData",
+            "searchLoupan":"/data/searchLoupan",
+            "AchievementStat":"/ioux/getAchievementStat",
+            "ActiveAgentNum":"/ioux/getActiveAgentNum",
+            "NewHouseGuideData":"/ioux/getNewHouseGuideData",
+            "AchievementList":"/ioux/getAchievementList"
+          },
+          "Orders":{
+            "orders": "/api/orders",
+            "contract":"/api/contract",
+            "contract-operate-logs":""
+          },
+          "Clues":{},
+          "VisitRecord":{},
+          "MapSource":{}
+        }
+  },
+  "headers":{
+    "header_json":{"content-type": "application/json"},
+    "header_para":{"content-type": "application/x-www-form-urlencoded"},
+    "test":{"m_header":{"content-type": "application/json","city-id":"1337","user-id":"3101920"}},
+    "pre":{"m_header":{"content-type": "application/json","city-id":"121","user-id":"6452821"}},
+    "prod":{"m_header":{"content-type": "application/json","city-id":"10204","user-id":"6512507"}
+    },
+    "header_order":{"City-Id": "-1","Platform": "Android","Device-Id": "867696033197978","Timestamp": "1560909085702","Version": "4.4.8","Platform-Version": "25","User-Id": "408899","Sign": "MmRlN2IwZmQ1YjUyODQ1MDlkZjUzYTgwMTlhZjBiZDA2NDYwY2E1Yw==","Platform-Device": "OPPO","Token": "96784be05264482a","Content-Type": "application/json","Content-Length": "499","Host": "shopapi.fangdd.net","Connection": "Keep-Alive","Accept-Encoding": "gzip","User-Agent": "okhttp/3.11.0"},
+    "header_dynamicList": {"Device-Id":"860445042916326","Platform":"Android","Platform-Version":"28","Version":"4.4.8","City-Id":"-1","Token":"81536cf94e1f403d","Sign":"NTE5OTdiYTUzMTI4NjQzZTU0MDNhZWM4NDgxOTA0YTQ4NmE2NjYwNA==","Timestamp":"1560927581915","User-Id":"3016228","Content-Type":"application/json","Platform-Device":"HUAWEI","Host":"shopapi.fangdd.%s","Connection":"Keep-Alive","Accept-Encoding":"gzip","User-Agent":"okhttp/3.11.0"}
+  },
+  "body":{
+        "jgj_syb":{
+          "test":{
+            "jgj_body_smg": {"mobile": "13058019302","type": 1},
+            "jgj_body_login": {"mobile":"13058019302","password":"dAbMUjntMIDEdEep4aDAecbZSzwNZjQ6xU045RzrzSVRwwT8sFupKaTiOIA9bHCMDm34TA0oF0QXzPUWHDC9tEOL7+bnjP0MO7dF/uEE3Y/nFmisubjNJ6VsK3jxt6S8gN0oxzB9q8OY8XVVjn5n0WjudeZ0qf07PMjUsj6gwNFvn87H4CkigMvd/oRFcYv5uocnt9Vgooo71XaLOHk/BVJdOkEV/sGyIBz50lSitUO6GaGTcvBIoVeHErEH2olerIww/1NRvGUHh3ZbjdqVRvPkAdA56V0/FptOAgydCz/bAseTfCWd1cjX26m2ooRHsZgg6W1Xe9rS1TdWiVaX+A==","captcha":"1234"},
+            "syb_changechannel": {"programIdList": ["2132561"], "channelId": 4}
+          },
+          "pre":{
+            "jgj_body_smg": {"mobile": "13058019302","type": 1},
+            "jgj_body_login": {"mobile":"13058019302","password":"dAbMUjntMIDEdEep4aDAecbZSzwNZjQ6xU045RzrzSVRwwT8sFupKaTiOIA9bHCMDm34TA0oF0QXzPUWHDC9tEOL7+bnjP0MO7dF/uEE3Y/nFmisubjNJ6VsK3jxt6S8gN0oxzB9q8OY8XVVjn5n0WjudeZ0qf07PMjUsj6gwNFvn87H4CkigMvd/oRFcYv5uocnt9Vgooo71XaLOHk/BVJdOkEV/sGyIBz50lSitUO6GaGTcvBIoVeHErEH2olerIww/1NRvGUHh3ZbjdqVRvPkAdA56V0/FptOAgydCz/bAseTfCWd1cjX26m2ooRHsZgg6W1Xe9rS1TdWiVaX+A==","captcha":"1234"},
+            "syb_changechannel": {"programIdList": ["2005813"], "channelId": 4}
+          },
+          "pro":{
+            "jgj_body_smg": {"mobile": "13058019302","type": 1},
+            "jgj_body_login": {"mobile":"13058019302","password":"dAbMUjntMIDEdEep4aDAecbZSzwNZjQ6xU045RzrzSVRwwT8sFupKaTiOIA9bHCMDm34TA0oF0QXzPUWHDC9tEOL7+bnjP0MO7dF/uEE3Y/nFmisubjNJ6VsK3jxt6S8gN0oxzB9q8OY8XVVjn5n0WjudeZ0qf07PMjUsj6gwNFvn87H4CkigMvd/oRFcYv5uocnt9Vgooo71XaLOHk/BVJdOkEV/sGyIBz50lSitUO6GaGTcvBIoVeHErEH2olerIww/1NRvGUHh3ZbjdqVRvPkAdA56V0/FptOAgydCz/bAseTfCWd1cjX26m2ooRHsZgg6W1Xe9rS1TdWiVaX+A==","captcha":"1234"},
+            "syb_changechannel": {"programIdList": ["2005813"], "channelId": 4}
+          }
+        },
+        "skb":{
+          "skb_body_login": {"mobile":"13058019302","password":"u+T9Wlb0lKbWTK03umKrW34SH13a66AXBoppNCxaihhXXu+CMoi07t1xNvenoI5B0NbFoqx/ky4IKG4b58CtMlv1c6TIE3Ng+AgYQy1oa7YMYd4dkzO2JT1SPJnr2a8U58yu78ZDZbF8RHy+hOvrO4dDPqmjyTonUOFwErviLpoSHBEPoy82GfqLq74fOp+uwkttR/s5OXHqN1lBS7glhCkfqwheGQbvIxVPQ5XdHV9WMraPHgCv61fQ0tv1sQJ3IRCwCDivbFNwQnIxJLIBJTwvL8xOvWVHu9zKUaD6eJ4/8GZy7uhdyvA2OFghEs8faJNcjBXPBox28Vswk+N5fw=="},
+          "skb_body_add_order": {"agentShopId":111112035,"agentShopName":"罗湖店","buyerCertNo":"","buyerName":"钟文文","esfOrderMaterialInfos":[],"houseBuilding":"1801","houseName":"罗湖海滨小区","housePrice":1.0E7,"merchantId":111112032,"merchantName":"运营商v231","sellerCertNo":"","sellerName":" 刘文文","source":3,"tradeDate":"20190617","userId":4776},
+          "skb_body_add_fee": {"comment":"业主","feeType":0,"orderId":"9245416101249031","payer":1,"receivableAmount":"1"},
+          "skb_body_get_trans_details": {"receiptRecordId":"9239916739756032","userId":4759},
+          "skb_body_account_transfer": {"fromAccountId":"567753264137764866","orgType":2,"toOrgId":"111112035","toOrgName":"罗湖店","accountNo":"41030200040001562","amount":"0.01","accountBalance":"899999.97","orgId":111112032,"orgName":"运营商v231","currentOrgId":111112034,"flowType":4},
+          "skb_body_split_rule": {"rules":[{"orgName":"丹竹头店","ratio":"90","orgId":111112044},{"orgName":"梧桐店","orgId":111112106,"ratio":"10"}],"defaults":0,"orgId":111112044}
+        },
+        "sdd":{
+          "sdd_login_body":{"userTel":"18743214321","password":"ch6J+wxxM5ffsjBG70tPV82SJXnFlKi6CXfjzLym0AiTwLdd0JK4/Xh0cZk9+ejTfqKs18FEu/Cu5XlQS2xWR16GYxu+DaKpmR2Tg4EC/o3y/lygKCVsVXPvpAPeqn4KpbyaIdTrH21UYj0epjot6X/EN1uazmp+dfhVczJtvN3+c/PKA2KBS0buzxlqPUIoXUH+xZkyjgIGM5Y0TES7Q/tIhWmmLmL9PXpOvMVBTa6Op8hm8lp8z2/JN1+Pc69V8Umuo9MvfmGgGDqKlvwtks5LodJuYof8ETAcuf5DUO9Bl4EmMbNKydGudg/cmauQ0BEWsYrohIZX3V/jNlOICg==","verifyCode":"1234"},
+          "sdd_sms_body":{"userTel":"18743214321","type":1}
+        },
+        "m_web":{
+          "test":{
+            "m_body_login": {"mobile":"15937061681","password": "emhhbmdrZTEwMTQ=d8075aa08ce911e9","cityId": 1337,"sessionId": "746363c08d0e11e9b8e1bfebdb013d8c"},
+            "m_body_zhuanche": {"houseId": 69740},
+            "m_body_lingka": {"cityId":1337,"userId":3101920,"houseId":69740},
+            "m_body_qiangtejia": {"houseId":69740,"apartmentId":35041},
+            "m_body_guanzhu1": {"phone":"15937061681","userId":3101920,"houseId":49442,"houseName":"电建地产·洺悦府","cityId":267,"type":0,"eventPage":1,"fa":"FA1.0.1561360805772.8452217355","ga":"GA1.2.84714553.1561360804"},
+            "m_body_guanzhu2": {"userId":"3101920","phone":"15937061681","houseId":69740,"flatId":323069},
+            "m_body_guanzhu3": {"esfId":2293079,"userId":"3101920","phone":"15937061681"},
+            "m_body_guanzhu4": {"userId":"3101920","phone":"15937061681","cellId":150432,"type":1,"isFollow":true},
+            "m_body_kanjia": {"userId":3101920,"phone":"15937061681","esfId": 2293079,"quotedPrice": 115,"agentId": 3104383,"fa":"FA1.0.1561360805772.8452217355","ga":"GA1.2.84714553.1561360804"}
+          },
+          "pre":{
+            "m_body_login": {"mobile": "15937061681","password": "emhhbmdrZTEwMTRQba497d40967111e9","cityId": 121, "sessionId": "a4503450965f11e98ffce5c21c46ad47"},
+            "m_body_zhuanche": {"houseId":95913},
+            "m_body_lingka": {"cityId":121,"userId":6452821,"houseId":59410},
+            "m_body_qiangtejia": {"houseId": 59410,"apartmentId": 24446},
+            "m_body_guanzhu1": {"phone": "15937061681","userId": 6452821,"houseId": 59410,"houseName": "新景国际城","cityId": 121, "type": 0,"eventPage": 1,"fa": "FA1.0.1561367318834.4307381253","ga": "GA1.3.1584666423.1561367319"},
+            "m_body_guanzhu2": {"userId": "6452821","phone": "15937061681","houseId": 59410,"flatId": 150376},
+            "m_body_guanzhu3": {"esfId": 9155124,"userId": "6452821","phone": "15937061681"},
+            "m_body_guanzhu4": {"userId": "6452821","phone": "15937061681","cellId": 14161, "type": 1,"isFollow": true},
+            "m_body_kanjia": {"userId": "6452821","phone": "15937061681","esfId": 9155124,"quotedPrice": 570, "agentId": 6180561,"fa": "FA1.0.1561367318834.4307381253","ga": "GA1.3.1584666423.1561367319"}
+          },
+          "prod":{
+            "m_body_login": {"mobile": "15937061681", "password": "emhhbmdrZTEwMTRYUw==6f334d80997411e9", "cityId": 0, "sessionId": "3034bf10997411e99ccc4551f250b083"},
+            "m_body_zhuanche": {"houseId":63666},
+            "m_body_lingka": {"cityId": 10204,"userId": "6512507","houseId": 63666},
+            "m_body_qiangtejia": {"houseId": 63666,"apartmentId": 18287},
+            "m_body_guanzhu1": {"phone": "15937061681", "userId": 6512507, "houseId": 63666, "houseName": "中铁世纪春城", "cityId": 10204, "type": 0, "eventPage": 1, "fa": "FA1.0.1561705993921.6875897342", "ga": "GA1.2.993754280.1561705994"},
+            "m_body_guanzhu2": {"userId": "6512507", "phone": "15937061681", "houseId": 63666, "flatId": 1007332},
+            "m_body_guanzhu3": {"esfId": 10540268, "userId": "6512507", "phone": "15937061681"},
+            "m_body_guanzhu4": {"userId": "6512507", "phone": "15937061681", "cellId": 216404, "type": 1, "isFollow": true},
+            "m_body_kanjia": {"userId": "6512507", "phone": "15937061681", "esfId": 10540268, "quotedPrice": 152, "agentId": 210238, "fa": "FA1.0.1561705993921.6875897342", "ga": "GA1.2.993754280.1561705994"}
+          }
+
+        },
+        "shop":{
+          "test":{
+            "body_shop_estateBsic":{"allCarparks":1700,"branchId":3,"buildingArea": "10000","carparksBasement": "1200","carparksGround": "500","cityId": 10204,"cityTreeCascader": [10204, 10205, 705017],"districtId": 10205,"estateAddress": "白山市浑江区浑江","estateName": "自动化测试222222","greensRatio": "23","householdNum": "3600","mapLat": 41.950424,"mapLng": 126.42362,"parkRatio": "1:0.47","plotRatio": "23","propertyName": "测试自营","sectionId": 705017,"totalArea": "120000"},
+            "body_shop_estateAmenity": {"estateId":"101104","medicalFacilities":"自动化测试","recreationFacilities":"自动化测试","schoolFacilities":"自动化测试","shoppingFacilities":"自动化测试","trafficFacilities": "自动化测试"},
+            "body_shop_estateDev": {"developerBrandId": 13524,"developerName": "自动化测试","estateId": "101104","investorName": "自动化测试"},
+            "body_shop_salesOff": {"address": "白山市 浑江区浑江","contactNumber": "13883217640","estateId": "101104","mapLat": 41.950424,"mapLng": 126.42362,"recentDeliveryDate": "2019-06-28T00:00:00.000Z","recentOpenDate": "2019-06-28T00:00:00.000Z","statusType": 20},
+            "body_shop_addProject" : {"branchId": 3,"carrierId": 1,"estateId": "100909","onlineBeginDate": 1559318400000,"onlineEndDate": 1596211199000,"projectSummary": "测试自动化","projectType": 0},
+            "body_shop_proBasEdit":{"branchId": 3,"branchName": "测试自营分公司","businessStatus": 3,"carrierId": 1,"carrierName": "测试自营运营商","cityId": 10204,"estateId": 2029540,"estateName": "秀水碧海湾","onlineBeginDate": 1548950400000,"onlineEndDate": 1584806399000,"onlineStatus": 1,"operationType": 0,"projectId": 22987,"projectName": "","projectSummary": "","projectType": 1,"supportOnlineOffice": false,"totalHouseholdNum": ""},
+            "body_shop_addMarket":{"marketTitle": "sdf","projectId": "15199","projectSupport": "sdf","ruleGuide": {"allowHiddenMobile": false,"confirmGuideMethod": {"msgCode": false,"qrCode": true,"materials": false}},"ruleReferral": {"needAppointGuideTime": false,"allowHiddenMobile": false,"needIdCardNo": false},"ruleSettlement": {"settlementFlow": "kj"},"sellingPoint": "sdf"},
+            "body_shop_updateSite":{"account": "13838217640","guideProcessList": ["扫描开发商二维码", "案场签到表签到", "出示客户收到的短信验证码", "带看联动单签字并拍照上传"],"needGuideQrCode": 1,"password": "123456","projectId": "15199","receiverName": "罗媛","receiverRole": "测试","receiverTelephone": "13883217640","referralInfoFormat": "123****1234","referralTypeList": [2, 1],"referralUrl": "shop.fangdd.com","referralWechatGroup": "自动化测试","subscriptionName": "1234"},
+            "body_shop_addDynamic":{"content": "加推/开盘/交房：加推几号楼、什么户型、房源套数、特价房等↵案场活动：案场的暖场活动、业主答谢、节日活动等↵价格：价格的变动、价格优惠等↵工程进度：如地下车库已完善、小区中央花园已建成、小区绿化已完成等↵配套：如周边新增银行、医院、商场等↵其他：如样板间开放、户型售罄等","houseId": 100909,"imageList": [],"openScopes": "1","projectId": "15199","themeId": 1,"title": "自动化测试","topicKey": 0},
+            "body_shop_editDynamic":{"content": "秀水碧海湾位于诸暨双金线与西二环路交汇处。项目为诸暨精装住宅，园区内规划涵高层、7层洋房、3+1层洋房。目前，高层6-8#，12#在售，建筑面积约87-128㎡，具体价格以售楼处为准。分期付款首期6万起，购房即享8.9折优惠。详情可咨询售楼处。","houseId": 2029540,"id":"20040889920190509175410649","imageList": [],"openScopes": "1","projectId": "22987","themeId": 1,"title": "秀水碧海湾精装高层在售","topicKey": 0}
+          },
+          "pre":{
+            "body_shop_estateBsic":{"allCarparks":1700,"branchId":3,"buildingArea": "10000","carparksBasement": "1200","carparksGround": "500","cityId": 10204,"cityTreeCascader": [10204, 10205, 705017],"districtId": 10205,"estateAddress": "白山市浑江区浑江","estateName": "自动化测试222222","greensRatio": "23","householdNum": "3600","mapLat": 41.950424,"mapLng": 126.42362,"parkRatio": "1:0.47","plotRatio": "23","propertyName": "测试自营","sectionId": 705017,"totalArea": "120000"},
+            "body_shop_estateAmenity": {"estateId": "2029540","medicalFacilities": "自动化测试","recreationFacilities": "自动化测试","schoolFacilities": "自动化测试","shoppingFacilities": "自动化测试","trafficFacilities": "自动化测试"},
+            "body_shop_estateDev": {"developerBrandId": 122842,"developerId": 113806,"developerName": "测试自营开发商","estateId": "2029540","investorName": "测试自营开发商"},
+            "body_shop_salesOff": {"address": "白山临江市","contactNumber": "023-23122222","contactNumberAlternative": "12222222222","estateId": "2029540","mapLat": 41.817679,"mapLng": 126.924582,"officeId": 102792,"recentDeliveryDate": "2019-04-30T00:00:00.000Z","recentOpenDate": "2019-04-25T00:00:00.000Z","statusType": 20,"totalPrice": "22222","unitAvgPrice": "13400"},
+            "body_shop_addProject" : {"branchId": 3,"carrierId": 1,"estateId": "100909","onlineBeginDate": 1559318400000,"onlineEndDate": 1596211199000,"projectSummary": "测试自动化","projectType": 0},
+            "body_shop_proBasEdit":{"branchId": 3,"branchName": "测试自营分公司","businessStatus": 3,"carrierId": 1,"carrierName": "测试自营运营商","cityId": 10204,"estateId": 2029540,"estateName": "秀水碧海湾","onlineBeginDate": 1548950400000,"onlineEndDate": 1584806399000,"onlineStatus": 1,"operationType": 0,"projectId": 22987,"projectName": "","projectSummary": "","projectType": 1,"supportOnlineOffice": false,"totalHouseholdNum": ""},
+            "body_shop_addMarket":{"marketTitle": "1","projectId": "22987","projectSupport": "自动化测试","ruleGuide": {"allowHiddenMobile": false,"confirmGuideMethod": {"msgCode": false,"qrCode": true,"materials": false}},"ruleReferral": {"needAppointGuideTime": false,"allowHiddenMobile": false,"needIdCardNo": false},"ruleSettlement": {"settlementFlow": "自动化测试"},"sellingPoint": "自动化测试"},
+            "body_shop_updateSite":{"account": "13838217640","guideProcessList": ["扫描开发商二维码", "案场签到表签到", "出示客户收到的短信验证码", "带看联动单签字并拍照上传"],"needGuideQrCode": 1,"password": "123456","projectId": "15199","receiverName": "罗媛","receiverRole": "测试","receiverTelephone": "13883217640","referralInfoFormat": "123****1234","referralTypeList": [2, 1],"referralUrl": "shop.fangdd.com","referralWechatGroup": "自动化测试","subscriptionName": "1234"},
+            "body_shop_addDynamic":{"content": "加推/开盘/交房：加推几号楼、什么户型、房源套数、特价房等↵案场活动：案场的暖场活动、业主答谢、节日活动等↵价格：价格的变动、价格优惠等↵工程进度：如地下车库已完善、小区中央花园已建成、小区绿化已完成等↵配套：如周边新增银行、医院、商场等↵其他：如样板间开放、户型售罄等","houseId": 100909,"imageList": [],"openScopes": "1","projectId": "15199","themeId": 1,"title": "自动化测试","topicKey": 0},
+            "body_shop_updateBisEste":{"allCarparks": 5200,"branchId": 3,"buildingArea": "1000","carparksBasement": "4000","carparksGround": "1200","cityId": 10204,"cityTreeCascader": [10204, 10207, 10741],"districtId": 10207,"estateAddress": "白山市临江区","estateId": "2029540","estateName": "秀水碧海湾","greensRatio": "20.00","householdNum": "20000","mapLat": "41.9396270000000000","mapLng": "126.4296300000000000","parkRatio": "1:0.26","plotRatio": "20.00","propertyName": "自营物业公司","sectionId": 10741,"totalArea": "10000"}
+          },
+          "prod":{
+            "body_shop_estateBsic":{"allCarparks":1700,"branchId":3,"buildingArea": "10000","carparksBasement": "1200","carparksGround": "500","cityId": 10204,"cityTreeCascader": [10204, 10205, 705017],"districtId": 10205,"estateAddress": "白山市浑江区浑江","estateName": "自动化测试222222","greensRatio": "23","householdNum": "3600","mapLat": 41.950424,"mapLng": 126.42362,"parkRatio": "1:0.47","plotRatio": "23","propertyName": "测试自营","sectionId": 705017,"totalArea": "120000"},
+            "body_shop_estateAmenity": {"estateId": "2029540","medicalFacilities": "自动化测试","recreationFacilities": "自动化测试","schoolFacilities": "自动化测试","shoppingFacilities": "自动化测试","trafficFacilities": "自动化测试"},
+            "body_shop_estateDev": {"developerBrandId": 122842,"developerId": 113806,"developerName": "测试自营开发商","estateId": "2029540","investorName": "测试自营开发商"},
+            "body_shop_salesOff": {"address": "白山临江市","contactNumber": "023-23122222","contactNumberAlternative": "12222222222","estateId": "2029540","mapLat": 41.817679,"mapLng": 126.924582,"officeId": 102792,"recentDeliveryDate": "2019-04-30T00:00:00.000Z","recentOpenDate": "2019-04-25T00:00:00.000Z","statusType": 20,"totalPrice": "22222","unitAvgPrice": "13400"},
+            "body_shop_addProject" : {"branchId": 3,"carrierId": 1,"estateId": "100909","onlineBeginDate": 1559318400000,"onlineEndDate": 1596211199000,"projectSummary": "测试自动化","projectType": 0},
+            "body_shop_proBasEdit":{"branchId": 3,"branchName": "测试自营分公司","businessStatus": 3,"carrierId": 1,"carrierName": "测试自营运营商","cityId": 10204,"estateId": 2029540,"estateName": "秀水碧海湾","onlineBeginDate": 1548950400000,"onlineEndDate": 1584806399000,"onlineStatus": 1,"operationType": 0,"projectId": 22987,"projectName": "","projectSummary": "","projectType": 1,"supportOnlineOffice": false,"totalHouseholdNum": ""},
+            "body_shop_addMarket":{"marketTitle": "1","projectId": "22987","projectSupport": "自动化测试","ruleGuide": {"allowHiddenMobile": false,"confirmGuideMethod": {"msgCode": false,"qrCode": true,"materials": false}},"ruleReferral": {"needAppointGuideTime": false,"allowHiddenMobile": false,"needIdCardNo": false},"ruleSettlement": {"settlementFlow": "自动化测试"},"sellingPoint": "自动化测试"},
+            "body_shop_updateSite":{"account": "13838217640","guideProcessList": ["扫描开发商二维码", "案场签到表签到", "出示客户收到的短信验证码", "带看联动单签字并拍照上传"],"needGuideQrCode": 1,"password": "123456","projectId": "15199","receiverName": "罗媛","receiverRole": "测试","receiverTelephone": "13883217640","referralInfoFormat": "123****1234","referralTypeList": [2, 1],"referralUrl": "shop.fangdd.com","referralWechatGroup": "自动化测试","subscriptionName": "1234"},
+            "body_shop_addDynamic":{"content": "加推/开盘/交房：加推几号楼、什么户型、房源套数、特价房等↵案场活动：案场的暖场活动、业主答谢、节日活动等↵价格：价格的变动、价格优惠等↵工程进度：如地下车库已完善、小区中央花园已建成、小区绿化已完成等↵配套：如周边新增银行、医院、商场等↵其他：如样板间开放、户型售罄等","houseId": 100909,"imageList": [],"openScopes": "1","projectId": "15199","themeId": 1,"title": "自动化测试","topicKey": 0},
+            "body_shop_updateBisEste":{"allCarparks": 5200,"branchId": 3,"buildingArea": "1000","carparksBasement": "4000","carparksGround": "1200","cityId": 10204,"cityTreeCascader": [10204, 10207, 10741],"districtId": 10207,"estateAddress": "白山市临江区","estateId": "2029540","estateName": "秀水碧海湾","greensRatio": "20.00","householdNum": "20000","mapLat": "41.9396270000000000","mapLng": "126.4296300000000000","parkRatio": "1:0.26","plotRatio": "20.00","propertyName": "自营物业公司","sectionId": 10741,"totalArea": "10000"}
+          }
+        },
+        "ddxf":{
+
+        },
+        "god":{
+          "god_login_body": {"mobile": "15507592070","password": "KAEq/k9ij+XgKVF6jCHEFbPjqPHSZVDooYUTy3D2HDQ8g8oZlIjSDa5+yTGF9Qi8cVnkr6rGY/nqwcGpNHpn7RXYK6V1H8NPh2XFkBIp+oB+kQV6XrSyn5XRdF4yx2DWhT0kR3W+mcbNEhCNWfGJ05zmJ5TQVGKLggsoz1bnw6BUv50W9aFrRoKPpWq7VmHJN8sOxF3tMMwWCubCc+a4rpI1A6o2AqWV6sCGI/mit2S6FT2l4pFVEM7zCBI17lv935faZ50N4LcAixWWDQitjRca9bTLTruZbX+0mJzHYqLeOJmui99RMxxyF7goyN1fSAQy17DCq3DA+0C65B5UOg=="},
+          "create_carries_body": {"carrierId": null,"carrierType": "0","status": "1","carrierName": "???????????? ","carrierShortName": "????","briefIntro": "??","provinceId": 5,"provinceName": "???","cityId": 1337,"cityName": "??????","districtId": 1342,"districtName": "?????","address": "???????","unifiedSocialCreditCode": "78458687567","businessLicenseNo": null,"legalPersonName": null,"legalPersonIdcard": null,"headName": null,"headIdcard": null,"headMobile": null,"headEmail": null,"authorizedScope": 0,"entryDate": null,"signDate": null,"orgAttaches": [{"attachId": null,"attachName": null,"attachType": null,"attachUrl": null}],"orgAuthorizedCities": [{"id": null,"cityId": 1337,"cityName": "??????"}]},
+          "god_reviewhouse_body": {"auditFlag":"1","estateId":"2059758"}
+        },
+        "ddjj":{
+
+        },
+        "xf":{
+          "login_body": {"mobile": "17900011101", "password": "123456", "mode": 1},
+          "xf_body": {"cityId": 10204, "isLocation": false, "keyWord": "", "lat": 0.0, "lng": 0.0, "pageNo": 1, "pageSize": 20},
+          "xflp_body": {"countOnly": 0, "filterStr": "", "pageNo": 1, "pageSize": 20},
+          "guide_body": {}
+        },
+        "ddsf":{
+          "test":{
+
+          },
+          "pre":{
+
+          },
+          "prod":{
+            "Login":{
+              "ByPassword":{"username":"18682236985","password":"Wawa520."},
+              "ByVerifyCode":{"mobile":"18682236985","code":"111111","device":"sid.18682236985"}
+            },
+            "Home":{
+              "HomeInfo": {"userId":6520137},
+              "ProfileInfo":{"userId":6520137},
+              "StaffMessage": [{"staffId":6520137},{"opId":6520137,"systemSource":"DD_COMMERCIAL"}],
+              "StaffOrg": {"userId":6520137},
+              "SchedulePlanInfo" : [{"date":"2019-07-07T09:17:03.495Z","serviceIdList":[6520137]},{"opId":6520137,"systemSource":"DD_COMMERCIAL"}]
+            },
+            "Store":{
+              "StoreList":[{"cityIds":["121","852","1337","10204"],"pageNo":1,"pageSize":20,"operateStatus":1,"staffIds":[6520137]},{"systemSource":"DD_COMMERCIAL","opId":6520137}],
+              "StoreList_paras":[{"cityIds":["121","852","1337","10204"],"pageNo":1,"pageSize":20,"isNeedResults":false,"operateStatus":1},{"systemSource":"DD_COMMERCIAL","opId":6520137}],
+              "OrgStore":[{"cityIds":["121","852","1337","10204"],"depId":37,"serviceType":0},{"systemSource":"DD_COMMERCIAL","opId":6520137,"opName":"陈文建"}],
+              "listAllStaff":{"departmentId":37},
+              "OrgTree":[{"depId":37},{"systemSource":"DD_COMMERCIAL"}],
+              "RegionByCityId":{"cityId":10204}
+            },
+            "Company":{
+              "CompanyList":[{"cityIdList":["121","852","1337","10204"],"orderbyCompanyId":false,"pageNo":1,"pageSize":20},{"systemSource":"DD_COMMERCIAL","opId":6520137}]
+            },
+            "Agent":{
+              "listAgent":[{"cityIds":["121","852","1337","10204"],"pageNo":1,"pageSize":20,"netCardStatus":null,"storeId":null,"staffIds":null,"activateStatus":null,"userOrgStatus":null,"verifiedStatus":0,"userCardStatus":0,"storeStatus":0},{"opId":6520137,"systemSource":"DD_COMMERCIAL"}]
+            },
+            "Myself":{},
+            "NewHouse":{
+              "listCity": {},
+              "listHouse": [{"staffId":6520137,"pageNo":1,"pageSize":20,"sortType":2,"merchantService":[1],"lon":114.02597366,"lat":22.54605355},{"opId":6520137,"systemSource":"DD_COMMERCIAL"}],
+              "XfdkStoreData": {"houseIdList":["52242"],"staffId":6520137,"roleId":1,"startDate":"2019-07-01","endDate":"2019-07-31","achievementType":1},
+              "HouseDetail": [{"houseId":"52242","staffId":6520137},{"opId":6520137,"systemSource":"DD_COMMERCIAL"}],
+              "ConfigList": [{"activityKeyList":["2019-04-loupan"],"pageNo":1,"pageSize":1},{"systemSource":"DD_COMMERCIAL","opId":6520137}]
+            },
+            "WorkRank":{
+              "PullNewAgentRank": [{"orgId":3,"type":1},{"systemSource":"DD_COMMERCIAL","opId":6520137}],
+              "PullAgentInfo": [{"type":1,"withOrgRank":true,"withDepAndUserList":true,"orderType":1,"asc":false,"depId":37},{"systemSource":"DD_COMMERCIAL","opId":6520137}],
+              "ActivityAchievement": [{"statusList":[1]},{"systemSource":"DD_COMMERCIAL","opId":6520137}]
+            },
+            "Datas":{
+              "XfdkAchievementData": {"staffId":"6520137","roleId":1},
+              "XfdkStoreData":{"achievementType":1,"staffId":6520137,"roleId":1,"startDate":"2019-07-01","endDate":"2019-07-31"},
+              "searchLoupan":{"keyWord":"碧海湾"},
+              "AchievementStat":{"startTime":1564416000000,"endTime":1564502399999,"timeType":0},
+              "ActiveAgentNum":{"timeRangeType":1,"idType":4,"id":6520137},
+              "NewHouseGuideData":{"startTime":1564416000000,"endTime":1564502399999},
+              "AchievementList":{"actionType":"1","startTime":"1561910400000","endTime":"1564588799999","timeType":0}
+            },
+            "Orders":{
+              "orders":{"opId":6520137,"pageNo":0},
+              "contract":"/api/contract",
+              "contract-operate-logs":""
+            },
+            "Clues":{},
+            "VisitRecord":{},
+            "MapSource":{}
+          }
+        }
+  }
+
+}
