@@ -42,6 +42,7 @@ class CompanyTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 	
 	def test_CompanyList_case1(self):
 		"""公司列表>网商卡"""
@@ -60,6 +61,7 @@ class CompanyTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 	
 	def test_CompanyList_case2(self):
 		"""公司列表>平台通"""
@@ -78,6 +80,7 @@ class CompanyTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 	
 	def test_CompanyList_case3(self):
 		"""公司列表>经纪通"""
@@ -96,6 +99,7 @@ class CompanyTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 	
 	def test_CompanyList_case4(self):
 		"""公司列表>KA"""
@@ -114,6 +118,7 @@ class CompanyTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 	
 	def test_CompanyList_case5(self):
 		"""公司列表>多多云销"""
@@ -132,6 +137,7 @@ class CompanyTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 	
 	def test_CompanyList_case6(self):
 		"""公司列表>云验真"""
@@ -150,5 +156,6 @@ class CompanyTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 			
 # TODO 这里用例均是默认为确认返回结果的，所以还需要补充参数为："isNeedResults" 为False的情况

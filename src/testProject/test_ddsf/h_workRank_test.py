@@ -48,7 +48,7 @@ class WorkRankTest(TemplateTeseCase):
 		try:
 			result = self.s.post(url=url, json=data)
 			res = result.json()
-			self.assertGreaterEqual(len(res["data"]), 84)
+			self.assertGreaterEqual(len(res["data"]["pullNewAgentDepItemInfoList"]), 84)
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))

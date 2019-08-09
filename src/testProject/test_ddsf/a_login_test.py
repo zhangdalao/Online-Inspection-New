@@ -7,6 +7,7 @@ import unittest
 from src.common.read_json import ReadJson
 from src.common.template import TemplateTeseCase
 from src.common.dingding import send_ding
+from src.common import log
 import os
 import inspect
 import requests
@@ -44,8 +45,10 @@ class LoginTest(TemplateTeseCase):
 			self.assertEqual(res["code"], 200)
 			self.assertEqual(res["data"]["userId"], 6520137)
 		except Exception as er:
+			log.logger_error.error("%s模块下%s接口异常:" % (self.fieldname, self.apiName) + str(er))
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_ByVerifyCode(self):
 		"""用户名密码登录"""

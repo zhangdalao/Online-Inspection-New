@@ -14,8 +14,6 @@ formatter = logging.Formatter('%(asctime)s - %(filename)s - [line:%(lineno)d] - 
 # 设置文件路径和时间(timedelta：多少天之前配置)
 curDate = datetime.date.today() - datetime.timedelta(days=0)
 
-
-# grandpa_path = os.path.abspath(os.path.join(os.getcwd(), "../.."))
 grandpa_path = os.path.abspath(os.path.join(__file__, "../../.."))
 
 infoLogName = r'%s/output/logs/info_%s.log' % (grandpa_path, curDate)
