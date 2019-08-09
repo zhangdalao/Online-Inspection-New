@@ -4,7 +4,6 @@
 
 import os
 import json
-from src.common import log
 
 
 class ReadJson:
@@ -19,10 +18,7 @@ class ReadJson:
 		self.project = project
 		self.fieldname = None
 		self.apiName = None
-		try:
-			self.domain = self.data["url"][project]["domain"] % self.data["suffix"][env]
-		except KeyError as ke:
-			log.logger_error.error(ke)
+		self.domain = self.data["url"][project]["domain"] % self.data["suffix"][env]
 	
 	def get_url(self, fieldname, apiName):
 		self.fieldname = fieldname

@@ -42,6 +42,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 	
 	def test_StoreList_case1(self):
 		"""(未确认)公海门店资源>服务商服>不限=无人+他人"""
@@ -64,6 +65,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 	
 	def test_StoreList_case2(self):
 		"""(未确认)负责门店资源>上门拜访>不限=30天内+30天外"""
@@ -87,6 +89,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 
 	def test_StoreList_case3(self):
 		"""(未确认)负责门店资源>电话拜访>不限=30天内+30天外"""
@@ -109,6 +112,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 
 	def test_StoreList_case4(self):
 		"""(未确认)公海门店资源>上门拜访>不限=30天内+30天外"""
@@ -129,6 +133,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 
 	def test_StoreList_case5(self):
 		"""(未确认)公海门店资源>电话拜访>不限=30天内+30天外"""
@@ -149,6 +154,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 
 	def test_StoreList_case6(self):
 		"""(未确认)公海门店资源>服务商服>不限=无人+他人"""
@@ -170,6 +176,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 	
 	def test_StoreList_case7(self):
 		"""(确认)负责门店资源>上门拜访>不限=30天内+30天外"""
@@ -195,6 +202,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 	
 	def test_StoreList_case8(self):
 		"""(确认)负责门店资源>电话拜访>不限=30天内+30天外"""
@@ -219,6 +227,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 
 	def test_StoreList_case9(self):
 		"""(确认)公海门店资源>上门拜访>不限=30天内+30天外"""
@@ -243,6 +252,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 
 	def test_StoreList_case10(self):
 		"""(确认)公海门店资源>电话拜访>不限=30天内+30天外"""
@@ -268,6 +278,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_StoreList_case11(self):
 		"""(确认)负责门店资源>区域板块>白山-浑江"""
@@ -283,6 +294,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_OrgStore(self):
 		"""商服主管门店资源组织架构数据"""
@@ -297,6 +309,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_listAllStaff(self):
 		"""商服所在城市公司所有商服人员"""
@@ -310,6 +323,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_OrgTree(self):
 		"""商服所在城市公司组织架构"""
@@ -323,6 +337,7 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 	
 	def test_RegionByCityId(self):
 		"""选定城市区域"""
@@ -337,5 +352,6 @@ class StoreTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	# TODO 添加门店线索-筛选条件合作情况的用例，组合情况有点多，这里需求也存在缺陷，顾后面是确认后再实现

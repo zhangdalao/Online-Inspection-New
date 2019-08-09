@@ -6,6 +6,7 @@ import os
 from src.common.template import TemplateTeseCase
 from src.common.read_json import ReadJson
 from src.common.dingding import send_ding
+from  src.common import log
 import time
 import inspect
 
@@ -41,6 +42,7 @@ class HomeTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_ProfileInfo(self):
 		"""ProfileInfo接口"""
@@ -56,6 +58,7 @@ class HomeTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_StaffMessage(self):
 		"""StaffMessage接口"""
@@ -71,6 +74,7 @@ class HomeTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_StaffOrg(self):
 		"""StaffOrg接口"""
@@ -87,6 +91,7 @@ class HomeTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_SchedulePlanInfo(self):
 		"""SchedulePlanInfo接口"""
@@ -104,3 +109,4 @@ class HomeTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))

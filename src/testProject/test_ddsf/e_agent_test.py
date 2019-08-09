@@ -44,6 +44,7 @@ class AgentTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_listAgent_case1(self):
 		"""公司列表>商户服务>我服务的"""
@@ -62,6 +63,7 @@ class AgentTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_listAgent_case2(self):
 		"""公司列表>实名情况>不限=已认证+未实名"""
@@ -86,6 +88,7 @@ class AgentTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_listAgent_case3(self):
 		"""公司列表>名片情况>不限=已认证+未上传"""
@@ -110,6 +113,7 @@ class AgentTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 			
 	def test_listAgent_case4(self):
 		"""公司列表>名片情况>不限=已认证+未上传"""
@@ -134,5 +138,6 @@ class AgentTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 			
 # TODO 这里目前只做了单一筛选条件处理，多筛选条件组合情况过多，还没处理，后期完善

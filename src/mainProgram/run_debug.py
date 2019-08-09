@@ -10,7 +10,7 @@ import os
 from src.common.template import TemplateTeseCase
 # from src.testProject.test__ddsf import a_login_test, b_home_test
 from src.testProject.test_ddsf import c_store_test
-from src.testProject import test_ddsf1, test_ddsf
+from src.testProject import test_ddsf
 
 tmp = os.sep
 
@@ -28,7 +28,7 @@ if __name__ == '__main__':
 	# 方式2：通过case文件名指定接口测试
 
 	suite = unittest.defaultTestLoader.discover(start_dir=os.path.abspath(os.path.join(os.getcwd(), "../..")) + tmp +
-	                                                      'src/testProject/test_ddsf', pattern='*.py')
+	                                                      'src/testProject/test_ddsf', pattern='m_mapSource_test.py')
 	# # suite.addTests(suite2)
 	# suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='*.py')
 	HTMLTestReportCN.HTMLTestRunner(stream=open(os.path.abspath(os.path.join(os.getcwd(), "../..")) + tmp +

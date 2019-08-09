@@ -42,6 +42,7 @@ class NewHouseTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_listHouse(self):
 		"""我的主推楼盘列表"""
@@ -59,6 +60,7 @@ class NewHouseTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_listHouse_case1(self):
 		"""我的主推楼盘列表_根据城市区域筛选>宜昌"""
@@ -77,6 +79,7 @@ class NewHouseTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_listHouse_case2(self):
 		"""选中某个城市（上海）>所有楼盘"""
@@ -96,6 +99,7 @@ class NewHouseTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_listHouse_case3(self):
 		"""商服权限城市>城市区域>白山>浑江楼盘列表"""
@@ -116,6 +120,7 @@ class NewHouseTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	# TODO 这里业务特色存在确认按钮，接口层面却没做区分，需要跟开发反馈
 	# TODO 后期补充业务特色接口用例
@@ -133,6 +138,7 @@ class NewHouseTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_HouseDetail(self):
 		"""楼盘具体详情"""
@@ -143,10 +149,11 @@ class NewHouseTest(TemplateTeseCase):
 			result = self.s.post(url=url, json=data)
 			res = result.json()
 			self.assertEqual(len(res), 4)
-			self.assertListEqual(res["data"]["panInfoDto"]["tagList"], ["独家", '住宅'])
+			self.assertIn(["独家"], res["data"]["panInfoDto"]["tagList"])  # 这里tagList的值会发生变化
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_ConfigList(self):
 		"""楼盘配置信息"""
@@ -161,6 +168,7 @@ class NewHouseTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 	def test_ShareTemplate(self):
 		"""根据楼盘信息获取楼盘海报模板"""
@@ -180,5 +188,6 @@ class NewHouseTest(TemplateTeseCase):
 		except Exception as er:
 			send_ding(self.dd_dt["robot_url"], self.dd_dt["mobile"], "%s模块下%s接口异常:" % (self.fieldname, self.apiName) +
 			          str(er))
+			raise Exception(str(er))
 		
 # TODO 需要补充自定义海报相关接口

@@ -4,7 +4,7 @@
   "sms_url":"https://sms.fangdd.%s/admin/api/verify-codes?mobile=13058019302",
   "robot_data":{
     "ddsf":{
-      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=d745ca46d735e68906baa0d065d6916377d374f083c880841151d2c004e9e654",
+      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=c41f688c4e87a482459697c9675d7a12dc6ebfbec9c242ccf2b498bcece2644a",
       "mobile":["18682236985"]
     }
   },
@@ -192,9 +192,22 @@
             "contract":"/api/contract",
             "contract-operate-logs":""
           },
-          "Clues":{},
-          "VisitRecord":{},
-          "MapSource":{}
+          "Clues":{
+            "clueStaff":"/data/clueStaffPotentials",
+            "depDetail":"/data/depDetail",
+            "KPIByDepId":"/data/getKPIByDepId",
+            "StaffKPIDetail":"/data/getStaffKPIDetail",
+            "listAchievement":"/data/listAchievement"
+          },
+          "VisitRecord":{
+            "RecordPage":"/data/listVisitRecordPage"
+          },
+          "MapSource":{
+            "CityDistrict":"/data/getCityDistrictInfoList",
+            "CitySection": "/data/getCitySectionInfoList",
+            "StoreInfoList": "/data/getStoreInfoList",
+            "StoreByCodition":"/data/listStoreByCodition"
+          }
         }
   },
   "headers":{
@@ -337,7 +350,7 @@
           },
           "prod":{
             "Login":{
-              "ByPassword":{"username":"18682236985","password":"Wawa520."},
+              "ByPassword":{"username":"18682236985","password":"Wawa520.."},
               "ByVerifyCode":{"mobile":"18682236985","code":"111111","device":"sid.18682236985"}
             },
             "Home":{
@@ -388,9 +401,22 @@
               "contract":"/api/contract",
               "contract-operate-logs":""
             },
-            "Clues":{},
-            "VisitRecord":{},
-            "MapSource":{}
+            "Clues":{
+              "clueStaff":[{"staffId":"6520137"}],
+              "depDetail":{"orgId":3},
+              "KPIByDepId":[{"depId":37,"groupStaff":false,"startTime":"2019-07-01","endTime":"2019-08-01"}],
+              "StaffKPIDetail":[{"userId":"6520137","startTime":"2019-07-01","endTime":"2019-08-01","groupStaff":false}],
+              "listAchievement":[{"userId":"6520137","year":2019,"month":8}]
+            },
+            "VisitRecord":{
+              "RecordPage":[{"serviceIds":[6520137],"pageSize":20,"cityIds":[],"pageNo":1,"isManager":true,"type":1,"step":2,"depIds":[37]},{"systemSource":"DD_COMMERCIAL","opId":6520137}]
+            },
+            "MapSource":{
+              "CityDistrict":[{"cityId":10204,"districtId":null,"sectionId":null,"serviceId":null},{"opId":6520137,"opName":"","reqSource":"DD_COMMERCIAL"}],
+              "CitySection": [{"cityId":10204,"districtId":null,"sectionId":null,"serviceId":null},{"opId":6520137,"opName":"","reqSource":"DD_COMMERCIAL"}],
+              "StoreInfoList": [{"bottomRight":{"latitude":22.543797,"longitude":113.951588},"topLeft":{"latitude":22.549363,"longitude":113.94822},"cityId":1337,"districtId":null,"sectionId":null,"serviceId":null},{"opId":6520137,"opName":"","reqSource":"DD_COMMERCIAL"}],
+              "StoreByCodition":[{"lat":22.5524172,"lon":113.93959,"storeIds":[60337,80074463,80150746]},{"opId":"","opName":"","systemSource":"DD_COMMERCIAL"}]
+            }
           }
         }
   }
