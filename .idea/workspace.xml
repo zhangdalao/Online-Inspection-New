@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e1f396db-a30d-4bfd-8a11-7856e1ad204b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/config.json" afterPath="$PROJECT_DIR$/data/config.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/report/report.html" afterPath="$PROJECT_DIR$/output/report/report.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/log.py" afterPath="$PROJECT_DIR$/src/common/log.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/read_json.py" afterPath="$PROJECT_DIR$/src/common/read_json.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mainProgram/run_debug.py" afterPath="$PROJECT_DIR$/src/mainProgram/run_debug.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testProject/test_ddsf/a_login_test.py" afterPath="$PROJECT_DIR$/src/testProject/test_ddsf/a_login_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testProject/test_ddsf/b_home_test.py" afterPath="$PROJECT_DIR$/src/testProject/test_ddsf/b_home_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testProject/test_ddsf/c_store_test.py" afterPath="$PROJECT_DIR$/src/testProject/test_ddsf/c_store_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testProject/test_ddsf/d_company_test.py" afterPath="$PROJECT_DIR$/src/testProject/test_ddsf/d_company_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testProject/test_ddsf/e_agent_test.py" afterPath="$PROJECT_DIR$/src/testProject/test_ddsf/e_agent_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testProject/test_ddsf/g_newHouse_test.py" afterPath="$PROJECT_DIR$/src/testProject/test_ddsf/g_newHouse_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testProject/test_ddsf/h_workRank_test.py" afterPath="$PROJECT_DIR$/src/testProject/test_ddsf/h_workRank_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testProject/test_ddsf/k_clues_test.py" afterPath="$PROJECT_DIR$/src/testProject/test_ddsf/k_clues_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testProject/test_ddsf/l_visitRecord_test.py" afterPath="$PROJECT_DIR$/src/testProject/test_ddsf/l_visitRecord_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/testProject/test_ddsf/m_mapSource_test.py" afterPath="$PROJECT_DIR$/src/testProject/test_ddsf/m_mapSource_test.py" />
-    </list>
+    <list default="true" id="e1f396db-a30d-4bfd-8a11-7856e1ad204b" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,111 +17,26 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="a_login_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/a_login_test.py">
+      <file leaf-file-name="read_data.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/common/read_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="41" column="35" lean-forward="true" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+            <state relative-caret-position="-985">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="e#67#82#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="z_demo_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/testProject/test_demo/z_demo_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="29" column="63" lean-forward="true" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="j_orders_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/j_orders_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-115">
-              <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="c_store_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/c_store_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="357" column="0" lean-forward="false" selection-start-line="357" selection-start-column="0" selection-end-line="357" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="read_json.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/common/read_json.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-              <folding>
-                <element signature="e#66#75#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="log.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/common/log.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="report.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output/report/report.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-202">
-              <caret line="6" column="72" lean-forward="false" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
-              <folding>
-                <marker date="1565259849755" expanded="true" signature="6861:6872" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="m_mapSource_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/m_mapSource_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-224">
-              <caret line="46" column="28" lean-forward="true" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
-              <folding>
-                <element signature="e#66#75#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="l_visitRecord_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/l_visitRecord_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="182" column="48" lean-forward="false" selection-start-line="182" selection-start-column="48" selection-end-line="182" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="run_debug.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/mainProgram/run_debug.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-              <folding>
-                <element signature="e#67#82#0" expanded="true" />
+                <marker date="1568638947690" expanded="true" signature="177:5786" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="227:420" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="4337:4465" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="4337:4602" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="4337:4686" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="4337:4706" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="4806:5232" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="4809:4965" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1568638947690" expanded="true" signature="5132:5208" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="5296:5368" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="5442:5486" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="5579:5786" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="5582:5732" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1568638947690" expanded="true" signature="5839:6219" ph="..." />
               </folding>
             </state>
           </provider>
@@ -181,6 +80,7 @@
         <option value="$PROJECT_DIR$/src/testProject/test_ddsf/a_login_test.py" />
         <option value="$PROJECT_DIR$/src/testProject/test_ddsf/m_mapSource_test.py" />
         <option value="$PROJECT_DIR$/src/mainProgram/run_debug.py" />
+        <option value="$PROJECT_DIR$/src/common/read_data.py" />
       </list>
     </option>
   </component>
@@ -191,7 +91,6 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1680" />
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -210,6 +109,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -303,24 +204,6 @@
               <option name="myItemId" value="output" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Online-Inspection-New" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Online-Inspection-New" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="output" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -338,8 +221,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -600,10 +481,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1680" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16080937" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16240682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -637,205 +518,44 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/common/log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#15#29#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/template.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/template.py" />
     <entry file="file://$PROJECT_DIR$/data/config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5632">
           <caret line="352" column="74" lean-forward="false" selection-start-line="352" selection-start-column="74" selection-end-line="352" selection-end-column="74" />
-          <folding>
-            <element signature="n#!!block;n#Login#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Home#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Store#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Company#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Agent#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#NewHouse#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#WorkRank#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Datas#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Orders#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Clues#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#VisitRecord#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#MapSource#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#NewHouse#0;n#!!block;n#prod#0;n#!!block;n#ddsf#0;n#!!block;n#body#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/read_json.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-          <folding>
-            <element signature="e#66#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/dingding.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainProgram/run_debug.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" column="64" lean-forward="true" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
-          <folding>
-            <element signature="e#67#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/logs/error_2019-08-07.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/b_home_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/logs/info_2019-08-07.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/a_login_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="56" column="17" lean-forward="true" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
-          <folding>
-            <element signature="e#67#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/k_clues_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="42" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/e_agent_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="45" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/read_json.py" />
+    <entry file="file://$PROJECT_DIR$/src/common/dingDing.py" />
+    <entry file="file://$PROJECT_DIR$/src/mainProgram/run_debug.py" />
+    <entry file="file://$PROJECT_DIR$/output/logs/error_2019-08-07.log" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/b_home_test.py" />
+    <entry file="file://$PROJECT_DIR$/output/logs/info_2019-08-07.log" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/a_login_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/k_clues_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/e_agent_test.py" />
     <entry file="file://$PROJECT_DIR$/data/config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6336">
           <caret line="396" column="18" lean-forward="false" selection-start-line="396" selection-start-column="13" selection-end-line="396" selection-end-column="18" />
-          <folding>
-            <element signature="n#!!block;n#Login#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Home#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Store#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Company#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Agent#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#NewHouse#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#WorkRank#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Datas#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Orders#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Clues#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#VisitRecord#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#MapSource#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#NewHouse#0;n#!!block;n#prod#0;n#!!block;n#ddsf#0;n#!!block;n#body#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/j_orders_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="27" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/l_visitRecord_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/b_home_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainProgram/run_debug.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-          <folding>
-            <element signature="e#67#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/j_orders_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/l_visitRecord_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/b_home_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/mainProgram/run_debug.py" />
     <entry file="file://$PROJECT_DIR$/output/report/report.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="12" column="105" lean-forward="false" selection-start-line="12" selection-start-column="105" selection-end-line="12" selection-end-column="105" />
-          <folding>
-            <marker date="1565259849755" expanded="true" signature="6861:6872" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/m_mapSource_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#66#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/getTime.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/m_mapSource_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/common/getTime.py" />
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2017.1/python_stubs/-2010535109/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2222">
@@ -862,214 +582,68 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-617">
           <caret line="101" column="8" lean-forward="false" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/d_company_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="157" column="30" lean-forward="true" selection-start-line="157" selection-start-column="30" selection-end-line="157" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/f_myself.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/d_company_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/f_myself.py" />
     <entry file="file://$PROJECT_DIR$/output/logs/error_2019-08-06.log" />
     <entry file="file://$PROJECT_DIR$/output/logs/error_2019-08-05.log" />
     <entry file="file://$PROJECT_DIR$/output/logs/info_2019-08-05.log" />
     <entry file="file://$PROJECT_DIR$/output/logs/info_2019-08-06.log" />
-    <entry file="file://$PROJECT_DIR$/src/common/template.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/dingding.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/logs/info_2019-08-07.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/logs/error_2019-08-07.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/i_datas_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2544">
-          <caret line="165" column="30" lean-forward="false" selection-start-line="165" selection-start-column="13" selection-end-line="165" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/k_clues_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-714">
-          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/g_newHouse_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="190" column="36" lean-forward="false" selection-start-line="190" selection-start-column="36" selection-end-line="190" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/h_workRank_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="49" column="31" lean-forward="false" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/e_agent_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="119" column="23" lean-forward="false" selection-start-line="119" selection-start-column="23" selection-end-line="119" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/template.py" />
+    <entry file="file://$PROJECT_DIR$/src/common/dingDing.py" />
+    <entry file="file://$PROJECT_DIR$/output/logs/info_2019-08-07.log" />
+    <entry file="file://$PROJECT_DIR$/output/logs/error_2019-08-07.log" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/i_datas_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/k_clues_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/g_newHouse_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/h_workRank_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/e_agent_test.py" />
     <entry file="file://$PROJECT_DIR$/data/config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="614">
           <caret line="419" column="11" lean-forward="true" selection-start-line="419" selection-start-column="11" selection-end-line="419" selection-end-column="11" />
-          <folding>
-            <element signature="n#!!block;n#Login#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Home#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Store#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Company#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Agent#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#NewHouse#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#WorkRank#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Datas#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Orders#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#Clues#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#VisitRecord#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#MapSource#0;n#!!block;n#ddsf#0;n#!!block;n#url#0;n#!!top" expanded="false" />
-            <element signature="n#!!block;n#NewHouse#0;n#!!block;n#prod#0;n#!!block;n#ddsf#0;n#!!block;n#body#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/b_home_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-610">
-          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/c_store_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="357" column="0" lean-forward="false" selection-start-line="357" selection-start-column="0" selection-end-line="357" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/j_orders_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
-          <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/m_mapSource_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-224">
-          <caret line="46" column="28" lean-forward="true" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
-          <folding>
-            <element signature="e#66#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/l_visitRecord_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="182" column="48" lean-forward="false" selection-start-line="182" selection-start-column="48" selection-end-line="182" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/a_login_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="41" column="35" lean-forward="true" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
-          <folding>
-            <element signature="e#67#82#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_demo/z_demo_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="29" column="63" lean-forward="true" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/read_json.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-          <folding>
-            <element signature="e#66#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/common/log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/b_home_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/c_store_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/j_orders_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/m_mapSource_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/l_visitRecord_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/a_login_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/testProject/test_demo/z_demo_test.py" />
+    <entry file="file://$PROJECT_DIR$/src/common/read_json.py" />
+    <entry file="file://$PROJECT_DIR$/src/common/log.py" />
     <entry file="file://$PROJECT_DIR$/output/report/report.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-202">
+        <state relative-caret-position="29">
           <caret line="6" column="72" lean-forward="false" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
-          <folding>
-            <marker date="1565259849755" expanded="true" signature="6861:6872" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainProgram/run_debug.py">
+    <entry file="file://$PROJECT_DIR$/src/mainProgram/run_debug.py" />
+    <entry file="file://$PROJECT_DIR$/src/common/read_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        <state relative-caret-position="-985">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#67#82#0" expanded="true" />
+            <marker date="1568638947690" expanded="true" signature="177:5786" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="227:420" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="4337:4465" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="4337:4602" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="4337:4686" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="4337:4706" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="4806:5232" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="4809:4965" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1568638947690" expanded="true" signature="5132:5208" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="5296:5368" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="5442:5486" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="5579:5786" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="5582:5732" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1568638947690" expanded="true" signature="5839:6219" ph="..." />
           </folding>
         </state>
       </provider>
