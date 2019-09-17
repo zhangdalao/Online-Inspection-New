@@ -17,22 +17,27 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="report.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output/report/report.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="6" column="72" lean-forward="false" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="read_data.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/common/read_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-998">
+            <state relative-caret-position="-985">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1568638947690" expanded="true" signature="177:5786" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="227:420" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="4337:4465" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="4337:4602" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="4337:4686" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="4337:4706" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="4806:5232" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="4809:4965" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1568638947690" expanded="true" signature="5132:5208" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="5296:5368" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="5442:5486" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="5579:5786" ph="..." />
+                <marker date="1568638947690" expanded="true" signature="5582:5732" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1568638947690" expanded="true" signature="5839:6219" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,6 +80,7 @@
         <option value="$PROJECT_DIR$/src/testProject/test_ddsf/a_login_test.py" />
         <option value="$PROJECT_DIR$/src/testProject/test_ddsf/m_mapSource_test.py" />
         <option value="$PROJECT_DIR$/src/mainProgram/run_debug.py" />
+        <option value="$PROJECT_DIR$/src/common/read_data.py" />
       </list>
     </option>
   </component>
@@ -182,24 +188,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Online-Inspection-New" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Online-Inspection-New" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="output" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -539,7 +527,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/common/read_json.py" />
-    <entry file="file://$PROJECT_DIR$/src/common/dingding.py" />
+    <entry file="file://$PROJECT_DIR$/src/common/dingDing.py" />
     <entry file="file://$PROJECT_DIR$/src/mainProgram/run_debug.py" />
     <entry file="file://$PROJECT_DIR$/output/logs/error_2019-08-07.log" />
     <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/b_home_test.py" />
@@ -604,7 +592,7 @@
     <entry file="file://$PROJECT_DIR$/output/logs/info_2019-08-05.log" />
     <entry file="file://$PROJECT_DIR$/output/logs/info_2019-08-06.log" />
     <entry file="file://$PROJECT_DIR$/src/common/template.py" />
-    <entry file="file://$PROJECT_DIR$/src/common/dingding.py" />
+    <entry file="file://$PROJECT_DIR$/src/common/dingDing.py" />
     <entry file="file://$PROJECT_DIR$/output/logs/info_2019-08-07.log" />
     <entry file="file://$PROJECT_DIR$/output/logs/error_2019-08-07.log" />
     <entry file="file://$PROJECT_DIR$/src/testProject/test_ddsf/i_datas_test.py" />
@@ -639,9 +627,24 @@
     <entry file="file://$PROJECT_DIR$/src/mainProgram/run_debug.py" />
     <entry file="file://$PROJECT_DIR$/src/common/read_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-998">
+        <state relative-caret-position="-985">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1568638947690" expanded="true" signature="177:5786" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="227:420" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="4337:4465" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="4337:4602" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="4337:4686" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="4337:4706" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="4806:5232" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="4809:4965" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1568638947690" expanded="true" signature="5132:5208" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="5296:5368" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="5442:5486" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="5579:5786" ph="..." />
+            <marker date="1568638947690" expanded="true" signature="5582:5732" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1568638947690" expanded="true" signature="5839:6219" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
