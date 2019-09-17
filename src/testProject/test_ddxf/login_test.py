@@ -48,12 +48,6 @@ class LoginTest(RunTest):
 	
 	def tearDown(self):
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
-		
-	@property
-	def getTime(self):
-		t = time.time()
-		self.timestamp = str(round(t * 1000))
-		sss["timestamp"] = self.timestamp
 
 	@ddt.data(*a.get_data_by_api(fieldname, "ByPassword"))
 	def test_ByPassword(self, value):
