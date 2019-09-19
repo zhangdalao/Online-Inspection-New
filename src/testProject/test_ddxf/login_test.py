@@ -63,7 +63,7 @@ class LoginTest(RunTest):
 		value.append(str_sign_list)
 		# 调起请求
 		res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-		                    self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+		                    self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
 		try:
 			self.assertEqual(True, checkOut(res, self.expect))
 			self.logger.info("测试结果         :测试通过！")

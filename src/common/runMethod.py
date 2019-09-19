@@ -33,7 +33,7 @@ class RunMethod(MethodException):
 				if method.lower() == "get":
 					res = requests.get(url, params=para, **kw)
 				elif method.lower() == "post":
-					if "application/json" in headers["content-type"]:
+					if "application/json" in str(headers).lower():
 						res = requests.post(url, params=para, json=data, headers=headers, **kw)
 					else:
 						res = requests.post(url, params=para, data=data, headers=headers, **kw)
