@@ -93,12 +93,13 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		isSkip = args[0][isSkip_num]
 		api_name = args[0][apiName_num]
 		method = args[0][method_num]
-		self.headers = args[0][headers_num]
 		params = args[0][para_num]
-		self.body = args[0][data_num]
-		self.desc = args[0][desc_num]
 		isRelate = args[0][isRelate_num]
-		self.expect = args[0][expect_num]
+		self.desc = args[0][desc_num]
+		# 这里需要保证 headers/body/断言结果 一定是字符串格式
+		self.headers = str(args[0][headers_num])
+		self.body = str(args[0][data_num])
+		self.expect = str(args[0][expect_num])
 		time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 		
 		try:
@@ -112,7 +113,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			self.logger.debug(f"请求参数         :{params}")
 		except Exception as e:
 			self.logger.error('错误信息   : %s' % e)
-		# global DATA
+		# 这里定义的 变量sss 作为全局变量在后面的
 		global sss
 		# 根据是否跳过参数判断用例是否执行
 		if isSkip and isSkip != "否":
@@ -125,9 +126,6 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			relateData = isRelate["relateData"]
 			self.logger.debug("是否跳过         :否")
 			re_str = '#\w+#'
-			self.headers = str(self.headers)
-			self.body = str(self.body)
-			self.expect = str(self.expect)
 			# 使用正则获取headers中参数化的字段列表
 			re_list_header = re.findall(re_str, self.headers)
 			# 使用正则获取请求体中参数化的字段列表
@@ -146,20 +144,21 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				# 对预期结果中参数化的字段进行激活赋值
 				for o in re_list_expect:
 					self.expect = self.expect.replace(o, "f'{data[\"%s\"]}'" % (o[1:-1]))
-			if type(args[0][-1]) == list:
-				args[0][-1].append(self.body)
-				for i in args[0][-1]:
-					_str = ''
-					_str += i
-				print(_str)
-				sss['sign_key'] = SignKey(_str).sign()
-				args[0].pop()
+			# 把全局变量赋值给 data 变量，数据类型为 dict
 			data = sss
-			# 对激活后的 headers/请求体/预期结果做类型转换
+			# 先对 body 和预期结果做类型转换
+			if self.body:
+				self.body = eval(self.body)
+			if self.expect:
+				self.expect = eval(self.expect)
+			if type(args[0][-1]) == list:
+				args[0][-1].append(str(self.body).replace("\'", '\"'))
+				_str = ''.join(args[0][-1])
+				print(_str)
+				data['sign_key'] = SignKey(_str).sign()
+				args[0].pop()
+			# 最后对激活后的 headers 做类型转换
 			self.headers = eval(self.headers)
-			self.body = eval(self.body)
-			self.expect = eval(self.expect)
-			
 			if re_list_header or re_list_body or re_list_expect:
 				self.logger.debug("数据依赖类型      :需要依赖亦提供依赖数据")
 			else:
@@ -169,32 +168,29 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			response = self.method.run_main(url, method, self.headers, params, self.body, **kw)
 			# write_relate_json(data=res, relate_config=relateData)
 			try:
-				res = response.json()
-				self.logger.debug(f"响应结果         :{res}")
+				self.res = response.json()
+				self.logger.debug(f"响应结果         :{self.res}")
 				self.logger.debug(f"预期结果         :{self.expect}")
+				# 将需要提供依赖的数据缓存
+				for _dict in relateData:
+					for _key in _dict:
+						a = [_key, _dict[_key]]
+						relate_value = jsonpath(self.res, expr=f"$..{a[0]}")
+						if relate_value:
+							# 这里如果 relate_value 存在的话类型其实是列表，所以取值使用需要注意
+							sss[a[1]] = relate_value[0]
+							self.logger.info(f"依赖数据缓存成功    :{a[0]}-->{a[1]}, 数据值为:{relate_value[0]}")
+						else:
+							self.logger.info("返回数据中指定的关联数据获取失败！")
+						# print(sss)
 			except Exception as err:
 				self.logger.info(f" 实际结果为: {response} ")
 				self.logger.error(str(err))
-			# 将需要提供依赖的数据缓存
-			for _dict in relateData:
-				for _key in _dict:
-					a = [_key, _dict[_key]]
-					relate_value = jsonpath(res, expr=f"$..{a[0]}")
-					if relate_value:
-						# 这里如果 relate_value 存在的话类型其实是列表，所以取值使用需要注意
-						sss[a[1]] = relate_value[0]
-						self.logger.info(f"依赖数据缓存成功    :{a[0]}-->{a[1]}, 数据值为:{relate_value[0]}")
-					else:
-						self.logger.info("返回数据汇中指定的关联数据获取失败！")
-			# print(sss)
-			return res
+			return response
 		# 如果该接口不用给其他接口提供依赖
 		else:
 			self.logger.debug("是否跳过         :否")
 			re_str = '#\w+#'
-			self.headers = str(self.headers)
-			self.body = str(self.body)
-			self.expect = str(self.expect)
 			# 使用正则获取headers中参数化的字段列表
 			re_list_header = re.findall(re_str, self.headers)
 			# 使用正则获取请求体中参数化的字段列表
@@ -205,6 +201,8 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				# 对headers中参数化的字段进行激活赋值
 				for m in re_list_header:
 					self.headers = self.headers.replace(m, "f'{data[\"%s\"]}'" % (m[1:-1]))
+					# print(self.headers)
+					# print(type(self.headers))
 			if re_list_body:
 				# 对请求体中参数化的字段进行激活赋值
 				for n in re_list_body:
@@ -213,20 +211,21 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				# 对预期结果中参数化的字段进行激活赋值
 				for o in re_list_expect:
 					self.expect = self.expect.replace(o, "f'{data[\"%s\"]}'" % (o[1:-1]))
+			data = sss
+			# 对激活后的 body 和预期结果做类型转换
+			if self.body:
+				self.body = eval(self.body)
+			self.expect = eval(self.expect)
 			if type(args[0][-1]) == list:
 				# print(args[0][-1])
-				args[0][-1].append(self.body.replace('\'', '\"'))
+				args[0][-1].append(str(self.body).replace("\'", '\"'))
 				# print(args[0][-1])
-				str_sign = ''.join(args[0][-1])
-				print(str_sign)
-				sss['sign_key'] = SignKey(str_sign).sign()
+				_str = ''.join(args[0][-1])
+				print(_str)
+				data['sign_key'] = SignKey(_str).sign()
 				args[0].pop()
-			data = sss
-			# 对激活后的 headers/请求体/预期结果做类型转换
+			# 对激活后的 headers做类型转换
 			self.headers = eval(self.headers)
-			self.body = eval(self.body)
-			self.expect = eval(self.expect)
-			
 			if re_list_header or re_list_body or re_list_expect:
 				self.logger.debug("数据依赖类型      :需要依赖但不提供依赖数据")
 			else:
@@ -236,11 +235,11 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			self.logger.debug(f"请求体           :{self.body}")
 			response = self.method.run_main(url, method, self.headers, params, self.body, **kw)
 			try:
-				res = response.json()
-				self.logger.debug(f"响应结果         :{res}")
+				self.res = response.json()
+				self.logger.debug(f"响应结果         :{self.res}")
 				self.logger.debug(f"预期结果         :{self.expect}")
 			except Exception as err:
 				self.logger.info(f" 实际结果为: {response} ")
 				self.logger.error(str(err))
 			# print(sss)
-			return res
+			return response
