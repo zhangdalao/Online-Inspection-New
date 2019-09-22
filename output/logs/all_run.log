@@ -1,0 +1,217 @@
+'09/22/2019 09:28:45 PM' - DEBUG - debug message
+'09/22/2019 09:46:12 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 09:46:12 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 09:46:12 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 09:46:12 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000001E830AED390>
+'09/22/2019 09:46:12 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 09:46:12 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000001E830B09F60>, 'ddxf': <xlrd.sheet.Sheet object at 0x000001E830B09F98>, 'shop': <xlrd.sheet.Sheet object at 0x000001E830B09FD0>, 'god': <xlrd.sheet.Sheet object at 0x000001E830B1C048>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000001E830B1C080>}
+'09/22/2019 09:46:12 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 09:46:12 PM' - INFO - 已传入json参数,其地址为  :C:\其他文件\Online-Inspection-New\data\jsonFiles\god.json
+'09/22/2019 09:46:12 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 09:48:18 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 09:48:18 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 09:48:18 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 09:48:18 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000002057EF2C390>
+'09/22/2019 09:48:18 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 09:48:18 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000002057EF48F60>, 'ddxf': <xlrd.sheet.Sheet object at 0x000002057EF48F98>, 'shop': <xlrd.sheet.Sheet object at 0x000002057EF48FD0>, 'god': <xlrd.sheet.Sheet object at 0x000002057EF5B048>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000002057EF5B080>}
+'09/22/2019 09:48:18 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 09:48:18 PM' - INFO - 已传入json参数,其地址为  :C:\其他文件\Online-Inspection-New\data\jsonFiles\god.json
+'09/22/2019 09:48:18 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 09:51:24 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 09:51:36 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 09:51:42 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 09:52:49 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000001F27D82B9E8>
+'09/22/2019 09:52:52 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 09:56:56 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 09:56:56 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 09:56:56 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 09:56:56 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000001DBF7949F60>
+'09/22/2019 09:56:56 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 09:56:56 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000001DBF7999390>, 'ddxf': <xlrd.sheet.Sheet object at 0x000001DBF79993C8>, 'shop': <xlrd.sheet.Sheet object at 0x000001DBF7999400>, 'god': <xlrd.sheet.Sheet object at 0x000001DBF7999438>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000001DBF7999470>}
+'09/22/2019 09:56:56 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 09:56:56 PM' - INFO - 已传入json参数,其地址为  :C:\其他文件\Online-Inspection-New\data\jsonFiles\god.json
+'09/22/2019 09:56:56 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 09:58:13 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 09:58:13 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 09:58:13 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 09:58:13 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x0000021336F39DA0>
+'09/22/2019 09:58:13 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 09:58:13 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x0000021336F6E978>, 'ddxf': <xlrd.sheet.Sheet object at 0x0000021336F6E9B0>, 'shop': <xlrd.sheet.Sheet object at 0x0000021336F6E9E8>, 'god': <xlrd.sheet.Sheet object at 0x0000021336F6EA20>, 'miniprogram': <xlrd.sheet.Sheet object at 0x0000021336F6EA58>}
+'09/22/2019 09:58:13 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 09:58:13 PM' - INFO - 已传入json参数,其地址为  :C:\其他文件\Online-Inspection-New\data\jsonFiles\god.json
+'09/22/2019 09:58:13 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:02:25 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:03:09 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:03:09 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:03:09 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:03:09 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000001B47F1F24A8>
+'09/22/2019 10:03:09 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:03:09 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000001B47F22B0B8>, 'ddxf': <xlrd.sheet.Sheet object at 0x000001B47F22B0F0>, 'shop': <xlrd.sheet.Sheet object at 0x000001B47F22B128>, 'god': <xlrd.sheet.Sheet object at 0x000001B47F22B160>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000001B47F22B198>}
+'09/22/2019 10:03:09 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 10:03:09 PM' - INFO - 未传入json参数，默认地址为 :C:\其他文件\Online-Inspection-New\data\config.json
+'09/22/2019 10:03:09 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:05:24 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:05:24 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:05:24 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:05:24 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000001F2BAFB24A8>
+'09/22/2019 10:05:24 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:05:24 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000001F2BAFEB0B8>, 'ddxf': <xlrd.sheet.Sheet object at 0x000001F2BAFEB0F0>, 'shop': <xlrd.sheet.Sheet object at 0x000001F2BAFEB128>, 'god': <xlrd.sheet.Sheet object at 0x000001F2BAFEB160>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000001F2BAFEB198>}
+'09/22/2019 10:05:24 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 10:05:24 PM' - INFO - 未传入json参数，默认地址为 :C:\其他文件\Online-Inspection-New\data\config.json
+'09/22/2019 10:05:24 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:12:52 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:12:52 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:12:52 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:12:53 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000001A4A8D93550>
+'09/22/2019 10:12:53 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:12:53 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000001A4A8DCB160>, 'ddxf': <xlrd.sheet.Sheet object at 0x000001A4A8DCB198>, 'shop': <xlrd.sheet.Sheet object at 0x000001A4A8DCB1D0>, 'god': <xlrd.sheet.Sheet object at 0x000001A4A8DCB208>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000001A4A8DCB240>}
+'09/22/2019 10:12:53 PM' - INFO - 传入项目参数有效 :ddsf
+'09/22/2019 10:12:53 PM' - INFO - 未传入json参数，默认地址为 :C:\其他文件\Online-Inspection-New\data\config.json
+'09/22/2019 10:12:53 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:17:33 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:17:33 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:17:33 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:17:33 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000002517C0C06A0>
+'09/22/2019 10:17:33 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:17:33 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000002517C0FC278>, 'ddxf': <xlrd.sheet.Sheet object at 0x000002517C0FC2B0>, 'shop': <xlrd.sheet.Sheet object at 0x000002517C0FC2E8>, 'god': <xlrd.sheet.Sheet object at 0x000002517C0FC320>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000002517C0FC358>}
+'09/22/2019 10:17:33 PM' - INFO - 传入项目参数有效 :ddsf
+'09/22/2019 10:17:33 PM' - INFO - 未传入json参数，默认地址为 :C:\其他文件\Online-Inspection-New\data\config.json
+'09/22/2019 10:17:33 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:18:31 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:18:31 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:18:31 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:18:31 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x00000184C65F27B8>
+'09/22/2019 10:18:31 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:18:31 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x00000184C662C3C8>, 'ddxf': <xlrd.sheet.Sheet object at 0x00000184C662C400>, 'shop': <xlrd.sheet.Sheet object at 0x00000184C662C438>, 'god': <xlrd.sheet.Sheet object at 0x00000184C662C470>, 'miniprogram': <xlrd.sheet.Sheet object at 0x00000184C662C4A8>}
+'09/22/2019 10:18:31 PM' - INFO - 传入项目参数有效 :ddsf
+'09/22/2019 10:18:31 PM' - INFO - 未传入json参数，默认地址为 :C:\其他文件\Online-Inspection-New\data\config.json
+'09/22/2019 10:18:31 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:20:02 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:20:02 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:20:02 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:20:02 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x00000161252837B8>
+'09/22/2019 10:20:02 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:20:02 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x00000161252BC390>, 'ddxf': <xlrd.sheet.Sheet object at 0x00000161252BC3C8>, 'shop': <xlrd.sheet.Sheet object at 0x00000161252BC400>, 'god': <xlrd.sheet.Sheet object at 0x00000161252BC438>, 'miniprogram': <xlrd.sheet.Sheet object at 0x00000161252BC470>}
+'09/22/2019 10:20:02 PM' - INFO - 传入项目参数有效 :ddsf
+'09/22/2019 10:20:02 PM' - INFO - 未传入json参数，默认地址为 :C:\其他文件\Online-Inspection-New\data\config.json
+'09/22/2019 10:20:02 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:21:49 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:21:49 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:21:49 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:21:49 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x0000024948653748>
+'09/22/2019 10:21:49 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:21:49 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000002494868E358>, 'ddxf': <xlrd.sheet.Sheet object at 0x000002494868E390>, 'shop': <xlrd.sheet.Sheet object at 0x000002494868E3C8>, 'god': <xlrd.sheet.Sheet object at 0x000002494868E400>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000002494868E438>}
+'09/22/2019 10:21:49 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 10:21:49 PM' - INFO - 未传入json参数，默认地址为 :C:\其他文件\Online-Inspection-New\data\config.json
+'09/22/2019 10:21:49 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:29:37 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:29:37 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:29:37 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:29:37 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x0000017D539E37B8>
+'09/22/2019 10:29:37 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:29:37 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x0000017D53A1C3C8>, 'ddxf': <xlrd.sheet.Sheet object at 0x0000017D53A1C400>, 'shop': <xlrd.sheet.Sheet object at 0x0000017D53A1C438>, 'god': <xlrd.sheet.Sheet object at 0x0000017D53A1C470>, 'miniprogram': <xlrd.sheet.Sheet object at 0x0000017D53A1C4A8>}
+'09/22/2019 10:29:37 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 10:29:37 PM' - INFO - 未传入json参数，默认地址为 :C:\其他文件\Online-Inspection-New\data\config.json
+'09/22/2019 10:29:37 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:33:22 PM' - DEBUG - #############################...start Login case 1...#############################
+'09/22/2019 10:34:02 PM' - DEBUG - ##############################...end Login case 1...##############################
+'09/22/2019 10:35:21 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:35:21 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:35:21 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:35:21 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x00000239B86B4630>
+'09/22/2019 10:35:21 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:35:21 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x00000239B86EC240>, 'ddxf': <xlrd.sheet.Sheet object at 0x00000239B86EC278>, 'shop': <xlrd.sheet.Sheet object at 0x00000239B86EC2B0>, 'god': <xlrd.sheet.Sheet object at 0x00000239B86EC2E8>, 'miniprogram': <xlrd.sheet.Sheet object at 0x00000239B86EC320>}
+'09/22/2019 10:35:21 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 10:35:21 PM' - INFO - 未传入json参数，默认地址为 :C:\其他文件\Online-Inspection-New\data\config.json
+'09/22/2019 10:35:21 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:35:27 PM' - DEBUG - #############################...start Login case 1...#############################
+'09/22/2019 10:44:44 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:44:44 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:44:44 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:44:44 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000001895ADF3588>
+'09/22/2019 10:44:44 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:44:44 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000001895AE2C160>, 'ddxf': <xlrd.sheet.Sheet object at 0x000001895AE2C198>, 'shop': <xlrd.sheet.Sheet object at 0x000001895AE2C1D0>, 'god': <xlrd.sheet.Sheet object at 0x000001895AE2C208>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000001895AE2C240>}
+'09/22/2019 10:44:44 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 10:44:44 PM' - INFO - 未传入json参数，默认地址为 :C:\其他文件\Online-Inspection-New\data\config.json
+'09/22/2019 10:44:44 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:44:50 PM' - DEBUG - #############################...start Login case 1...#############################
+'09/22/2019 10:45:11 PM' - DEBUG - 用例名称         :Login
+'09/22/2019 10:45:11 PM' - DEBUG - 用例描述         :登录
+'09/22/2019 10:45:11 PM' - DEBUG - 用例执行时间      :2019-09-22 22:45:11
+'09/22/2019 10:45:11 PM' - DEBUG - ------------------------------------- 请求信息 -------------------------------------
+'09/22/2019 10:45:11 PM' - DEBUG - 用例请求方法      :post
+'09/22/2019 10:45:11 PM' - DEBUG - 接口地址         :https://god.fangdd.com/data/user-login
+'09/22/2019 10:45:11 PM' - DEBUG - 请求参数         :
+'09/22/2019 10:45:11 PM' - DEBUG - 是否跳过         :否
+'09/22/2019 10:45:11 PM' - DEBUG - 数据依赖类型      :无依赖亦无提供依赖数据
+'09/22/2019 10:45:11 PM' - DEBUG - header          :{'content-type': 'application/json'}
+'09/22/2019 10:45:11 PM' - DEBUG - 请求体           :{'mobile': '新体验项目助理', 'password': 'WBubx5WrA462iFkFx6ws6AQJQgSvRu76C3Z0oomxoqyvlcNNpu32IEqKbNuSUPdk8sebUELC1KDnw/Xfj+n1gG0GXm5eT+X0NTkgE9/UFDBrk6EcWljA+nNTu9rRR5sHaKKnAYrFrI/nEYFBbA1SUfYxG3eiZxHdWmQbKvxGqmcmOYgPcSUiTrdAeeh/LHMj3cZ/mPh+rhuTIvmdjTwVHyE9lub/tiQSjDjG8aTzaPrdQCmfXqdbK+xxWUfsw0W2NuSY1RxLk4Z0bs2bEAXi6Tm3MGVyDOpPnoQGMcliK+e3XANi/amm5ggP5R9B/AvO9lTRnsbyo7SNd9DaXH7IqA=='}
+'09/22/2019 10:45:14 PM' - DEBUG - 响应结果         :{'code': '200', 'msg': '登录成功'}
+'09/22/2019 10:45:14 PM' - DEBUG - 预期结果         :{'code': 200}
+'09/22/2019 10:46:13 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:46:13 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:46:13 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:46:13 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000001C0450224E0>
+'09/22/2019 10:46:13 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:46:13 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000001C04505B0F0>, 'ddxf': <xlrd.sheet.Sheet object at 0x000001C04505B128>, 'shop': <xlrd.sheet.Sheet object at 0x000001C04505B160>, 'god': <xlrd.sheet.Sheet object at 0x000001C04505B198>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000001C04505B1D0>}
+'09/22/2019 10:46:13 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 10:46:13 PM' - INFO - 未传入json参数，默认地址为 :C:\其他文件\Online-Inspection-New\data\config.json
+'09/22/2019 10:46:13 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:46:13 PM' - DEBUG - #############################...start Login case 1...#############################
+'09/22/2019 10:47:22 PM' - DEBUG - ##############################...end Login case 1...##############################
+'09/22/2019 10:48:32 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:48:32 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:48:32 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:48:32 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000001B8CC614630>
+'09/22/2019 10:48:32 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:48:32 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000001B8CC64D240>, 'ddxf': <xlrd.sheet.Sheet object at 0x000001B8CC64D278>, 'shop': <xlrd.sheet.Sheet object at 0x000001B8CC64D2B0>, 'god': <xlrd.sheet.Sheet object at 0x000001B8CC64D2E8>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000001B8CC64D320>}
+'09/22/2019 10:48:32 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 10:48:32 PM' - INFO - 未传入json参数，默认地址为 :C:\其他文件\Online-Inspection-New\data\config.json
+'09/22/2019 10:52:59 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:52:59 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:52:59 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:52:59 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000001E89F1B55C0>
+'09/22/2019 10:52:59 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:52:59 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000001E89F1ED1D0>, 'ddxf': <xlrd.sheet.Sheet object at 0x000001E89F1ED208>, 'shop': <xlrd.sheet.Sheet object at 0x000001E89F1ED240>, 'god': <xlrd.sheet.Sheet object at 0x000001E89F1ED278>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000001E89F1ED2B0>}
+'09/22/2019 10:52:59 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 10:52:59 PM' - INFO - 已传入json参数,其地址为  :C:\其他文件\Online-Inspection-New\data\jsonFiles\god.json
+'09/22/2019 10:53:10 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:53:45 PM' - DEBUG - #############################...start Login case 1...#############################
+'09/22/2019 10:54:27 PM' - DEBUG - 用例名称         :Login
+'09/22/2019 10:54:27 PM' - DEBUG - 用例描述         :登录
+'09/22/2019 10:54:27 PM' - DEBUG - 用例执行时间      :2019-09-22 22:54:27
+'09/22/2019 10:54:27 PM' - DEBUG - ------------------------------------- 请求信息 -------------------------------------
+'09/22/2019 10:54:27 PM' - DEBUG - 用例请求方法      :post
+'09/22/2019 10:54:27 PM' - DEBUG - 接口地址         :https://god.fangdd.com/data/user-login
+'09/22/2019 10:54:27 PM' - DEBUG - 请求参数         :
+'09/22/2019 10:54:27 PM' - DEBUG - 是否跳过         :否
+'09/22/2019 10:54:27 PM' - DEBUG - 数据依赖类型      :无依赖亦无提供依赖数据
+'09/22/2019 10:54:27 PM' - DEBUG - header          :{'content-type': 'application/json'}
+'09/22/2019 10:54:27 PM' - DEBUG - 请求体           :{'mobile': '新体验项目助理', 'password': 'WBubx5WrA462iFkFx6ws6AQJQgSvRu76C3Z0oomxoqyvlcNNpu32IEqKbNuSUPdk8sebUELC1KDnw/Xfj+n1gG0GXm5eT+X0NTkgE9/UFDBrk6EcWljA+nNTu9rRR5sHaKKnAYrFrI/nEYFBbA1SUfYxG3eiZxHdWmQbKvxGqmcmOYgPcSUiTrdAeeh/LHMj3cZ/mPh+rhuTIvmdjTwVHyE9lub/tiQSjDjG8aTzaPrdQCmfXqdbK+xxWUfsw0W2NuSY1RxLk4Z0bs2bEAXi6Tm3MGVyDOpPnoQGMcliK+e3XANi/amm5ggP5R9B/AvO9lTRnsbyo7SNd9DaXH7IqA=='}
+'09/22/2019 10:54:29 PM' - DEBUG - 响应结果         :{'code': '200', 'msg': '登录成功'}
+'09/22/2019 10:54:29 PM' - DEBUG - 预期结果         :{'code': 200}
+'09/22/2019 10:57:48 PM' - INFO - ========================================== 测试数据初始化 start! ==========================================
+'09/22/2019 10:57:48 PM' - INFO - 获取项目根目录正常 :C:\其他文件\Online-Inspection-New
+'09/22/2019 10:57:48 PM' - INFO - 获取项目根正常          :C:\其他文件\Online-Inspection-New\data\FDD接口测试用例.xlsx
+'09/22/2019 10:57:48 PM' - INFO - 读取xlsx表格数据正常:<xlrd.book.Book object at 0x000001FFA6B73630>
+'09/22/2019 10:57:48 PM' - INFO - 获取页签名称列表正常 :['ddsf', 'ddxf', 'shop', 'god', 'miniprogram']
+'09/22/2019 10:57:48 PM' - INFO - 获取名称页签对象正常 :{'ddsf': <xlrd.sheet.Sheet object at 0x000001FFA6BAC240>, 'ddxf': <xlrd.sheet.Sheet object at 0x000001FFA6BAC278>, 'shop': <xlrd.sheet.Sheet object at 0x000001FFA6BAC2B0>, 'god': <xlrd.sheet.Sheet object at 0x000001FFA6BAC2E8>, 'miniprogram': <xlrd.sheet.Sheet object at 0x000001FFA6BAC320>}
+'09/22/2019 10:57:48 PM' - INFO - 传入项目参数有效 :god
+'09/22/2019 10:57:48 PM' - INFO - 已传入json参数,其地址为  :C:\其他文件\Online-Inspection-New\data\jsonFiles\god.json
+'09/22/2019 10:57:48 PM' - INFO - =========================================== 测试数据初始化 end! ===========================================
+'09/22/2019 10:57:48 PM' - DEBUG - #############################...start Login case 1...#############################
+'09/22/2019 10:58:01 PM' - DEBUG - 用例名称         :Login
+'09/22/2019 10:58:01 PM' - DEBUG - 用例描述         :登录
+'09/22/2019 10:58:01 PM' - DEBUG - 用例执行时间      :2019-09-22 22:58:01
+'09/22/2019 10:58:01 PM' - DEBUG - ------------------------------------- 请求信息 -------------------------------------
+'09/22/2019 10:58:01 PM' - DEBUG - 用例请求方法      :post
+'09/22/2019 10:58:01 PM' - DEBUG - 接口地址         :https://god.fangdd.com/data/user-login
+'09/22/2019 10:58:01 PM' - DEBUG - 请求参数         :
+'09/22/2019 10:58:01 PM' - DEBUG - 是否跳过         :否
+'09/22/2019 10:58:01 PM' - DEBUG - 数据依赖类型      :无依赖亦无提供依赖数据
+'09/22/2019 10:58:01 PM' - DEBUG - header          :{'content-type': 'application/json'}
+'09/22/2019 10:58:01 PM' - DEBUG - 请求体           :{'mobile': '新体验项目助理', 'password': 'WBubx5WrA462iFkFx6ws6AQJQgSvRu76C3Z0oomxoqyvlcNNpu32IEqKbNuSUPdk8sebUELC1KDnw/Xfj+n1gG0GXm5eT+X0NTkgE9/UFDBrk6EcWljA+nNTu9rRR5sHaKKnAYrFrI/nEYFBbA1SUfYxG3eiZxHdWmQbKvxGqmcmOYgPcSUiTrdAeeh/LHMj3cZ/mPh+rhuTIvmdjTwVHyE9lub/tiQSjDjG8aTzaPrdQCmfXqdbK+xxWUfsw0W2NuSY1RxLk4Z0bs2bEAXi6Tm3MGVyDOpPnoQGMcliK+e3XANi/amm5ggP5R9B/AvO9lTRnsbyo7SNd9DaXH7IqA=='}
+'09/22/2019 10:58:02 PM' - DEBUG - 响应结果         :{'code': '200', 'msg': '登录成功'}
+'09/22/2019 10:58:02 PM' - DEBUG - 预期结果         :{'code': '200', 'msg': '登录成功'}
+'09/22/2019 10:58:32 PM' - INFO - 测试结果         :测试通过！
+'09/22/2019 10:58:35 PM' - DEBUG - ##############################...end Login case 1...##############################

@@ -1,0 +1,34 @@
+{
+  "god":{
+    "robot_data":{
+      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=254c4e03abc0c89b4922e86cb8f67c0a01fe68de2b9f7b27596eddc378b400c5",
+      "mobile":["13883217640"]
+    },
+    "domain":{
+      "test": "https://god.fangdd.net",
+      "pre" : "https://god.fangdd.com.cn",
+      "prod" : "https://god.fangdd.com"
+    },
+    "Login":{
+        "Login": "/data/user-login"
+      },
+    "Eestate": {
+        "EstateList": "/data/getOperationList?pageNo=1&pageSize=10"
+    },
+    "Review": {
+      "reviewList": "/data/getReviewList?pageNo=1&pageSize=10"
+    },
+    "RepetitionEstates": {
+      "RepetitionEstatesList": "/data/getRepetitionEstates?pageNo=1&pageSize=10"
+    },
+    "Developer": {
+      "DeveloperList": "/data/getDeveloperBrandPaginationList?pageNo=1&pageSize=10"
+    },
+    "Position": {
+      "PositionList": "/data/popularizationGetPositionList?pageNo=1&pageSize=10"
+    },
+    "Project": {
+      "ProjectList": "/data/popularizationGetProjectList?pageNo=1&pageSize=10"
+    }
+  }
+}
