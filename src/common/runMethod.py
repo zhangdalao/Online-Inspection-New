@@ -3,7 +3,7 @@
 # @Date : 2019-08-12
 
 
-"""基础类，封装requests请求方法"""
+"""基础类，封装requests常见7种请求方法"""
 
 import requests
 
@@ -28,25 +28,18 @@ class RunMethod(MethodException):
         :param kw:            其他参数
         :return:        Response object，type requests.Response
         """
+		
+		method_list1 = ["get", "delete", "head", "options"]
+		method_list2 = ["post", "put", "patch"]
 		try:
 			if method and headers:
-				if method.lower() == "get":
-					res = requests.get(url, params=para, **kw)
-				elif method.lower() == "post":
+				if method.lower() in method_list1:
+					res = requests.request(method.lower(), url, params=para, headers=headers, **kw)
+				elif method.lower() in method_list2:
 					if "application/json" in str(headers).lower():
-						res = requests.post(url, params=para, json=data, headers=headers, **kw)
+						res = requests.request(method.lower(), url, params=para, json=data, headers=headers, **kw)
 					else:
-						res = requests.post(url, params=para, data=data, headers=headers, **kw)
-				elif method.lower() == 'put':
-					res = requests.put(url, params=para, data=data, headers=headers, **kw)
-				elif method.lower() == 'patch':
-					res = requests.patch(url, params=para, data=data, headers=headers, **kw)
-				elif method.lower() == 'delete':
-					res = requests.delete(url, params=para, headers=headers, **kw)
-				elif method.lower() == 'head':
-					res = requests.head(url, params=para, headers=headers, **kw)
-				elif method.lower() == 'options':
-					res = requests.options(url, params=para, headers=headers, **kw)
+						res = requests.request(method.lower(), url, params=para, data=data, headers=headers, **kw)
 				else:
 					print("Do Not Support Http Method!Please check the args of requests")
 					raise MethodException

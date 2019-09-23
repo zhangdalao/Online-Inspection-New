@@ -17,7 +17,6 @@ import base64
 from distutils.sysconfig import get_python_lib
 import traceback
 from functools import wraps
-
 from src.common.runTest import RunTest
 
 __all__ = ['BeautifulReport']
