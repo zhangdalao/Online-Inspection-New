@@ -62,17 +62,18 @@ class LoginTest(RunTest):
 		str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
 		value.append(str_sign_list)
 		# 调起请求
-		res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-		                    self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
+		result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+		                    self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+		# print(result.cookies)
 		try:
-			self.assertEqual(True, checkOut(res, self.expect))
+			self.assertEqual(True, checkOut(self.res, self.expect))
 			self.logger.info("测试结果         :测试通过！")
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
 			json_dict = self.a.json_data[self.project]["robot_data"]
 			robot_url = json_dict["robot_url"]
 			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
+			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
 			raise err
 		
 if __name__ == '__main__':

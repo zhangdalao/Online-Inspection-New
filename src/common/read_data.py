@@ -7,6 +7,7 @@ import json
 import xlrd
 import logging
 from src.common.readLogger import ReadLogger
+import re
 
 
 class ReadData:
@@ -125,26 +126,29 @@ class ReadData:
 		"""
 		sheet_data = self.get_sheetData()
 		fieldName_num = self.get_num_name("模块名")
-		# headers_num = self.get_num_name("请求头")
+		headers_num = self.get_num_name("请求头")
 		body_num = self.get_num_name("请求体")
-		# expect_num = self.get_num_name("预期结果")
+		expect_num = self.get_num_name("预期结果")
 		Table_data = []
 		# 根据模块名fieldName把表格中的数据放在一起，后面如果有需要可以进行ddt
 		for num in range(1, sheet_data.nrows):
 			if sheet_data.row_values(num)[fieldName_num] == fieldName:
 				row_data = []
+				# 把每行数据中的 headers/body/断言结果 单独取出来
+				special_data_list = [sheet_data.row_values(num)[headers_num], sheet_data.row_values(num)[body_num],
+				                     sheet_data.row_values(num)[expect_num]]
 				for cell in sheet_data.row_values(num):
-					# 将请求体中原始json字符串的true、none、false替换为Python对应类型的字符
-					if cell == sheet_data.row_values(num)[body_num]:
-						print(cell)
-						cell = cell.replace("true", "True")
-						cell = cell.replace("none", "None")
-						cell = cell.replace("false", "False")
+					if cell in special_data_list and cell:
+						# 将 header/body/预期结果中的 json格式的特殊数据类型转换为Python支持的数据类型
+						cell = cell.replace('null', 'None')
+						cell = cell.replace('false', 'False')
+						cell = cell.replace('true', 'True')
 					try:
-						cell = eval(cell)  # 这里做eval转换的目的是避免后期做，不然生成的报告中用例集名称是一长串字符
+						cell = eval(cell)  # 这里做eval转换的目的是避免后期做，不然生成的报告中测试方法名称是一长串字符
 					except Exception:
 						pass
 					row_data.append(cell)
+				# print(f"row_data : {row_data}")
 				# Table_data.append(sheet_data.row_values(num))
 				Table_data.append(row_data)
 		return Table_data
@@ -181,9 +185,22 @@ class ReadData:
 		:param apiName:           接口名称，默认为None
 		:return:                  根据传入的模块名和接口名进行接口地址拼接，返回接口地址URL
 		"""
-		return self.json_data[self.pro][fieldName][apiName]
-
-
+		# return self.json_data[self.pro][fieldName][apiName]
+		uri = self.json_data[self.pro][fieldName][apiName]
+		re_str = '#\w+#'
+		# 使用正则获取 uri 中参数化的字段列表
+		re_list_uri = re.findall(re_str, uri)
+		if re_list_uri:
+			uri_list_str = str(uri.split('/')).replace("\'#", "#")
+			uri_list_str = uri_list_str.replace("#\'", "#")
+			patch_list = re.findall(re_str, uri_list_str)
+			for m in patch_list:
+				uri_list_str = uri_list_str.replace(m, "f'{sss[\"%s\"]}'" % (m[1:-1]))
+			uri_list = eval(uri_list_str)
+			uri = '/'.join(uri_list)
+		# print(f"============uri==========:{uri}")
+		return uri
+		
 if __name__ == '__main__':
 	a = ReadData("ddsf")
 	# print(a.get_sheetData(), end='\n')
