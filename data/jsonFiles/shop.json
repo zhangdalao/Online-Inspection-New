@@ -26,18 +26,18 @@
       "SalesOffEdit": "/api/estate/salesoffice/edit"
       },
     "Project":{
-      "List": "/api/project/project/list?pageNo=1&pageSize=10",
-      "BasEdit": "/api/project/project/edit",
-      "Buildinglist": "/api/project/project/building/list?projectId=22987",
-      "LayoutList": "/api/project/project/layout/list?projectId=22987",
-      "HouseholdList": "/api/project/project/house/list?projectId=22987&buildingId=50363",
+      "ProjectList": "/api/project/project/list?pageNo=1&pageSize=10",
+      "ProjectBasEdit": "/api/project/project/edit",
+      "ProjectBuildinglist": "/api/project/project/building/list?projectId=22987",
+      "ProjectLayoutList": "/api/project/project/layout/list?projectId=22987",
+      "ProjectHouseholdList": "/api/project/project/house/list?projectId=22987&buildingId=50363",
       "BriefEdit": "/api/project/project/22987/brief",
       "Links": "/api/project/project/22987/links",
       "AddMarket": "/api/project/project/market/a/add",
-      "SiteProject": "/api/project/site/update",
-      "EditDynamic": "/api/project/ddxf/dynamic/edit",
+      "SiteProjectEdit": "/api/project/site/update",
+      "DynamicEdit": "/api/project/ddxf/dynamic/edit",
       "AttachmentAdd": "/api/project/project/attachment/add",
-      "Attachment": "/api/project/project/attachment/query?projectId=22987&attachmentType=5",
+      "AttachmentList": "/api/project/project/attachment/query?projectId=22987&attachmentType=5",
       "AttachmentRemove": "/api/project/project/attachment/remove",
       "Operation": "/api/project/project/operation/22987",
       "OperationEdit": "/api/project/project/operation/edit",
@@ -49,8 +49,14 @@
       "UserList": "/api/boai/boai/user/project/configs?projectId=22987&pageNo=1&pageSize=20",
       "TradeList": "/api/trade/factoring/project/list?pageNo=1&pageSize=10&projectId=22987",
       "SettlementList": "/api/trade/settlement?pageSize=10&pageNo=0&projectId=22987&onlyBaseInfo=1",
-      "ThirdMapping": "/api/project/project/third/22987/mapping",
+      "ThirdMappingList": "/api/project/project/third/22987/mapping",
       "BuggetList": "/api/trade/budget/15322/list?pageNo=1&pageSize=10&projectId=22987"
+    },
+  "Other":{
+    "IntercityList": "/api/project/project/intercity/list?pageNo=1&pageSize=10&branchId=1000136",
+    "CouponList": "/api/award/coupon/management/queryCoupon?pageNo=1&pageSize=10",
+    "AwardList": "/api/award/project/award?pageNo=1&pageSize=10",
+    "PlacementList": "/api/project/placement/list?"
     }
     }
   }
