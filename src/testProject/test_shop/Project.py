@@ -230,7 +230,7 @@ class ProjectTest(RunTest):
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
+                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False, timeout=10)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
             self.logger.info("测试结果         :测试通过！")
@@ -252,7 +252,7 @@ class ProjectTest(RunTest):
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
+                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False, timeout=10)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
             self.logger.info("测试结果         :测试通过！")
@@ -286,27 +286,27 @@ class ProjectTest(RunTest):
     #         send_ding(robot_url, mobile, content=f"新增附件异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
     #         raise err
 
-    @ddt.data(*a.get_data_by_api(fieldname, "AttachmentList"))
-    def test_AttachmentList(self, value):
-        # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
-        # 获取测试环境参数
-        env = value[self.env_num]
-        # 通过环境参数获得接口url
-        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
-        # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目资料列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
-            raise err
+    # @ddt.data(*a.get_data_by_api(fieldname, "AttachmentList"))
+    # def test_AttachmentList(self, value):
+    #     # 通过函数名获取apiName参数的值
+    #     self.apiName = (inspect.stack()[0][3])[5:]
+    #     # 获取测试环境参数
+    #     env = value[self.env_num]
+    #     # 通过环境参数获得接口url
+    #     url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+    #     # 调用接口发起请求
+    #     res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+    #                      self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False, timeout=10)
+    #     try:
+    #         self.assertEqual(True, checkOut(self.res, self.expect))
+    #         self.logger.info("测试结果         :测试通过！")
+    #     except Exception as err:
+    #         self.logger.error("测试结果         :测试失败！")
+    #         json_dict = self.a.json_data[self.project]["robot_data"]
+    #         robot_url = json_dict["robot_url"]
+    #         mobile = json_dict["mobile"]
+    #         send_ding(robot_url, mobile, content=f"项目资料列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+    #         raise err
 
     # @ddt.data(*a.get_data_by_api(fieldname, "AttachmentRemove"))
     # def test_AttachmentRemove(self, value):
@@ -494,7 +494,7 @@ class ProjectTest(RunTest):
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
+                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False, timeout=10)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
             self.logger.info("测试结果         :测试通过！")
