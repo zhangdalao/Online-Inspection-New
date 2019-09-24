@@ -41,7 +41,7 @@ def start(cases_dir=None):
 		robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
 		suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
 		                                                                                          f'{project_dir}'])
-		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*.py')
+		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='A*.py')
 		print("====================================================")
 		print(suite)
 	else:
