@@ -128,6 +128,7 @@ class ReadData:
 		fieldName_num = self.get_num_name("模块名")
 		headers_num = self.get_num_name("请求头")
 		body_num = self.get_num_name("请求体")
+		para_num = self.get_num_name("请求参数")
 		expect_num = self.get_num_name("预期结果")
 		Table_data = []
 		# 根据模块名fieldName把表格中的数据放在一起，后面如果有需要可以进行ddt
@@ -136,7 +137,7 @@ class ReadData:
 				row_data = []
 				# 把每行数据中的 headers/body/断言结果 单独取出来
 				special_data_list = [sheet_data.row_values(num)[headers_num], sheet_data.row_values(num)[body_num],
-				                     sheet_data.row_values(num)[expect_num]]
+				                     sheet_data.row_values(num)[expect_num], sheet_data.row_values(num)[para_num]]
 				for cell in sheet_data.row_values(num):
 					if cell in special_data_list and cell:
 						# 将 header/body/预期结果中的 json格式的特殊数据类型转换为Python支持的数据类型
