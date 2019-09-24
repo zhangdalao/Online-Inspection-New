@@ -73,9 +73,10 @@ class LoginTest(RunTest):
 		
 	@ddt.data(*a.get_data_by_api(fieldname, "ByVerifyCode"))
 	def test_ByVerifyCode(self, value):
+		# 将获取的手机验证码存放在变量 sss 中
 		if value[self.desc_num] == '验证码正确登录':
-			sss["sms_code"] = get_smsCode("prod", 'https://as-web.fangdd.com/data/sendSmsCode', 'post',
-			                              json=[{"mobile": "18682236985", "device": "sid.18682236985"},
+			sss["sms_code"] = get_smsCode(value[self.env_num], 'https://as-web.fangdd.com/data/sendSmsCode', 'post',
+			                              json=[{"mobile": "13058019302", "device": "sid.13058019302"},
 			                                    {"systemSource": "DD_COMMERCIAL"}])
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
