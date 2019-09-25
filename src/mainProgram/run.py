@@ -11,11 +11,8 @@ root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
 sys.path.append(root_path)
 
 
-
 import unittest
 from src.common.BeautifulReport import BeautifulReport
-# from BeautifulReport import BeautifulReport
-from src.common.dingDing import send_link
 from time import sleep
 import socket
 import time
@@ -83,9 +80,6 @@ def start(cases_dir=None):
 	# 启动该目录下的服务
 	report_dir = 'report_{_now}'.format(_now=now)  # report_2019_09_11-21_02_55
 	result_url = "http://" + ip + f':8686{sep}{report_dir}{sep}{reportFileName}'
-	# print(f'{sep}{reportFileName}')  # /2019_09_11-19_42_30_result.html
-	# print(result_url)
-	# send_link(robot_url, result_url, '多多商服接口自动化测试报告')
 	return res
 
 if __name__ == '__main__':

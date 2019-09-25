@@ -31,10 +31,10 @@ class ReadData:
 			form_path = f"{root_path}{sep}data{sep}FDD接口测试用例.xlsx"
 			self.logger.info(f"获取项目根正常          :{form_path}")
 		
-		# # 获得项目根目录
-		# root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
-		# # xlsx表格数据地址
-		# form_path = f"{root_path}{sep}data{sep}FDD接口测试用例.xlsx"
+	# # 获得项目根目录
+	# root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
+	# # xlsx表格数据地址
+	# form_path = f"{root_path}{sep}data{sep}FDD接口测试用例.xlsx"
 		
 			# 读取xlsx表格数据
 			self.workbook = xlrd.open_workbook(form_path)  # 整个xlxs数据对象
@@ -204,17 +204,4 @@ class ReadData:
 		
 if __name__ == '__main__':
 	a = ReadData("ddsf")
-	# print(a.get_sheetData(), end='\n')
-	# sheet = a.get_sheetData()
-	# for i in range(0, sheet.nrows):
-	# 	print(sheet.row_values(i))
-	# b = a.get_titleData()
-	# print(a.get_module_data("MapSource"))
-	# print(a.get_num_name("用例名称"))
-	# a.table_is_norm()
-	# print(a.table_is_norm())
-	# print(a.get_data_by_api("Login", "ByPassword"))
-	# print(a.get_dict_name(["环境", "请求体", "预期结果1"]))
 	print(a.get_module_data("Home"))
-	# print(a.get_data_by_api("Login", "ByPassword"))
-	# print(a.get_num_name("请求体"))

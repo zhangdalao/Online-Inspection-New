@@ -1,0 +1,29 @@
+{
+  "miniprogram":{
+    "robot_data":{
+      "robot_url": "",
+      "mobile":[""]
+    },
+    "domain":{
+      "test": "https://api-realtor.fangdd.net",
+      "pre" : "https://api-realtor.fangdd.com.cn",
+      "prod" : "https://api-realtor.fangdd.com"
+    },
+    "Login":{
+      "Login":"/user/users/login"
+    },
+    "Home":{
+      "StoreHome":"/housingestate/pm/store/home?projectManagerId=408899",
+      "VisitCount":"/housingestate/pm/store/visit/count?projectManagerId=408899&visitType=3",
+      "NewsList":"/housingestate/pm/store/news/list?pageNo=1&pageSize=20&projectManagerId=408899",
+      "CouponList":"/housingestate/pm/coupon/list?projectManagerId=408899",
+      "ProjectList":"/housingestate/pm/store/project/list?projectManagerId=408899",
+      "Website":"/housingestate/pm/website"
+    },
+    "Other":{
+      "EstateDetail":"/estate/xf/distribution/house/2029540",
+      "NewsDetail":"/housingestate/news/20040889920190627235216837?moreNews=true",
+      "AttachmentList":"/housingestate/materials/query?attachmentType=5&projectId=22987"
+    }
+  }
+}
