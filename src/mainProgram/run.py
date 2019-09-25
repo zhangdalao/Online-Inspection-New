@@ -39,18 +39,19 @@ def start(cases_dir=None):
 
 	# 判断是否有指定用例文件夹
 	if cases_dir:
-		project_dir = cases_dir  # test_ddsf
-		project_name = project_dir.split('_')[1]   # ddsf
+		project_dir = cases_dir  # test_xxxx
+		project_name = project_dir.split('_')[1]   # xxxx
 		robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
 		suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
 		                                                                                          f'{project_dir}'])
 		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*.py')
-		print(suite)
+		# print(suite)
 	else:
 		# 这里需要补充测试组机器人URL
 		robot_url = None
 		suites_dir = root_path + f'{sep}src{sep}testProject'
-		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir)
+		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*.py')
+	print(suite)
 
 	reportDirName = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + 'output' + sep + 'report' + sep
 
@@ -90,8 +91,9 @@ def start(cases_dir=None):
 if __name__ == '__main__':
 	# start("https://oapi.dingtalk.com/robot/send?access_token=c41f688c4e87a482459697c9675d7a12dc6ebfbec9c242ccf2b498bcece2644a")
 	# get_project_robot_URL()
-	start('test_mzhan')
+	# start('test_mzhan')
 	# print(os.getcwd())
+	start()
 #
 #
 # # TODO  根据不同项目启动

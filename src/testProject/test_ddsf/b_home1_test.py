@@ -21,7 +21,7 @@ class HomeTest(RunTest):
 
 	# 通过文件名夹获取project参数的值
 	project = os.path.dirname(__file__)[-4:]
-	a = ReadData(project)
+	a = ReadData(project, project)
 
 	# 通过类名获取fieldname的值
 	fieldname = sys._getframe().f_code.co_name[:-4]
