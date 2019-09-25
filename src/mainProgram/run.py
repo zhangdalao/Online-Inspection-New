@@ -37,7 +37,7 @@ def start(cases_dir=None):
 	# 判断是否有指定用例文件夹
 	if cases_dir:
 		project_dir = cases_dir  # test_ddsf
-		project_name = project_dir[-4:]   # ddsf
+		project_name = project_dir[-3:]   # ddsf
 		robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
 		suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
 		                                                                                          f'{project_dir}'])
@@ -83,7 +83,7 @@ def start(cases_dir=None):
 	return res
 
 if __name__ == '__main__':
-	start('test_shop')
+	start('test_god')
 #
 #
 # # TODO  根据不同项目启动
