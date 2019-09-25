@@ -41,8 +41,12 @@ def start(cases_dir=None):
 		robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
 		suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
 		                                                                                          f'{project_dir}'])
+<<<<<<< HEAD
 		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*.py')
 		# print(suite)
+=======
+		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
+>>>>>>> dev_syb
 	else:
 		# 这里需要补充测试组机器人URL
 		robot_url = None
@@ -85,7 +89,11 @@ def start(cases_dir=None):
 if __name__ == '__main__':
 	# start("https://oapi.dingtalk.com/robot/send?access_token=c41f688c4e87a482459697c9675d7a12dc6ebfbec9c242ccf2b498bcece2644a")
 	# get_project_robot_URL()
+<<<<<<< HEAD
 	# start('test_mzhan')
+=======
+	start('test_sybb')
+>>>>>>> dev_syb
 	# print(os.getcwd())
 	start()
 #
