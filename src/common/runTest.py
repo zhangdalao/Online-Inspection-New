@@ -172,6 +172,16 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				self.expect = eval(self.expect)
 			if type(args[0][-1]) == list:
 				args[0][-1].append(str(self.body).replace("\'", '\"'))
+				# 对其中的 path 存在动态参数进行解决
+				for m in args[0][-1]:
+					if m.__contains__('/') and re.findall(re_str, m):
+						m_num = args[0][-1].index(m)
+						uri_str_list = re.findall(re_str, m)
+						for i in uri_str_list:
+							i_value = sss.get(i[1:-1])
+							if i_value:
+								m = m.replace(i, str(i_value))
+						args[0][-1][m_num] = m
 				_str = ''.join(args[0][-1])
 				print(_str)
 				data['sign_key'] = SignKey(_str).sign()
@@ -247,7 +257,16 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			if type(args[0][-1]) == list:
 				# print(args[0][-1])
 				args[0][-1].append(str(self.body).replace("\'", '\"'))
-				# print(args[0][-1])
+				# 对其中的 path 存在动态参数进行解决
+				for m in args[0][-1]:
+					if m.__contains__('/') and re.findall(re_str, m):
+						m_num = args[0][-1].index(m)
+						uri_str_list = re.findall(re_str, m)
+						for i in uri_str_list:
+							i_value = sss.get(i[1:-1])
+							if i_value:
+								m = m.replace(i, str(i_value))
+						args[0][-1][m_num] = m
 				_str = ''.join(args[0][-1])
 				print(_str)
 				data['sign_key'] = SignKey(_str).sign()
