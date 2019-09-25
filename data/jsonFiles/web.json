@@ -1,0 +1,24 @@
+{
+  "web":{
+    "robot_data":{
+      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=c41f688c4e87a482459697c9675d7a12dc6ebfbec9c242ccf2b498bcece2644a",
+      "mobile":["15937061681"]
+    },
+    "domain":{
+      "test": "https://baishan.fangdd.net",
+      "pre" : "https://baishan.fangdd.com.cn",
+      "prod" : "https://baishan.fangdd.com"
+    },
+    "LoupanDetail":{
+        "LpFollow": "/web-api/data/lpFollow",
+      "LoupanFollowCar":"/web-api/data/loupanFollowCar",
+      "LoupanFollowPrice":"/web-api/data/loupanFollowPrice",
+      "flatConsultPrice":"/web-api/data/flatConsultPrice"
+      },
+    "EsfDetail":{
+      "getEsfGuide":"/web-api/data/getEsfGuide",
+      "getCashback":"/web-api/data/getCashback",
+      "esfFollow":"/web-api/data/esfFollow"
+    }
+  }
+}
