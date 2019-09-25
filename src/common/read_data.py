@@ -186,21 +186,21 @@ class ReadData:
 		:param apiName:           接口名称，默认为None
 		:return:                  根据传入的模块名和接口名进行接口地址拼接，返回接口地址URL
 		"""
-		# return self.json_data[self.pro][fieldName][apiName]
-		uri = self.json_data[self.pro][fieldName][apiName]
-		re_str = '#\w+#'
-		# 使用正则获取 uri 中参数化的字段列表
-		re_list_uri = re.findall(re_str, uri)
-		if re_list_uri:
-			uri_list_str = str(uri.split('/')).replace("\'#", "#")
-			uri_list_str = uri_list_str.replace("#\'", "#")
-			patch_list = re.findall(re_str, uri_list_str)
-			for m in patch_list:
-				uri_list_str = uri_list_str.replace(m, "f'{sss[\"%s\"]}'" % (m[1:-1]))
-			uri_list = eval(uri_list_str)
-			uri = '/'.join(uri_list)
-		# print(f"============uri==========:{uri}")
-		return uri
+		return self.json_data[self.pro][fieldName][apiName]
+		# uri = self.json_data[self.pro][fieldName][apiName]
+		# re_str = '#\w+#'
+		# # 使用正则获取 uri 中参数化的字段列表
+		# re_list_uri = re.findall(re_str, uri)
+		# if re_list_uri:
+		# 	uri_list_str = str(uri.split('/')).replace("\'#", "#")
+		# 	uri_list_str = uri_list_str.replace("#\'", "#")
+		# 	patch_list = re.findall(re_str, uri_list_str)
+		# 	for m in patch_list:
+		# 		uri_list_str = uri_list_str.replace(m, "f'{sss[\"%s\"]}'" % (m[1:-1]))
+		# 	uri_list = eval(uri_list_str)
+		# 	uri = '/'.join(uri_list)
+		# # print(f"============uri==========:{uri}")
+		# return uri
 		
 if __name__ == '__main__':
 	a = ReadData("ddsf")

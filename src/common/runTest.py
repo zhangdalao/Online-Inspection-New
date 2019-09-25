@@ -103,6 +103,20 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		self.expect = str(args[0][expect_num])
 		time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 		
+		# 这里定义的 变量sss 作为全局变量在后面的
+		global sss
+		
+		# 先对 url 做处理
+		re_str = '#\w+#'
+		# 使用正则获取 uri 中参数化的字段列表
+		re_list_uri = re.findall(re_str, url)
+		if re_list_uri:
+			for i in re_list_uri:
+				i_value = sss.get(i[1:-1])
+				if i_value:
+					url = url.replace(i, str(i_value))
+				else:
+					self.logger.debug(f"***全局变量中缺少字段: {i[1:-1]}***")
 		try:
 			# log日志中写入用例执行之前的一些相关数据
 			self.logger.debug(f"用例名称         :{api_name}")
@@ -113,8 +127,6 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			self.logger.debug(f"接口地址         :{url}")
 		except Exception as e:
 			self.logger.error('错误信息   : %s' % e)
-		# 这里定义的 变量sss 作为全局变量在后面的
-		global sss
 		# 根据是否跳过参数判断用例是否执行
 		if isSkip and isSkip != "否":
 			self.logger.debug(f"是否跳过         :{isSkip}")
@@ -125,7 +137,6 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		elif isRelate:
 			relateData = isRelate["relateData"]
 			self.logger.debug("是否跳过         :否")
-			re_str = '#\w+#'
 			# 使用正则获取headers中参数化的字段列表
 			re_list_header = re.findall(re_str, self.headers)
 			# 使用正则获取params中参数化的字段列表
@@ -199,7 +210,6 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		# 如果该接口不用给其他接口提供依赖
 		else:
 			self.logger.debug("是否跳过         :否")
-			re_str = '#\w+#'
 			# 使用正则获取headers中参数化的字段列表
 			re_list_header = re.findall(re_str, self.headers)
 			# 使用正则获取params中参数化的字段列表
