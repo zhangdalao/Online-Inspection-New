@@ -37,7 +37,7 @@
       "SiteProjectEdit": "/api/project/site/update",
       "DynamicEdit": "/api/project/ddxf/dynamic/edit",
       "AttachmentAdd": "/api/project/project/attachment/add",
-      "AttachmentList": "/api/project/project/attachment/query?projectId=22987&attachmentType=5",
+      "ProAttachmentList": "/api/project/project/attachment/query?projectId=22987&attachmentType=5",
       "AttachmentRemove": "/api/project/project/attachment/remove",
       "Operation": "/api/project/project/operation/22987",
       "OperationEdit": "/api/project/project/operation/edit",

@@ -60,7 +60,8 @@ class LoginTest(RunTest):
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
-            sss["cookies"] = res.cookies
+            sss["cookies"] = requests.utils.dict_from_cookiejar(res.cookies)
+            print(sss)
             self.logger.info("测试结果         :测试通过！")
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
