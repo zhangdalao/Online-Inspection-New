@@ -9,6 +9,7 @@ from src.common.readLogger import ReadLogger
 from jsonpath import jsonpath
 import time
 import re
+import json
 from src.common.sign import SignKey
 
 
@@ -74,7 +75,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		return self.desc
 	
 	def start(self, isSkip_num, apiName_num, url, method_num, headers_num, para_num, data_num, desc_num, isRelate_num,
-	          expect_num, *args, **kw):
+			  expect_num, *args, **kw):
 		"""
 		用例运行主入口
 		:param isSkip_num:      是否跳过列数来判断该用例是否跳过执行
@@ -151,7 +152,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 					self.headers = self.headers.replace(m, "f'{data[\"%s\"]}'" % (m[1:-1]))
 			if re_list_params:
 				# 对headers中参数化的字段进行激活赋值
-				for m in re_list_header:
+				for m in re_list_params:
 					self.params = self.params.replace(m, "f'{data[\"%s\"]}'" % (m[1:-1]))
 			if re_list_body:
 				# 对请求体中参数化的字段进行激活赋值
@@ -236,8 +237,10 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 					# print(type(self.headers))
 			if re_list_params:
 				# 对headers中参数化的字段进行激活赋值
-				for m in re_list_header:
+				for m in re_list_params:
 					self.params = self.params.replace(m, "f'{data[\"%s\"]}'" % (m[1:-1]))
+					# print('================================')
+					# print(self.params, type(self.params))
 			if re_list_body:
 				# 对请求体中参数化的字段进行激活赋值
 				for n in re_list_body:
@@ -247,11 +250,15 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				for o in re_list_expect:
 					self.expect = self.expect.replace(o, "f'{data[\"%s\"]}'" % (o[1:-1]))
 			data = sss
+			# print("===============================")
+			# print(data)
 			# 先对 body/params 和预期结果做类型转换
 			if self.body:
 				self.body = eval(self.body)
 			if self.params:
 				self.params = eval(self.params)
+				# print('================================')
+				# print(self.params, type(self.params))
 			if self.expect:
 				self.expect = eval(self.expect)
 			if type(args[0][-1]) == list:
@@ -280,8 +287,8 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				
 			self.logger.debug(f"header          :{self.headers}")
 			self.logger.debug(f"请求体           :{self.body}")
-			self.logger.debug(f"请求参数         :{params}")
-			response = self.method.run_main(url, method, self.headers, params, self.body, **kw)
+			self.logger.debug(f"请求参数         :{self.params}")
+			response = self.method.run_main(url, method, self.headers, self.params, self.body, **kw)
 			try:
 				self.res = response.json()
 				self.logger.debug(f"响应结果         :{self.res}")
