@@ -47,7 +47,7 @@ def start(cases_dir=None):
 		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
 	else:
 		# 这里需要补充测试组机器人URL
-		robot_url = None
+		robot_url = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa145342159f8fd0065fc4'
 		suites_dir = root_path + f'{sep}src{sep}testProject'
 		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir)
 
@@ -80,17 +80,19 @@ def start(cases_dir=None):
 	os.chdir(res_path)
 	# 启动该目录下的服务
 	report_dir = 'report_{_now}'.format(_now=now)  # report_2019_09_11-21_02_55
+	ip = '10.0.6.65'
 	result_url = "http://" + ip + f':8686{sep}{report_dir}{sep}{reportFileName}'
 	# print(f'{sep}{reportFileName}')  # /2019_09_11-19_42_30_result.html
-	print(result_url)
-	# send_link(robot_url, result_url, '多多商服接口自动化测试报告')
+	# print(result_url)
+	send_link(robot_url, result_url, '房多多接口自动化测试报告')
 	return res
 
 if __name__ == '__main__':
 	# start("https://oapi.dingtalk.com/robot/send?access_token=c41f688c4e87a482459697c9675d7a12dc6ebfbec9c242ccf2b498bcece2644a")
 	# get_project_robot_URL()
-	start('test_saas_rent')
+	# start('test_saas_rent')
 	# print(os.getcwd())
+	start()
 #
 #
 # # TODO  根据不同项目启动
