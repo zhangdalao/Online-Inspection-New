@@ -1,0 +1,45 @@
+{
+  "saas_rent":{
+    "robot_data":{
+      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=34ea4d941d8f9e72f282bc40f855c78b044d23d6989868fe9cee2f1365fdf9de",
+      "mobile":["18026963340"]
+    },
+    "domain":{
+      "test": "https://ddjj.fangdd.net",
+      "pre" : "https://ddjj.fangdd.com.cn",
+      "prod" : "https://ddjj.fangdd.com"
+    },
+    "Login":{
+        "ByPassword": "/user/login",
+        "ByVerifyCode": "/user/sendVerifyCode"
+      },
+    "Rent_detail" :{
+      "create_new_rent_house": "/saas/createNewRentHosue",
+      "update_rent_base_info": "/saas/updateRentBaseInfo",
+      "update_RentStatus":"/saas/updateRentStatus",
+      "add_rent_follow_up":"/saas/addRentFollowUp"
+    },
+    "Rent_key" :{
+      "add_rent_key": "/saas/addRentKey",
+      "borrow_rent_key": "/saas/borrowRentKey",
+      "return_rent_key":"/saas/returnRentKey",
+      "edit_rent_key_info": "/saas/editRentKeyInfo",
+      "cancel_rent_key":"/saas/cancelRentKey"
+    },
+    "Rent_Entrust":{
+      "add_rent_entrust": "/saas/addRentEntrust"
+    },
+    "Rent_Hosts":{
+      "update_Rent_Hosts":"/saas/updateRentHosts?rentId="
+    },
+    "Rent_Inspect":{
+      "add_Rent_Inspect": "/saas/rentCheckReal"
+    },
+    "Rent_List": {
+      "get_RentEstateList": "/saas/getRentEstateList"
+    },
+    "Rent_Trade": {
+      "get_RentTradeList": "/saas/getRentTradeList"
+    }
+  }
+}
