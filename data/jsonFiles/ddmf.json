@@ -1,0 +1,34 @@
+{
+  "ddmf":{
+    "robot_data":{
+      "robot_url": "",
+      "mobile":["18520585851"]
+    },
+    "domain":{
+      "test": "https://api-realtor.fangdd.net",
+      "pre" : "https://api-realtor.fangdd.com.cn",
+      "prod" : "https://api-realtor.fangdd.com"
+    },
+    "Login":{
+        "ByPassword": "/user/users/login"
+      },
+    "XF":{
+        "XF_List": "/estate/xf/projects/list",
+        "XF_Statistic": "/distribution/process/statistic",
+        "XF_Newshot": "/housingestate/news/hot",
+        "XF_Newslist": "/housingestate/news/list?needGainedCodeEstateNews=true&pageSize=15&pageNo=1",
+        "XF_Goodlist": "/housingestate/news/good/list?pageSize=15&pageNo=1",
+        "XF_EstateList": "/estate/xf/list",
+        "XF_HouseDetail": "/housingestate/estate/53101?modules=all",
+        "XF_Recommend": "/housingestate/estate/recommend?lng=126.921189&lat=41.817166&estateId=53101",
+        "XF_Flow": "/housingestate/estate/53101/dynamicFlow?currentLiveCnt=0&pageSize=15&pageNo=1",
+        "XF_myreferal": "/housingestate/estate/53101?modules=my.referral"
+    },
+    "ReAndGui": {
+        "re_rule": "/distribution/custs/referral/rule?projectIds=10636,20849",
+        "batchreferral": "/distribution/custs/referral/batch",
+        "guide": "/distribution/custs/guide/3136475/",
+        "upcert": "/distribution/custs/guide/cert/3136475/"
+    }
+  }
+}
