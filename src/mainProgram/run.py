@@ -21,10 +21,10 @@ import socket
 import time
 
 
-# 获取本机计算机名称
-hostname = socket.gethostname()
-# 获取本机ip
-ip = socket.gethostbyname(hostname)
+# # 获取本机计算机名称
+# hostname = socket.gethostname()
+# # 获取本机ip
+# ip = socket.gethostbyname(hostname)
 
 
 def get_project_robot_URL(projectName=None):
@@ -49,7 +49,7 @@ def start(cases_dir=None):
 		# 这里需要补充测试组机器人URL
 		robot_url = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa145342159f8fd0065fc4'
 		suites_dir = root_path + f'{sep}src{sep}testProject'
-		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir)
+		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
 
 	reportDirName = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + 'output' + sep + 'report' + sep
 
