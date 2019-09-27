@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8fa1bdd-b338-41a0-89d4-18a9fbf5f148" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mainProgram/run.py" afterPath="$PROJECT_DIR$/src/mainProgram/run.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +24,18 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mainProgram/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="789">
-              <caret line="96" column="22" lean-forward="true" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+            <state relative-caret-position="661">
+              <caret line="88" column="52" lean-forward="false" selection-start-line="88" selection-start-column="52" selection-end-line="88" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="713">
+              <caret line="47" column="6" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -55,7 +66,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1104">
               <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
-              <folding />
+              <folding>
+                <marker date="1569574654632" expanded="true" signature="820:9153" ph="..." />
+                <marker date="1569574654632" expanded="true" signature="1674:9153" ph="..." />
+                <marker date="1569574654632" expanded="true" signature="6582:9153" ph="..." />
+                <marker date="1569574654632" expanded="true" signature="7835:8365" ph="..." />
+                <marker date="1569574654632" expanded="true" signature="7972:8255" ph="..." />
+                <marker date="1569574654632" expanded="true" signature="8027:8255" ph="..." />
+                <marker date="1569574654632" expanded="true" signature="8134:8226" ph="..." />
+                <marker date="1569574654632" expanded="true" signature="8877:9013" ph="..." />
+                <marker date="1569574654632" expanded="true" signature="9041:9118" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -238,39 +259,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mainProgram" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Online-Inspection-New" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Online-Inspection-New" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="output" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Online-Inspection-New" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Online-Inspection-New" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -648,13 +637,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/testProject/test_shop/Other_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2900">
-          <caret line="122" column="123" lean-forward="false" selection-start-line="122" selection-start-column="123" selection-end-line="122" selection-end-column="123" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/output/report/report_2019_09_25-11_45_03/2019_09_25-11_45_03_result.html" />
     <entry file="file://$PROJECT_DIR$/src/testProject/test_shop/Project_test.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -872,7 +854,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1104">
           <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
-          <folding />
+          <folding>
+            <marker date="1569574654632" expanded="true" signature="820:9153" ph="..." />
+            <marker date="1569574654632" expanded="true" signature="1674:9153" ph="..." />
+            <marker date="1569574654632" expanded="true" signature="6582:9153" ph="..." />
+            <marker date="1569574654632" expanded="true" signature="7835:8365" ph="..." />
+            <marker date="1569574654632" expanded="true" signature="7972:8255" ph="..." />
+            <marker date="1569574654632" expanded="true" signature="8027:8255" ph="..." />
+            <marker date="1569574654632" expanded="true" signature="8134:8226" ph="..." />
+            <marker date="1569574654632" expanded="true" signature="8877:9013" ph="..." />
+            <marker date="1569574654632" expanded="true" signature="9041:9118" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -906,10 +898,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="47" column="6" lean-forward="false" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/mainProgram/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="789">
-          <caret line="96" column="22" lean-forward="true" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+        <state relative-caret-position="661">
+          <caret line="88" column="52" lean-forward="false" selection-start-line="88" selection-start-column="52" selection-end-line="88" selection-end-column="52" />
           <folding />
         </state>
       </provider>
