@@ -45,7 +45,7 @@ class LoginTest(RunTest):
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
     @ddt.data(*a.get_data_by_api(fieldname, "Login"))
-    def test_LoginList(self, value):
+    def test_Login(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
