@@ -1,6 +1,6 @@
 # -*- coding=utf-8 -*-
-# Author: Yuan Luo
-# @Date : 2019-09-24
+# Author: BoLin Chen
+# @Date : 2019-08-08
 
 
 import os
@@ -10,18 +10,20 @@ import ddt
 import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
-count = 0
+import urllib3
 
+count = 0
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 @ddt.ddt
 class LoginTest(RunTest):
-    """多多卖新房小程序相关用例"""
+    """登录模块"""
 
-    # 获取当前文件路径
-    project = os.path.dirname(__file__)[-11:]
-    # 读取xls中对应的列
-    a = ReadData(project,"miniprogram")
-    # 通过类名获取模块名
+    # 通过文件名夹获取project参数的值
+    project = os.path.dirname(__file__)[-4:]
+    # 读取文件实例化
+    a = ReadData(project, 'ddmf')
+    # 通过类名获取fieldname的值
     fieldname = sys._getframe().f_code.co_name[:-4]
 
     @classmethod
@@ -36,6 +38,9 @@ class LoginTest(RunTest):
         cls.expect_num = cls.a.get_num_name("预期结果")
         cls.isSkip_num = cls.a.get_num_name("是否跳过该用例")
         cls.relateData_num = cls.a.get_num_name("接口关联参数")
+        t = time.time()
+        cls.timestamp = str(round(t * 1000))
+        sss["timestamp"] = cls.timestamp
 
     def setUp(self):
         globals()['count'] += 1
@@ -44,17 +49,22 @@ class LoginTest(RunTest):
     def tearDown(self):
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
-    @ddt.data(*a.get_data_by_api(fieldname, "Login"))
-    def test_Login(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "ByPassword"))
+    def test_ByPassword(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
-        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
-        # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
+        uri = self.a.get_apiPath(self.fieldname, self.apiName)
+        url = self.a.get_domains()[env] + uri
+        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
+        str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
+        value.append(str_sign_list)
+        # 调起请求
+        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+                            self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
+        # print(result.cookies)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
             self.logger.info("测试结果         :测试通过！")
@@ -63,7 +73,7 @@ class LoginTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"小程序登录异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
             raise err
 
 
