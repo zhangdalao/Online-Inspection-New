@@ -19,7 +19,8 @@ class SignKey:
         self.req = req
 
     def sign(self):
-        jar_path = f"{root_path}{sep}src{sep}common{sep}fdd-1.1-SNAPSHOT-jar-with-dependencies.jar"
+        # jar_path = f"{root_path}{sep}src{sep}common{sep}fdd-1.1-SNAPSHOT-jar-with-dependencies.jar"
+        jar_path = (r"../common/fdd-1.1-SNAPSHOT-jar-with-dependencies.jar")
         if not jpype.isJVMStarted():
             # startJVM：本地调试使用第一个，提交代码需要注释第一个，使用第二个绝对路径的（crontab下不识别java的默认路径）
             startJVM(jpype.getDefaultJVMPath(), "-ea", "-Djava.class.path=%s" % jar_path)
