@@ -8,6 +8,7 @@
 import requests
 
 
+
 class MethodException(Exception):
 	pass
 
@@ -27,17 +28,21 @@ class RunMethod(MethodException):
         :param data:          请求体数据，从而获取到请求体参数，默认 None
         :param kw:            其他参数
         :return:        Response object，type requests.Response
-        """
-		
+        # """
+		#
 		method_list1 = ["get", "delete", "head", "options"]
 		method_list2 = ["post", "put", "patch"]
+
 		try:
 			if method and headers:
 				if method.lower() in method_list1:
 					res = requests.request(method.lower(), url, params=para, headers=headers, **kw)
 				elif method.lower() in method_list2:
 					if "application/json" in str(headers).lower():
-						res = requests.request(method.lower(), url, params=para, json=data, headers=headers, **kw)
+						if not data:
+							res = requests.request(method.lower(), url, params=para, headers=headers, **kw)     #post方法添加兼容json不传的情况
+						else:
+							res = requests.request(method.lower(), url, params=para, json=data, headers=headers, **kw)
 					else:
 						res = requests.request(method.lower(), url, params=para, data=data, headers=headers, **kw)
 				else:
@@ -46,3 +51,22 @@ class RunMethod(MethodException):
 				return res
 		except Exception as err:
 			raise "接口请求数据获取失败！" + str(err)
+
+
+		# try:
+		# 	if method and headers:
+		# 		if method.lower() in method_list1:
+		# 			res = requests.request(method.lower(), url, params=para, headers=headers, **kw)
+		# 		elif method.lower() in method_list2:
+		# 			if "application/json" in str(headers).lower():
+		# 				print("=============")
+		# 				print(type(data))
+		# 				res = requests.request(method.lower(), url, params=para, json=data, headers=headers, **kw)
+		# 			else:
+		# 				res = requests.request(method.lower(), url, params=para, data=data, headers=headers, **kw)
+		# 		else:
+		# 			print("Do Not Support Http Method!Please check the args of requests")
+		# 			raise MethodException
+		# 		return res
+		# except Exception as err:
+		# 	raise "接口请求数据获取失败！" + str(err)

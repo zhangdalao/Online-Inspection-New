@@ -6,6 +6,7 @@
 import requests,re
 import time
 
+
 # 由于统一认证安全方面考量限制，登录用户名手机号需要是：13058019302，才可以调用该方法使用
 def get_smsCode(env, send_code_url, method, **kw):
 	"""
@@ -47,4 +48,6 @@ if __name__ == '__main__':
 	# print(r.json())
 	# get_smsCode("prod")
 	a = get_smsCode("prod", 'https://as-web.fangdd.com/data/sendSmsCode', 'post', json=[{"mobile":"13058019302","device":"sid.13058019302"}, {"systemSource":"DD_COMMERCIAL"}])
+	a = get_smsCode("prod", 'https://jr.fangdd.com/jgj/api/user/smgsend', 'post',
+					json={"mobile": "13058019302", "type": 1})
 	print(a)
