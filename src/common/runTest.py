@@ -11,12 +11,13 @@ import time
 import re
 import json
 from src.common.sign import SignKey
+import selenium
 
 
 sss = {}
 
 
-# 定义断言函数
+# 定义断言函数(严格断言，字段类型和值必须一致)
 def checkOut(res, exp) -> bool:
 	"""
 	:param res:        接口返回结果
@@ -27,6 +28,28 @@ def checkOut(res, exp) -> bool:
 		value = [_key, exp[_key]]
 		check = jsonpath(res, expr=f"$..{value[0]}")
 		if len(check) == 1 and check[0] == value[1]:
+			pass
+		elif len(check) > 1:
+			check.__contains__(value[1])
+			pass
+		else:
+			# print(f"断言失败！！！响应体中{_key}该字段的值为:{check[0]}，而预期结果为:{exp[_key]}")
+			return False
+	# print("断言成功！")
+	return True
+
+
+# 定义断言函数(模糊断言，字段类型不做要求，值必须相等)
+def checkOut_withoutType(res, exp) -> bool:
+	"""
+	:param res:        接口返回结果
+	:param exp:        接口预期结果
+	:return:           用于预期结果和实际结果断言，返回bool值
+	"""
+	for _key in exp:
+		value = [_key, exp[_key]]
+		check = jsonpath(res, expr=f"$..{value[0]}")
+		if len(check) == 1:
 			pass
 		elif len(check) > 1:
 			check.__contains__(value[1])
@@ -53,7 +76,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		self.method = RunMethod()
 		
 		self.desc = ""  # 用例描述
-		self.case_id = ""  # 用例id
+		self.api_name = ""  # 用例名称 api_name
 		self.body = None  # 因为存在接口数据依赖原因，所以这里会单独申明body
 		self.req_msg = {'request': {}, '\nresponse': {}}  # 用例基本信息
 	
@@ -72,7 +95,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		获取用例基本信息
 		:return: desc
 		"""
-		return self.desc
+		return self.api_name, self.desc
 	
 	def start(self, isSkip_num, apiName_num, url, method_num, headers_num, para_num, data_num, desc_num, isRelate_num,
 			  expect_num, *args, **kw):
@@ -92,16 +115,15 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		"""
 		
 		isSkip = args[0][isSkip_num]
-		api_name = args[0][apiName_num]
+		self.api_name = args[0][apiName_num]
 		method = args[0][method_num]
-		params = args[0][para_num]
 		isRelate = args[0][isRelate_num]
 		self.desc = args[0][desc_num]
 		# 这里需要保证 headers/params/body/断言结果 一定是字符串格式
-		self.headers = str(args[0][headers_num])
-		self.params = str(args[0][para_num])
-		self.body = str(args[0][data_num])
-		self.expect = str(args[0][expect_num])
+		self.headers = str(args[0][headers_num]).strip()
+		self.params = str(args[0][para_num]).strip()
+		self.body = str(args[0][data_num]).strip()
+		self.expect = str(args[0][expect_num]).strip()
 		time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 		
 		# 这里定义的 变量sss 作为全局变量在后面的
@@ -120,7 +142,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 					self.logger.debug(f"***全局变量中缺少字段: {i[1:-1]}***")
 		try:
 			# log日志中写入用例执行之前的一些相关数据
-			self.logger.debug(f"用例名称         :{api_name}")
+			self.logger.debug(f"用例名称         :{self.api_name}")
 			self.logger.debug(f"用例描述         :{self.desc}")
 			self.logger.debug(f"用例执行时间      :{time_str}")
 			self.logger.debug(' 请求信息 '.center(80, '-'))
@@ -195,8 +217,8 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				self.logger.debug("数据依赖类型      :无需依赖只提供依赖数据")
 			self.logger.debug(f"header          :{self.headers}")
 			self.logger.debug(f"请求体           :{self.body}")
-			self.logger.debug(f"请求参数         :{params}")
-			response = self.method.run_main(url, method, self.headers, params, self.body, **kw)
+			self.logger.debug(f"请求参数         :{self.params}")
+			response = self.method.run_main(url, method, self.headers, self.params, self.body, **kw)
 			# write_relate_json(data=res, relate_config=relateData)
 			try:
 				self.res = response.json()
