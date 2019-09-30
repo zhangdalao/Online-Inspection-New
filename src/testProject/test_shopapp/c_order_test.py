@@ -47,7 +47,7 @@ class OrderTest(RunTest):
         value.append(str_sign_list)
         print(value)
         # # # 调起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
         # #
         # #
         try:
@@ -79,7 +79,7 @@ class OrderTest(RunTest):
         value.append(str_sign_list)
         print(value)
         # # # 调起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
         # #
         # #
         try:
@@ -111,7 +111,7 @@ class OrderTest(RunTest):
         # # # 调起请求
         print("===================================")
         print(value[self.desc_num])
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
         # #
         # #
         try:
@@ -141,7 +141,7 @@ class OrderTest(RunTest):
         value.append(str_sign_list)
         print(value)
         # # # 调起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
         # #
         # #
         try:

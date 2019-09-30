@@ -44,13 +44,14 @@ class LoginTest(RunTest):
         #  获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
+        print(sss["versionName"])
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri   #a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
             self.logger.info("测试结果         :测试通过！")
