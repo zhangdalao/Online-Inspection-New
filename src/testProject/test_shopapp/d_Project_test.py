@@ -100,10 +100,38 @@ class ProjectTest(RunTest):
             send_ding(robot_url, mobile, content=f"项目详情异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
-    @ddt.data(*a.get_data_by_api(fieldname, "Wechat"))
-    def test_Wechat(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "WechatGroup"))
+    def test1_WechatGroup(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        uri = self.a.get_apiPath(self.fieldname, self.apiName)
+        url = self.a.get_domains()[env] + uri
+        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
+        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
+        value.append(str_sign_list)
+        # 调用接口发起请求
+        print(self.headers_num)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
+                         timeout=10)
+        try:
+            self.assertEqual(True, checkOut(self.res, self.expect))
+            self.logger.info("测试结果         :测试通过！")
+        except Exception as err:
+            self.logger.error("测试结果         :测试失败！")
+            json_dict = self.a.json_data[self.project]["robot_data"]
+            robot_url = json_dict["robot_url"]
+            mobile = json_dict["mobile"]
+            send_ding(robot_url, mobile, content=f"项目微信群异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            raise err
+
+    @ddt.data(*a.get_data_by_api(fieldname, "Wechat"))
+    def test2_Wechat(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -131,9 +159,9 @@ class ProjectTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "WechatEdit"))
-    def test_WechatEdit(self, value):
+    def test3_WechatEdit(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -156,6 +184,34 @@ class ProjectTest(RunTest):
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
             send_ding(robot_url, mobile, content=f"项目微信群编辑异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            raise err
+
+    @ddt.data(*a.get_data_by_api(fieldname, "WechatRemove"))
+    def test3_WechatRemove(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[6:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        uri = self.a.get_apiPath(self.fieldname, self.apiName) + str(sss["wechatGroupId"])
+        url = self.a.get_domains()[env] + uri
+        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
+        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
+        value.append(str_sign_list)
+        # 调用接口发起请求
+        print(self.headers_num)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
+                         timeout=10)
+        try:
+            self.assertEqual(True, checkOut(self.res, self.expect))
+            self.logger.info("测试结果         :测试通过！")
+        except Exception as err:
+            self.logger.error("测试结果         :测试失败！")
+            json_dict = self.a.json_data[self.project]["robot_data"]
+            robot_url = json_dict["robot_url"]
+            mobile = json_dict["mobile"]
+            send_ding(robot_url, mobile, content=f"项目微信群删除异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectShare"))
@@ -299,9 +355,9 @@ class ProjectTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "LiveAdd"))
-    def test_LiveAdd(self, value):
+    def test1_LiveAdd(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -327,9 +383,9 @@ class ProjectTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "LiveList"))
-    def test_LiveList(self, value):
+    def test2_LiveList(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -357,9 +413,9 @@ class ProjectTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "LiveRemove"))
-    def test_LiveRemove(self, value):
+    def test3_LiveRemove(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -385,9 +441,9 @@ class ProjectTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "VideoAdd"))
-    def test_VideoAdd(self, value):
+    def test1_VideoAdd(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -413,9 +469,9 @@ class ProjectTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "VideoList"))
-    def test_VideoList(self, value):
+    def test2_VideoList(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -443,9 +499,9 @@ class ProjectTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "VideoRemove"))
-    def test_VideoRemove(self, value):
+    def test3_VideoRemove(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -471,9 +527,9 @@ class ProjectTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "VideoDetail"))
-    def test_VideoDetail(self, value):
+    def test4_VideoDetail(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url

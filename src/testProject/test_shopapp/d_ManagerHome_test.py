@@ -269,9 +269,9 @@ class ManagerHomeTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ReferralList"))
-    def test_ReferralList(self, value):
+    def test1_ReferralList(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -287,6 +287,8 @@ class ManagerHomeTest(RunTest):
                          timeout=10)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
+            sss["referralIds"] = res.json()['data']['pageData'][0]['referralId']
+            print(sss["referralIds"])
             self.logger.info("测试结果         :测试通过！")
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
@@ -297,9 +299,9 @@ class ManagerHomeTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ReferralConfirm"))
-    def test_ReferralConfirm(self, value):
+    def test2_ReferralConfirm(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -325,9 +327,9 @@ class ManagerHomeTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "CustomerDetail"))
-    def test_CustomerDetail(self, value):
+    def test3_CustomerDetail(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -353,9 +355,9 @@ class ManagerHomeTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "GuideList"))
-    def test_GuideList(self, value):
+    def test1_GuideList(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -371,6 +373,8 @@ class ManagerHomeTest(RunTest):
                          timeout=10)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
+            sss["guideId"] = res.json()['data']['pageData'][0]['guideId']
+            print(sss["guideId"])
             self.logger.info("测试结果         :测试通过！")
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
@@ -381,9 +385,9 @@ class ManagerHomeTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "GuideDetail"))
-    def test_GuideDetail(self, value):
+    def test2_GuideDetail(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -409,13 +413,13 @@ class ManagerHomeTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "GuideConfirm"))
-    def test_GuideConfirm(self, value):
+    def test3_GuideConfirm(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
+        uri = self.a.get_apiPath(self.fieldname, self.apiName)+str(sss["guideId"])+"/confirm"
         url = self.a.get_domains()[env] + uri
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]

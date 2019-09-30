@@ -39,13 +39,15 @@
       "CustomerDetail":"/customer/ddxf/customer/detail?estateId=53101&customerId=8648042&customerMobile=19923923414",
       "GuideList":"/customer/ddxf/guide/list?branchId=3&pageNo=1&confirmStatus=0&pageSize=20&estateIds=53101",
       "GuideDetail":"/customer/ddxf/guide/12276167",
-      "GuideConfirm":"/customer/ddxf/guide/12276167/confirm"
+      "GuideConfirm":"/customer/ddxf/guide/"
     },
     "Project":{
       "List":"/ddxf/project?dataType=3&date=1561910400000&onlineStatus=2&pageNo=0&pageSize=5&sortOrder=3",
       "Detail":"/ddxf/project/22987",
+      "WechatGroup":"/app/personal/ddxf/project/22987/wechatGroup/validWcg",
       "Wechat":"/app/personal/ddxf/project/22987/wechatGroup/list",
       "WechatEdit":"/app/personal/ddxf/project/22987/wechatGroup/",
+      "WechatRemove":"/app/personal/ddxf/project/22987/wechatGroup/",
       "ProjectShare":"/project/ddxf/share/22987?shareSource=1",
       "Projecttemplate":"/project/ddxf/share/project/22987/poster/templates",
       "CustomerList":"/customer/ddxf/customer?houseId=2029540&branchId=3&pageNo=0&pageSize=20",
