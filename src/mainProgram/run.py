@@ -94,7 +94,6 @@ if __name__ == '__main__':
 	# get_project_robot_URL()
 	# start('test_saas_rent')
 	# print(os.getcwd())
-	# start("test_ddmf")
 	start()
 
 # # TODO  根据不同项目启动

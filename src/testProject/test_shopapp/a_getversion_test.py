@@ -46,8 +46,6 @@ class GetVersionTest(RunTest):
         # 通过环境参数获得接口url
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri   #a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
-        print("++++++++")
-        print(uri)
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)

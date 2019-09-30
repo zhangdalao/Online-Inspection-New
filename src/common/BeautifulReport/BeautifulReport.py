@@ -337,16 +337,18 @@ class ReportTestResult(unittest.TestResult):
         :return: (class_name, method_name, method_doc) -> tuple
         """
         class_name = test.__class__.__qualname__
-        method_name = test.__dict__['_testMethodName']
+        # method_name = test.__dict__['_testMethodName']
         # method_doc = test.__dict__['_testMethodDoc']
         
         # ============这里修改源码=============
         # 修改实现，获取case_id、desc等case信息
         # print(type(test))  # <class 'events.Events'>
         info = RunTest.getCasePro(test)
-        # method_name = info[0]
-        method_doc = info
+        # print('-------info--------', info)
+        method_name = info[0]
+        method_doc = info[1]
         # print(RunTest.getCasePro(test))  # 查看当前test的属性
+        # return class_name, method_name, method_doc
         return class_name, method_name, method_doc
 
 
