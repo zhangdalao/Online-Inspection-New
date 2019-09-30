@@ -261,6 +261,8 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				# 对headers中参数化的字段进行激活赋值
 				for m in re_list_params:
 					self.params = self.params.replace(m, "f'{data[\"%s\"]}'" % (m[1:-1]))
+					# print('================================')
+					# print(self.params, type(self.params))
 			if re_list_body:
 				# 对请求体中参数化的字段进行激活赋值
 				for n in re_list_body:
@@ -270,11 +272,15 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				for o in re_list_expect:
 					self.expect = self.expect.replace(o, "f'{data[\"%s\"]}'" % (o[1:-1]))
 			data = sss
+			# print("===============================")
+			# print(data)
 			# 先对 body/params 和预期结果做类型转换
 			if self.body:
 				self.body = eval(self.body)
 			if self.params:
 				self.params = eval(self.params)
+				# print('================================')
+				# print(self.params, type(self.params))
 			if self.expect:
 				self.expect = eval(self.expect)
 			if type(args[0][-1]) == list:

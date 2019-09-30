@@ -10,7 +10,7 @@
       "prod" : "https://api-realtor.fangdd.com"
     },
     "Login":{
-      "Login":"/user/users/login"
+      "ByPassword":"/user/users/login"
     },
     "Home":{
       "StoreHome":"/housingestate/pm/store/home?projectManagerId=408899",
