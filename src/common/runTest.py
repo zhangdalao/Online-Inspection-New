@@ -39,26 +39,26 @@ def checkOut(res, exp) -> bool:
 	return True
 
 
-# 定义断言函数(模糊断言，字段类型不做要求，值必须相等)
-def checkOut_withoutType(res, exp) -> bool:
-	"""
-	:param res:        接口返回结果
-	:param exp:        接口预期结果
-	:return:           用于预期结果和实际结果断言，返回bool值
-	"""
-	for _key in exp:
-		value = [_key, exp[_key]]
-		check = jsonpath(res, expr=f"$..{value[0]}")
-		if len(check) == 1:
-			pass
-		elif len(check) > 1:
-			check.__contains__(value[1])
-			pass
-		else:
-			# print(f"断言失败！！！响应体中{_key}该字段的值为:{check[0]}，而预期结果为:{exp[_key]}")
-			return False
-	# print("断言成功！")
-	return True
+# # 定义断言函数(模糊断言，字段类型不做要求，值必须相等)
+# def checkOut_withoutType(res, exp) -> bool:
+# 	"""
+# 	:param res:        接口返回结果
+# 	:param exp:        接口预期结果
+# 	:return:           用于预期结果和实际结果断言，返回bool值
+# 	"""
+# 	for _key in exp:
+# 		value = [_key, exp[_key]]
+# 		check = jsonpath(res, expr=f"$..{value[0]}")
+# 		if len(check) == 1:
+# 			pass
+# 		elif len(check) > 1:
+# 			check.__contains__(value[1])
+# 			pass
+# 		else:
+# 			# print(f"断言失败！！！响应体中{_key}该字段的值为:{check[0]}，而预期结果为:{exp[_key]}")
+# 			return False
+# 	# print("断言成功！")
+# 	return True
 
 
 class RunTest(unittest.TestCase, unittest.SkipTest):
@@ -320,3 +320,5 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				self.logger.error(str(err))
 			# print(sss)
 			return response
+		
+# TODO  需要把断言封装详细一点，类型与值做区分
