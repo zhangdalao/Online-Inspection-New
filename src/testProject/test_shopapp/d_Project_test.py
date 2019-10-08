@@ -379,7 +379,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目新增直播异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"新增楼盘直播异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "LiveList"))
@@ -465,7 +465,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目新增视频异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"新增楼盘视频异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "VideoList"))
