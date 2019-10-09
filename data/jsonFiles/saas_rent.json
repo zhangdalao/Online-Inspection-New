@@ -39,7 +39,10 @@
       "get_RentEstateList": "/saas/getRentEstateList"
     },
     "Rent_Trade": {
-      "get_RentTradeList": "/saas/getRentTradeList"
+      "get_RentTradeList": "/saas/getRentTradeList",
+      "create_RentTrade": "/saas/createOrEditRentTrade",
+      "confirm_RentAchievement":"/saas/confirmRentAchievement",
+      "get_RentTradeDetail": "/saas/getRentTradeDetail"
     }
   }
 }
