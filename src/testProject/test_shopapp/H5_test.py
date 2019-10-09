@@ -1,6 +1,6 @@
 # -*- coding=utf-8 -*-
 # Author: Yuan Luo
-# @Date : 2019-09-30
+# @Date : 2019-10-09
 
 
 import os
@@ -15,7 +15,7 @@ count = 0
 
 
 @ddt.ddt
-class StoreTest(RunTest):
+class H5Test(RunTest):
     """微信推盘相关用例"""
 
     project = os.path.dirname(__file__)[-7:]
@@ -45,45 +45,14 @@ class StoreTest(RunTest):
     def tearDown(self):
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
-    @ddt.data(*a.get_data_by_api(fieldname, "Detail"))
-    def test_Detail(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "StoreRange"))
+    def test_StoreRange(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
-        # 调用接口发起请求
-        print(self.headers_num)
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False, timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
-            raise err
-
-    @ddt.data(*a.get_data_by_api(fieldname, "Data"))
-    def test_Data(self, value):
-        # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
-        # 获取测试环境参数
-        env = value[self.env_num]
-        # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
         print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
@@ -97,133 +66,17 @@ class StoreTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘效果异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"微信排行榜异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
-    @ddt.data(*a.get_data_by_api(fieldname, "ProjectList"))
-    def test_ProjectList(self, value):
-        # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
-        # 获取测试环境参数
-        env = value[self.env_num]
-        # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
-        # 调用接口发起请求
-        print(self.headers_num)
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘项目列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
-            raise err
-
-    @ddt.data(*a.get_data_by_api(fieldname, "EstateShare"))
-    def test_EstateShare(self, value):
-        # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
-        # 获取测试环境参数
-        env = value[self.env_num]
-        # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
-        # 调用接口发起请求
-        print(self.headers_num)
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘推广楼盘异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
-            raise err
-
-    @ddt.data(*a.get_data_by_api(fieldname, "CouponShare"))
-    def test_CouponShare(self, value):
-        # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
-        # 获取测试环境参数
-        env = value[self.env_num]
-        # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
-        # 调用接口发起请求
-        print(self.headers_num)
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘分享奖券异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
-            raise err
-
-    @ddt.data(*a.get_data_by_api(fieldname, "PersonalInfoUpdate"))
-    def test_PersonalInfoUpdate(self, value):
-        # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
-        # 获取测试环境参数
-        env = value[self.env_num]
-        # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
-        # 调用接口发起请求
-        print(self.headers_num)
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘编辑个人名片异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
-            raise err
-
-    @ddt.data(*a.get_data_by_api(fieldname, "ProjectOptions"))
-    def test1_ProjectOptions(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "LayoutList"))
+    def test1_LayoutList(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
         print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
@@ -237,21 +90,17 @@ class StoreTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘-添加楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"户型列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
-    @ddt.data(*a.get_data_by_api(fieldname, "ProjectAdd"))
-    def test2_ProjectAdd(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "LayoutDetail"))
+    def test2_LayoutDetail(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
         print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
@@ -265,21 +114,17 @@ class StoreTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘-添加楼盘异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"户型详情异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
-    @ddt.data(*a.get_data_by_api(fieldname, "ProjectEdit"))
-    def test3_ProjectEdit(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "LayoutEdit"))
+    def test3_LayoutEdit(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
         print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
@@ -293,21 +138,17 @@ class StoreTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘-编辑楼盘亮点异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"编辑户型异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
-    @ddt.data(*a.get_data_by_api(fieldname, "ProjectDelete"))
-    def test4_ProjectDelete(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "QuantityDtail"))
+    def test1_QuantityDtail(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
         print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
@@ -321,7 +162,151 @@ class StoreTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘-移除楼盘异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"查询项目货量信息异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            raise err
+
+    @ddt.data(*a.get_data_by_api(fieldname, "QuantityEdit"))
+    def test2_QuantityEdit(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[6:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        print(self.headers_num)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
+                         timeout=10)
+        try:
+            self.assertEqual(True, checkOut(self.res, self.expect))
+            self.logger.info("测试结果         :测试通过！")
+        except Exception as err:
+            self.logger.error("测试结果         :测试失败！")
+            json_dict = self.a.json_data[self.project]["robot_data"]
+            robot_url = json_dict["robot_url"]
+            mobile = json_dict["mobile"]
+            send_ding(robot_url, mobile, content=f"编辑项目货量信息异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            raise err
+
+    @ddt.data(*a.get_data_by_api(fieldname, "ClueList"))
+    def test_ClueList(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        print(self.headers_num)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
+                         timeout=10)
+        try:
+            self.assertEqual(True, checkOut(self.res, self.expect))
+            self.logger.info("测试结果         :测试通过！")
+        except Exception as err:
+            self.logger.error("测试结果         :测试失败！")
+            json_dict = self.a.json_data[self.project]["robot_data"]
+            robot_url = json_dict["robot_url"]
+            mobile = json_dict["mobile"]
+            send_ding(robot_url, mobile, content=f"商户线索列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            raise err
+
+    @ddt.data(*a.get_data_by_api(fieldname, "ClueAdd"))
+    def test_ClueAdd(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        print(self.headers_num)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
+                         timeout=10)
+        try:
+            self.assertEqual(True, checkOut(self.res, self.expect))
+            self.logger.info("测试结果         :测试通过！")
+        except Exception as err:
+            self.logger.error("测试结果         :测试失败！")
+            json_dict = self.a.json_data[self.project]["robot_data"]
+            robot_url = json_dict["robot_url"]
+            mobile = json_dict["mobile"]
+            send_ding(robot_url, mobile, content=f"新增商户线索异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            raise err
+
+    @ddt.data(*a.get_data_by_api(fieldname, "ClueOperationData"))
+    def test_ClueOperationData(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        print(self.headers_num)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
+                         timeout=10)
+        try:
+            self.assertEqual(True, checkOut(self.res, self.expect))
+            self.logger.info("测试结果         :测试通过！")
+        except Exception as err:
+            self.logger.error("测试结果         :测试失败！")
+            json_dict = self.a.json_data[self.project]["robot_data"]
+            robot_url = json_dict["robot_url"]
+            mobile = json_dict["mobile"]
+            send_ding(robot_url, mobile, content=f"查询运营顶部数据异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            raise err
+
+    @ddt.data(*a.get_data_by_api(fieldname, "ClueRealtorList"))
+    def test_ClueRealtorList(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        print(self.headers_num)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
+                         timeout=10)
+        try:
+            self.assertEqual(True, checkOut(self.res, self.expect))
+            self.logger.info("测试结果         :测试通过！")
+        except Exception as err:
+            self.logger.error("测试结果         :测试失败！")
+            json_dict = self.a.json_data[self.project]["robot_data"]
+            robot_url = json_dict["robot_url"]
+            mobile = json_dict["mobile"]
+            send_ding(robot_url, mobile, content=f"查询商户运营列表数据异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            raise err
+
+    @ddt.data(*a.get_data_by_api(fieldname, "AddRealtorRecord"))
+    def test_AddRealtorRecord(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        print(self.headers_num)
+        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
+                         timeout=10)
+        try:
+            self.assertEqual(True, checkOut(self.res, self.expect))
+            self.logger.info("测试结果         :测试通过！")
+        except Exception as err:
+            self.logger.error("测试结果         :测试失败！")
+            json_dict = self.a.json_data[self.project]["robot_data"]
+            robot_url = json_dict["robot_url"]
+            mobile = json_dict["mobile"]
+            send_ding(robot_url, mobile, content=f"新增回访记录异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
 

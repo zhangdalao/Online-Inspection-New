@@ -2,7 +2,7 @@
   "shopapp":{
     "robot_data":{
       "robot_url":"",
-      "mobile":""
+      "mobile":[""]
     },
     "domain":{
       "test": "https://ddxf.fangdd.net",
@@ -35,7 +35,7 @@
       "ReceiptList":"/api/projectManager/project/receipt?branchId=3",
       "CompanyData":"/ddxf/index/data",
       "ReferralList":"/customer/ddxf/referral/list?branchId=3&pageNo=1&pageSize=20&dealStatus=0&estateIds=53101",
-      "ReferralConfirm":"/customer/ddxf/referral/deal",
+      "ReferralConfirm":"/app/customer/ddxf/referral/deal",
       "CustomerDetail":"/customer/ddxf/customer/detail?estateId=53101&customerId=8648042&customerMobile=19923923414",
       "GuideList":"/customer/ddxf/guide/list?branchId=3&pageNo=1&confirmStatus=0&pageSize=20&estateIds=53101",
       "GuideDetail":"/customer/ddxf/guide/12276167",
@@ -59,23 +59,76 @@
       "VideoAdd":"/app/project/project/video",
       "VideoList":"/project/project/video/list?projectId=22987",
       "VideoRemove":"/app/project/project/video/delete/",
-      "VideoDetail":"/project/project/22987/video/843",
+      "VideoDetail":"/project/project/22987/video/",
+      "HouseConfig":"/app/project/config/filter/1",
+      "HousebuildingNos":"/app/project/project/house/22987/buildingNos",
+      "Household":"/app/project/stock/22987/household?unitNo=1%E5%8D%95%E5%85%83&buildingId=50363",
+      "HouseholdEdit":"/app/project/project/house/edit",
+      "ReceivableTrend":"/app/ddxf/report/receivable/trend?branchId=3&startTime=1523932809278&endTime=1570588809278",
+      "ReceivableSummary":"/app/ddxf/report/receivable/summary?branchId=3&time=1570588809280",
+      "UnreceiptSummary":"/app/ddxf/report/unreceipt/summary?branchId=3",
+      "ReceiptSummary":"/app/ddxf/report/receipt/summary?branchId=3&time=1570588809287",
+      "ProjectMonData":"/app/ddxf/report/house/summary?branchId=3&pageNo=0&pageSize=10&startTime=1569859200809&endTime=1572451200809",
+      "ProjectWeekData":"/app/ddxf/report/house/summary?branchId=3&pageNo=0&pageSize=10&startTime=1570377600322&endTime=1570896000322",
+      "ProjectDayData":"/app/ddxf/report/house/summary?branchId=3&pageNo=0&pageSize=10&startTime=1570590953843&endTime=1570590953843",
       "Data":"/ddxf/report/operation/data?dataType=3&date=1561910400000&estateId=2029540&pageNo=0&pageSize=10",
+      "OperationDayData":"/app/ddxf/report/operation/data?date=1570592088521&branchId=3&dataType=1",
+      "OperationWeekData":"/app/ddxf/report/operation/data?date=1570377600655&branchId=3&dataType=2",
+      "OperationMonData":"/app/ddxf/report/operation/data?date=1569859200650&branchId=3&dataType=3",
+      "OperationMonDataRer":"/app/customer/ddxf/referral/list?branchId=3&pageNo=1&pageSize=20&startTime=1569859200598&endTime=1572451200598&dealStatus=0",
+      "OperationMonDataGuide":"/app/customer/ddxf/guide/list?branchId=3&pageNo=1&confirmStatus=0&pageSize=20&startTime=1569859200598&endTime=1572451200598",
+      "OperationMonDataPurch":"/app/ddxf/order/purchase?branchId=3&pageNo=0&orderStatus=0&pageSize=10&startTime=1569859200598&endTime=1572451200598",
+      "OperationMonDataBook":"/app/ddxf/order/booking?branchId=3&pageNo=0&orderStatus=0&purchaseStatus=0&pageSize=10&startTime=1569859200598&endTime=1572451200598",
+      "FinanceDayData":"/app/ddxf/report/finance/summary?branchId=3&startTime=1570592088521&targetType=1&endTime=1570592088521&targetMonth=1570592443159",
+      "FinanceWeekData":"/app/ddxf/report/finance/summary?branchId=3&startTime=1570377600361&targetType=1&endTime=1570896000361&targetMonth=1570592524363",
+      "FinanceMonData":"/app/ddxf/report/finance/summary?branchId=3&startTime=1569859200376&targetType=1&endTime=1572451200377&targetMonth=1570592611379",
+      "ChannelWeekData":"/app/ddxf/report/channel/summary?branchId=3&startTime=1570377600641&endTime=1570896000641&eventType=1",
+      "ProjectDaySum":"/app/ddxf/report/project/summary?branchId=3&pageNo=0&pageSize=10&startTime=1570592088524&endTime=1570592088524",
+      "ProjectWeekSum":"/app/ddxf/report/project/summary?branchId=3&pageNo=0&pageSize=10&startTime=1570377600321&endTime=1570896000321",
+      "ProjectMonSum":"/app/ddxf/report/project/summary?branchId=3&pageNo=0&pageSize=10&startTime=1569859200294&endTime=1572451200294",
       "DailiesList":"/ddxf/market/dailies?pageNo=0&pageSize=10&projectId=22987",
+      "DailyDetail":"/app/ddxf/market/daily/63812",
+      "DailyEdit":"/app/ddxf/market/daily/63812",
       "OperPlanList":"/boai/boai/operation-plan/project/list?pageSize=15&projectIds=22987&pageNo=0",
       "MarCenter":"/award/project/22987/marketingCenter",
       "CommissionList":"/trade/commission/project/statistics?projectId=22987"
     },
     "Dynamic":{
       "List":"/project/ddxf/dynamic/list?pageNo=0&pageSize=10",
-      "Add":"/project/ddxf/dynamic/add/v2"
+      "Add":"/app/project/ddxf/dynamic/add/v2",
+      "Edit":"/app/project/ddxf/dynamic/edit/v2",
+      "Zan":"/app/project/ddxf/dynamic/commend",
+      "Comment":"/app/project/ddxf/dynamic/comment",
+      "Delete":"/app/project/ddxf/dynamic/",
+      "Share":"/app/project/ddxf/dynamic/20541627120191004093003412/share",
+      "Detail":"/app/project/ddxf/dynamic/20238922620190614011856575",
+      "UserInfo":"/app/ddxf/user?userId=4799728"
     },
     "Store":{
       "Detail":"/personal/ddxf/store/",
       "Data":"/personal/ddxf/store/data",
       "ProjectList":"/personal/ddxf/store/projects?pageNo=0&pageSize=1000",
       "EstateShare":"/app/project/ddxf/share/22987?shareSource=1",
-      "CouponShare":"/app/project/ddxf/share/22987?shareSource=1&shareType=1"
+      "CouponShare":"/app/project/ddxf/share/22987?shareSource=1&shareType=1",
+      "PersonalInfoUpdate":"/app/personal/ddxf/store/update",
+      "StoreShare":"/app/personal/ddxf/store/share",
+      "ProjectOptions":"/app/personal/ddxf/store/projectOptions?branchId=3",
+      "ProjectAdd":"/app/personal/ddxf/store/project/",
+      "ProjectEdit":"/app/personal/ddxf/store/project/edit/advantage",
+      "ProjectDelete":"/app/personal/ddxf/store/project/22987"
+    },
+    "H5":{
+      "StoreRange":"/h5/data/operation-storeRange",
+      "LayoutList":"/h5/data/project-layoutList?projectId=22987",
+      "LayoutDetail":"/h5/layout/544429/edit?SSR_JSON=true",
+      "LayoutEdit":"/h5/data/project-updateLayout",
+      "QuantityDtail":"/h5/quantity/22987/edit?SSR_JSON=true",
+      "QuantityEdit":"/h5/data/project-updateQuantity",
+      "ClueList":"/h5/data/clue-queryMerchantClueList?pageNo=1&pageSize=10",
+      "ClueAdd":"/h5/data/clue-addClue",
+      "ClueOperationData":"/h5/data/clue-operationData?estateId=2029540&projectId=22987&dateType=1&startTime=2019-10-09+00:00:00&endTime=2019-10-09+23:59:59",
+      "ClueRealtorList":"h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=1&startTime=2019-10-09+00:00:00&endTime=2019-10-09+23:59:59&sortType=1&pageNo=1&pageSize=10",
+      "AddRealtorRecord":"/h5/data/clue-addRealtorRecord"
     }
   }
 }
