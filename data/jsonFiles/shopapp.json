@@ -1,8 +1,8 @@
 {
   "shopapp":{
     "robot_data":{
-      "robot_url":"",
-      "mobile":""
+      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=254c4e03abc0c89b4922e86cb8f67c0a01fe68de2b9f7b27596eddc378b400c5",
+      "mobile":["13883217640"]
     },
     "domain":{
       "test": "https://ddxf.fangdd.net",
@@ -24,8 +24,59 @@
         "cOrderList":"/ddxf/order/purchase?houseIds=53101&branchId=3&pageNo=0&orderStatus=0&pageSize=10",
         "dBookingList":"/ddxf/order/booking?branchId=3&pageNo=0&pageSize=10",
         "eBookingToOrder":"/ddxf/order/deal/status/#bookingId#"
+    },
+    "ManagerHome":{
+      "CircleMes":"/ddxf/house/circle/message?houseId=0&pageNo=0&pageSize=10&type=2",
+      "ManagerWorkTable":"/api/projectManager/projectList?dataType=3&sortOrder=3&onlineStatus=1",
+      "AuditData":"/api/projectManager/index/data",
+      "GuideCouponsList":"/api/projectManager/project/coupons?branchId=3&couponType=1",
+      "OrderCouponList":"/api/projectManager/project/coupons?branchId=3&couponType=2",
+      "CommissionsList":"/api/projectManager/project/commissions?branchId=3",
+      "ReceiptList":"/api/projectManager/project/receipt?branchId=3",
+      "CompanyData":"/ddxf/index/data",
+      "ReferralList":"/customer/ddxf/referral/list?branchId=3&pageNo=1&pageSize=20&dealStatus=0&estateIds=53101",
+      "ReferralConfirm":"/customer/ddxf/referral/deal",
+      "CustomerDetail":"/customer/ddxf/customer/detail?estateId=53101&customerId=8648042&customerMobile=19923923414",
+      "GuideList":"/customer/ddxf/guide/list?branchId=3&pageNo=1&confirmStatus=0&pageSize=20&estateIds=53101",
+      "GuideDetail":"/customer/ddxf/guide/12276167",
+      "GuideConfirm":"/customer/ddxf/guide/"
+    },
+    "Project":{
+      "List":"/ddxf/project?dataType=3&date=1561910400000&onlineStatus=2&pageNo=0&pageSize=5&sortOrder=3",
+      "Detail":"/ddxf/project/22987",
+      "WechatGroup":"/app/personal/ddxf/project/22987/wechatGroup/validWcg",
+      "Wechat":"/app/personal/ddxf/project/22987/wechatGroup/list",
+      "WechatEdit":"/app/personal/ddxf/project/22987/wechatGroup/",
+      "WechatRemove":"/app/personal/ddxf/project/22987/wechatGroup/",
+      "ProjectShare":"/project/ddxf/share/22987?shareSource=1",
+      "Projecttemplate":"/project/ddxf/share/project/22987/poster/templates",
+      "CustomerList":"/customer/ddxf/customer?houseId=2029540&branchId=3&pageNo=0&pageSize=20",
+      "MarketList":"/project/project/market/a/list?projectId=22987",
+      "SettlmentList":"/trade/settlement?onlyBaseInfo=1&projectId=22987&pageNo=0&pageSize=20",
+      "LiveAdd":"/app/live/live/room/create",
+      "LiveList":"/live/live/list?estateId=2029540&projectId=22987&pageNo=1&pageSize=20",
+      "LiveRemove":"/app/live/live/delete",
+      "VideoAdd":"/app/project/project/video",
+      "VideoList":"/project/project/video/list?projectId=22987",
+      "VideoRemove":"/app/project/project/video/delete/",
+      "VideoDetail":"/project/project/22987/video/843",
+      "Data":"/ddxf/report/operation/data?dataType=3&date=1561910400000&estateId=2029540&pageNo=0&pageSize=10",
+      "DailiesList":"/ddxf/market/dailies?pageNo=0&pageSize=10&projectId=22987",
+      "OperPlanList":"/boai/boai/operation-plan/project/list?pageSize=15&projectIds=22987&pageNo=0",
+      "MarCenter":"/award/project/22987/marketingCenter",
+      "CommissionList":"/trade/commission/project/statistics?projectId=22987"
+    },
+    "Dynamic":{
+      "List":"/project/ddxf/dynamic/list?pageNo=0&pageSize=10",
+      "Add":"/project/ddxf/dynamic/add/v2"
+    },
+    "Store":{
+      "Detail":"/personal/ddxf/store/",
+      "Data":"/personal/ddxf/store/data",
+      "ProjectList":"/personal/ddxf/store/projects?pageNo=0&pageSize=1000",
+      "EstateShare":"/app/project/ddxf/share/22987?shareSource=1",
+      "CouponShare":"/app/project/ddxf/share/22987?shareSource=1&shareType=1"
     }
-
   }
 }
 

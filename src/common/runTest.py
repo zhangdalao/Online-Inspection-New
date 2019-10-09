@@ -11,8 +11,6 @@ import time
 import re
 import json
 from src.common.sign import SignKey
-import selenium
-
 
 sss = {}
 
