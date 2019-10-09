@@ -68,10 +68,10 @@ class Rent_TradeTest(RunTest):
             self.logger.info("测试结果         :测试通过！")
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
-            # json_dict = self.a.json_data[self.project]["robot_data"]
-            # robot_url = json_dict["robot_url"]
-            # mobile = json_dict["mobile"]
-            # send_ding(robot_url, mobile, content=f"筛选租房交易列表异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+            json_dict = self.a.json_data[self.project]["robot_data"]
+            robot_url = json_dict["robot_url"]
+            mobile = json_dict["mobile"]
+            send_ding(robot_url, mobile, content=f"筛选租房交易列表异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "create_RentTrade"))  # 接口对应的名称
@@ -95,10 +95,10 @@ class Rent_TradeTest(RunTest):
             time.sleep(2)
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
-            # json_dict = self.a.json_data[self.project]["robot_data"]
-            # robot_url = json_dict["robot_url"]
-            # mobile = json_dict["mobile"]
-            # send_ding(robot_url, mobile, content=f"新增租房交易异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+            json_dict = self.a.json_data[self.project]["robot_data"]
+            robot_url = json_dict["robot_url"]
+            mobile = json_dict["mobile"]
+            send_ding(robot_url, mobile, content=f"新增租房交易异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "get_RentTradeDetail"))  # 接口对应的名称
@@ -118,10 +118,10 @@ class Rent_TradeTest(RunTest):
             self.logger.info("测试结果         :测试通过！")
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
-            # json_dict = self.a.json_data[self.project]["robot_data"]
-            # robot_url = json_dict["robot_url"]
-            # mobile = json_dict["mobile"]
-            # send_ding(robot_url, mobile, content=f"查看租房交易详情异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+            json_dict = self.a.json_data[self.project]["robot_data"]
+            robot_url = json_dict["robot_url"]
+            mobile = json_dict["mobile"]
+            send_ding(robot_url, mobile, content=f"查看租房交易详情异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "confirm_RentAchievement"))  # 接口对应的名称
@@ -141,10 +141,10 @@ class Rent_TradeTest(RunTest):
             self.logger.info("测试结果         :测试通过！")
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
-            # json_dict = self.a.json_data[self.project]["robot_data"]
-            # robot_url = json_dict["robot_url"]
-            # mobile = json_dict["mobile"]
-            # send_ding(robot_url, mobile, content=f"租房交易确认业绩异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+            json_dict = self.a.json_data[self.project]["robot_data"]
+            robot_url = json_dict["robot_url"]
+            mobile = json_dict["mobile"]
+            send_ding(robot_url, mobile, content=f"租房交易确认业绩异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
 

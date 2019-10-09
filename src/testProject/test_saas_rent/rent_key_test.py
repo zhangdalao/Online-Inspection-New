@@ -73,10 +73,10 @@ class Rent_keyTest(RunTest):
 			self.logger.info("测试结果         :测试通过！")
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
-			# json_dict = self.a.json_data[self.project]["robot_data"]
-			# robot_url = json_dict["robot_url"]
-			# mobile = json_dict["mobile"]
-			# send_ding(robot_url, mobile, content=f"添加钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+			json_dict = self.a.json_data[self.project]["robot_data"]
+			robot_url = json_dict["robot_url"]
+			mobile = json_dict["mobile"]
+			send_ding(robot_url, mobile, content=f"添加钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
 			raise err
 
 	@ddt.data(*a.get_data_by_api(fieldname, "borrow_rent_key"))  # 接口对应的名称
@@ -96,10 +96,10 @@ class Rent_keyTest(RunTest):
 			self.logger.info("测试结果         :测试通过！")
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
-			# json_dict = self.a.json_data[self.project]["robot_data"]
-			# robot_url = json_dict["robot_url"]
-			# mobile = json_dict["mobile"]
-			# send_ding(robot_url, mobile, content=f"借用钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+			json_dict = self.a.json_data[self.project]["robot_data"]
+			robot_url = json_dict["robot_url"]
+			mobile = json_dict["mobile"]
+			send_ding(robot_url, mobile, content=f"借用钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
 			raise err
 
 	@ddt.data(*a.get_data_by_api(fieldname, "return_rent_key"))  # 接口对应的名称
@@ -119,10 +119,10 @@ class Rent_keyTest(RunTest):
 			self.logger.info("测试结果         :测试通过！")
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
-			# json_dict = self.a.json_data[self.project]["robot_data"]
-			# robot_url = json_dict["robot_url"]
-			# mobile = json_dict["mobile"]
-			# send_ding(robot_url, mobile, content=f"归还钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+			json_dict = self.a.json_data[self.project]["robot_data"]
+			robot_url = json_dict["robot_url"]
+			mobile = json_dict["mobile"]
+			send_ding(robot_url, mobile, content=f"归还钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
 			raise err
 
 	@ddt.data(*a.get_data_by_api(fieldname, "edit_rent_key_info"))  # 接口对应的名称
@@ -142,10 +142,10 @@ class Rent_keyTest(RunTest):
 			self.logger.info("测试结果         :测试通过！")
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
-			# json_dict = self.a.json_data[self.project]["robot_data"]
-			# robot_url = json_dict["robot_url"]
-			# mobile = json_dict["mobile"]
-			# send_ding(robot_url, mobile, content=f"编辑钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+			json_dict = self.a.json_data[self.project]["robot_data"]
+			robot_url = json_dict["robot_url"]
+			mobile = json_dict["mobile"]
+			send_ding(robot_url, mobile, content=f"编辑钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
 			raise err
 
 	@ddt.data(*a.get_data_by_api(fieldname, "cancel_rent_key"))  # 接口对应的名称
@@ -165,10 +165,10 @@ class Rent_keyTest(RunTest):
 			self.logger.info("测试结果         :测试通过！")
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
-			# json_dict = self.a.json_data[self.project]["robot_data"]
-			# robot_url = json_dict["robot_url"]
-			# mobile = json_dict["mobile"]
-			# send_ding(robot_url, mobile, content=f"注销钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+			json_dict = self.a.json_data[self.project]["robot_data"]
+			robot_url = json_dict["robot_url"]
+			mobile = json_dict["mobile"]
+			send_ding(robot_url, mobile, content=f"注销钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
 			raise err
 
 if __name__ == '__main__':
