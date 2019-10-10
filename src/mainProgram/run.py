@@ -47,12 +47,12 @@ def start(cases_dir=None):
 		robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
 		suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
 		                                                                                          f'{project_dir}'])
-		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*1_test.py')
+		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
 		reportFileName = project_name + f'_{now}_result.html'
 		
 	else:
 		# 这里需要补充测试组机器人URL
-		robot_url = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa145342159f8fd0065fc4'
+		robot_url = 'https://oapi.dingtalk.com/robot/send?access_token=bd92a2ab1bd3243084849ffb96506e1620359581b97b49bafe870ba640b014c1'
 		suites_dir = root_path + f'{sep}src{sep}testProject'
 		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
 		reportFileName = 'All' + f'_{now}_result.html'
@@ -90,6 +90,6 @@ if __name__ == '__main__':
 	# get_project_robot_URL()
 	# start('test_saas_rent')
 	# print(os.getcwd())
-	start("test_ddsf")
-	# start()
+	# start("test_ddsf")
+	start()
 
