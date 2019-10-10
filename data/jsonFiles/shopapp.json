@@ -91,6 +91,18 @@
       "DailyEdit":"/app/ddxf/market/daily/63812",
       "OperPlanList":"/boai/boai/operation-plan/project/list?pageSize=15&projectIds=22987&pageNo=0",
       "MarCenter":"/award/project/22987/marketingCenter",
+      "GuideAwardTopData":"/app/award/project/22987/couponStatistics?couponType=1&projectId=22987",
+      "GuideAwardBudget":"/app/award/budget/list?couponType=1&pageNo=1&pageSize=10&projectId=22987",
+      "GuideAwardBudgetSubmit":"/app/award/budget/",
+      "GuideAwardPublish":"/app/award/coupon/",
+      "GuideAwardList":"/app/award/coupon/list?couponType=1&pageNo=1&pageSize=10&projectId=22987",
+      "GuideAwardExchange":"/app/award/couponCode/list?pageNo=1&couponType=1&pageSize=10&projectId=22987&status=3",
+      "GuideAwardExcList":"/app/award/couponCode/list?pageNo=1&couponType=1&pageSize=10&projectId=22987&status=4",
+      "OrderAwardTopData":"/app/award/project/22987/couponStatistics?couponType=2&projectId=22987",
+      "OrderAwardBudget":"/app/award/budget/list?couponType=2&pageNo=1&pageSize=10&projectId=22987",
+      "OrderAwardList":"/app/award/coupon/list?couponType=2&pageNo=1&pageSize=10&projectId=22987",
+      "OrderAwardExchange":"/app/award/couponCode/list?pageNo=1&couponType=2&pageSize=10&projectId=22987&status=3",
+      "OrderAwardExcList":"/app/award/couponCode/list?pageNo=1&couponType=2&pageSize=10&projectId=22987&status=4",
       "CommissionList":"/trade/commission/project/statistics?projectId=22987"
     },
     "Dynamic":{
@@ -120,14 +132,16 @@
     "H5":{
       "StoreRange":"/h5/data/operation-storeRange",
       "LayoutList":"/h5/data/project-layoutList?projectId=22987",
-      "LayoutDetail":"/h5/layout/544429/edit?SSR_JSON=true",
+      "LayoutDetail":"/h5/data/project-layoutDetail?layoutId=544429",
       "LayoutEdit":"/h5/data/project-updateLayout",
-      "QuantityDtail":"/h5/quantity/22987/edit?SSR_JSON=true",
+      "QuantityDtail":"/h5/data/project-quantityDetail",
       "QuantityEdit":"/h5/data/project-updateQuantity",
       "ClueList":"/h5/data/clue-queryMerchantClueList?pageNo=1&pageSize=10",
       "ClueAdd":"/h5/data/clue-addClue",
       "ClueOperationData":"/h5/data/clue-operationData?estateId=2029540&projectId=22987&dateType=1&startTime=2019-10-09+00:00:00&endTime=2019-10-09+23:59:59",
-      "ClueRealtorList":"h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=1&startTime=2019-10-09+00:00:00&endTime=2019-10-09+23:59:59&sortType=1&pageNo=1&pageSize=10",
+      "ClueRealtorDayList":"h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=1&startTime=2019-10-09+00:00:00&endTime=2019-10-09+23:59:59&sortType=1&pageNo=1&pageSize=10",
+      "ClueRealtorWeekList":"/h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=2&startTime=2019-10-07+00:00:00&endTime=2019-10-13+23:59:59&sortType=1&pageNo=1&pageSize=10",
+      "ClueRealtorMonList":"/h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=3&startTime=2019-10-01+00:00:00&endTime=2019-10-31+23:59:59&sortType=1&pageNo=1&pageSize=10",
       "AddRealtorRecord":"/h5/data/clue-addRealtorRecord"
     }
   }
