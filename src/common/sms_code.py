@@ -31,7 +31,7 @@ def get_smsCode(env, send_code_url, method, **kw):
 				# 获取短信内容
 				sms_content = r.json()["records"]
 				# 正则匹配出验证码内容
-				print(sms_content)
+				# print(sms_content)
 				sms_code_list = re.findall("\d+", str(sms_content))
 				# 获取最新的验证码
 				sms_code = sms_code_list[0]

@@ -14,7 +14,7 @@
         "ByVerifyCode": "/data/listStaffOrg"
       },
     "Home" :{
-      "HomeInfo": "/data/getHomeInfo",
+      "HomePageInfo": "/data/getHomePageInfo",
       "ProfileInfo": "/data/getProfileInfo",
       "StaffMessage":"/data/getStaffMessage",
       "StaffOrg":"/data/listStaffOrg",
