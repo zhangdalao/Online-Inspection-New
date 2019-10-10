@@ -46,8 +46,8 @@ class HomeTest(RunTest):
 	def tearDown(self):
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
-	@ddt.data(*a.get_data_by_api(fieldname, "HomeInfo"))
-	def test_HomeInfo(self, value):
+	@ddt.data(*a.get_data_by_api(fieldname, "HomePageInfo"))
+	def test_HomePageInfo(self, value):
 		"""HomeInfo接口"""
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
