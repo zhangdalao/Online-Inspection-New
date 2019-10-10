@@ -77,12 +77,6 @@ def start(cases_dir=None):
 		res = beaRep.report(filename=reportFileName, description='接口自动化测试', report_dir=reportDir)
 	# return res
 	sleep(5)
-	# 测试报告所在的文件夹
-	res_path = root_path + f'{sep}output{sep}report{sep}'
-	# 切换到日志文件夹所在目录
-	os.chdir(res_path)
-	# 启动该目录下的服务
-	report_dir = 'report_{_now}'.format(_now=now)  # report_2019_09_11-21_02_55
 	ip = '10.0.6.56'
 	result_url = "http://" + ip + f':8686{sep}{report_dir}{sep}{reportFileName}'
 	# print(f'{sep}{reportFileName}')  # /2019_09_11-19_42_30_result.html
