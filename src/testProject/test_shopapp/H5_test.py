@@ -16,7 +16,7 @@ count = 0
 
 @ddt.ddt
 class H5Test(RunTest):
-    """微信推盘相关用例"""
+    """H5相关用例"""
 
     project = os.path.dirname(__file__)[-7:]
     a = ReadData(project, project)

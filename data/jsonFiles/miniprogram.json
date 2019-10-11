@@ -20,6 +20,20 @@
       "ProjectList":"/housingestate/pm/store/project/list?projectManagerId=408899",
       "Website":"/housingestate/pm/website"
     },
+    "Estate":{
+      "EstateList":"/estate/xf/projects/list",
+      "EstateSearch":"/estate/xf/projects/list",
+      "EstateCustList":"/distribution/custs/list?estateId=2029540&keyword=&pageNo=0&pageSize=20&agentId=",
+      "UnreadMsgNums":"/distribution/nhAssistance/unreadMsgNums",
+      "CommissionsList":"/distribution/perform/data/commissions?pageNo=1&pageSize=20&userId=",
+      "CustList":"/distribution/custs/list?keyword=&pageNo=0&pageSize=20&agentId=",
+      "GuideList":"/distribution/custs/list?keyword=&pageNo=0&pageSize=20&status=10&agentId=",
+      "RefreList":"/distribution/custs/list?keyword=&pageNo=0&pageSize=20&status=20&agentId=",
+      "OrderList":"/distribution/custs/list?keyword=&pageNo=0&pageSize=20&status=30&agentId=",
+      "CustSearch":"/distribution/custs/list?keyword=%E6%B5%8B%E8%AF%95&pageNo=0&pageSize=20&status=30&agentId=",
+      "CustDetail":"/distribution/custs/",
+      "GuideApply":"/distribution/custs/guide/"
+    },
     "Other":{
       "EstateDetail":"/estate/xf/distribution/house/2029540",
       "NewsDetail":"/housingestate/news/20040889920190627235216837?moreNews=true",
