@@ -191,7 +191,6 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				self.params = eval(self.params)
 			if self.expect:
 				self.expect = eval(self.expect)
-			print(type(self.body), '---------', len(self.body))
 			if type(args[0][-1]) == list:
 				if self.body:
 					# 对请求体中文转 json 后加密失败做处理

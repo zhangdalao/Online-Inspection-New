@@ -79,10 +79,8 @@ def start(cases_dir=None):
 	sleep(5)
 	ip = '10.0.6.56'
 	result_url = "http://" + ip + f':8686{sep}{report_dir}{sep}{reportFileName}'
-	# print(f'{sep}{reportFileName}')  # /2019_09_11-19_42_30_result.html
-	# print(result_url)
-	# if robot_url:
-	# 	send_link(robot_url, result_url, '房多多接口自动化测试报告')
+	if robot_url:
+		send_link(robot_url, result_url, '房多多接口自动化测试报告')
 	return res
 
 if __name__ == '__main__':
