@@ -155,7 +155,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		
 		# 如果该接口关联类型只是关联输出
 		# elif isRelate and isRelate["relateType"] == "relateOut":
-		elif isRelate:
+		elif type(isRelate) == dict:
 			relateData = isRelate["relateData"]
 			self.logger.debug("是否跳过         :否")
 			# 使用正则获取headers中参数化的字段列表
@@ -171,7 +171,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				for m in re_list_header:
 					self.headers = self.headers.replace(m, "f'{data[\"%s\"]}'" % (m[1:-1]))
 			if re_list_params:
-				# 对headers中参数化的字段进行激活赋值
+				# 对params中参数化的字段进行激活赋值
 				for m in re_list_params:
 					self.params = self.params.replace(m, "f'{data[\"%s\"]}'" % (m[1:-1]))
 			if re_list_body:
@@ -191,9 +191,13 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				self.params = eval(self.params)
 			if self.expect:
 				self.expect = eval(self.expect)
-			if type(args[0][-1]) == list and self.body:
-				# 对请求体中文转 json 后加密失败做处理
-				args[0][-1].append(json.dumps(self.body))
+			print(type(self.body), '---------', len(self.body))
+			if type(args[0][-1]) == list:
+				if self.body:
+					# 对请求体中文转 json 后加密失败做处理
+					args[0][-1].append(json.dumps(self.body))
+				else:
+					args[0][-1].append(str(self.body).replace("\'", '\"'))
 				# 对其中的 path 存在动态参数进行解决
 				for m in args[0][-1]:
 					if m.__contains__('/') and re.findall(re_str, m):
@@ -205,7 +209,6 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 								m = m.replace(i, str(i_value))
 						args[0][-1][m_num] = m
 				_str = ''.join(args[0][-1])
-				# print(_str)
 				data['sign_key'] = SignKey(_str).sign()
 				args[0].pop()
 			# 最后对激活后的 headers 做类型转换
@@ -254,10 +257,8 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				# 对headers中参数化的字段进行激活赋值
 				for m in re_list_header:
 					self.headers = self.headers.replace(m, "f'{data[\"%s\"]}'" % (m[1:-1]))
-					# print(self.headers)
-					# print(type(self.headers))
 			if re_list_params:
-				# 对headers中参数化的字段进行激活赋值
+				# 对params中参数化的字段进行激活赋值
 				for m in re_list_params:
 					self.params = self.params.replace(m, "f'{data[\"%s\"]}'" % (m[1:-1]))
 			if re_list_body:
@@ -276,9 +277,12 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				self.params = eval(self.params)
 			if self.expect:
 				self.expect = eval(self.expect)
-			if type(args[0][-1]) == list and self.body:
-				# 对请求体中文转 json 后加密失败做处理
-				args[0][-1].append(json.dumps(self.body))
+			if type(args[0][-1]) == list:
+				if self.body:
+					# 对请求体中文转 json 后加密失败做处理
+					args[0][-1].append(json.dumps(self.body))
+				else:
+					args[0][-1].append(str(self.body).replace("\'", '\"'))
 				# 对其中的 path 存在动态参数进行解决
 				for m in args[0][-1]:
 					if m.__contains__('/') and re.findall(re_str, m):
@@ -290,7 +294,6 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 								m = m.replace(i, str(i_value))
 						args[0][-1][m_num] = m
 				_str = ''.join(args[0][-1])
-				# print(_str)
 				data['sign_key'] = SignKey(_str).sign()
 				args[0].pop()
 			# 对激活后的 headers做类型转换

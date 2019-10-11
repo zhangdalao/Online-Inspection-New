@@ -81,8 +81,8 @@ def start(cases_dir=None):
 	result_url = "http://" + ip + f':8686{sep}{report_dir}{sep}{reportFileName}'
 	# print(f'{sep}{reportFileName}')  # /2019_09_11-19_42_30_result.html
 	# print(result_url)
-	if robot_url:
-		send_link(robot_url, result_url, '房多多接口自动化测试报告')
+	# if robot_url:
+	# 	send_link(robot_url, result_url, '房多多接口自动化测试报告')
 	return res
 
 if __name__ == '__main__':
@@ -90,6 +90,6 @@ if __name__ == '__main__':
 	# get_project_robot_URL()
 	# start('test_saas_rent')
 	# print(os.getcwd())
-	# start("test_ddsf")
+	# start("test_boss")
 	start()
 
