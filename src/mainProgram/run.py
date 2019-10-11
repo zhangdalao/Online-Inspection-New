@@ -52,7 +52,12 @@ def start(cases_dir=None):
 		
 	else:
 		# 这里需要补充测试组机器人URL
-		robot_url = 'https://oapi.dingtalk.com/robot/send?access_token=bd92a2ab1bd3243084849ffb96506e1620359581b97b49bafe870ba640b014c1'
+		
+		robot = 'https://oapi.dingtalk.com/robot/send?access_token=bd92a2ab1bd3243084849ffb96506e1620359581b97b49bafe' \
+		        '870ba640b014c1'
+		test = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa14534215' \
+		        '9f8fd0065fc4'
+		robot_url = test
 		suites_dir = root_path + f'{sep}src{sep}testProject'
 		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
 		reportFileName = 'All' + f'_{now}_result.html'
