@@ -348,9 +348,9 @@ class commissionTest(RunTest):
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionDeal"))
-    def test_commissionDeal(self, value):
+    def test_1commissionDeal(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
