@@ -10,10 +10,11 @@
       "prod" : "https://god.fangdd.com"
     },
     "Login":{
-        "Login": "/data/user-login"
+      "Login": "/data/user-login"
       },
     "Eestate": {
-        "EstateList": "/data/getOperationList?pageNo=1&pageSize=10"
+      "EstateList": "/data/getOperationList?pageNo=1&pageSize=10",
+      "EstateSearch":"/data/getOperationList?pageNo=1&pageSize=10&estateKey=%E7%A7%80%E6%B0%B4%E7%A2%A7%E6%B5%B7%E6%B9%BE"
     },
     "Review": {
       "reviewList": "/data/getReviewList?pageNo=1&pageSize=10"
@@ -22,13 +23,20 @@
       "RepetitionEstatesList": "/data/getRepetitionEstates?pageNo=1&pageSize=10"
     },
     "Developer": {
-      "DeveloperList": "/data/getDeveloperBrandPaginationList?pageNo=1&pageSize=10"
+      "DeveloperList": "/data/getDeveloperBrandPaginationList?pageNo=1&pageSize=10",
+      "DeveloperSearch":"/data/getDeveloperBrandPaginationList?pageNo=1&pageSize=10&brandName=%E5%85%B6%E4%BB%96",
+      "DeveloperEidt":"/data/updateDeveloperBrand"
     },
     "Position": {
-      "PositionList": "/data/popularizationGetPositionList?pageNo=1&pageSize=10"
+      "PositionList": "/data/popularizationGetPositionList?pageNo=1&pageSize=10",
+      "PositionSearch":"/data/popularizationGetPositionList?pageNo=1&pageSize=10&status=1",
+      "PositionProject":"/data/popularizationGetProjectList?pageNo=1&pageSize=10&bannerId=4",
+      "PositionEdit":"/data/popularizationAddOrUpdatePosition"
     },
     "Project": {
-      "ProjectList": "/data/popularizationGetProjectList?pageNo=1&pageSize=10"
+      "ProjectList": "/data/popularizationGetProjectList?pageNo=1&pageSize=10",
+      "ProjecSearch":"/data/popularizationGetProjectList?pageNo=1&pageSize=10&bannerId=3&status=0",
+      "ProjecEdit":"/data/popularizationAddOrUpdateProject"
     }
   }
 }
