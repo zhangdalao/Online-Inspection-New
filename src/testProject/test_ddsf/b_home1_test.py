@@ -48,7 +48,7 @@ class HomeTest(RunTest):
 
 	@ddt.data(*a.get_data_by_api(fieldname, "HomePageInfo"))
 	def test_HomePageInfo(self, value):
-		"""HomeInfo接口"""
+		"""HomePageInfo接口"""
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
 		env = value[self.env_num]

@@ -38,6 +38,7 @@ def get_project_robot_URL(projectName=None):
 def start(cases_dir=None):
 	# 脚本运行时间
 	now = time.strftime("%Y_%m_%d-%H_%M_%S")
+	now_day = time.strftime("%Y_%m_%d")
 
 	# 判断是否有指定用例文件夹
 	if cases_dir:
@@ -47,20 +48,26 @@ def start(cases_dir=None):
 		suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
 		                                                                                          f'{project_dir}'])
 		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
-		reportFileName = project_name + '_result.html'
+		reportFileName = project_name + f'_{now}_result.html'
 		
 	else:
 		# 这里需要补充测试组机器人URL
-		robot_url = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa145342159f8fd0065fc4'
+		
+		robot = 'https://oapi.dingtalk.com/robot/send?access_token=bd92a2ab1bd3243084849ffb96506e1620359581b97b49bafe' \
+		        '870ba640b014c1'
+		test = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa14534215' \
+		        '9f8fd0065fc4'
+		robot_url = test
 		suites_dir = root_path + f'{sep}src{sep}testProject'
 		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
-		reportFileName = 'AllProjects' + '_result.html'
+		reportFileName = 'All' + f'_{now}_result.html'
 
 	reportDirName = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + 'output' + sep + 'report' + sep
-
-	while True:
-		report_dir = 'report_{_now}'.format(_now=now)
-		reportDir = reportDirName + report_dir
+	
+	report_dir = 'report_{_now}'.format(_now=now_day)
+	reportDir = reportDirName + report_dir
+	
+	while not os.path.exists(reportDir):
 		try:
 			os.makedirs(reportDir)
 			break
@@ -75,16 +82,8 @@ def start(cases_dir=None):
 		res = beaRep.report(filename=reportFileName, description='接口自动化测试', report_dir=reportDir)
 	# return res
 	sleep(5)
-	# 测试报告所在的文件夹
-	res_path = root_path + f'{sep}output{sep}report{sep}'
-	# 切换到日志文件夹所在目录
-	os.chdir(res_path)
-	# 启动该目录下的服务
-	report_dir = 'report_{_now}'.format(_now=now)  # report_2019_09_11-21_02_55
 	ip = '10.0.6.56'
 	result_url = "http://" + ip + f':8686{sep}{report_dir}{sep}{reportFileName}'
-	# print(f'{sep}{reportFileName}')  # /2019_09_11-19_42_30_result.html
-	# print(result_url)
 	if robot_url:
 		send_link(robot_url, result_url, '房多多接口自动化测试报告')
 	return res
@@ -94,6 +93,6 @@ if __name__ == '__main__':
 	# get_project_robot_URL()
 	# start('test_saas_rent')
 	# print(os.getcwd())
-	# start("test_shopapp")
+	# start("test_boss")
 	start()
 
