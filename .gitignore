@@ -5,7 +5,7 @@
 /testfile/error_2019-06-20.log
 *.idea/
 *venv/
-common/__pycache__/
+src/common/__pycache__/
 *.pyc
 
 .idea/Online-Inspection.iml
