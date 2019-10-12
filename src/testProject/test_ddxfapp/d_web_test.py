@@ -58,7 +58,7 @@ class WebLoginTest(RunTest):
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
             sss["cookies"] = requests.utils.dict_from_cookiejar(res.cookies)
-            print(sss)
+            # print(sss)
             self.logger.info("测试结果         :测试通过！")
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
