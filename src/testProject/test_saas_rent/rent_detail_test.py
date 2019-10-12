@@ -118,6 +118,7 @@ class Rent_detailTest(RunTest):
 			mobile = json_dict["mobile"]
 			send_ding(robot_url, mobile, content=f"更新房源状态异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
 			raise err
+		
 	@ddt.data(*a.get_data_by_api(fieldname, "add_rent_follow_up"))  # 接口对应的名称
 	def test_04_add_rent_follow_up(self, value):
 		# 通过函数名获取apiName参数的值
@@ -142,6 +143,5 @@ class Rent_detailTest(RunTest):
 			send_ding(robot_url, mobile, content=f"添加租房跟进异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
 			raise err
 
-			raise err
 if __name__ == '__main__':
 	unittest.main()

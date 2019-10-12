@@ -44,7 +44,6 @@ class Rent_InspectTest(RunTest):
 		cls.cookie_txt = rent_saas_login()
 		print("房号为：",sss["roomNo"])
 
-	
 	def setUp(self):
 		globals()['count'] += 1
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))

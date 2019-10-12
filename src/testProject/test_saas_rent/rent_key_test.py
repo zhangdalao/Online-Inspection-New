@@ -48,11 +48,8 @@ class Rent_keyTest(RunTest):
 		globals()['count'] += 1
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 
-	
 	def tearDown(self):
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
-
-
 
 	@ddt.data(*a.get_data_by_api(fieldname, "add_rent_key"))  #接口对应的名称
 	def test_01_add_rent_key(self, value):
