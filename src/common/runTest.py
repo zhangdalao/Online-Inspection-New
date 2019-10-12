@@ -152,7 +152,6 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		if isSkip and str(isSkip).strip() == "是":
 			self.logger.debug(f"是否跳过         :{isSkip}")
 			self.skipTest('skip case')
-		
 		# 如果该接口关联类型只是关联输出
 		# elif isRelate and isRelate["relateType"] == "relateOut":
 		elif type(isRelate) == dict:
