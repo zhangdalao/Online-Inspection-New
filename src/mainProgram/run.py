@@ -93,5 +93,5 @@ if __name__ == '__main__':
 	# start('test_ddxfapp')
 	# print(os.getcwd())
 	# start("test_boss")
-	start()
+	start("test_mzhan")
 

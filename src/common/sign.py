@@ -23,7 +23,7 @@ class SignKey:
         jar_path = (r"../common/fdd-1.1-SNAPSHOT-jar-with-dependencies.jar")
         if not jpype.isJVMStarted():
             # startJVM：本地调试使用第一个，提交代码需要注释第一个，使用第二个绝对路径的（crontab下不识别java的默认路径）
-            # startJVM(jpype.getDefaultJVMPath(), "-ea", "-Djava.class.path=%s" % jar_path)
+            #startJVM(jpype.getDefaultJVMPath(), "-ea", "-Djava.class.path=%s" % jar_path)
             startJVM(r"/usr/java/jdk1.8.0_11/jre/lib/amd64/server/libjvm.so","-ea","-Djava.class.path=%s" % jar_path)
         instance = JPackage('com').fangddd.ddsign
         key = instance.SignUtil.generateSign(self.req)
