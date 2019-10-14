@@ -15,7 +15,7 @@ import urllib3
 count = 0
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # 设置环境
-sss["Host"] = "api-realtor.fangdd.com.cn"
+sss["Host"] = "api-realtor.fangdd.com"
 
 @ddt.ddt
 class LoginTest(RunTest):

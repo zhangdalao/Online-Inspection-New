@@ -83,16 +83,19 @@ def start(cases_dir=None):
 		casesAll = result_dict.get("testAll")
 		casesPass = result_dict.get("testPass")
 		casesFail = result_dict.get("testFail")
-		casesError = result_dict.get("testError")
+		# casesError = result_dict.get("testError")
 		casesSkip = result_dict.get("testSkip")
-		_pass_rate = ("%.2f%%" % (casesPass / casesAll * 100))
+		if not casesSkip:
+			_pass_rate = ("%.2f%%" % (casesPass / casesAll * 100))
+		else:
+			_pass_rate = ("%.2f%%" % (casesPass / (casesAll - casesSkip) * 100))
 	# return res
 	sleep(5)
 	ip = '10.0.6.56'
 	result_url = "http://" + ip + f':8686{sep}{report_dir}{sep}{reportFileName}'
 	if robot_url:
 		send_link(robot_url, result_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll},'
-		                                 f'通过:{casesPass},失败:{casesFail},报错:{casesError},跳过:{casesSkip}')
+		                                 f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
 	return res
 
 if __name__ == '__main__':

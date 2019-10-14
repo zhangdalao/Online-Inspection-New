@@ -1,8 +1,8 @@
 {
   "shopapp":{
     "robot_data":{
-      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=254c4e03abc0c89b4922e86cb8f67c0a01fe68de2b9f7b27596eddc378b400c5",
-      "mobile":["13883217640"]
+      "robot_url":"",
+      "mobile":[""]
     },
     "domain":{
       "test": "https://ddxf.fangdd.net",
@@ -17,13 +17,6 @@
     },
     "Login":{
        "ByPassword":"/boai/boai/user/login"
-    },
-    "Order":{
-        "aOrder":"/ddxf/order",
-        "bOrderdetail":"/trade/commission/#orderId#",
-        "cOrderList":"/ddxf/order/purchase?houseIds=53101&branchId=3&pageNo=0&orderStatus=0&pageSize=10",
-        "dBookingList":"/ddxf/order/booking?branchId=3&pageNo=0&pageSize=10",
-        "eBookingToOrder":"/ddxf/order/deal/status/#bookingId#"
     },
     "ManagerHome":{
       "CircleMes":"/ddxf/house/circle/message?houseId=0&pageNo=0&pageSize=10&type=2",
@@ -146,4 +139,3 @@
     }
   }
 }
-
