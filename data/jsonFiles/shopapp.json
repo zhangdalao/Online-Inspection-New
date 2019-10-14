@@ -18,13 +18,6 @@
     "Login":{
        "ByPassword":"/boai/boai/user/login"
     },
-    "Order":{
-        "aOrder":"/ddxf/order",
-        "bOrderdetail":"/trade/commission/#orderId#",
-        "cOrderList":"/ddxf/order/purchase?houseIds=53101&branchId=3&pageNo=0&orderStatus=0&pageSize=10",
-        "dBookingList":"/ddxf/order/booking?branchId=3&pageNo=0&pageSize=10",
-        "eBookingToOrder":"/ddxf/order/deal/status/#bookingId#"
-    },
     "ManagerHome":{
       "CircleMes":"/ddxf/house/circle/message?houseId=0&pageNo=0&pageSize=10&type=2",
       "ManagerWorkTable":"/api/projectManager/projectList?dataType=3&sortOrder=3&onlineStatus=1",
