@@ -44,7 +44,11 @@
         "iticketlist1":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10",
         "iticketlist2":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10&wfIsEnd=0",
         "jticketdetail":"/api/trade/receipt/advance/ticket/#ticketId1#",
-        "kvioce":"/api/trade/receipt/invoice/"
+        "kvioce":"/api/trade/receipt/invoice/",
+        "lvioceconfirm":"/api/trade/receipt/invoice/status",
+        "money":"/api/trade/receipt/ticket",
+        "nmoneyconfirmlist":"/api/trade/receipt/ticket?pageNo=1&pageSize=10&ticketStatus=1",
+        "nmoneyconfirm":"/api/trade/receipt/ticket/status"
     },
     "Org":{
          "userdetail":"/api/login/user",
