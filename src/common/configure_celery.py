@@ -1,4 +1,6 @@
 from celery import Celery
+from celery.schedules import crontab
+
 
 def configure_celery(app):
     celery = Celery(
@@ -8,9 +10,9 @@ def configure_celery(app):
     )
     celery.conf.timezone = 'Asia/Shanghai'
     celery.conf.beat_schedule = {
-        'send_minutes':{
+        'online-inspection': {
             'task': 'src.mainProgram.run.start',
-            'schedule': 1200000.0,
+            'schedule': crontab(minute=10)
         },
     }
 

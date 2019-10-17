@@ -61,7 +61,7 @@ def start(cases_dir=None):
         test = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa14534215' \
                '9f8fd0065fc4'
         test1 = 'https://oapi.dingtalk.com/robot/send?access_token=9507705c4d56812d33c1f010a4c105b7e6d1c1d2e36286f64dd8b65cd5e5c262'
-        robot_url = test1
+        robot_url = test
         suites_dir = root_path + f'{sep}src{sep}testProject'
         suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
         reportFileName = 'All' + f'_{now}_result.html'
@@ -96,8 +96,12 @@ def start(cases_dir=None):
             _pass_rate = ("%.2f%%" % (casesPass / (casesAll - casesSkip) * 100))
     # return res
     sleep(5)
-    ip = '10.0.6.56'
-    result_url = "http://" + ip + f':8686{sep}{report_dir}{sep}{reportFileName}'
+    # ip = '10.0.6.56'
+    #result_url = "http://" + ip + f':8686{sep}{report_dir}{sep}{reportFileName}'
+
+    ip = '10.50.255.253'
+    output_dir = '/output/report/'
+    result_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
     if robot_url:
         send_link(robot_url, result_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll},'
                                          f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
