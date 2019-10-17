@@ -3,15 +3,16 @@ import requests
 
 
 # 推送钉钉消息调用方法（消息内容@手机号，手机号）
-def send_ding(robot_url, mobile, content=None):
+def send_ding(robotUrl, mobile, content=None):
     """
-    :param robot_url:         各个项目钉钉群内新增的机器人 url，必填参数
+    :param robotUrl:          各个项目钉钉群内新增的机器人 url，必填参数
     :param mobile:            推送消息指定@对象，传入参数为 list对象，必填参数
     :param content:           推送消息内容，默认为None， 非必填
     :return:
     """
-    if robot_url and content and mobile:
-        robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa145342159f8fd0065fc4'
+    if robotUrl and content and mobile:
+        robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9' \
+                     'aa145342159f8fd0065fc4'
         robot_body = {
             "msgtype": "text",
             "text": {
@@ -23,8 +24,8 @@ def send_ding(robot_url, mobile, content=None):
             }
         }
         # 给各自项目组发送错误提示
-        r = requests.post(robot_url, json=robot_body)
-        if str(robot_url).strip() != robot_test:
+        r = requests.post(robotUrl, json=robot_body)
+        if str(robotUrl).strip() != robot_test:
             # 给巡检机器人测试组发送报错提示
             t = requests.post(robot_test, json=robot_body)
         if r.status_code == 200 and t.status_code == 200:
