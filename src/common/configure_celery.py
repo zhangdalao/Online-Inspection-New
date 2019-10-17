@@ -15,6 +15,13 @@ def configure_celery(app):
             'schedule': crontab(minute=10)
         },
     }
+    celery.conf.ONCE = {
+        'backend': 'celery_once.backends.Redis',
+        'settings': {
+            'url': 'redis://10.12.21.110:6379/1',
+            'default_timeout': 60 * 60
+        }
+    }
 
     class ContextTask(celery.Task):
         def __call__(self, *args, **kwargs):

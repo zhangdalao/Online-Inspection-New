@@ -9,3 +9,5 @@ Flask
 redis
 gevent
 gunicorn
+celery_once
+six

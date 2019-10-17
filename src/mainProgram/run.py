@@ -21,6 +21,7 @@ from src.common.dingDing import send_link
 from time import sleep
 import socket
 import time
+from celery_once import QueueOnce
 
 
 # # 获取本机计算机名称
@@ -38,7 +39,7 @@ def get_project_robot_URL(projectName=None):
         json_data = json.load(j)
     return json_data
 
-@celery.task
+@celery.task(base=QueueOnce)
 def start(cases_dir=None):
     # 脚本运行时间
     now = time.strftime("%Y_%m_%d-%H_%M_%S")
