@@ -59,7 +59,7 @@ class OrderTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"录入认购单失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
 
@@ -92,7 +92,7 @@ class OrderTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"查看认购单详情失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "cOrderList"))
@@ -125,7 +125,7 @@ class OrderTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"认购单列表失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "dBookingList"))
@@ -156,7 +156,7 @@ class OrderTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"预约单列表失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "eBookingToOrder"))
@@ -187,7 +187,7 @@ class OrderTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"预约转认购测试失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "fChange"))
@@ -218,7 +218,7 @@ class OrderTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"调整应收应结失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
     @ddt.data(*a.get_data_by_api(fieldname, "gChecklist"))
     def test_gChecklist(self,value):
@@ -248,7 +248,7 @@ class OrderTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"待审核列表失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "hAuditchange"))
@@ -279,7 +279,7 @@ class OrderTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"审核失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
 

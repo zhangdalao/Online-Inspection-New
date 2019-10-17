@@ -42,7 +42,9 @@
         "gconfirm":"/api/trade/receivable/confirmation/confirm",
         "hticket":"/api/trade/receipt/advance/ticket",
         "iticketlist1":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10",
-        "iticketlist2":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10&wfIsEnd=0"
+        "iticketlist2":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10&wfIsEnd=0",
+        "jticketdetail":"/api/trade/receipt/advance/ticket/#ticketId1#",
+        "kvioce":"/api/trade/receipt/invoice/"
     },
     "Org":{
          "userdetail":"/api/login/user",
@@ -59,7 +61,9 @@
          "oaddcity":"/api/boai/boai/org/area/branch",
          "pgivecity":"/api/boai/boai/org/area/branch",
          "quserlist":"/api/boai/boai/user/users?orgId=3&orgType=6&pageNo=1&pageSize=10"
-
+    },
+    "Project":{
+          "auserlist":"/api/boai/boai/user/project/configs?projectId=10636&pageNo=1&pageSize=20"
     }
   }
 }

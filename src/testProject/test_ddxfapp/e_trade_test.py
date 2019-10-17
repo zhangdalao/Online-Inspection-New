@@ -57,7 +57,7 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"收入列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "accoutlist2"))
@@ -79,7 +79,7 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"收入列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "breceivable"))
@@ -101,7 +101,7 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"录入附加应收异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "creceivablelist"))
@@ -123,7 +123,7 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"附加应收列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "dreceivablestatus"))
@@ -145,7 +145,7 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"附加应收确认异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "eaddconfirm"))
@@ -167,7 +167,7 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"申请业绩确认异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "fconfirmlist"))
@@ -189,7 +189,7 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"业绩确认列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "gconfirm"))
@@ -211,7 +211,7 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"业绩确认审核异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "hticket"))
@@ -233,7 +233,7 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"录入预计回款异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "iticketlist1"))
@@ -255,7 +255,7 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"预计回款列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "iticketlist2"))
@@ -277,11 +277,11 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"预计回款审核列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
-    @ddt.data(*a.get_data_by_api(fieldname, "japprove1"))
-    def test_japprove1(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname,"jticketdetail"))
+    def test_jticketdetail(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
@@ -299,11 +299,11 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"预计回款单详情列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
-    @ddt.data(*a.get_data_by_api(fieldname, "kapprove2"))
-    def test_kapprove2(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "kvioce"))
+    def test_kvioce(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
@@ -321,29 +321,8 @@ class TradeTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"申请开票异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
 
-    @ddt.data(*a.get_data_by_api(fieldname, "linvoice"))
-    def test_linvoice(self, value):
-        # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
-        # 获取测试环境参数
-        env = value[self.env_num]
-        # 通过环境参数获得接口url
-        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
-        # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
-            raise err
 
 
