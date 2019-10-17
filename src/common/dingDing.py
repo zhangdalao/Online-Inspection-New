@@ -11,7 +11,7 @@ def send_ding(robot_url, mobile, content=None):
     :return:
     """
     if robot_url and content and mobile:
-        robot_url = robot_url
+        robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa145342159f8fd0065fc4'
         robot_body = {
             "msgtype": "text",
             "text": {
@@ -22,8 +22,12 @@ def send_ding(robot_url, mobile, content=None):
                 "isAtAll": False
             }
         }
+        # 给各自项目组发送错误提示
         r = requests.post(robot_url, json=robot_body)
-        if r.status_code == 200:
+        if str(robot_url).strip() != robot_test:
+            # 给巡检机器人测试组发送报错提示
+            t = requests.post(robot_test, json=robot_body)
+        if r.status_code == 200 and t.status_code == 200:
             return True
         else:
             return False
