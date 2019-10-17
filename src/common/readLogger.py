@@ -26,7 +26,7 @@ class ReadLogger:
     #         logging.config.fileConfig(log_path)
     #         self.logger = logging.getLogger('simpleExample')
     #         # # # 生成日志文件
-    #         # log_src = "run.log"  # 运行时日志
+    #         # log_src = "run.logs"  # 运行时日志
     #     else:
     #         log_conf_file = f'{logType}Log.conf'  # 日志配置文件
     #         log_path = root_dir + sep + 'conf' + sep + log_conf_file  # 日志配置文件绝对路径
@@ -34,7 +34,7 @@ class ReadLogger:
     #         logging.config.fileConfig(log_path)
     #         self.logger = logging.getLogger(f'{logType}')
     #     #     # # 生成日志文件
-    #     #     log_src = f"{logType}.log"  # 运行时日志
+    #     #     log_src = f"{logType}.logs"  # 运行时日志
     #     #
     #     # self.run_log_src = root_dir + sep + f'output{sep}logs' + sep + log_src
     
@@ -49,10 +49,10 @@ class ReadLogger:
         logging.config.fileConfig(log_path)
         self.logger = logging.getLogger('all')
         # # 生成日志文件
-        log_src = "all_run.log"  # 运行时日志
+        log_src = "all_run.logs"  # 运行时日志
 
         #     # # 生成日志文件
-        #     log_src = f"{logType}.log"  # 运行时日志
+        #     log_src = f"{logType}.logs"  # 运行时日志
         #
         # self.run_log_src = root_dir + sep + f'output{sep}logs' + sep + log_src
         self.run_log_src = f'{root_dir}{sep}output{sep}logs{sep}{log_src}'

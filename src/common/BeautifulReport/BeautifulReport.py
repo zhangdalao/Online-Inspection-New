@@ -100,7 +100,7 @@ class MakeResultJson:
             'description',
             'spendTime',
             'status',
-            'log',
+            'logs',
         )
         for key, data in zip(keys, self.datas):
             self.result_schema.setdefault(key, data)

@@ -5,9 +5,9 @@
       "mobile":["18652980686"]
     },
     "domain":{
-      "test": "https://ddxf.fangdd.net",
-      "pre" : "https://ddxf.fangdd.com.cn",
-      "prod" : "https://ddxf.fangdd.com",
+      "test": "https://shopapi.fangdd.net",
+      "pre" : "https://shopapi.fangdd.com.cn",
+      "prod" : "https://shopapi.fangdd.com",
       "shop-test":"https://shop.fangdd.net",
       "shop-pre":"https://shop.fangdd.com.cn",
       "shop-prod":"https://shop.fangdd.com"
@@ -43,6 +43,23 @@
         "hticket":"/api/trade/receipt/advance/ticket",
         "iticketlist1":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10",
         "iticketlist2":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10&wfIsEnd=0"
+    },
+    "Org":{
+         "userdetail":"/api/login/user",
+         "carriedetail":"/api/boai/boai/org/carrier/1",
+         "eagrrement":"/api/boai/boai/org/carrier/agent/agreement?carrierId=1",
+         "fcitylist":"/api/boai/boai/org/branches?pageNo=1&pageSize=10&carrierId=1",
+         "gcitydetail":"/api/boai/boai/org/branch/3",
+         "icityuser":"/api/boai/boai/user/users?orgId=3&orgType=2&pageNo=1&pageSize=10",
+         "jteamdetail":"/api/boai/boai/team/user?pageSize=10&pageNo=1&teamId=49",
+         "kchangeteamuser":"/api/boai/boai/team/user/role",
+         "larealist":"/api/boai/boai/org/areas?pageNo=1&pageSize=10&carrierId=1",
+         "mareadetail":"/api/boai/boai/org/area/3",
+         "nchangearea":"/api/boai/boai/org/area",
+         "oaddcity":"/api/boai/boai/org/area/branch",
+         "pgivecity":"/api/boai/boai/org/area/branch",
+         "quserlist":"/api/boai/boai/user/users?orgId=3&orgType=6&pageNo=1&pageSize=10"
+
     }
   }
 }
