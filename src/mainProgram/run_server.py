@@ -12,8 +12,8 @@ def hello():
 
 @app.route("/run_test")
 def run_test():
-    start()
-    return "Hello, World!"
+    start.delay()
+    return "自动化测试已启动"
 
 
 if __name__ == '__main__':

@@ -5,8 +5,8 @@ from celery.schedules import crontab
 def configure_celery(app):
     celery = Celery(
         'online—inspection-new',
-        broker='redis://10.12.21.110:6379',
-        backend='redis://10.12.21.110:6379',
+        broker='redis://10.12.21.110:6379/1',
+        backend='redis://10.12.21.110:6379/1',
     )
     celery.conf.timezone = 'Asia/Shanghai'
     celery.conf.beat_schedule = {
