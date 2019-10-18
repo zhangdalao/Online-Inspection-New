@@ -1,8 +1,8 @@
 {
   "god":{
     "robot_data":{
-      "robot_url":"",
-      "mobile":[""]
+      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=254c4e03abc0c89b4922e86cb8f67c0a01fe68de2b9f7b27596eddc378b400c5",
+      "mobile":["13883217640"]
     },
     "domain":{
       "test": "https://god.fangdd.net",

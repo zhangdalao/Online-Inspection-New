@@ -1,7 +1,7 @@
 {
   "mzhan":{
     "robot_data":{
-      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=c41f688c4e87a482459697c9675d7a12dc6ebfbec9c242ccf2b498bcece2644a",
+      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa145342159f8fd0065fc4",
       "mobile":["15937061681"]
     },
     "domain":{

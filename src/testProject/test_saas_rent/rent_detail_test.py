@@ -67,10 +67,10 @@ class Rent_detailTest(RunTest):
 			self.logger.info("测试结果         :测试通过！")
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
-			# json_dict = self.a.json_data[self.project]["robot_data"]
-			# robot_url = json_dict["robot_url"]
-			# mobile = json_dict["mobile"]
-			# send_ding(robot_url, mobile, content=f"创建租房房源异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+			json_dict = self.a.json_data[self.project]["robot_data"]
+			robot_url = json_dict["robot_url"]
+			mobile = json_dict["mobile"]
+			send_ding(robot_url, mobile, content=f"创建租房房源异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
 			raise err
 
 	@ddt.data(*a.get_data_by_api(fieldname, "update_rent_base_info"))  # 接口对应的名称
@@ -90,10 +90,10 @@ class Rent_detailTest(RunTest):
 			self.logger.info("测试结果         :测试通过！")
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
-			# json_dict = self.a.json_data[self.project]["robot_data"]
-			# robot_url = json_dict["robot_url"]
-			# mobile = json_dict["mobile"]
-			# send_ding(robot_url, mobile, content=f"更新房源信息异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+			json_dict = self.a.json_data[self.project]["robot_data"]
+			robot_url = json_dict["robot_url"]
+			mobile = json_dict["mobile"]
+			send_ding(robot_url, mobile, content=f"更新房源信息异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
 			raise err
 
 	@ddt.data(*a.get_data_by_api(fieldname, "update_RentStatus"))  # 接口对应的名称
@@ -113,11 +113,12 @@ class Rent_detailTest(RunTest):
 			self.logger.info("测试结果         :测试通过！")
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
-			# json_dict = self.a.json_data[self.project]["robot_data"]
-			# robot_url = json_dict["robot_url"]
-			# mobile = json_dict["mobile"]
-			# send_ding(robot_url, mobile, content=f"更新房源状态异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+			json_dict = self.a.json_data[self.project]["robot_data"]
+			robot_url = json_dict["robot_url"]
+			mobile = json_dict["mobile"]
+			send_ding(robot_url, mobile, content=f"更新房源状态异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
 			raise err
+		
 	@ddt.data(*a.get_data_by_api(fieldname, "add_rent_follow_up"))  # 接口对应的名称
 	def test_04_add_rent_follow_up(self, value):
 		# 通过函数名获取apiName参数的值
@@ -136,12 +137,11 @@ class Rent_detailTest(RunTest):
 			self.logger.info("测试结果         :测试通过！")
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
-			# json_dict = self.a.json_data[self.project]["robot_data"]
-			# robot_url = json_dict["robot_url"]
-			# mobile = json_dict["mobile"]
-			# send_ding(robot_url, mobile, content=f"添加租房跟进异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+			json_dict = self.a.json_data[self.project]["robot_data"]
+			robot_url = json_dict["robot_url"]
+			mobile = json_dict["mobile"]
+			send_ding(robot_url, mobile, content=f"添加租房跟进异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
 			raise err
 
-			raise err
 if __name__ == '__main__':
 	unittest.main()

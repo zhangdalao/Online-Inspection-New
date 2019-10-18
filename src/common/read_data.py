@@ -31,11 +31,6 @@ class ReadData:
 			form_path = f"{root_path}{sep}data{sep}FDD接口测试用例.xlsx"
 			self.logger.info(f"获取项目根正常          :{form_path}")
 		
-	# # 获得项目根目录
-	# root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
-	# # xlsx表格数据地址
-	# form_path = f"{root_path}{sep}data{sep}FDD接口测试用例.xlsx"
-		
 			# 读取xlsx表格数据
 			self.workbook = xlrd.open_workbook(form_path)  # 整个xlxs数据对象
 			self.logger.info(f"读取xlsx表格数据正常:{self.workbook}")
@@ -187,20 +182,6 @@ class ReadData:
 		:return:                  根据传入的模块名和接口名进行接口地址拼接，返回接口地址URL
 		"""
 		return self.json_data[self.pro][fieldName][apiName]
-		# uri = self.json_data[self.pro][fieldName][apiName]
-		# re_str = '#\w+#'
-		# # 使用正则获取 uri 中参数化的字段列表
-		# re_list_uri = re.findall(re_str, uri)
-		# if re_list_uri:
-		# 	uri_list_str = str(uri.split('/')).replace("\'#", "#")
-		# 	uri_list_str = uri_list_str.replace("#\'", "#")
-		# 	patch_list = re.findall(re_str, uri_list_str)
-		# 	for m in patch_list:
-		# 		uri_list_str = uri_list_str.replace(m, "f'{sss[\"%s\"]}'" % (m[1:-1]))
-		# 	uri_list = eval(uri_list_str)
-		# 	uri = '/'.join(uri_list)
-		# # print(f"============uri==========:{uri}")
-		# return uri
 		
 if __name__ == '__main__':
 	a = ReadData("ddsf")

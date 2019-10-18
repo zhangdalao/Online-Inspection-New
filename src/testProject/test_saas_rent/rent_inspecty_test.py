@@ -44,7 +44,6 @@ class Rent_InspectTest(RunTest):
 		cls.cookie_txt = rent_saas_login()
 		print("房号为：",sss["roomNo"])
 
-	
 	def setUp(self):
 		globals()['count'] += 1
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
@@ -68,10 +67,10 @@ class Rent_InspectTest(RunTest):
 			self.logger.info("测试结果         :测试通过！")
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
-			# json_dict = self.a.json_data[self.project]["robot_data"]
-			# robot_url = json_dict["robot_url"]
-			# mobile = json_dict["mobile"]
-			# send_ding(robot_url, mobile, content=f"添加实勘异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
+			json_dict = self.a.json_data[self.project]["robot_data"]
+			robot_url = json_dict["robot_url"]
+			mobile = json_dict["mobile"]
+			send_ding(robot_url, mobile, content=f"添加实勘异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
 			raise err
 
 if __name__ == '__main__':
