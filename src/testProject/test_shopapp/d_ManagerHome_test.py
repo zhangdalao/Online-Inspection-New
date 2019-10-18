@@ -58,7 +58,6 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False, timeout=10)
         try:
@@ -85,7 +84,6 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -113,7 +111,6 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -141,7 +138,6 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -169,7 +165,6 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -197,7 +192,6 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -225,7 +219,6 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -253,7 +246,6 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -281,15 +273,14 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
-            sss["referralIds"] = res.json()['data']['pageData'][0]['referralId']
-            print(sss["referralIds"])
             self.logger.info("测试结果         :测试通过！")
+            sss["referralIds"] = res.json()['data']['pageData'][0]['referralId']
+            print("报备ID：" + str(sss["referralIds"]))
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
             json_dict = self.a.json_data[self.project]["robot_data"]
@@ -311,7 +302,6 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -339,7 +329,6 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -367,15 +356,14 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
-            sss["guideId"] = res.json()['data']['pageData'][0]['guideId']
-            print(sss["guideId"])
             self.logger.info("测试结果         :测试通过！")
+            sss["guideId"] = res.json()['data']['pageData'][0]['guideId']
+            print("带看ID：" + str(sss["guideId"]))
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
             json_dict = self.a.json_data[self.project]["robot_data"]
@@ -397,7 +385,6 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -425,7 +412,6 @@ class ManagerHomeTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)

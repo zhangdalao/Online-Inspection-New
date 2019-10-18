@@ -116,7 +116,6 @@ class EstateTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -144,7 +143,6 @@ class EstateTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -172,7 +170,6 @@ class EstateTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -200,7 +197,6 @@ class EstateTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -229,7 +225,6 @@ class EstateTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -257,7 +252,6 @@ class EstateTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -285,7 +279,6 @@ class EstateTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
@@ -313,7 +306,6 @@ class EstateTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        print(self.headers_num)
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
