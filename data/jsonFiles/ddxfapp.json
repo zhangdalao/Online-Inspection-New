@@ -26,7 +26,9 @@
         "eBookingToOrder":"/ddxf/order/deal/status/#bookingId#",
         "fChange":"/app/trade/settlement/order/ticket",
         "gChecklist":"/app/ddxf/work/audit/list?pageNo=0&pageSize=10&auditStatus=1",
-        "hAuditchange":""
+        "hperformancechange":"/ddxf/order/appeal/contrib",
+        "iperformancelist":"/ddxf/work/audit/list?auditStatus=1&processType=2&pageNo=0&branchId=3&pageSize=15&businessName=#orderId2#",
+        "jperformencedetail":"/ddxf/order/appeal/contrib/#performanceId#"
     },
     "WebLogin":{
         "WebLogin":"/api/login/account"
@@ -48,7 +50,8 @@
         "lvioceconfirm":"/api/trade/receipt/invoice/status",
         "money":"/api/trade/receipt/ticket",
         "nmoneyconfirmlist":"/api/trade/receipt/ticket?pageNo=1&pageSize=10&ticketStatus=1",
-        "nmoneyconfirm":"/api/trade/receipt/ticket/status"
+        "nmoneyconfirm":"/api/trade/receipt/ticket/status",
+        "oticketcheck":"/api/trade/receipt/advance/ticket/approve"
     },
     "Org":{
          "userdetail":"/api/login/user",
@@ -68,6 +71,9 @@
     },
     "Project":{
           "auserlist":"/api/boai/boai/user/project/configs?projectId=10636&pageNo=1&pageSize=20"
+    },
+    "Check":{
+          "auditchange":"/ddxf/work/audit"
     }
   }
 }
