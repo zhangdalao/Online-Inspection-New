@@ -76,7 +76,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		self.desc = ""  # 用例描述
 		self.api_name = ""  # 用例名称 api_name
 		self.body = None  # 因为存在接口数据依赖原因，所以这里会单独申明body
-		self.req_msg = {'request': {}, '\nresponse': {}}  # 用例基本信息
+		self.expect = None  # 后面需要日志打印预期结果
 	
 	# 后面用例编号会使用
 	
