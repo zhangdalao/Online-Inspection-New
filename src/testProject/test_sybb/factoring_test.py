@@ -1,6 +1,6 @@
 # -*- coding=utf-8 -*-
-# Author: BoLin Chen
-# @Date : 2019-08-08
+# Author: Zhou Cuiling
+# @Date : 2019-09-21
 
 
 import os
@@ -10,6 +10,8 @@ import ddt
 import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
+from src.testProject.test_sybb import read_cookie
+import json
 
 
 count = 0
@@ -38,11 +40,8 @@ class FactoringTest(RunTest):
 		cls.expect_num = cls.a.get_num_name("预期结果")
 		cls.isSkip_num = cls.a.get_num_name("是否跳过该用例")
 		cls.relateData_num = cls.a.get_num_name("接口关联参数")
-		# cls.cookies= sss["cookies"]
-		# t = time.time()
-		# cls.timestamp = str(round(t * 1000))
-		# sss["timestamp"] = cls.timestamp
-		
+		cls.cookies = json.loads(read_cookie.readcookie().replace("\'", '\"'))
+
 	def setUp(self):
 		globals()['count'] += 1
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
@@ -61,7 +60,7 @@ class FactoringTest(RunTest):
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
 		result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["jgj_cookies"])
+							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=self.cookies)
 		# print(result.cookies)
 		try:
 			self.assertEqual(True, checkOut(self.res, self.expect))
@@ -71,7 +70,7 @@ class FactoringTest(RunTest):
 			json_dict = self.a.json_data[self.project]["robot_data"]
 			robot_url = json_dict["robot_url"]
 			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
+			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{err}, 接口预期结果为：{self.expect}")
 			raise err
 
 	@ddt.data(*a.get_data_by_api(fieldname, "OrderList"))
@@ -86,7 +85,7 @@ class FactoringTest(RunTest):
 		# 调用接口发起请求
 		result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-							cookies=sss["jgj_cookies"])
+							cookies=self.cookies)
 		# print(result.cookies)
 		try:
 			self.assertEqual(True, checkOut(self.res, self.expect))
@@ -96,7 +95,7 @@ class FactoringTest(RunTest):
 			json_dict = self.a.json_data[self.project]["robot_data"]
 			robot_url = json_dict["robot_url"]
 			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
+			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{err}, 接口预期结果为：{self.expect}")
 			raise err
 
 	@ddt.data(*a.get_data_by_api(fieldname, "OrderSearch"))
@@ -111,7 +110,7 @@ class FactoringTest(RunTest):
 		# 调用接口发起请求
 		result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-							cookies=sss["jgj_cookies"])
+							cookies=self.cookies)
 		# print(result.cookies)
 		try:
 			self.assertEqual(True, checkOut(self.res, self.expect))
@@ -121,7 +120,7 @@ class FactoringTest(RunTest):
 			json_dict = self.a.json_data[self.project]["robot_data"]
 			robot_url = json_dict["robot_url"]
 			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
+			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{err}, 接口预期结果为：{self.expect}")
 			raise err
 
 	@ddt.data(*a.get_data_by_api(fieldname, "OrderManage"))
@@ -136,7 +135,7 @@ class FactoringTest(RunTest):
 		# 调用接口发起请求
 		result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-							cookies=sss["jgj_cookies"])
+							cookies=self.cookies)
 		# print(result.cookies)
 		try:
 			self.assertEqual(True, checkOut(self.res, self.expect))
@@ -146,7 +145,7 @@ class FactoringTest(RunTest):
 			json_dict = self.a.json_data[self.project]["robot_data"]
 			robot_url = json_dict["robot_url"]
 			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
+			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{err}, 接口预期结果为：{self.expect}")
 			raise err
 
 if __name__ == '__main__':
