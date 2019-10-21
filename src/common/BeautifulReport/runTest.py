@@ -152,8 +152,8 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		if isSkip and str(isSkip).strip() == "是":
 			self.logger.debug(f"是否跳过         :{isSkip}")
 			self.skipTest('skip case')
-			return
-		# 如果该接口关联类型只是关联输出False
+			return False
+		# 如果该接口关联类型只是关联输出
 		# elif isRelate and isRelate["relateType"] == "relateOut":
 		elif type(isRelate) == dict:
 			relateData = isRelate["relateData"]
@@ -219,9 +219,8 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			self.logger.debug(f"header          :{self.headers}")
 			self.logger.debug(f"请求体           :{self.body}")
 			self.logger.debug(f"请求参数         :{self.params}")
-			response = self.method.run_main(url, method, self.headers, self.params, self.body, **kw)
-			# write_relate_json(data=res, relate_config=relateData)
 			try:
+				response = self.method.run_main(url, method, self.headers, self.params, self.body, **kw)
 				self.res = response.json()
 				self.logger.debug(f"响应结果         :{self.res}")
 				self.logger.debug(f"预期结果         :{self.expect}")
@@ -305,8 +304,8 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			self.logger.debug(f"header          :{self.headers}")
 			self.logger.debug(f"请求体           :{self.body}")
 			self.logger.debug(f"请求参数         :{self.params}")
-			response = self.method.run_main(url, method, self.headers, self.params, self.body, **kw)
 			try:
+				response = self.method.run_main(url, method, self.headers, self.params, self.body, **kw)
 				self.res = response.json()
 				self.logger.debug(f"响应结果         :{self.res}")
 				self.logger.debug(f"预期结果         :{self.expect}")

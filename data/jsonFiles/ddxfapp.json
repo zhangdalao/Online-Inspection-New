@@ -41,7 +41,7 @@
         "dreceivablestatus":"/api/composition/pc/additional/receivable/status",
         "eaddconfirm":"/api/composition/pc/purchase/confirm/add",
         "fconfirmlist":"/api/composition/pc/purchase/confirm/list?pageNo=1&pageSize=10",
-        "gconfirm":"/api/trade/receivable/confirmation/confirm",
+        "gconfirm":"/api/composition/pc/purchase/confirm/approve",
         "hticket":"/api/trade/receipt/advance/ticket",
         "iticketlist1":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10",
         "iticketlist2":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10&wfIsEnd=0",
