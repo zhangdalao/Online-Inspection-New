@@ -14,7 +14,7 @@ class ReadData:
 	def __init__(self, project=None, jsonName=None):
 		"""
 		:param project:    根据参数获得项目名称去读取excle中的sheet页，以及json中的数据, 默认为None
-		:param project:    根据参数获得指定json文件名称，去读取对应json中的数据, 默认为None
+		:param jsonName:    根据参数获得指定json文件名称，去读取对应json中的数据, 默认为None
 		"""
 		
 		# 获取logger和run_log
