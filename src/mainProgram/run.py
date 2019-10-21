@@ -39,6 +39,7 @@ def get_project_robot_URL(projectName=None):
         json_data = json.load(j)
     return json_data
 
+
 @celery.task(base=QueueOnce)
 def start(cases_dir=None):
     # 脚本运行时间
@@ -98,8 +99,7 @@ def start(cases_dir=None):
     # return res
     sleep(5)
     # ip = '10.0.6.56'
-    #result_url = "http://" + ip + f':8686{sep}{report_dir}{sep}{reportFileName}'
-
+    # result_url = "http://" + ip + f':8686{sep}{report_dir}{sep}{reportFileName}'
     ip = '10.50.255.253'
     output_dir = '/output/report/'
     result_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
