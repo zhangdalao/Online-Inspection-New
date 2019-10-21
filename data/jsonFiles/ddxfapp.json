@@ -28,7 +28,13 @@
         "gChecklist":"/app/ddxf/work/audit/list?pageNo=0&pageSize=10&auditStatus=1",
         "hperformancechange":"/ddxf/order/appeal/contrib",
         "iperformancelist":"/ddxf/work/audit/list?auditStatus=1&processType=2&pageNo=0&branchId=3&pageSize=15&businessName=#orderId2#",
-        "jperformencedetail":"/ddxf/order/appeal/contrib/#performanceId#"
+        "jperformencedetail":"/ddxf/order/appeal/contrib/#performanceId#",
+        "kamountchange":"/ddxf/complaint/contract",
+        "lamountchangelist":"/app/ddxf/work/audit/list?branchId=3&processType=11&auditStatus=1&pageNo=0&pageSize=15",
+        "mdatechange":"/ddxf/complaint/date",
+        "ndatachangelist":"/app/ddxf/work/audit/list?branchId=3&processType=27&pageNo=0&pageSize=15&auditStatus=1",
+        "ordercancel":"/ddxf/order/purchase/#orderId5#",
+        "pcancellist":"/app/ddxf/work/audit/list?auditStatus=1&branchId=3&processType=15&pageNo=0&pageSize=15"
     },
     "WebLogin":{
         "WebLogin":"/api/login/account"
