@@ -108,11 +108,13 @@ def start(cases_dir=None):
                                          f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
     return res
 
-
 if __name__ == '__main__':
     # start("https://oapi.dingtalk.com/robot/send?access_token=c41f688c4e87a482459697c9675d7a12dc6ebfbec9c242ccf2b498bcece2644a")
     # get_project_robot_URL()
-    start('test_shopapp')
+    # start('test_shopapp')
     # print(os.getcwd())
     # start("test_boss")
-    # start()
+    start()
+#
+#
+# # TODO  根据不同项目启动
