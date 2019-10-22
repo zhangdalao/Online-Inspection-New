@@ -110,7 +110,7 @@ class ReportTest(RunTest):
 		# 调用接口发起请求
 		result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-							cookies=sss["jgj_cookies"])
+							cookies=self.cookies)
 		# print(result.cookies)
 		try:
 			self.assertEqual(True, checkOut(self.res, self.expect))
