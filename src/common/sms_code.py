@@ -26,7 +26,7 @@ def get_smsCode(env, send_code_url, method, **kw):
 			}
 			sms_url = sms_url_dict[env]
 			r = requests.get(sms_url)
-			time.sleep(5)
+			time.sleep(3)
 			if r.json()["code"] == 0:
 				# 获取短信内容
 				sms_content = r.json()["records"]

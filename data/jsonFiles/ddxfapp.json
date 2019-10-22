@@ -5,9 +5,9 @@
       "mobile":["18652980686"]
     },
     "domain":{
-      "test": "https://ddxf.fangdd.net",
-      "pre" : "https://ddxf.fangdd.com.cn",
-      "prod" : "https://ddxf.fangdd.com",
+      "test": "https://shopapi.fangdd.net",
+      "pre" : "https://shopapi.fangdd.com.cn",
+      "prod" : "https://shopapi.fangdd.com",
       "shop-test":"https://shop.fangdd.net",
       "shop-pre":"https://shop.fangdd.com.cn",
       "shop-prod":"https://shop.fangdd.com"
@@ -26,7 +26,9 @@
         "eBookingToOrder":"/ddxf/order/deal/status/#bookingId#",
         "fChange":"/app/trade/settlement/order/ticket",
         "gChecklist":"/app/ddxf/work/audit/list?pageNo=0&pageSize=10&auditStatus=1",
-        "hAuditchange":""
+        "hperformancechange":"/ddxf/order/appeal/contrib",
+        "iperformancelist":"/ddxf/work/audit/list?auditStatus=1&processType=2&pageNo=0&branchId=3&pageSize=15&businessName=#orderId2#",
+        "jperformencedetail":"/ddxf/order/appeal/contrib/#performanceId#"
     },
     "WebLogin":{
         "WebLogin":"/api/login/account"
@@ -42,7 +44,36 @@
         "gconfirm":"/api/trade/receivable/confirmation/confirm",
         "hticket":"/api/trade/receipt/advance/ticket",
         "iticketlist1":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10",
-        "iticketlist2":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10&wfIsEnd=0"
+        "iticketlist2":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10&wfIsEnd=0",
+        "jticketdetail":"/api/trade/receipt/advance/ticket/#ticketId1#",
+        "kvioce":"/api/trade/receipt/invoice/",
+        "lvioceconfirm":"/api/trade/receipt/invoice/status",
+        "money":"/api/trade/receipt/ticket",
+        "nmoneyconfirmlist":"/api/trade/receipt/ticket?pageNo=1&pageSize=10&ticketStatus=1",
+        "nmoneyconfirm":"/api/trade/receipt/ticket/status",
+        "oticketcheck":"/api/trade/receipt/advance/ticket/approve"
+    },
+    "Org":{
+         "userdetail":"/api/login/user",
+         "carriedetail":"/api/boai/boai/org/carrier/1",
+         "eagrrement":"/api/boai/boai/org/carrier/agent/agreement?carrierId=1",
+         "fcitylist":"/api/boai/boai/org/branches?pageNo=1&pageSize=10&carrierId=1",
+         "gcitydetail":"/api/boai/boai/org/branch/3",
+         "icityuser":"/api/boai/boai/user/users?orgId=3&orgType=2&pageNo=1&pageSize=10",
+         "jteamdetail":"/api/boai/boai/team/user?pageSize=10&pageNo=1&teamId=49",
+         "kchangeteamuser":"/api/boai/boai/team/user/role",
+         "larealist":"/api/boai/boai/org/areas?pageNo=1&pageSize=10&carrierId=1",
+         "mareadetail":"/api/boai/boai/org/area/3",
+         "nchangearea":"/api/boai/boai/org/area",
+         "oaddcity":"/api/boai/boai/org/area/branch",
+         "pgivecity":"/api/boai/boai/org/area/branch",
+         "quserlist":"/api/boai/boai/user/users?orgId=3&orgType=6&pageNo=1&pageSize=10"
+    },
+    "Project":{
+          "auserlist":"/api/boai/boai/user/project/configs?projectId=10636&pageNo=1&pageSize=20"
+    },
+    "Check":{
+          "auditchange":"/ddxf/work/audit"
     }
   }
 }

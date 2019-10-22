@@ -26,7 +26,6 @@ class SignKey:
             startJVM(jpype.getDefaultJVMPath(), "-ea", "-Djava.class.path=%s" % jar_path)
             # startJVM(r"/usr/java/jdk1.8.0_11/jre/lib/amd64/server/libjvm.so","-ea","-Djava.class.path=%s" % jar_path)
             # startJVM(r"/usr/lib/jvm/default-jvm/jre/lib/amd64/server/libjvm.so","-ea","-Djava.class.path=%s" % jar_path)
-
         instance = JPackage('com').fangddd.ddsign
         key = instance.SignUtil.generateSign(self.req)
         # print(type(key))

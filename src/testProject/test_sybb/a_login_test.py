@@ -1,6 +1,6 @@
 # -*- coding=utf-8 -*-
-# Author: BoLin Chen
-# @Date : 2019-08-08
+# Author: Zhou Cuiling
+# @Date : 2019-09-21
 
 
 import os
@@ -11,6 +11,7 @@ import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
 from src.common.sms_code import get_smsCode
+import requests
 
 count = 0
 
@@ -62,8 +63,14 @@ class LoginTest(RunTest):
 		# 调用接口发起请求
 		result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+		print(type(result.cookies))
 		if self.res and self.res["code"] == '200':
-			sss["jgj_cookies"] = result.cookies
+			# sss["jgj_cookies"] = result.cookies
+			par_dir = os.path.dirname(__file__)
+			sep = os.sep
+			data_file = open(f'{par_dir}{sep}jgj_cookie.txt', "w",encoding="utf-8")
+			data_file.write(str(requests.utils.dict_from_cookiejar(result.cookies)))
+			data_file.close()
 		try:
 			self.assertEqual(True, checkOut(self.res, self.expect))
 			self.logger.info("测试结果         :测试通过！")
@@ -72,7 +79,7 @@ class LoginTest(RunTest):
 			json_dict = self.a.json_data[self.project]["robot_data"]
 			robot_url = json_dict["robot_url"]
 			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
+			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{err}, 接口预期结果为：{self.expect}")
 			raise err
 
 
