@@ -11,9 +11,9 @@ def send_ding(robotUrl, mobile, content=None):
 	:return:
 	"""
 	if robotUrl and content and mobile:
-		# robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9' \
-		# 			 'aa145342159f8fd0065fc4'
-		robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=06fc833f73ad232ce00e5e2ee3d63ec299d72fd19fed82245cd6b083938f1616'
+		robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9' \
+		 			 'aa145342159f8fd0065fc4'
+		# robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=06fc833f73ad232ce00e5e2ee3d63ec299d72fd19fed82245cd6b083938f1616'
 		robot_body = {
 			"msgtype": "text",
 			"text": {
