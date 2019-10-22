@@ -8,7 +8,7 @@ import json
 
 from flask import Flask
 
-from src.common.configure_celery import configure_celery
+# from src.common.configure_celery import configure_celery
 
 sep = os.sep
 root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
@@ -29,7 +29,7 @@ from celery_once import QueueOnce
 # # 获取本机ip
 # ip = socket.gethostbyname(hostname)
 app = Flask(__name__)
-celery = configure_celery(app)
+# celery = configure_celery(app)
 
 
 def get_project_robot_URL(projectName=None):
@@ -40,7 +40,7 @@ def get_project_robot_URL(projectName=None):
     return json_data
 
 
-@celery.task(base=QueueOnce)
+# @celery.task(base=QueueOnce)
 def start(cases_dir=None):
     # 脚本运行时间
     now = time.strftime("%Y_%m_%d-%H_%M_%S")
@@ -112,7 +112,7 @@ def start(cases_dir=None):
 if __name__ == '__main__':
     # start("https://oapi.dingtalk.com/robot/send?access_token=c41f688c4e87a482459697c9675d7a12dc6ebfbec9c242ccf2b498bcece2644a")
     # get_project_robot_URL()
-    # start('test_sybb')
+    start('test_shopapp')
     # print(os.getcwd())
     # start("test_boss")
-    start()
+    # start()

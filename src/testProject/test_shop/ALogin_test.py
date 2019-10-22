@@ -49,7 +49,7 @@ class LoginTest(RunTest):
     def test_LoginByMobile(self, value):
         sss["authCode"] = get_smsCode("prod", 'https://shop.fangdd.com/api/boai/boai/user/authCode?mobile=13058019302&inUc=1', 'get', verify=False)
         # 通过函数名获取apiName参数的值
-        print(sss["authCode"])
+        print("验证码" + sss["authCode"])
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
         env = value[self.env_num]
@@ -61,7 +61,6 @@ class LoginTest(RunTest):
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
             sss["cookies"] = requests.utils.dict_from_cookiejar(res.cookies)
-            print(sss)
             self.logger.info("测试结果         :测试通过！")
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
@@ -70,6 +69,7 @@ class LoginTest(RunTest):
             mobile = json_dict["mobile"]
             send_ding(robot_url, mobile, content=f"登录异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
             raise err
+
 
 if __name__ == '__main__':
     unittest.main()
