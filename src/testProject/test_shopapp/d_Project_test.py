@@ -145,7 +145,7 @@ class ProjectTest(RunTest):
             self.assertEqual(True, checkOut(self.res, self.expect))
             self.logger.info("测试结果         :测试通过！")
             sss["wechatGroupId"] = res.json()['data'][0]['wechatGroupId']
-            print("项目微信ID：" + str(sss["wechatGroupId"]))
+            # print("项目微信ID：" + str(sss["wechatGroupId"]))
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
             json_dict = self.a.json_data[self.project]["robot_data"]

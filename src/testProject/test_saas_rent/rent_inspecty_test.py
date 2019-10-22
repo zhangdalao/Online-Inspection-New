@@ -22,12 +22,12 @@ class Rent_InspectTest(RunTest):
 	
 	# 通过文件名夹获取project参数的值
 	project = os.path.dirname(__file__)[-9:]
-	print(project)
+	# print(project)
 	# 读取文件实例化
 	a = ReadData(project,'saas_rent')
 	# 通过类名获取fieldname的值
 	fieldname = sys._getframe().f_code.co_name[:-4]
-	print(fieldname)
+	# print(fieldname)
 
 	@classmethod
 	def setUpClass(cls):
@@ -42,7 +42,7 @@ class Rent_InspectTest(RunTest):
 		cls.isSkip_num = cls.a.get_num_name("是否跳过该用例")
 		cls.relateData_num = cls.a.get_num_name("接口关联参数")
 		cls.cookie_txt = rent_saas_login()
-		print("房号为：",sss["roomNo"])
+		# print("房号为：",sss["roomNo"])
 
 	def setUp(self):
 		globals()['count'] += 1

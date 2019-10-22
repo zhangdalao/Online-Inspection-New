@@ -42,8 +42,10 @@ class RunMethod(MethodException):
 						# post方法添加兼容json不传的情况, 并且兼用空字典，空列表等情况
 						if not data and type(data) not in [list, dict, tuple, set]:
 							res = requests.request(method.lower(), url, params=para, headers=headers, **kw)
-						else:
+						elif para:
 							res = requests.request(method.lower(), url, params=para, json=data, headers=headers, **kw)
+						else:
+							res = requests.request(method.lower(), url, json=data, headers=headers, **kw)
 					else:
 						res = requests.request(method.lower(), url, params=para, data=data, headers=headers, **kw)
 				else:

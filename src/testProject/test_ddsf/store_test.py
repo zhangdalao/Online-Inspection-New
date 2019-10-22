@@ -20,8 +20,8 @@ class StoreTest(RunTest):
 	
 	# 通过文件名夹获取project参数的值
 	project = os.path.dirname(__file__)[-4:]
+	# 读取文件实例化
 	a = ReadData(project, project)
-	
 	# 通过类名获取fieldname的值
 	fieldname = sys._getframe().f_code.co_name[:-4]
 	
@@ -43,6 +43,17 @@ class StoreTest(RunTest):
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 	
 	def tearDown(self):
+		if self.result:
+			try:
+				self.assertEqual(True, checkOut(self.res, self.expect))
+				self.logger.debug("测试结果         :测试通过！")
+			except Exception as err:
+				self.logger.error("测试结果         :测试失败！")
+				json_dict = self.a.json_data[self.project]["robot_data"]
+				robot_url = json_dict["robot_url"]
+				mobile = json_dict["mobile"]
+				send_ding(robot_url, mobile, content=f"测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+				raise err
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 	
 	# @ddt.data(*a.get_data_by_api(fieldname, "StoreList"))
@@ -80,16 +91,5 @@ class StoreTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-		                    self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-		if result:
-			try:
-				self.assertEqual(True, checkOut(self.res, self.expect))
-				self.logger.debug("测试结果         :测试通过！")
-			except Exception as err:
-				self.logger.error("测试结果         :测试失败！")
-				json_dict = self.a.json_data[self.project]["robot_data"]
-				robot_url = json_dict["robot_url"]
-				mobile = json_dict["mobile"]
-				send_ding(robot_url, mobile, content=f"测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-				raise err
+		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)

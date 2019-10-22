@@ -22,12 +22,12 @@ class Rent_detailTest(RunTest):
 	
 	# 通过文件名夹获取project参数的值
 	project = os.path.dirname(__file__)[-9:]
-	print(project)
+	# print(project)
 	# 读取文件实例化
 	a = ReadData(project,'saas_rent')
 	# 通过类名获取fieldname的值
 	fieldname = sys._getframe().f_code.co_name[:-4]
-	print(fieldname)
+	# print(fieldname)
 
 	@classmethod
 	def setUpClass(cls):

@@ -40,13 +40,13 @@ class CheckTest(RunTest):
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri   #a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        print(sss)
-        print(sss["userId"])
-        print(sss["token"])
+        # print(sss)
+        # print(sss["userId"])
+        # print(sss["token"])
         str_sign_list = [str(sss["userId"]),str(sss["token"]),self.timestamp, value[self.method_num].upper(), uri]
-        print(str_sign_list)
+        # print(str_sign_list)
         value.append(str_sign_list)
-        print(value)
+        # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
