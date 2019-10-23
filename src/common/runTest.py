@@ -53,6 +53,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		self.api_name = ""  # 用例名称 api_name
 		self.body = None  # 因为存在接口数据依赖原因，所以这里会单独申明body
 		self.expect = None  # 后面需要日志打印预期结果
+		self.desc = None
 	
 	# 后面用例编号会使用
 	
@@ -72,7 +73,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		return self.api_name, self.desc
 	
 	def start(self, isSkip_num, apiName_num, url, method_num, headers_num, para_num, data_num, desc_num, isRelate_num,
-			  expect_num, *args, **kw):
+	          expect_num, *args, **kw):
 		"""
 		用例运行主入口
 		:param isSkip_num:      是否跳过列数来判断该用例是否跳过执行

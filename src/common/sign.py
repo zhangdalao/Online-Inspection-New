@@ -7,6 +7,7 @@ from jpype import *
 import jpype
 import os
 import sys
+import platform
 
 # 解决在linux下执行该程序路径报错问题
 sep = os.sep
@@ -21,11 +22,15 @@ class SignKey:
     def sign(self):
         # jar_path = f"{root_path}{sep}src{sep}common{sep}fdd-1.1-SNAPSHOT-jar-with-dependencies.jar"
         jar_path = (r"../common/fdd-1.1-SNAPSHOT-jar-with-dependencies.jar")
+        _platform = platform.platform()
         if not jpype.isJVMStarted():
-            # startJVM：本地调试使用第一个，提交代码需要注释第一个，使用第二个绝对路径的（crontab下不识别java的默认路径）
-            # startJVM(jpype.getDefaultJVMPath(), "-ea", "-Djava.class.path=%s" % jar_path)
-            # startJVM(r"/usr/java/jdk1.8.0_11/jre/lib/amd64/server/libjvm.so","-ea","-Djava.class.path=%s" % jar_path)
-            startJVM(r"/usr/lib/jvm/default-jvm/jre/lib/amd64/server/libjvm.so","-ea","-Djava.class.path=%s" % jar_path)
+            if _platform == 'Linux-2.6.32-754.18.2.el6.x86_64-x86_64-with-centos-6.10-Final':
+                startJVM(r"/usr/java/jdk1.8.0_11/jre/lib/amd64/server/libjvm.so", "-ea", "-Djava.class.path=%s" % jar_path)
+            elif _platform.startswith("Windows") or _platform.startswith('Darwin'):
+                startJVM(jpype.getDefaultJVMPath(), "-ea", "-Djava.class.path=%s" % jar_path)
+            else:
+                jar_path = (r"/src/common/fdd-1.1-SNAPSHOT-jar-with-dependencies.jar")
+                startJVM(r"/usr/lib/jvm/default-jvm/jre/lib/amd64/server/libjvm.so", "-ea", "-Djava.class.path=%s" % jar_path)
         instance = JPackage('com').fangddd.ddsign
         key = instance.SignUtil.generateSign(self.req)
         # print(type(key))

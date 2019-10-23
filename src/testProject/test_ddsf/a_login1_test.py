@@ -55,7 +55,7 @@ class LoginTest(RunTest):
 				json_dict = self.a.json_data[self.project]["robot_data"]
 				robot_url = json_dict["robot_url"]
 				mobile = json_dict["mobile"]
-				send_ding(robot_url, mobile, content=f"测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+				send_ding(robot_url, mobile, content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}", runType=1)
 				raise err
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 

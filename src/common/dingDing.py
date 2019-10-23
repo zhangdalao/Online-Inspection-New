@@ -3,17 +3,19 @@ import requests
 
 
 # 推送钉钉消息调用方法（消息内容@手机号，手机号）
-def send_ding(robotUrl, mobile, content=None):
+def send_ding(robotUrl, mobile, content=None, runType=None):
 	"""
 	:param robotUrl:          各个项目钉钉群内新增的机器人 url，必填参数
 	:param mobile:            推送消息指定@对象，传入参数为 list对象，必填参数
 	:param content:           推送消息内容，默认为None， 非必填
+	:param runType:           运行类型，非必填，默认为None， 本地调式的话，这个参数需要自己传入，传入非None数据类型均可，如：1/'yes'/True
 	:return:
 	"""
 	if robotUrl and content and mobile:
-		robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9' \
-		 			 'aa145342159f8fd0065fc4'
-		# robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=06fc833f73ad232ce00e5e2ee3d63ec299d72fd19fed82245cd6b083938f1616'
+		# 巡检测试组机器人地址
+		robot = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa145342159f8fd0065fc4'
+		# 调试群机器人
+		robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=06fc833f73ad232ce00e5e2ee3d63ec299d72fd19fed82245cd6b083938f1616'
 		robot_body = {
 			"msgtype": "text",
 			"text": {
@@ -24,17 +26,18 @@ def send_ding(robotUrl, mobile, content=None):
 				"isAtAll": False
 			}
 		}
-		# 给各自项目组发送错误提示
-		r = requests.post(robotUrl, json=robot_body)
-		if str(robotUrl).strip() != robot_test:
+		if runType:
+			# 当申明了非巡检执行时，则为本地调式模式，报错信息仅仅给调试机器人发送
+			r = requests.post(robot_test, json=robot_body)
+		# 非调试模式下，判断此时报错的群是不是巡检测试群
+		elif str(robotUrl).strip() != robot:
+			r = requests.post(robotUrl, json=robot_body)
 			# 给巡检机器人测试组发送报错提示
-			t = requests.post(robot_test, json=robot_body)
+			t = requests.post(robot, json=robot_body)
 			if r.status_code == 200 and t.status_code == 200:
 				return True
 			else:
 				return False
-		elif r.status_code != 200:
-			return False
 
 
 # 钉钉推送测试报告调用方法（标题，内容，文件链接）
