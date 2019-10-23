@@ -22,12 +22,9 @@ from time import sleep
 import socket
 import time
 from celery_once import QueueOnce
+import platform
 
 
-# # 获取本机计算机名称
-# hostname = socket.gethostname()
-# # 获取本机ip
-# ip = socket.gethostbyname(hostname)
 app = Flask(__name__)
 celery = configure_celery(app)
 
@@ -53,7 +50,7 @@ def start(cases_dir=None):
         robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
         suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
                                                                                                   f'{project_dir}'])
-        suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
+        suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='a*_test.py')
         reportFileName = project_name + f'_{now}_result.html'
     else:
         # 这里需要补充测试组机器人URL
@@ -96,13 +93,22 @@ def start(cases_dir=None):
             _pass_rate = ("%.2f%%" % (casesPass / casesAll * 100))
         else:
             _pass_rate = ("%.2f%%" % (casesPass / (casesAll - casesSkip) * 100))
-    # return res
     sleep(5)
-    # ip = '10.0.6.56'
-    # result_url = "http://" + ip + f':8686{sep}{report_dir}{sep}{reportFileName}'
-    ip = '10.50.255.253'
-    output_dir = '/output/report/'
-    result_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
+    _platform = platform.platform()
+    if _platform == 'Linux-2.6.32-754.18.2.el6.x86_64-x86_64-with-centos-6.10-Final':
+        ip = '10.0.6.56'
+        result_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
+    elif _platform.startswith("Windows") or _platform.startswith('Darwin'):
+        # 获取本机计算机名称
+        hostname = socket.gethostname()
+        # 获取本机ip
+        ip = socket.gethostbyname(hostname)
+        result_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
+        robot_url = None
+    else:
+        ip = '10.50.255.253'
+        output_dir = '/output/report/'
+        result_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
     if robot_url:
         send_link(robot_url, result_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll},'
                                          f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
