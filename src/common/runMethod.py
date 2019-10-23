@@ -20,15 +20,15 @@ class RunMethod(MethodException):
 	def run_main(self, url=None, method=None, headers=headers_default, para=None, data=None, **kw):
 		
 		"""
-        封装常用的7种http请求方法
-        :param method:        请求方法，从而获取请求方法 如 GET/OPTIONS/POST/PUT/PATCH/DELETE/HEAD
-        :param url:           请求url
-        :param headers:       请求头，从而获取到请求头， 默认为 application/json
-        :param para:          请求参数，从而获取到请求参数，默认 None
-        :param data:          请求体数据，从而获取到请求体参数，默认 None
-        :param kw:            其他参数
-        :return:        Response object，type requests.Response
-        # """
+		封装常用的7种http请求方法
+		:param method:        请求方法，从而获取请求方法 如 GET/OPTIONS/POST/PUT/PATCH/DELETE/HEAD
+		:param url:           请求url
+		:param headers:       请求头，从而获取到请求头， 默认为 application/json
+		:param para:          请求参数，从而获取到请求参数，默认 None
+		:param data:          请求体数据，从而获取到请求体参数，默认 None
+		:param kw:            其他参数
+		:return:        Response object，type requests.Response
+		# """
 		#
 		method_list1 = ["get", "delete", "head", "options"]
 		method_list2 = ["post", "put", "patch"]
@@ -39,11 +39,17 @@ class RunMethod(MethodException):
 					res = requests.request(method.lower(), url, params=para, headers=headers, **kw)
 				elif method.lower() in method_list2:
 					if "application/json" in str(headers).lower():
+						print("111111")
 						# post方法添加兼容json不传的情况, 并且兼用空字典，空列表等情况
 						if not data and type(data) not in [list, dict, tuple, set]:
+							print(2)
 							res = requests.request(method.lower(), url, params=para, headers=headers, **kw)
-						else:
+						elif para:
+							print(22)
 							res = requests.request(method.lower(), url, params=para, json=data, headers=headers, **kw)
+						else:
+							print(33)
+							res = requests.request(method.lower(), url, json=data, headers=headers, **kw)
 					else:
 						res = requests.request(method.lower(), url, params=para, data=data, headers=headers, **kw)
 				else:

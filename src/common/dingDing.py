@@ -11,8 +11,9 @@ def send_ding(robotUrl, mobile, content=None):
     :return:
     """
     if robotUrl and content and mobile:
-        robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9' \
-                     'aa145342159f8fd0065fc4'
+        # robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9' \
+        #              'aa145342159f8fd0065fc4'
+        robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=06fc833f73ad232ce00e5e2ee3d63ec299d72fd19fed82245cd6b083938f1616'
         robot_body = {
             "msgtype": "text",
             "text": {
@@ -26,12 +27,14 @@ def send_ding(robotUrl, mobile, content=None):
         # 给各自项目组发送错误提示
         r = requests.post(robotUrl, json=robot_body)
         if str(robotUrl).strip() != robot_test:
-            # 给巡检机器人测试组发送报错提示
-            t = requests.post(robot_test, json=robot_body)
-        if r.status_code == 200 and t.status_code == 200:
+          # 给巡检机器人测试组发送报错提示
+          t = requests.post(robot_test, json=robot_body)
+          if r.status_code == 200 and t.status_code == 200:
             return True
-        else:
+          else:
             return False
+        elif r.status_code != 200:
+          return False
 
 
 # 钉钉推送测试报告调用方法（标题，内容，文件链接）
