@@ -1,3 +1,4 @@
+yaml
 jsonpath==0.82
 requests==2.22.0
 ddt==1.2.1

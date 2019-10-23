@@ -63,7 +63,7 @@ class LoginTest(RunTest):
 		# 调用接口发起请求
 		result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-		print(type(result.cookies))
+		# print(type(result.cookies))
 		if self.res and self.res["code"] == '200':
 			# sss["jgj_cookies"] = result.cookies
 			par_dir = os.path.dirname(__file__)
@@ -80,7 +80,7 @@ class LoginTest(RunTest):
 			robot_url = json_dict["robot_url"]
 			mobile = json_dict["mobile"]
 			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{err}, 接口预期结果为：{self.expect}")
-			raise err
+		raise err
 
 
 if __name__ == '__main__':

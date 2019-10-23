@@ -1,16 +1,13 @@
 {
   "shopapp":{
     "robot_data":{
-      "robot_url":"",
-      "mobile":[""]
+      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=254c4e03abc0c89b4922e86cb8f67c0a01fe68de2b9f7b27596eddc378b400c5",
+      "mobile":["13883217640"]
     },
     "domain":{
       "test": "https://ddxf.fangdd.net",
       "pre" : "https://ddxf.fangdd.com.cn",
-      "prod" : "https://ddxf.fangdd.com",
-      "shop-test":"https://shop.fangdd.net",
-      "shop-pre":"https://shop.fangdd.com.cn",
-      "shop-prod":"https://shop.fangdd.com"
+      "prod" : "https://ddxf.fangdd.com"
     },
     "GetVersion":{
        "version":"/ddxf/app/upgrade?appId=com.fangdd.ddxf&platform=1"
@@ -47,12 +44,12 @@
       "MarketList":"/project/project/market/a/list?projectId=22987",
       "SettlmentList":"/trade/settlement?onlyBaseInfo=1&projectId=22987&pageNo=0&pageSize=20",
       "LiveAdd":"/app/live/live/room/create",
-      "LiveList":"/live/live/list?estateId=2029540&projectId=22987&pageNo=1&pageSize=20",
+      "LiveList":"/live/live/list?estateId=2017139&projectId=21062&pageNo=1&pageSize=20",
       "LiveRemove":"/app/live/live/delete",
       "VideoAdd":"/app/project/project/video",
-      "VideoList":"/project/project/video/list?projectId=22987",
+      "VideoList":"/project/project/video/list?projectId=21062",
       "VideoRemove":"/app/project/project/video/delete/",
-      "VideoDetail":"/project/project/22987/video/",
+      "VideoDetail":"/project/project/21062/video/",
       "HouseConfig":"/app/project/config/filter/1",
       "HousebuildingNos":"/app/project/project/house/22987/buildingNos",
       "Household":"/app/project/stock/22987/household?unitNo=1%E5%8D%95%E5%85%83&buildingId=50363",
@@ -83,19 +80,19 @@
       "DailyDetail":"/app/ddxf/market/daily/63812",
       "DailyEdit":"/app/ddxf/market/daily/63812",
       "OperPlanList":"/boai/boai/operation-plan/project/list?pageSize=15&projectIds=22987&pageNo=0",
-      "MarCenter":"/award/project/22987/marketingCenter",
-      "GuideAwardTopData":"/app/award/project/22987/couponStatistics?couponType=1&projectId=22987",
-      "GuideAwardBudget":"/app/award/budget/list?couponType=1&pageNo=1&pageSize=10&projectId=22987",
+      "MarCenter":"/award/project/21062/marketingCenter",
+      "GuideAwardTopData":"/app/award/project/22987/couponStatistics?couponType=1&projectId=21062",
+      "GuideAwardBudget":"/app/award/budget/list?couponType=1&pageNo=1&pageSize=10&projectId=21062",
       "GuideAwardBudgetSubmit":"/app/award/budget/",
       "GuideAwardPublish":"/app/award/coupon/",
-      "GuideAwardList":"/app/award/coupon/list?couponType=1&pageNo=1&pageSize=10&projectId=22987",
-      "GuideAwardExchange":"/app/award/couponCode/list?pageNo=1&couponType=1&pageSize=10&projectId=22987&status=3",
-      "GuideAwardExcList":"/app/award/couponCode/list?pageNo=1&couponType=1&pageSize=10&projectId=22987&status=4",
-      "OrderAwardTopData":"/app/award/project/22987/couponStatistics?couponType=2&projectId=22987",
-      "OrderAwardBudget":"/app/award/budget/list?couponType=2&pageNo=1&pageSize=10&projectId=22987",
-      "OrderAwardList":"/app/award/coupon/list?couponType=2&pageNo=1&pageSize=10&projectId=22987",
-      "OrderAwardExchange":"/app/award/couponCode/list?pageNo=1&couponType=2&pageSize=10&projectId=22987&status=3",
-      "OrderAwardExcList":"/app/award/couponCode/list?pageNo=1&couponType=2&pageSize=10&projectId=22987&status=4",
+      "GuideAwardList":"/app/award/coupon/list?couponType=1&pageNo=1&pageSize=10&projectId=21062",
+      "GuideAwardExchange":"/app/award/couponCode/list?pageNo=1&couponType=1&pageSize=10&projectId=21062&status=3",
+      "GuideAwardExcList":"/app/award/couponCode/list?pageNo=1&couponType=1&pageSize=10&projectId=21062&status=4",
+      "OrderAwardTopData":"/app/award/project/22987/couponStatistics?couponType=2&projectId=21062",
+      "OrderAwardBudget":"/app/award/budget/list?couponType=2&pageNo=1&pageSize=10&projectId=21062",
+      "OrderAwardList":"/app/award/coupon/list?couponType=2&pageNo=1&pageSize=10&projectId=21062",
+      "OrderAwardExchange":"/app/award/couponCode/list?pageNo=1&couponType=2&pageSize=10&projectId=21062&status=3",
+      "OrderAwardExcList":"/app/award/couponCode/list?pageNo=1&couponType=2&pageSize=10&projectId=21062&status=4",
       "CommissionList":"/trade/commission/project/statistics?projectId=22987"
     },
     "Dynamic":{

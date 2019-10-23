@@ -41,6 +41,7 @@ class ReportTest(RunTest):
 		cls.relateData_num = cls.a.get_num_name("接口关联参数")
 		cls.cookies = json.loads(read_cookie.readcookie().replace("\'", '\"'))
 
+
 	def setUp(self):
 		globals()['count'] += 1
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))

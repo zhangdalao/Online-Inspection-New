@@ -45,10 +45,8 @@ class RunMethod(MethodException):
 							print(2)
 							res = requests.request(method.lower(), url, params=para, headers=headers, **kw)
 						elif para:
-							print(22)
 							res = requests.request(method.lower(), url, params=para, json=data, headers=headers, **kw)
 						else:
-							print(33)
 							res = requests.request(method.lower(), url, json=data, headers=headers, **kw)
 					else:
 						res = requests.request(method.lower(), url, params=para, data=data, headers=headers, **kw)

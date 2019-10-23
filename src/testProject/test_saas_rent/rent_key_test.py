@@ -22,12 +22,12 @@ class Rent_keyTest(RunTest):
 	
 	# 通过文件名夹获取project参数的值
 	project = os.path.dirname(__file__)[-9:]
-	print(project)
+	# print(project)
 	# 读取文件实例化
 	a = ReadData(project,'saas_rent')
 	# 通过类名获取fieldname的值
 	fieldname = sys._getframe().f_code.co_name[:-4]
-	print(fieldname)
+	# print(fieldname)
 
 	@classmethod
 	def setUpClass(cls):
@@ -66,7 +66,7 @@ class Rent_keyTest(RunTest):
 			self.assertEqual(True, checkOut(self.res, self.expect))
 			sss["restful"] = json.dumps({"keyId": sss["ID6"]})
 			c= type(sss["restful"])
-			print('类型为：',c)
+			# print('类型为：',c)
 			self.logger.info("测试结果         :测试通过！")
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
