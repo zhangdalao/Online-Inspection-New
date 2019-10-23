@@ -50,7 +50,7 @@ def start(cases_dir=None):
         robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
         suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
                                                                                                   f'{project_dir}'])
-        suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='a*_test.py')
+        suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
         reportFileName = project_name + f'_{now}_result.html'
     else:
         # 这里需要补充测试组机器人URL

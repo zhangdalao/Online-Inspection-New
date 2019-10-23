@@ -22,7 +22,7 @@ class ReadLogger:
         logConfFileName = 'logs.conf'  # 指定日志配置文件名称
         logConfFilePath = root_dir + sep + 'conf' + sep + logConfFileName  # 指定日志配置文件绝对路径
         now_day = time.strftime("%Y_%m_%d")
-        runLogPath = f'{root_dir}{sep}output{sep}logs{sep}{now_day}'
+        runLogPath = f'{root_dir}{sep}output{sep}logs{sep}logs_{now_day}'
         if not os.path.exists(runLogPath):
             os.mkdir(runLogPath)
         logging.config.fileConfig(logConfFilePath, defaults={"LogPath": runLogPath})
