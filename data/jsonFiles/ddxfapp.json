@@ -1,16 +1,16 @@
 {
   "ddxfapp":{
     "robot_data":{
-      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=f92c4b9a7b375e6172f54d0cd20559e32837b7fca166ddf1cdb4a013c6e425d0",
+      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=06fc833f73ad232ce00e5e2ee3d63ec299d72fd19fed82245cd6b083938f1616",
       "mobile":["18652980686"]
     },
     "domain":{
       "test": "https://shopapi.fangdd.net",
       "pre" : "https://shopapi.fangdd.com.cn",
       "prod" : "https://shopapi.fangdd.com",
-      "shop-test":"https://shop.fangdd.net",
-      "shop-pre":"https://shop.fangdd.com.cn",
-      "shop-prod":"https://shop.fangdd.com"
+      "shop-test":"https://ddxf.fangdd.net",
+      "shop-pre":"https://ddxf.fangdd.com.cn",
+      "shop-prod":"https://ddxf.fangdd.com"
     },
     "GetVersion":{
        "version":"/ddxf/app/upgrade?appId=com.fangdd.ddxf&platform=1"
@@ -28,7 +28,16 @@
         "gChecklist":"/app/ddxf/work/audit/list?pageNo=0&pageSize=10&auditStatus=1",
         "hperformancechange":"/ddxf/order/appeal/contrib",
         "iperformancelist":"/ddxf/work/audit/list?auditStatus=1&processType=2&pageNo=0&branchId=3&pageSize=15&businessName=#orderId2#",
-        "jperformencedetail":"/ddxf/order/appeal/contrib/#performanceId#"
+        "jperformencedetail":"/ddxf/order/appeal/contrib/#performanceId#",
+        "kamountchange":"/ddxf/complaint/contract",
+        "lamountchangelist":"/app/ddxf/work/audit/list?branchId=3&processType=11&auditStatus=1&pageNo=0&pageSize=15",
+        "mdatechange":"/ddxf/complaint/date",
+        "ndatachangelist":"/app/ddxf/work/audit/list?branchId=3&processType=27&pageNo=0&pageSize=15&auditStatus=1",
+        "ordercancel":"/ddxf/order/purchase/#orderId5#",
+        "pcancellist":"/app/ddxf/work/audit/list?auditStatus=1&branchId=3&processType=15&pageNo=0&pageSize=15",
+        "qchangephone":"/app/ddxf/complaint/customer/mobile/change",
+        "rphonechanglist":"/app/ddxf/work/audit/list?pageSize=15&processType=3&branchId=3&pageNo=0&auditStatus=1",
+        "dOrderSign":"/ddxf/order/deal/status/#orderId#"
     },
     "WebLogin":{
         "WebLogin":"/api/login/account"
@@ -41,7 +50,7 @@
         "dreceivablestatus":"/api/composition/pc/additional/receivable/status",
         "eaddconfirm":"/api/composition/pc/purchase/confirm/add",
         "fconfirmlist":"/api/composition/pc/purchase/confirm/list?pageNo=1&pageSize=10",
-        "gconfirm":"/api/trade/receivable/confirmation/confirm",
+        "gconfirm":"/api/composition/pc/purchase/confirm/approve",
         "hticket":"/api/trade/receipt/advance/ticket",
         "iticketlist1":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10",
         "iticketlist2":"/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10&wfIsEnd=0",
