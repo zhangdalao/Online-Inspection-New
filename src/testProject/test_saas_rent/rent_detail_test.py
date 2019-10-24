@@ -65,6 +65,7 @@ class Rent_detailTest(RunTest):
 		try:
 			self.assertEqual(True, checkOut(self.res, self.expect))
 			self.logger.info("测试结果         :测试通过！")
+			sss["restful_rentID"] = json.dumps({"rentId": sss["ID4"]})
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
 			json_dict = self.a.json_data[self.project]["robot_data"]
