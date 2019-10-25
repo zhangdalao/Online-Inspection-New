@@ -1,8 +1,8 @@
 {
   "shopapp":{
     "robot_data":{
-      "robot_url":"",
-      "mobile":[""]
+      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=254c4e03abc0c89b4922e86cb8f67c0a01fe68de2b9f7b27596eddc378b400c5",
+      "mobile":["13883217640"]
     },
     "domain":{
       "test": "https://ddxf.fangdd.net",
@@ -138,17 +138,17 @@
       "UnreadNumber":"/app/ddxf/user/reddot/unread",
       "ConversationList":"/app/projectoperation/conversation/list",
       "UntrackList":"/app/projectoperation/untrack/order/list",
-      "TicketList":"/app/projectoperation/ticket/list?cloudGroupId=agent_xf_project-752600-10636&status=2",
-      "AccountInfo":"/app/projectoperation/im/account/info?cloudGroupId=agent_xf_project-752600-10636",
+      "TicketList":"/app/projectoperation/ticket/list?cloudGroupId=agent_xf_project-4799728-10636&status=2",
+      "AccountInfo":"/app/projectoperation/im/account/info?cloudGroupId=agent_xf_project-4799728-10636",
       "Shortcuts":"/app/projectoperation/im/shortcuts",
       "GuideCouponSend":"/app/projectoperation/im/quick/send",
-      "RecommendProjectList":"/app/projectoperation/recommend/project/list?cloudGroupId=agent_xf_project-752600-10636",
+      "RecommendProjectList":"/app/projectoperation/recommend/project/list?cloudGroupId=agent_xf_project-4799728-10636",
       "RecommendProjectSend":"/app/projectoperation/im/quick/send",
-      "ProjectAttachmentList":"/app/projectoperation/project/attachment?cloudGroupId=agent_xf_project-752600-10636",
+      "ProjectAttachmentList":"/app/projectoperation/project/attachment?cloudGroupId=agent_xf_project-4799728-10636",
       "RecommendAttachmentSend":"/app/projectoperation/im/quick/send",
-      "ProjectvideoList":"/app/projectoperation/project/video/list?cloudGroupId=agent_xf_project-752600-10636",
+      "ProjectvideoList":"/app/projectoperation/project/video/list?cloudGroupId=agent_xf_project-4799728-10636",
       "RecommendVideoSend":"/app/projectoperation/im/quick/send",
-      "LinkSf":"/app/projectoperation/im/sf/contact?cloudGroupId=agent_xf_project-752600-10636"
+      "LinkSf":"/app/projectoperation/im/sf/contact?cloudGroupId=agent_xf_project-4799728-10636"
     }
   }
 }
