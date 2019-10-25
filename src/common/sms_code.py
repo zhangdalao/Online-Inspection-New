@@ -35,7 +35,7 @@ def get_smsCode(env, send_code_url, method, **kw):
 				sms_code_list = re.findall("\d+", str(sms_content))
 				# 获取最新的验证码
 				sms_code = sms_code_list[0]
-				print(sms_code_list)
+				# print(sms_code_list)
 				return sms_code
 			else:
 				print("获取验证码失败！")
