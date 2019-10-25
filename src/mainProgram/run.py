@@ -8,7 +8,6 @@ import json
 
 from flask import Flask
 
-from src.common.configure_celery import configure_celery
 
 sep = os.sep
 root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
@@ -23,6 +22,7 @@ import socket
 import time
 from celery_once import QueueOnce
 import platform
+from src.common.configure_celery import configure_celery
 
 
 app = Flask(__name__)
@@ -50,7 +50,7 @@ def start(cases_dir=None):
         robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
         suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
                                                                                                   f'{project_dir}'])
-        suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='a*_test.py')
+        suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
         reportFileName = project_name + f'_{now}_result.html'
     else:
         # 这里需要补充测试组机器人URL
@@ -117,10 +117,8 @@ def start(cases_dir=None):
 if __name__ == '__main__':
     # start("https://oapi.dingtalk.com/robot/send?access_token=c41f688c4e87a482459697c9675d7a12dc6ebfbec9c242ccf2b498bcece2644a")
     # get_project_robot_URL()
-    # start('test_shopapp')
+    # start('test_sybb')
     # print(os.getcwd())
     # start("test_boss")
     start()
-#
-#
 # # TODO  根据不同项目启动

@@ -133,6 +133,22 @@
       "ClueRealtorWeekList":"/h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=2&startTime=2019-10-07+00:00:00&endTime=2019-10-13+23:59:59&sortType=1&pageNo=1&pageSize=10",
       "ClueRealtorMonList":"/h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=3&startTime=2019-10-01+00:00:00&endTime=2019-10-31+23:59:59&sortType=1&pageNo=1&pageSize=10",
       "AddRealtorRecord":"/h5/data/clue-addRealtorRecord"
+    },
+    "IM":{
+      "UnreadNumber":"/app/ddxf/user/reddot/unread",
+      "ConversationList":"/app/projectoperation/conversation/list",
+      "UntrackList":"/app/projectoperation/untrack/order/list",
+      "TicketList":"/app/projectoperation/ticket/list?cloudGroupId=agent_xf_project-4799728-10636&status=2",
+      "AccountInfo":"/app/projectoperation/im/account/info?cloudGroupId=agent_xf_project-4799728-10636",
+      "Shortcuts":"/app/projectoperation/im/shortcuts",
+      "GuideCouponSend":"/app/projectoperation/im/quick/send",
+      "RecommendProjectList":"/app/projectoperation/recommend/project/list?cloudGroupId=agent_xf_project-4799728-10636",
+      "RecommendProjectSend":"/app/projectoperation/im/quick/send",
+      "ProjectAttachmentList":"/app/projectoperation/project/attachment?cloudGroupId=agent_xf_project-4799728-10636",
+      "RecommendAttachmentSend":"/app/projectoperation/im/quick/send",
+      "ProjectvideoList":"/app/projectoperation/project/video/list?cloudGroupId=agent_xf_project-4799728-10636",
+      "RecommendVideoSend":"/app/projectoperation/im/quick/send",
+      "LinkSf":"/app/projectoperation/im/sf/contact?cloudGroupId=agent_xf_project-4799728-10636"
     }
   }
 }

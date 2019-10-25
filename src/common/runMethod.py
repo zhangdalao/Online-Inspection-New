@@ -8,7 +8,6 @@
 import requests
 
 
-
 class MethodException(Exception):
 	pass
 
@@ -39,10 +38,8 @@ class RunMethod(MethodException):
 					res = requests.request(method.lower(), url, params=para, headers=headers, **kw)
 				elif method.lower() in method_list2:
 					if "application/json" in str(headers).lower():
-						print("111111")
 						# post方法添加兼容json不传的情况, 并且兼用空字典，空列表等情况
 						if not data and type(data) not in [list, dict, tuple, set]:
-							print(2)
 							res = requests.request(method.lower(), url, params=para, headers=headers, **kw)
 						elif para:
 							res = requests.request(method.lower(), url, params=para, json=data, headers=headers, **kw)

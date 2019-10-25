@@ -52,6 +52,17 @@ class commissionTest(RunTest):
         self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 
     def tearDown(self):
+        if self.result:
+            try:
+                self.assertEqual(True, checkOut(self.res, self.expect))
+                self.logger.debug("测试结果         :测试通过！")
+            except Exception as err:
+                self.logger.error("测试结果         :测试失败！")
+                json_dict = self.a.json_data[self.project]["robot_data"]
+                robot_url = json_dict["robot_url"]
+                mobile = json_dict["mobile"]
+                send_ding(robot_url, mobile, content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+                raise err
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionReport"))
@@ -67,19 +78,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        # print(result.cookies)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionorg"))
     def test_commissionorg(self, value):
@@ -94,19 +94,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        # print(result.cookies)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionDetail"))
     def test_commissionDetail(self, value):
@@ -121,19 +110,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        # print(result.cookies)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionorderList"))
     def test_commissionorderList(self, value):
@@ -148,19 +126,9 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        # print(result.cookies)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
+        sss["orderId"] = int(sss["orderId"])
 
     @ddt.data(*a.get_data_by_api(fieldname, "commission_agreementList"))
     def test_commission_agreementList(self, value):
@@ -175,19 +143,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        # print(result.cookies)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commission_agreement"))
     def test_commission_agreement(self, value):
@@ -202,19 +159,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        # print(result.cookies)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commission_givebackCarrier"))
     def test_commission_givebackCarrier(self, value):
@@ -229,19 +175,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        # print(result.cookies)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionorderlnfo"))
     def test_commissionorderlnfo(self, value):
@@ -256,18 +191,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        try:
-            self.assertEqual(False, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionList"))
     def test_commissionList(self, value):
@@ -282,18 +207,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionStoreList"))
     def test_commissionStoreList(self, value):
@@ -308,18 +223,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionBranch"))
     def test_commissionBranch(self, value):
@@ -334,18 +239,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionDeal"))
     def test_1commissionDeal(self, value):
@@ -360,18 +255,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionAccountList"))
     def test_commissionAccountList(self, value):
@@ -386,18 +271,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionApply"))
     def test_commissionApply(self, value):
@@ -412,18 +287,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionInfo"))
     def test_commissionInfo(self, value):
@@ -438,18 +303,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionCancel"))
     def test_commissionCancel(self, value):
@@ -464,19 +319,8 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{result}, 接口预期结果为：{self.expect}")
-            raise err
-
 
 if __name__ == '__main__':
     unittest.main()

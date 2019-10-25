@@ -56,7 +56,8 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		self.body = None  # 因为存在接口数据依赖原因，所以这里会单独申明body
 		self.expect = None  # 后面需要日志打印预期结果
 		self.desc = None
-	
+		self.result = None
+
 	# 后面用例编号会使用
 	
 	def skipTest(self, reason):
@@ -75,7 +76,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		return self.api_name, self.desc
 	
 	def start(self, isSkip_num, apiName_num, url, method_num, headers_num, para_num, data_num, desc_num, isRelate_num,
-	          expect_num, *args, **kw):
+			  expect_num, *args, **kw):
 		"""
 		用例运行主入口
 		:param isSkip_num:      是否跳过列数来判断该用例是否跳过执行
@@ -147,19 +148,28 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			if re_list_header:
 				# 对headers中参数化的字段进行激活赋值
 				for m in re_list_header:
-					self.headers = self.headers.replace(m, "f'{data[\"%s\"]}'" % (m[1:-1]))
+					# self.headers = self.headers.replace(m, "f'{data[\"%s\"]}'" % (m[1:-1]))
+					_str = f'data[\"{m[1:-1]}\"]'
+					self.headers = self.headers.replace(m, _str)
 			if re_list_params:
 				# 对params中参数化的字段进行激活赋值
 				for n in re_list_params:
-					self.params = self.params.replace(n, "f'{data[\"%s\"]}'" % (n[1:-1]))
+					# self.params = self.params.replace(n, "f'{data[\"%s\"]}'" % (n[1:-1]))
+					_str = f'data[\"{n[1:-1]}\"]'
+					self.params = self.params.replace(n, _str)
 			if re_list_body:
 				# 对请求体中参数化的字段进行激活赋值
 				for o in re_list_body:
-					self.body = self.body.replace(o, "f'{data[\"%s\"]}'" % (o[1:-1]))
+					# self.body = self.body.replace(o, "f'{data[\"%s\"]}'" % (o[1:-1]))
+					_str = f'data[\"{o[1:-1]}\"]'
+					self.body = self.body.replace(o, _str)
 			if re_list_expect:
 				# 对预期结果中参数化的字段进行激活赋值
 				for p in re_list_expect:
-					self.expect = self.expect.replace(p, "f'{data[\"%s\"]}'" % (p[1:-1]))
+					# self.expect = self.expect.replace(p, "f'{data[\"%s\"]}'" % (p[1:-1]))
+					_str = f'data[\"{p[1:-1]}\"]'
+					self.expect = self.expect.replace(p, _str)
+					
 			data = sss
 			# 先对 body/params 和预期结果做类型转换
 			if self.body:

@@ -7,7 +7,7 @@ import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
 
-sss["appHost"] = "shopapi.fangdd.com.cn"
+sss["appHost"] = "shopapi.fangdd.com"
 count = 0
 
 @ddt.ddt

@@ -25,8 +25,8 @@ def get_smsCode(env, send_code_url, method, **kw):
 				"test": 'http://sms.fangdd.net/admin/api/verify-codes?mobile=13058019302'
 			}
 			sms_url = sms_url_dict[env]
-			r = requests.get(sms_url)
 			time.sleep(3)
+			r = requests.get(sms_url)
 			if r.json()["code"] == 0:
 				# 获取短信内容
 				sms_content = r.json()["records"]
@@ -35,7 +35,7 @@ def get_smsCode(env, send_code_url, method, **kw):
 				sms_code_list = re.findall("\d+", str(sms_content))
 				# 获取最新的验证码
 				sms_code = sms_code_list[0]
-				# print(sms_code)
+				# print(sms_code_list)
 				return sms_code
 			else:
 				print("获取验证码失败！")

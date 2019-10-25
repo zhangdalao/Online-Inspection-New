@@ -280,7 +280,7 @@ class ManagerHomeTest(RunTest):
             self.assertEqual(True, checkOut(self.res, self.expect))
             self.logger.info("测试结果         :测试通过！")
             sss["referralIds"] = res.json()['data']['pageData'][0]['referralId']
-            print("报备ID：" + str(sss["referralIds"]))
+            # print("报备ID：" + str(sss["referralIds"]))
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
             json_dict = self.a.json_data[self.project]["robot_data"]
@@ -363,7 +363,7 @@ class ManagerHomeTest(RunTest):
             self.assertEqual(True, checkOut(self.res, self.expect))
             self.logger.info("测试结果         :测试通过！")
             sss["guideId"] = res.json()['data']['pageData'][0]['guideId']
-            print("带看ID：" + str(sss["guideId"]))
+            # print("带看ID：" + str(sss["guideId"]))
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
             json_dict = self.a.json_data[self.project]["robot_data"]

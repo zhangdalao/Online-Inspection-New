@@ -47,6 +47,17 @@ class StoreTest(RunTest):
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 	
 	def tearDown(self):
+		if self.result:
+			try:
+				self.assertEqual(True, checkOut(self.res, self.expect))
+				self.logger.debug("测试结果         :测试通过！")
+			except Exception as err:
+				self.logger.error("测试结果         :测试失败！")
+				json_dict = self.a.json_data[self.project]["robot_data"]
+				robot_url = json_dict["robot_url"]
+				mobile = json_dict["mobile"]
+				send_ding(robot_url, mobile, content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+				raise err
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
 	@ddt.data(*a.get_data_by_api(fieldname, "StoreAuditing"))
@@ -59,21 +70,8 @@ class StoreTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		try:
-			# print(11111)
-			result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=self.cookies)
-			self.assertEqual(True, checkOut(self.res, self.expect))
-			self.logger.info("测试结果         :测试通过！")
-		except Exception as err:
-			self.logger.error("测试结果         :测试失败！")
-			json_dict = self.a.json_data[self.project]["robot_data"]
-			robot_url = json_dict["robot_url"]
-			mobile = json_dict["mobile"]
-			# print(2222)
-			# print(robot_url, mobile)
-			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{err}, 接口预期结果为：{self.expect}")
-			raise err
+		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+						self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=self.cookies)
 
 	@ddt.data(*a.get_data_by_api(fieldname, "StoreAudited"))
 	def test_StoreAudited(self, value):
@@ -85,20 +83,9 @@ class StoreTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		try:
-			result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-							cookies=self.cookies)
-		# print(result.cookies)
-			self.assertEqual(True, checkOut(self.res, self.expect))
-			self.logger.info("测试结果         :测试通过！")
-		except Exception as err:
-			self.logger.error("测试结果         :测试失败！")
-			json_dict = self.a.json_data[self.project]["robot_data"]
-			robot_url = json_dict["robot_url"]
-			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{err}, 接口预期结果为：{self.expect}")
-			raise err
+		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+						self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+						cookies=self.cookies)
 
 
 if __name__ == '__main__':

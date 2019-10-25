@@ -48,6 +48,17 @@ class LoginTest(RunTest):
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 	
 	def tearDown(self):
+		if self.result:
+			try:
+				self.assertEqual(True, checkOut(self.res, self.expect))
+				self.logger.debug("测试结果         :测试通过！")
+			except Exception as err:
+				self.logger.error("测试结果         :测试失败！")
+				json_dict = self.a.json_data[self.project]["robot_data"]
+				robot_url = json_dict["robot_url"]
+				mobile = json_dict["mobile"]
+				send_ding(robot_url, mobile, content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+				raise err
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
 	@ddt.data(*a.get_data_by_api(fieldname, "Login"))
@@ -61,26 +72,16 @@ class LoginTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 		# print(type(result.cookies))
 		if self.res and self.res["code"] == '200':
 			# sss["jgj_cookies"] = result.cookies
 			par_dir = os.path.dirname(__file__)
 			sep = os.sep
 			data_file = open(f'{par_dir}{sep}jgj_cookie.txt', "w",encoding="utf-8")
-			data_file.write(str(requests.utils.dict_from_cookiejar(result.cookies)))
+			data_file.write(str(requests.utils.dict_from_cookiejar(self.result.cookies)))
 			data_file.close()
-		try:
-			self.assertEqual(True, checkOut(self.res, self.expect))
-			self.logger.info("测试结果         :测试通过！")
-		except Exception as err:
-			self.logger.error("测试结果         :测试失败！")
-			json_dict = self.a.json_data[self.project]["robot_data"]
-			robot_url = json_dict["robot_url"]
-			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{err}, 接口预期结果为：{self.expect}")
-		raise err
 
 
 if __name__ == '__main__':
