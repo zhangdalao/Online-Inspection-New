@@ -31,13 +31,17 @@ def send_ding(robotUrl, mobile, content=None, runType=None):
 			r = requests.post(robot_test, json=robot_body)
 		# 非调试模式下，判断此时报错的群是不是巡检测试群
 		elif str(robotUrl).strip() != robot:
-			r = requests.post(robotUrl, json=robot_body)
-			# 给巡检机器人测试组发送报错提示
-			t = requests.post(robot, json=robot_body)
-			if r.status_code == 200 and t.status_code == 200:
-				return True
-			else:
-				return False
+			try:
+				r = requests.post(robotUrl, json=robot_body)
+				# 给巡检机器人测试组发送报错提示
+			except Exception:
+				pass
+			finally:
+				t = requests.post(robot, json=robot_body)
+				if t.status_code == 200:
+					return True
+				else:
+					return False
 
 
 # 钉钉推送测试报告调用方法（标题，内容，文件链接）

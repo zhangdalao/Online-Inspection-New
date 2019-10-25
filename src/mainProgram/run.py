@@ -120,5 +120,5 @@ if __name__ == '__main__':
     # start('test_sybb')
     # print(os.getcwd())
     # start("test_boss")
-    #start("test_ddxfapp")
+    start()
 # # TODO  根据不同项目启动
