@@ -33,7 +33,8 @@
       "update_Rent_Hosts":"/saas/updateRentHosts?rentId="
     },
     "Rent_Inspect":{
-      "add_Rent_Inspect": "/saas/rentCheckReal"
+      "add_Rent_Inspect": "/saas/rentCheckReal",
+      "set_Relator": "/saas/setRelator"
     },
     "Rent_List": {
       "get_RentEstateList": "/saas/getRentEstateList"
@@ -42,7 +43,13 @@
       "get_RentTradeList": "/saas/getRentTradeList",
       "create_RentTrade": "/saas/createOrEditRentTrade",
       "confirm_RentAchievement":"/saas/confirmRentAchievement",
-      "get_RentTradeDetail": "/saas/getRentTradeDetail"
+      "get_RentTradeDetail": "/saas/getRentTradeDetail",
+      "create_ShouldReceive":"/saas/createOrEditShouldReceive",
+      "create_HasReceived": "/saas/createOrEditHasReceived",
+      "create_ShouldPay": "/saas/createOrEditShouldPay",
+      "create_HasPaid": "/saas/createOrEditHasPaid",
+      "close_RentTrade": "/saas/closeRentTrade",
+      "add_CustomerGuide": "/saas/postAddCustomerGuide"
     }
   }
 }
