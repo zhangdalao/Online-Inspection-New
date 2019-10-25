@@ -116,9 +116,10 @@ def start(cases_dir=None):
 
 if __name__ == '__main__':
     # start("https://oapi.dingtalk.com/robot/send?access_token=c41f688c4e87a482459697c9675d7a12dc6ebfbec9c242ccf2b498bcece2644a")
-    # get_project_robot_URL()
-    # start('test_sybb')
-    # print(os.getcwd())
-    # start("test_boss")
-    start()
+	# get_project_robot_URL()
+	# start('test_ddxfapp')
+	# print(os.getcwd())
+	# start("test_boss")
+    start("test_ttopen")
+    # start()
 # # TODO  根据不同项目启动
