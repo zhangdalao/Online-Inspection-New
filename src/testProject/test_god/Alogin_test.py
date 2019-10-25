@@ -57,6 +57,7 @@ class LoginTest(RunTest):
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
         if self.res and self.res["code"] == '200':
             sss["Godcookies"] = res.cookies
+            sss["Godcookies"] =str(sss["Godcookies"])
         # print(res.cookies)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
