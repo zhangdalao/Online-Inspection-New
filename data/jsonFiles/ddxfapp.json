@@ -83,6 +83,15 @@
     },
     "Check":{
           "auditchange":"/ddxf/work/audit"
+    },
+    "Income":{
+         "aincomelist":"/api/projectManager/project/receipt?branchId=3",
+         "bincomelist":"/trade/receipt/project/statistics?estateId=53101",
+         "crejectlist":"/trade/receivable/confirmation/reject/list?projectId=10636",
+         "dreturnedlist":"/trade/receipt/advance/ticket?estateName=%E6%B1%87%E4%B8%B0%E5%AE%B6%E5%9B%AD&pageNo=0&projectId=10636&pageSize=20&estateId=53101",
+         "einvoice":"/trade/receipt/invoice?pageNo=1&estateId=53101&ticketStatus=4&pageSize=20&projectId=10636",
+         "fnoticket":"/trade/receipt/advance/ticket?pageSize=20&ticketStatus=4&pageNo=1&estateId=53101",
+         "gticket":"/trade/receipt/ticket?pageNo=1&estateId=53101&pageSize=20"
     }
   }
 }
