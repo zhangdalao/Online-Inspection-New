@@ -62,6 +62,7 @@ class Rent_detailTest(RunTest):
 		# 调用接口发起请求
 		res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 		                    self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,cookies=self.cookie_txt)
+		sss["ID4"] = str(sss["ID4"])
 		try:
 			self.assertEqual(True, checkOut(self.res, self.expect))
 			self.logger.info("测试结果         :测试通过！")

@@ -59,9 +59,14 @@ class LoginTest(RunTest):
 		# 调用接口发起请求
 		res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 		                    self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+		sss["ID"] = str(sss["ID"])
+		sss["ID2"] = str(sss["ID2"])
+		sss["ID3"] = str(sss["ID3"])
+		sss["ID5"] = str(sss["ID5"])
 		try:
 			self.assertEqual(True, checkOut(self.res, self.expect))
 			self.logger.info("测试结果         :测试通过！")
+
 		except Exception as err:
 			self.logger.error("测试结果         :测试失败！")
 			json_dict = self.a.json_data[self.project]["robot_data"]
