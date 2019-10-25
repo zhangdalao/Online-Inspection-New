@@ -8,7 +8,6 @@ import json
 
 from flask import Flask
 
-from src.common.configure_celery import configure_celery
 
 sep = os.sep
 root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
@@ -23,6 +22,7 @@ import socket
 import time
 from celery_once import QueueOnce
 import platform
+from src.common.configure_celery import configure_celery
 
 
 app = Flask(__name__)

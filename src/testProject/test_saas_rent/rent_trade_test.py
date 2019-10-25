@@ -70,10 +70,9 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        print("请求体的数据为：", self.data_num)
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-                         cookies=self.cookie_txt)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=self.cookie_txt)
 
     @ddt.data(*a.get_data_by_api(fieldname, "create_RentTrade"))  # 接口对应的名称
     def test_02_create_RentTrade(self, value):
@@ -86,9 +85,9 @@ class Rent_TradeTest(RunTest):
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         sss["signTime"] = int(time.time()) * 1000
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-                         cookies=self.cookie_txt)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=self.cookie_txt)
         sss["restful_trade"] = json.dumps({"tradeId": sss["ID8"]})
         time.sleep(2)
 
@@ -101,9 +100,9 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-                         cookies=self.cookie_txt)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=self.cookie_txt)
 
     @ddt.data(*a.get_data_by_api(fieldname, "confirm_RentAchievement"))  # 接口对应的名称
     def test_04_confirm_RentAchievement(self, value):
@@ -114,9 +113,9 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-                         cookies=self.cookie_txt)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=self.cookie_txt)
 
     @ddt.data(*a.get_data_by_api(fieldname, "create_ShouldReceive"))  # 接口对应的名称
     def test_05_create_ShouldReceive(self, value):
@@ -128,12 +127,11 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-                         cookies=self.cookie_txt)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=self.cookie_txt)
         sss["restful_HasReceived"] = json.dumps({"tradeId": sss["ID8"], "receivableId": sss["ID9"]})
         time.sleep(2)
-
 
     @ddt.data(*a.get_data_by_api(fieldname, "create_HasReceived"))  # 接口对应的名称
     def test_06_create_HasReceived(self, value):
@@ -145,10 +143,9 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-                         cookies=self.cookie_txt)
-
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=self.cookie_txt)
 
     @ddt.data(*a.get_data_by_api(fieldname, "create_ShouldPay"))  # 接口对应的名称
     def test_07_create_ShouldPay(self, value):
@@ -160,9 +157,9 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-                         cookies=self.cookie_txt)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=self.cookie_txt)
         sss["restful_HasPaid"] = json.dumps({"tradeId": sss["ID8"], "payableId": sss["ID10"]})
         time.sleep(2)
 
@@ -176,9 +173,9 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-                         cookies=self.cookie_txt)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=self.cookie_txt)
 
     @ddt.data(*a.get_data_by_api(fieldname, "close_RentTrade"))  # 接口对应的名称
     def test_09_close_RentTrade(self, value):
@@ -190,9 +187,9 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-                         cookies=self.cookie_txt)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=self.cookie_txt)
 
     @ddt.data(*a.get_data_by_api(fieldname, "add_CustomerGuide"))  # 接口对应的名称
     def test_10_add_CustomerGuide(self, value):
@@ -204,9 +201,9 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
-                         cookies=self.cookie_txt)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=self.cookie_txt)
 
 
 if __name__ == '__main__':

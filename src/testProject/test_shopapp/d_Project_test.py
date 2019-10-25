@@ -390,7 +390,7 @@ class ProjectTest(RunTest):
             self.assertEqual(True, checkOut(self.res, self.expect))
             self.logger.info("测试结果         :测试通过！")
             sss["roomId"] = res.json()['data']['pageData'][0]['roomId']
-            print("直播间ID：" + str(sss["roomId"]))
+            # print("直播间ID：" + str(sss["roomId"]))
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
             json_dict = self.a.json_data[self.project]["robot_data"]
@@ -473,7 +473,7 @@ class ProjectTest(RunTest):
             self.assertEqual(True, checkOut(self.res, self.expect))
             self.logger.info("测试结果         :测试通过！")
             sss["videoId"] = res.json()['data'][0]['projectVideo']['videoId']
-            print("视频ID：" + str(sss["videoId"]))
+            # print("视频ID：" + str(sss["videoId"]))
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
             json_dict = self.a.json_data[self.project]["robot_data"]
