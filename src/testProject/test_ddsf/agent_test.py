@@ -132,7 +132,7 @@ class AgentTest(RunTest):
 		
 	@ddt.data(*a.get_data_by_api(fieldname, "getOrgNetCardData"))
 	def test_getOrgNetCardData(self, value):
-		"""获取指定公司信息"""
+		"""根据ID获取经纪人网商卡数据"""
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
 		env = value[self.env_num]
@@ -146,7 +146,7 @@ class AgentTest(RunTest):
 		
 	@ddt.data(*a.get_data_by_api(fieldname, "listStoreOrCompanyAgent"))
 	def test_listStoreOrCompanyAgent(self, value):
-		"""获取指定公司信息"""
+		"""获得门店/公司经纪人信息"""
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
 		env = value[self.env_num]
