@@ -47,7 +47,7 @@ class LoginTest(RunTest):
 
     @ddt.data(*a.get_data_by_api(fieldname, "LoginByMobile"))
     def test_LoginByMobile(self, value):
-        sss["authCode"] = get_smsCode("prod", 'https://shop.fangdd.com/api/boai/boai/user/authCode?mobile=13058019302&inUc=1', 'get', verify=False)
+        sss["authCode"] = get_smsCode("prod", 'https://ddxf.fangdd.com/api/boai/boai/user/authCode?mobile=13058019302&inUc=1', 'get', verify=False)
         # 通过函数名获取apiName参数的值
         print("验证码" + sss["authCode"])
         self.apiName = (inspect.stack()[0][3])[5:]
@@ -58,6 +58,7 @@ class LoginTest(RunTest):
         # 调用接口发起请求
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
+        print(res)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
             sss["cookies"] = requests.utils.dict_from_cookiejar(res.cookies)
@@ -67,7 +68,7 @@ class LoginTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"登录异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"登录异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
 
