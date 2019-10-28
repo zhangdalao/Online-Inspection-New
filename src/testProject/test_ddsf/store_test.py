@@ -2,11 +2,8 @@
 # Author: BoLin Chen
 # @Date : 2019-08-19
 
-import os
 import inspect
-from src.common.read_data import ReadData
 import ddt
-import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
 

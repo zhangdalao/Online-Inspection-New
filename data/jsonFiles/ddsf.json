@@ -5,9 +5,9 @@
       "mobile":["18682236985"]
     },
     "domain":{
-      "test": "https://as-web.fangdd.net",
-      "pre" : "https://as-web.fangdd.com.cn",
-      "prod" : "https://as-web.fangdd.com"
+      "test": "https://ddsf.fangdd.net",
+      "pre" : "https://ddsf.fangdd.com.cn",
+      "prod" : "https://ddsf.fangdd.com"
     },
     "Login":{
         "ByPassword": "/ioux/loginByPassword",
@@ -19,7 +19,10 @@
       "StaffMessage":"/data/getStaffMessage",
       "StaffOrg":"/data/listStaffOrg",
       "SchedulePlanInfo":"/data/searchSchedulePlanInfo",
-      "CityList": "/ioux/queryCityList"
+      "CityList": "/ioux/queryCityList",
+      "fetchSurveyCity": "/data/fetchSurveyCity",
+      "homeSurveyCount": "/data/homeSurveyCount",
+      "getUsers": "/data/getUsers"
     },
     "Store":{
       "StoreList":"/data/getStoreList",
@@ -32,7 +35,13 @@
       "CompanyList": "/data/getCompanyList"
     },
     "Agent":{
-      "listAgent": "/data/listAgentByCodition"
+      "listAgent": "/data/listAgentByCodition",
+      "getAgentDetailInfo":"/data/getAgentDetailInfo",
+      "getCityMap": "/data/getCityMap",
+      "getClueList": "/ioux/getClueList",
+      "getCompany":"/ioux/getCompany",
+      "getOrgNetCardData":"/data/getOrgNetCardData",
+      "listStoreOrCompanyAgent":"/data/listStoreOrCompanyAgent"
     },
     "Myself":{},
     "NewHouse":{
@@ -63,11 +72,8 @@
       "contract-operate-logs":""
     },
     "Clues":{
-      "clueStaff":"/data/clueStaffPotentials",
-      "depDetail":"/data/depDetail",
-      "KPIByDepId":"/data/getKPIByDepId",
-      "StaffKPIDetail":"/data/getStaffKPIDetail",
-      "listAchievement":"/data/listAchievement"
+      "getStoreClueList":"/data/getStoreClueList",
+      "getStoreClueDetail":"/data/getStoreClueDetail"
     },
     "VisitRecord":{
       "RecordPage":"/data/listVisitRecordPage"
@@ -83,7 +89,8 @@
       "DynamicDetail": "/data/fetchDynamicDetail",
       "StoreList":"/data/getStoreList",
       "StoreByStoreId":"/data/getStoreByStoreId",
-      "StoreMessage": "/data/getStoreMessage"
+      "StoreMessage": "/data/getStoreMessage",
+      "VisitDynamic":"/data/fetchAccessDynamicList"
     }
   }
 }  

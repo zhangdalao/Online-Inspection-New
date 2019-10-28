@@ -198,8 +198,9 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				data['sign_key'] = SignKey(_str).sign()
 				args[0].pop()
 			try:
-				# 对激活后的 headers做类型转换
-				self.headers = eval(self.headers)
+				if self.headers:
+					# 对激活后的 headers做类型转换
+					self.headers = eval(self.headers)
 				self.logger.debug(f"header          :{self.headers}")
 				self.logger.debug(f"请求体           :{self.body}")
 				self.logger.debug(f"请求参数         :{self.params}")

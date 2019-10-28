@@ -1,31 +1,32 @@
 # -*- coding=utf-8 -*-
 # Author: BoLin Chen
-# @Date : 2019-08-12
+# @Date : 2019-10-28
 
 
-import os
 import inspect
-from src.common.read_data import ReadData
 import ddt
-import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
-
+import json
 
 count = 0
 
 
 @ddt.ddt
-class HomeTest(RunTest):
-	"""首页模块"""
-
+class AgentTest(RunTest):
+	"""地图找店模块"""
+	
 	# 通过文件名夹获取project参数的值
 	project = os.path.dirname(__file__)[-4:]
 	# 读取文件实例化
 	a = ReadData(project, project)
 	# 通过类名获取fieldname的值
 	fieldname = sys._getframe().f_code.co_name[:-4]
-
+	# 获取项目名后，获取机器人相关配置
+	json_dict = a.json_data[project]["robot_data"]
+	robot_url = json_dict["robot_url"]
+	mobile = json_dict["mobile"]
+	
 	@classmethod
 	def setUpClass(cls):
 		cls.env_num = cls.a.get_num_name("环境")
@@ -38,11 +39,11 @@ class HomeTest(RunTest):
 		cls.expect_num = cls.a.get_num_name("预期结果")
 		cls.isSkip_num = cls.a.get_num_name("是否跳过该用例")
 		cls.relateData_num = cls.a.get_num_name("接口关联参数")
-
+	
 	def setUp(self):
 		globals()['count'] += 1
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
-
+	
 	def tearDown(self):
 		if self.result:
 			try:
@@ -50,16 +51,14 @@ class HomeTest(RunTest):
 				self.logger.debug("测试结果         :测试通过！")
 			except Exception as err:
 				self.logger.error("测试结果         :测试失败！")
-				json_dict = self.a.json_data[self.project]["robot_data"]
-				robot_url = json_dict["robot_url"]
-				mobile = json_dict["mobile"]
-				send_ding(robot_url, mobile, content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+				send_ding(self.robot_url, self.mobile,
+				          content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
 				raise err
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
-
-	@ddt.data(*a.get_data_by_api(fieldname, "HomePageInfo"))
-	def test_HomePageInfo(self, value):
-		"""HomePageInfo接口"""
+	
+	@ddt.data(*a.get_data_by_api(fieldname, "listAgent"))
+	def test_listAgent(self, value):
+		"""经纪人列表"""
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
 		env = value[self.env_num]
@@ -67,12 +66,29 @@ class HomeTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
+		sss["cityIds_agent"] = ["3", "450", "619", "852", "1406", "2179", "9393", "10204"]
 		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+		                         value)
 		
-	@ddt.data(*a.get_data_by_api(fieldname, "ProfileInfo"))
-	def test_ProfileInfo(self, value):
-		"""ProfileInfo接口"""
+	@ddt.data(*a.get_data_by_api(fieldname, "getAgentDetailInfo"))
+	def test_getAgentDetailInfo(self, value):
+		"""经纪人详情信息"""
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		sss["agentId"] = 6537143
+		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+		                         value)
+		
+	@ddt.data(*a.get_data_by_api(fieldname, "getCityMap"))
+	def test_getCityMap(self, value):
+		"""城市列表"""
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
 		env = value[self.env_num]
@@ -81,11 +97,42 @@ class HomeTest(RunTest):
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
 		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-
-	@ddt.data(*a.get_data_by_api(fieldname, "StaffMessage"))
-	def test_StaffMessage(self, value):
-		"""StaffMessage接口"""
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+		                         value)
+		
+	@ddt.data(*a.get_data_by_api(fieldname, "getClueList"))
+	def test_getClueList(self, value):
+		"""指定经纪人线索列表"""
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		sss["agentId_str"] = str(sss["agentId"])
+		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+		                         value, cookies=sss["cookies"])
+		
+	@ddt.data(*a.get_data_by_api(fieldname, "getCompany"))
+	def test_getCompany(self, value):
+		"""获取指定公司信息"""
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		sss["companyId"] = 82200912
+		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+		                         value, cookies=sss["cookies"])
+		
+	@ddt.data(*a.get_data_by_api(fieldname, "getOrgNetCardData"))
+	def test_getOrgNetCardData(self, value):
+		"""获取指定公司信息"""
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
 		env = value[self.env_num]
@@ -94,11 +141,12 @@ class HomeTest(RunTest):
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
 		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-
-	@ddt.data(*a.get_data_by_api(fieldname, "StaffOrg"))
-	def test_StaffOrg(self, value):
-		"""StaffOrg接口"""
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+		                         value)
+		
+	@ddt.data(*a.get_data_by_api(fieldname, "listStoreOrCompanyAgent"))
+	def test_listStoreOrCompanyAgent(self, value):
+		"""获取指定公司信息"""
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
 		env = value[self.env_num]
@@ -106,18 +154,7 @@ class HomeTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
+		sss["storeId"] = 82200915
 		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-
-	@ddt.data(*a.get_data_by_api(fieldname, "SchedulePlanInfo"))
-	def test_SchedulePlanInfo(self, value):
-		"""SchedulePlanInfo接口"""
-		# 通过函数名获取apiName参数的值
-		self.apiName = (inspect.stack()[0][3])[5:]
-		env = value[self.env_num]
-		# 通过环境参数获得接口url
-		uri = self.a.get_apiPath(self.fieldname, self.apiName)
-		url = self.a.get_domains()[env] + uri
-		# 调用接口发起请求
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+		                         value)

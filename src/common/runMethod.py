@@ -14,9 +14,7 @@ class MethodException(Exception):
 
 class RunMethod(MethodException):
 	
-	headers_default = {"content-type": "application/json"}
-	
-	def run_main(self, url=None, method=None, headers=headers_default, para=None, data=None, **kw):
+	def run_main(self, url=None, method=None, headers=None, para=None, data=None, **kw):
 		
 		"""
 		封装常用的7种http请求方法
@@ -32,8 +30,11 @@ class RunMethod(MethodException):
 		method_list1 = ["get", "delete", "head", "options"]
 		method_list2 = ["post", "put", "patch"]
 
+		if not headers:
+			headers = {"content-type": "application/json"}
+
 		try:
-			if method and headers:
+			if method:
 				if method.lower() in method_list1:
 					res = requests.request(method.lower(), url, params=para, headers=headers, **kw)
 				elif method.lower() in method_list2:
