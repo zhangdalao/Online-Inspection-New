@@ -120,6 +120,6 @@ if __name__ == '__main__':
 	# start('test_ddxfapp')
 	# print(os.getcwd())
 	# start("test_boss")
-    start("test_ttopen")
-    # start()
+    # start("test_ttopen")
+    start()
 # # TODO  根据不同项目启动

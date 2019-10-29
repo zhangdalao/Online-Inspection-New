@@ -41,7 +41,8 @@ class TtopengetcardloupanTest(RunTest):
         cls.expect_num = cls.a.get_num_name("预期结果")
         cls.isSkip_num = cls.a.get_num_name("是否跳过该用例")
         cls.relateData_num = cls.a.get_num_name("接口关联参数")
-        sss['houseId'] = '69740'
+        # sss['houseId'] = '69740'
+        sss['houseId'] ='50587'
 
     def setUp(self):
         globals()['count'] += 1
@@ -59,7 +60,7 @@ class TtopengetcardloupanTest(RunTest):
                 json_dict = self.a.json_data[self.project]["robot_data"]
                 robot_url = json_dict["robot_url"]
                 mobile = json_dict["mobile"]
-                send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{res}, 接口预期结果为：{self.expect}")
+                send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
                 raise err
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
