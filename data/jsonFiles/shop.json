@@ -5,9 +5,9 @@
       "mobile":["13883217640"]
     },
     "domain":{
-      "test": "https://shop.fangdd.net",
-      "pre" : "https://shop.fangdd.com.cn",
-      "prod" : "https://shop.fangdd.com"
+      "test": "https://ddxf.fangdd.net",
+      "pre" : "https://ddxf.fangdd.com.cn",
+      "prod" : "https://ddxf.fangdd.com"
     },
     "Login":{
       "Getcode":"https://sms.fangdd.cn/admin/api/verify-codes?mobile=13058019302",

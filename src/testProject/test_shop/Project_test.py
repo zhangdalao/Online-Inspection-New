@@ -85,7 +85,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目基本信息编辑异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"项目基本信息编辑异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectBuildinglist"))
@@ -107,7 +107,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目楼栋列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"项目楼栋列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectLayoutList"))
@@ -129,7 +129,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目楼栋列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"项目楼栋列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectHouseholdList"))
@@ -151,7 +151,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目楼栋列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"项目楼栋列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "BriefEdit"))
@@ -173,7 +173,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目介绍异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"项目介绍异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "Links"))
@@ -195,7 +195,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"关联项目查询异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"关联项目查询异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "AddMarket"))
@@ -217,7 +217,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"新增推广方案异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"新增推广方案异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     # @ddt.data(*a.get_data_by_api(fieldname, "SiteProjectEdit"))
@@ -239,7 +239,7 @@ class ProjectTest(RunTest):
     #         json_dict = self.a.json_data[self.project]["robot_data"]
     #         robot_url = json_dict["robot_url"]
     #         mobile = json_dict["mobile"]
-    #         send_ding(robot_url, mobile, content=f"编辑案场规则异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+    #         send_ding(robot_url, mobile, content=f"编辑案场规则异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
     #         raise err
 
     # @ddt.data(*a.get_data_by_api(fieldname, "DynamicEdit"))
@@ -261,7 +261,7 @@ class ProjectTest(RunTest):
     #         json_dict = self.a.json_data[self.project]["robot_data"]
     #         robot_url = json_dict["robot_url"]
     #         mobile = json_dict["mobile"]
-    #         send_ding(robot_url, mobile, content=f"编辑动态异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+    #         send_ding(robot_url, mobile, content=f"编辑动态异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
     #         raise err
 
     # @ddt.data(*a.get_data_by_api(fieldname, "AttachmentAdd"))
@@ -283,7 +283,7 @@ class ProjectTest(RunTest):
     #         json_dict = self.a.json_data[self.project]["robot_data"]
     #         robot_url = json_dict["robot_url"]
     #         mobile = json_dict["mobile"]
-    #         send_ding(robot_url, mobile, content=f"新增附件异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+    #         send_ding(robot_url, mobile, content=f"新增附件异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
     #         raise err
 
     # @ddt.data(*a.get_data_by_api(fieldname, "ProAttachmentList"))
@@ -305,7 +305,7 @@ class ProjectTest(RunTest):
     #         json_dict = self.a.json_data[self.project]["robot_data"]
     #         robot_url = json_dict["robot_url"]
     #         mobile = json_dict["mobile"]
-    #         send_ding(robot_url, mobile, content=f"项目资料列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+    #         send_ding(robot_url, mobile, content=f"项目资料列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
     #         raise err
 
     # @ddt.data(*a.get_data_by_api(fieldname, "AttachmentRemove"))
@@ -327,7 +327,7 @@ class ProjectTest(RunTest):
     #         json_dict = self.a.json_data[self.project]["robot_data"]
     #         robot_url = json_dict["robot_url"]
     #         mobile = json_dict["mobile"]
-    #         send_ding(robot_url, mobile, content=f"项目资料移除异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+    #         send_ding(robot_url, mobile, content=f"项目资料移除异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
     #         raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "Operation"))
@@ -349,7 +349,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目运营查询异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"项目运营查询异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "OperationEdit"))
@@ -371,7 +371,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目运营编辑异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"项目运营编辑异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "StockEdit"))
@@ -393,7 +393,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目货量编辑异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"项目货量编辑异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "BusinessEdit"))
@@ -415,7 +415,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目合作方案编辑异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"项目合作方案编辑异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "LicenseList"))
@@ -437,7 +437,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目评估列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"项目评估列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "AttachmentList"))
@@ -459,7 +459,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"风险评估列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"风险评估列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "MeterList"))
@@ -481,7 +481,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"利润测算表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"利润测算表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "UserList"))
@@ -503,7 +503,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"团队管理列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"团队管理列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "TradeList"))
@@ -525,7 +525,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"闪佣宝列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"闪佣宝列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "SettlementList"))
@@ -547,7 +547,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"结算规则列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"结算规则列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ThirdMappingList"))
@@ -569,7 +569,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"开发商对接列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"开发商对接列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "BuggetList"))
@@ -591,7 +591,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目预算列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"项目预算列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "BuggetList"))
@@ -613,7 +613,7 @@ class ProjectTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目预算列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"项目预算列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
 if __name__ == '__main__':

@@ -63,7 +63,7 @@ class ReviewTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"楼盘审核列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"楼盘审核列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
 

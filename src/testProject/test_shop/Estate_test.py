@@ -63,7 +63,7 @@ class EstateTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"全国楼盘列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "EstateMy"))
@@ -85,7 +85,7 @@ class EstateTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"我的楼盘列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"我的楼盘列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "BasicEdit"))
@@ -107,7 +107,7 @@ class EstateTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"编辑楼盘基本信息异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"编辑楼盘基本信息异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     # @ddt.data(*a.get_data_by_api(fieldname, "PropertyEdit"))
@@ -129,7 +129,7 @@ class EstateTest(RunTest):
     #         json_dict = self.a.json_data[self.project]["robot_data"]
     #         robot_url = json_dict["robot_url"]
     #         mobile = json_dict["mobile"]
-    #         send_ding(robot_url, mobile, content=f"编辑楼盘物业信息异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+    #         send_ding(robot_url, mobile, content=f"编辑楼盘物业信息异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
     #         raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "LayoutEdit"))
@@ -151,7 +151,7 @@ class EstateTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"编辑楼盘户型信息异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"编辑楼盘户型信息异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "BuildEdit"))
@@ -173,7 +173,7 @@ class EstateTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"编辑楼盘楼栋信息异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"编辑楼盘楼栋信息异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "HouseHoldEdit"))
@@ -195,7 +195,7 @@ class EstateTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"编辑楼盘房源信息异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"编辑楼盘房源信息异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "DeveloperEdit"))
@@ -217,7 +217,7 @@ class EstateTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"编辑楼盘开发商信息异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"编辑楼盘开发商信息异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "SalesOffEdit"))
@@ -239,5 +239,5 @@ class EstateTest(RunTest):
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"编辑楼盘销售概况异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
+            send_ding(robot_url, mobile, content=f"编辑楼盘销售概况异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
             raise err

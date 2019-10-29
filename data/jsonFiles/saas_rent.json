@@ -50,6 +50,12 @@
       "create_HasPaid": "/saas/createOrEditHasPaid",
       "close_RentTrade": "/saas/closeRentTrade",
       "add_CustomerGuide": "/saas/postAddCustomerGuide"
+    },
+    "Rent_Datalist": {
+      "list_Inspect": "/saas/rentCheckReal",
+      "list_RentKey": "/saas/searchRentKeyList",
+      "list_RentFllowup": "/saas/getHouseFollowRecord",
+      "list_RentGuide": "/saas/getRentGuideSeenList"
     }
   }
 }
