@@ -119,7 +119,6 @@ if __name__ == '__main__':
     # get_project_robot_URL()
     # start('test_sybb')
     # print(os.getcwd())
-    # start("test_boss")
     # start('test_ttopen')
     start()
 # # TODO  根据不同项目启动
