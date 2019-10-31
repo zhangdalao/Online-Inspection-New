@@ -19,7 +19,7 @@ def configure_celery(app):
         'backend': 'celery_once.backends.Redis',
         'settings': {
             'url': 'redis://10.50.255.104:6379/1',
-            'default_timeout': 60 * 60
+            'default_timeout': 5 * 60
         }
     }
 
