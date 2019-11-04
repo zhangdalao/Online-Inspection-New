@@ -107,7 +107,7 @@ def start(cases_dir=None):
         robot_url = None
     else:
         ip = '10.50.255.253'
-        output_dir = '/output/report/'
+        output_dir = '/report/'
         result_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
     if robot_url:
         send_link(robot_url, result_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll},'
