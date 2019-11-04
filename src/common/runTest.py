@@ -57,8 +57,6 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		self.expect = None  # 后面需要日志打印预期结果
 		self.desc = None
 		self.result = None
-
-	# 后面用例编号会使用
 	
 	def skipTest(self, reason):
 		"""
@@ -171,33 +169,34 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 					self.expect = self.expect.replace(p, _str)
 					
 			data = sss
-			# 先对 body/params 和预期结果做类型转换
-			if self.body:
-				self.body = eval(self.body)
-			if self.params:
-				self.params = eval(self.params)
-			if self.expect:
-				self.expect = eval(self.expect)
-			if type(args[0][-1]) == list:
-				if self.body:
-					# 对请求体中文转 json 后加密失败做处理
-					args[0][-1].append(json.dumps(self.body))
-				else:
-					args[0][-1].append(str(self.body).replace("\'", '\"'))
-				# 对其中的 path 存在动态参数进行解决
-				for m in args[0][-1]:
-					if m.__contains__('/') and re.findall(re_str, m):
-						m_num = args[0][-1].index(m)
-						uri_str_list = re.findall(re_str, m)
-						for i in uri_str_list:
-							i_value = sss.get(i[1:-1])
-							if i_value:
-								m = m.replace(i, str(i_value))
-						args[0][-1][m_num] = m
-				_str = ''.join(args[0][-1])
-				data['sign_key'] = SignKey(_str).sign()
-				args[0].pop()
 			try:
+				# 先对 body/params 和预期结果做类型转换
+				if self.body:
+					self.body = eval(self.body)
+				if self.params:
+					self.params = eval(self.params)
+				if self.expect:
+					self.expect = eval(self.expect)
+				if type(args[0][-1]) == list:
+					if self.body:
+						# 对请求体中文转 json 后加密失败做处理
+						args[0][-1].append(json.dumps(self.body))
+					else:
+						args[0][-1].append(str(self.body).replace("\'", '\"'))
+					# 对其中的 path 存在动态参数进行解决
+					for m in args[0][-1]:
+						if m.__contains__('/') and re.findall(re_str, m):
+							m_num = args[0][-1].index(m)
+							uri_str_list = re.findall(re_str, m)
+							for i in uri_str_list:
+								i_value = sss.get(i[1:-1])
+								if i_value:
+									m = m.replace(i, str(i_value))
+							args[0][-1][m_num] = m
+					_str = ''.join(args[0][-1])
+					data['sign_key'] = SignKey(_str).sign()
+					args[0].pop()
+			# try:
 				if self.headers:
 					# 对激活后的 headers做类型转换
 					self.headers = eval(self.headers)
@@ -209,13 +208,28 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				self.logger.debug(f"响应结果         :{self.res}")
 				self.logger.debug(f"预期结果         :{self.expect}")
 			except KeyError as krr:
-				self.logger.error(f"获取动态参数失败！  :{str(krr)}")
+				error_value = str(krr)
+				response = f"获取动态参数{error_value}失败!"
+				self.logger.error(f"{response}")
 				raise krr
 			except ValueError as vrr:
-				self.logger.error(f"返回结果转换失败！  ")
-				self.logger.error(f"实际结果为: {response} ")
-				self.logger.error(str(vrr))
+				error_value = str(vrr)
+				response = f"返回结果转换失败！  "
+				self.logger.error(f'{response}')
+				self.logger.error(f"返回结果为: {error_value} ")
+				self.logger.error(error_value)
 				raise vrr
+			except TypeError as trr:
+				error_value = str(trr)
+				response = f"预期结果获取指定值失败！ {error_value}"
+				self.logger.error(f'{response}')
+				raise trr
+			except Exception as err:
+				error_value = str(err)
+				response = f"请求时出现未知异常！  {error_value}"
+				self.logger.error(f'{response}')
+				self.logger.error(error_value)
+				raise err
 			else:
 				if type(isRelate) == dict:
 					relateData = isRelate["relateData"]
@@ -230,6 +244,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 								self.logger.debug(f"依赖数据缓存成功    :{a[0]}-->{a[1]}, 数据值为:{relate_value[0]}")
 							else:
 								self.logger.debug("返回数据中指定的关联数据获取失败！")
-			return response
+			finally:
+				return response
 		
 # TODO  需要把断言封装详细一点，类型与值做区分

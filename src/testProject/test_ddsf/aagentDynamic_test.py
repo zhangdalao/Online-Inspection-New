@@ -27,6 +27,10 @@ class AgentDynamicTest(RunTest):
 	robot_url = json_dict["robot_url"]
 	mobile = json_dict["mobile"]
 	
+	sss['cityIds'] = ["121", "852", "1406", "10204"]
+	data_dict = {"estateId": 51443, "storeId": 82200915, "dynamicTags": 12, "reVisitType": 3}
+	sss.update(data_dict)
+	
 	@classmethod
 	def setUpClass(cls):
 		cls.env_num = cls.a.get_num_name("环境")
@@ -45,14 +49,16 @@ class AgentDynamicTest(RunTest):
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 	
 	def tearDown(self):
-		if self.result:
+		if self.result and type(self.result) != str:
 			try:
 				self.assertEqual(True, checkOut(self.res, self.expect))
 				self.logger.debug("测试结果         :测试通过！")
 			except Exception as err:
 				self.logger.error("测试结果         :测试失败！")
-				send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+				send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}")
 				raise err
+		elif self.result and type(self.result) == str:
+			send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！\n测试反馈:{self.result}")
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 	
 	@ddt.data(*a.get_data_by_api(fieldname, "AgentDynamic"))
@@ -91,7 +97,6 @@ class AgentDynamicTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		sss['cityIds'] = ["121", "852", "1406", "10204"]
 		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 		
@@ -123,7 +128,7 @@ class AgentDynamicTest(RunTest):
 		
 	@ddt.data(*a.get_data_by_api(fieldname, "VisitDynamic"))
 	def test_VisitDynamic(self, value):
-		"""经纪动态-门店拜访选项字段"""
+		"""经纪动态-条件筛选"""
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
 		env = value[self.env_num]
@@ -131,7 +136,5 @@ class AgentDynamicTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		data_dict = {"estateId": 51443, "storeId": 82200915, "dynamicTags": 12, "reVisitType": 3}
-		sss.update(data_dict)
 		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
