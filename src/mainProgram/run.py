@@ -109,9 +109,9 @@ def start(cases_dir=None):
         ip = '10.50.255.253'
         output_dir = '/report/'
         result_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
-    # if robot_url:
-    #     send_link(robot_url, result_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll},'
-    #                                      f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
+    if robot_url:
+        send_link(robot_url, result_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll},'
+                                         f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
     return res
 
 if __name__ == '__main__':
