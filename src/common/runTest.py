@@ -57,6 +57,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		self.expect = None  # 后面需要日志打印预期结果
 		self.desc = None
 		self.result = None
+		self.res = None
 	
 	def skipTest(self, reason):
 		"""
