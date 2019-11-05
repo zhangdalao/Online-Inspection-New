@@ -13,8 +13,10 @@
         "ByPassword": "/user/users/login"
       },
     "XF":{
+        "XF_mine": "/estate/xf/house/mine",
         "XF_List": "/estate/xf/projects/list",
         "XF_Statistic": "/distribution/process/statistic",
+        "XF_filter": "/housingestate/config/xf/filter/2",
         "XF_Newshot": "/housingestate/news/hot",
         "XF_Newslist": "/housingestate/news/list?needGainedCodeEstateNews=true&pageSize=15&pageNo=1",
         "XF_Goodlist": "/housingestate/news/good/list?pageSize=15&pageNo=1",
@@ -25,10 +27,17 @@
         "XF_myreferal": "/housingestate/estate/53101?modules=my.referral"
     },
     "ReAndGui": {
+        "trianglelist": "/distribution/triangle/list?pageNo=0&pageSize=15",
+        "triangledetail": "/distribution/custs/8193342/detail?triangleId=9806010",
         "re_rule": "/distribution/custs/referral/rule?projectIds=10636,20849",
         "batchreferral": "/distribution/custs/referral/batch",
         "guide": "/distribution/custs/guide/3136475/",
         "upcert": "/distribution/custs/guide/cert/3136475/"
+    },
+    "IM": {
+        "IM_config": "/im/session/config?sessionId=agent_xf_project-3136475-10636&sessionType=1",
+        "IM_contacter": "/im/session/contacter?sessionId=agent_xf_project-3136475-10636",
+        "IM_msgList": "/distribution/nhAssistance/msgList?pageNo=1&pageSize=10"
     }
   }
 }
