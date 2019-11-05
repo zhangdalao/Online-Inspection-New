@@ -1,7 +1,7 @@
 {
   "ddsf":{
     "robot_data":{
-      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa145342159f8fd0065fc4",
+      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=f1fcce84f078571df980b5c1017f4ed675bae0bf99eec95f3422a0247b360adf",
       "mobile":["18682236985"]
     },
     "domain":{
