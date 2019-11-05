@@ -11,9 +11,16 @@ count = 0
 
 @ddt.ddt
 class OrgTest(RunTest):
-    project = os.path.dirname(__file__)[-7:]
+    # 通过文件名夹获取project参数的值
+    project = os.path.dirname(__file__)[-4:]
+    # 读取文件实例化
     a = ReadData(project, project)
+    # 通过类名获取fieldname的值
     fieldname = sys._getframe().f_code.co_name[:-4]
+    # 获取项目名后，获取机器人相关配置
+    json_dict = a.json_data[project]["robot_data"]
+    robot_url = json_dict["robot_url"]
+    mobile = json_dict["mobile"]
 
     @classmethod
     def setUpClass(cls):
