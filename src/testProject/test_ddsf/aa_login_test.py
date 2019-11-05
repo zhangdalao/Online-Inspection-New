@@ -79,7 +79,7 @@ class LoginTest(RunTest):
 	def test_ByVerifyCode(self, value):
 		# 将获取的手机验证码存放在变量 sss 中
 		if value[self.desc_num] == '验证码正确登录':
-			sss["sms_code"] = get_smsCode(value[self.env_num], 'https://as-web.fangdd.com/data/sendSmsCode', 'post',
+			sss["sms_code"] = get_smsCode(value[self.env_num], 'https://ddsf.fangdd.com/data/sendSmsCode', 'post',
 			                              json=[{"mobile": "13058019302", "device": "sid.13058019302"},
 			                                    {"systemSource": "DD_COMMERCIAL"}])
 		# 通过函数名获取apiName参数的值
@@ -92,7 +92,6 @@ class LoginTest(RunTest):
 		# 调用接口发起请求
 		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-		
 		
 		
 if __name__ == '__main__':
