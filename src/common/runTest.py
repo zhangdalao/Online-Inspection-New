@@ -246,6 +246,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 							else:
 								self.logger.debug("返回数据中指定的关联数据获取失败！")
 			finally:
-				return response
+				if type(response) != str:
+					return response
 		
 # TODO  需要把断言封装详细一点，类型与值做区分
