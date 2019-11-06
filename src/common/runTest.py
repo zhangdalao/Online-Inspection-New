@@ -212,25 +212,25 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				error_value = str(krr)
 				response = f"获取动态参数{error_value}失败!"
 				self.logger.error(f"{response}")
-				raise krr
+				# raise krr
 			except ValueError as vrr:
 				error_value = str(vrr)
 				response = f"返回结果转换失败！  "
 				self.logger.error(f'{response}')
 				self.logger.error(f"返回结果为: {error_value} ")
 				self.logger.error(error_value)
-				raise vrr
+				# raise vrr
 			except TypeError as trr:
 				error_value = str(trr)
 				response = f"预期结果获取指定值失败！ {error_value}"
 				self.logger.error(f'{response}')
-				raise trr
+				# raise trr
 			except Exception as err:
 				error_value = str(err)
 				response = f"请求时出现未知异常！  {error_value}"
 				self.logger.error(f'{response}')
 				self.logger.error(error_value)
-				raise err
+				# raise err
 			else:
 				if type(isRelate) == dict:
 					relateData = isRelate["relateData"]
@@ -246,7 +246,6 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 							else:
 								self.logger.debug("返回数据中指定的关联数据获取失败！")
 			finally:
-				if type(response) != str:
-					return response
+				return response
 		
 # TODO  需要把断言封装详细一点，类型与值做区分
