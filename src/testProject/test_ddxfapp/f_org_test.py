@@ -12,7 +12,7 @@ count = 0
 @ddt.ddt
 class OrgTest(RunTest):
     # 通过文件名夹获取project参数的值
-    project = os.path.dirname(__file__)[-4:]
+    project = os.path.dirname(__file__)[-7:]
     # 读取文件实例化
     a = ReadData(project, project)
     # 通过类名获取fieldname的值
