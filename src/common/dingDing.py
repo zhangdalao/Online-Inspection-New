@@ -37,13 +37,12 @@ def send_ding(robotUrl, mobile, content=None, runType=None):
 			except Exception:
 				pass
 			finally:
-				t = requests.post(robot, json=robot_body)
-				if t.status_code == 200:
-					return True
-				else:
-					return False
-
-
+				while True:
+					t = requests.post(robot, json=robot_body)
+					if t.status_code == 200:
+						break
+					
+					
 # 钉钉推送测试报告调用方法（标题，内容，文件链接）
 def send_link(robot_url, result_path, tittle='测试报告', text='点击查看本次所有项目的测试用例执行详情'):
 	"""

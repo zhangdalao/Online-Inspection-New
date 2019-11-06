@@ -47,6 +47,8 @@ if __name__ == '__main__':
 	# r = requests.get("http://sms.fangdd.cn/admin/api/verify-codes?mobile=13058019302")
 	# print(r.json())
 	# get_smsCode("prod")
-	a = get_smsCode("prod", 'https://jr.fangdd.com/jgj/api/user/smgsend', 'post',
-					json={"mobile": "13058019302", "type": 1})
-	print(a)
+	# a = get_smsCode("prod", 'https://jr.fangdd.com/jgj/api/user/smgsend', 'post',
+	# 				json={"mobile": "13058019302", "type": 1})
+	b = get_smsCode('prod', 'https://ddsf.fangdd.com/data/sendSmsCode', 'post', json=[{"mobile": "13058019302", "device": "sid.13058019302"},
+			                                    {"systemSource": "DD_COMMERCIAL"}])
+	print(b)
