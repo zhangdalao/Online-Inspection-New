@@ -233,18 +233,32 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 				# raise err
 			else:
 				if type(isRelate) == dict:
-					relateData = isRelate["relateData"]
+					relateData = isRelate.get("relateData")
+					relateDatas = isRelate.get("relateDatas")
+					# relateData = isRelate["relateData"]
 					# 将需要提供依赖的数据缓存
-					for _dict in relateData:
-						for _key in _dict:
-							a = [_key, _dict[_key]]
-							relate_value = jsonpath(self.res, expr=f"$..{a[0]}")
-							if relate_value:
-								# 这里如果 relate_value 存在的话类型其实是列表，所以取值使用需要注意
-								sss[a[1]] = relate_value[0]
-								self.logger.debug(f"依赖数据缓存成功    :{a[0]}-->{a[1]}, 数据值为:{relate_value[0]}")
-							else:
-								self.logger.debug("返回数据中指定的关联数据获取失败！")
+					if relateData:
+						for _dict in relateData:
+							for _key in _dict:
+								a = [_key, _dict[_key]]
+								relate_value = jsonpath(self.res, expr=f"$..{a[0]}")
+								if relate_value:
+									# 这里如果 relate_value 存在的话类型其实是列表，所以取单个值使用需要注意
+									sss[a[1]] = relate_value[0]
+									self.logger.debug(f"依赖数据缓存成功    :{a[0]}-->{a[1]}, 数据值为:{relate_value[0]}")
+								else:
+									self.logger.debug("返回数据中指定的关联数据获取失败！")
+					elif relateDatas:
+						for _dict in relateDatas:
+							for _key in _dict:
+								a = [_key, _dict[_key]]
+								relate_value = jsonpath(self.res, expr=f"$..{a[0]}")
+								if relate_value:
+									# 这里如果 relate_value 存在的话类型其实是列表，所以取所有值使用需要注意
+									sss[a[1]] = relate_value
+									self.logger.debug(f"依赖数据缓存成功    :{a[0]}-->{a[1]}, 数据值为:{relate_value}")
+								else:
+									self.logger.debug("返回数据中指定的关联数据获取失败！")
 			finally:
 				return response
 		

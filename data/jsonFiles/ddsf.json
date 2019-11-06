@@ -91,6 +91,10 @@
       "StoreByStoreId":"/data/getStoreByStoreId",
       "StoreMessage": "/data/getStoreMessage",
       "VisitDynamic":"/data/fetchAccessDynamicList"
+    },
+    "StoreManage":{
+      "ResponsibilityStore":"/data/getResponsibilityStore",
+      "ResponsibilityStoreList":"/data/getResponsibilityStoreList"
     }
   }
 }  
