@@ -63,6 +63,7 @@ class LoginTest(RunTest):
                 raise err
         elif self.result and type(self.result) == str:
             send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！\n测试反馈:{self.result}")
+            raise Exception
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
     @ddt.data(*a.get_data_by_api(fieldname, "ByPassword"))
