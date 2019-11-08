@@ -50,7 +50,7 @@ def start(cases_dir=None):
         robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
         suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
                                                                                                   f'{project_dir}'])
-        suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
+        suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='aa*_test.py')
         reportFileName = project_name + f'_{now}_result.html'
     else:
         # 这里需要补充测试组机器人URL
@@ -109,9 +109,9 @@ def start(cases_dir=None):
         ip = '10.50.255.253'
         output_dir = '/report/'
         result_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
-    if robot_url:
-        send_link(robot_url, result_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll},'
-                                         f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
+    # if robot_url:
+    #     send_link(robot_url, result_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll},'
+    #                                      f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
     return res
 
 if __name__ == '__main__':
@@ -120,5 +120,5 @@ if __name__ == '__main__':
     # start('test_sybb')
     # print(os.getcwd())
     # start('test_ttopen')
-    start()
+    start('test_ddsf')
 # # TODO  根据不同项目启动
