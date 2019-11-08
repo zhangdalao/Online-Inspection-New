@@ -3,16 +3,12 @@
 # @Date : 2019-09-21
 
 
-import os
 import inspect
-from src.common.read_data import ReadData
 import ddt
-import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
 from src.testProject.test_sybb import read_cookie
 import json
-
 
 count = 0
 
@@ -24,9 +20,13 @@ class RepayBillsTest(RunTest):
 	# 通过文件名夹获取project参数的值
 	project = os.path.dirname(__file__)[-4:]
 	# 读取文件实例化
-	a = ReadData(project, 'sybb')
+	a = ReadData(project, project)
 	# 通过类名获取fieldname的值
 	fieldname = sys._getframe().f_code.co_name[:-4]
+	# 获取项目名后，获取机器人相关配置
+	json_dict = a.json_data[project]["robot_data"]
+	robot_url = json_dict["robot_url"]
+	mobile = json_dict["mobile"]
 	
 	@classmethod
 	def setUpClass(cls):
@@ -47,17 +47,18 @@ class RepayBillsTest(RunTest):
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 	
 	def tearDown(self):
-		if self.result:
+		if self.result and type(self.result) != str:
 			try:
 				self.assertEqual(True, checkOut(self.res, self.expect))
 				self.logger.debug("测试结果         :测试通过！")
 			except Exception as err:
 				self.logger.error("测试结果         :测试失败！")
-				json_dict = self.a.json_data[self.project]["robot_data"]
-				robot_url = json_dict["robot_url"]
-				mobile = json_dict["mobile"]
-				send_ding(robot_url, mobile, content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+				send_ding(self.robot_url, self.mobile,
+				          content=f"{self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}")
 				raise err
+		elif self.result and type(self.result) == str:
+			send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！\n测试反馈:{self.result}")
+			raise Exception
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
 	@ddt.data(*a.get_data_by_api(fieldname, "RepayBills"))
