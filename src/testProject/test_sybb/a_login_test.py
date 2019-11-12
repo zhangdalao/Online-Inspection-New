@@ -4,7 +4,8 @@
 
 
 import inspect
-import ddt
+import ddt,sys
+from src.common.read_data import ReadData
 from src.common.runTest import *
 from src.common.dingDing import send_ding
 from src.common.sms_code import get_smsCode

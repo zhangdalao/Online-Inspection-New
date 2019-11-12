@@ -9,7 +9,8 @@ from src.common.runTest import *
 from src.common.dingDing import send_ding
 from src.common.sms_code import get_smsCode
 import requests
-
+import os, sys
+from src.common.read_data import ReadData
 
 count = 0
 
@@ -97,4 +98,4 @@ class LoginTest(RunTest):
 		
 		
 if __name__ == '__main__':
-	unittest.main()
+	a = LoginTest()

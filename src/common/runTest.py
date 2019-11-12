@@ -7,14 +7,15 @@ import unittest
 from src.common.runMethod import RunMethod
 from src.common.readLogger import ReadLogger
 from jsonpath import jsonpath
-import time
 import re
-import json
+import json, time
 from src.common.sign import SignKey
-import os, sys
-from src.common.read_data import ReadData
+import os
 
 sss = {}
+
+sep = os.sep
+root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
 
 
 # 定义断言函数(严格断言，字段类型和值必须一致)
@@ -40,6 +41,7 @@ def checkOut(res, exp) -> bool:
 
 
 class RunTest(unittest.TestCase, unittest.SkipTest):
+	
 	def __init__(self, methodName='runTest'):
 		super(RunTest, self).__init__(methodName)
 		
@@ -75,7 +77,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		return self.api_name, self.desc
 	
 	def start(self, isSkip_num, apiName_num, url, method_num, headers_num, para_num, data_num, desc_num, isRelate_num,
-			  expect_num, *args, **kw):
+	          expect_num, *args, **kw):
 		"""
 		用例运行主入口
 		:param isSkip_num:      是否跳过列数来判断该用例是否跳过执行

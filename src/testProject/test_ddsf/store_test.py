@@ -6,6 +6,8 @@ import inspect
 import ddt
 from src.common.runTest import *
 from src.common.dingDing import send_ding
+from src.common.read_data import ReadData
+import os, sys
 
 
 count = 0
@@ -15,7 +17,6 @@ count = 0
 class StoreTest(RunTest):
 	"""门店模块"""
 	
-	# 通过文件名夹获取project参数的值
 	# 通过文件名夹获取project参数的值
 	project = os.path.dirname(__file__)[-4:]
 	# 读取文件实例化

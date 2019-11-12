@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 
 from src.mainProgram.run import start
 
@@ -12,7 +12,9 @@ def hello():
 
 @app.route("/run_test")
 def run_test():
-    start.delay()
+    cases = request.args.get('cases',None)
+    env = request.args.get('env',None)
+    start.delay(cases_dir=cases, env=env, kwarg1='cases_dir',kwarg2='env')
     return "自动化测试已启动"
 
 
