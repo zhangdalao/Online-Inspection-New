@@ -150,8 +150,9 @@ class ReadData:
 		return Table_data
 	
 	# 根据传入的模块名称和接口名称过滤出需要的ddt测试数据
-	def get_data_by_api(self, fieldName=None, api_name=None) -> list:
+	def get_data_by_api(self, fieldName=None, api_name=None, env=None) -> list:
 		"""
+		:param env:               运行环境, 默认为None
 		:param fieldName:         模块名称，默认为None
 		:param api_name:          接口名称，默认为None
 		:return:                  根据模块名称和接口名称进行二次筛选，返回用于单个接口进行ddt的测试数据
@@ -160,8 +161,9 @@ class ReadData:
 		# 根据传入的模块名称获取模块测试数据
 		data = self.get_module_data(fieldName=fieldName)
 		api_name_num = self.get_num_name("接口名称")
+		api_env_num = self.get_num_name("环境")
 		for i in range(len(data)):
-			if data[i][api_name_num] == api_name:
+			if data[i][api_name_num] == api_name and data[i][api_env_num] == env:
 				test_data_list.append(data[i])
 		return test_data_list
 	

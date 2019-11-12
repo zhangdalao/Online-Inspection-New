@@ -9,6 +9,7 @@ from src.common.runTest import *
 from src.common.dingDing import send_ding
 from src.common.sms_code import get_smsCode
 import requests
+import os
 
 
 count = 0
@@ -62,7 +63,7 @@ class LoginTest(RunTest):
 			raise Exception
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
-	@ddt.data(*a.get_data_by_api(fieldname, "ByPassword"))
+	@ddt.data(*a.get_data_by_api(fieldname, "ByPassword", sss["env"]))
 	def test_ByPassword(self, value):
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
@@ -77,7 +78,7 @@ class LoginTest(RunTest):
 		if self.res["code"] == 200:
 			sss["cookies"] = requests.utils.dict_from_cookiejar(self.result.cookies)
 		
-	@ddt.data(*a.get_data_by_api(fieldname, "ByVerifyCode"))
+	@ddt.data(*a.get_data_by_api(fieldname, "ByVerifyCode", sss["env"]))
 	def test_ByVerifyCode(self, value):
 		# 将获取的手机验证码存放在变量 sss 中
 		if value[self.desc_num] == '验证码正确登录':
@@ -97,4 +98,4 @@ class LoginTest(RunTest):
 		
 		
 if __name__ == '__main__':
-	unittest.main()
+	a = LoginTest()
