@@ -10,8 +10,7 @@ from jsonpath import jsonpath
 import re
 import json, time
 from src.common.sign import SignKey
-import os, sys
-from src.common.read_data import ReadData  # 实例就不用每个都导入这行命令了
+import os
 
 sss = {}
 

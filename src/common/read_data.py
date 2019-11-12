@@ -8,6 +8,7 @@ import xlrd
 import logging
 from src.common.readLogger import ReadLogger
 import re
+from src.common.runTest import sss
 
 
 class ReadData:
@@ -150,7 +151,8 @@ class ReadData:
 		return Table_data
 	
 	# 根据传入的模块名称和接口名称过滤出需要的ddt测试数据
-	def get_data_by_api(self, fieldName=None, api_name=None, env=None) -> list:
+	# def get_data_by_api(self, fieldName=None, api_name=None, env=None) -> list:
+	def get_data_by_api(self, fieldName=None, api_name=None, env=sss["env"]) -> list:
 		"""
 		:param env:               运行环境, 默认为None
 		:param fieldName:         模块名称，默认为None

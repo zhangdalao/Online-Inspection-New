@@ -7,8 +7,8 @@ import inspect
 import ddt
 from src.common.runTest import *
 from src.common.dingDing import send_ding
-import json
-
+from src.common.read_data import ReadData
+import os, sys
 count = 0
 
 
@@ -149,7 +149,7 @@ class AgentTest(RunTest):
 		
 	@ddt.data(*a.get_data_by_api(fieldname, "listStoreOrCompanyAgent"))
 	def test_listStoreOrCompanyAgent(self, value):
-		"""获得门店/公司经纪人信息"""
+		"""根据经纪人获得门店店长信息"""
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
 		env = value[self.env_num]
@@ -157,7 +157,7 @@ class AgentTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		sss["storeId"] = 82200915
+		sss["storeId"] = 82351552
 		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
 		                         value)

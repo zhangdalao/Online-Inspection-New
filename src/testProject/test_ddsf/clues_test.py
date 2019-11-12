@@ -8,6 +8,8 @@ import ddt
 from src.common.runTest import *
 from src.common.dingDing import send_ding
 import json
+from src.common.read_data import ReadData
+import os, sys
 
 count = 0
 
@@ -60,10 +62,10 @@ class CluesTest(RunTest):
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 	
 	@ddt.data(*a.get_data_by_api(fieldname, "getStoreClueList"))
-	def test_getStoreClueList(self, value):
-		"""城市区域列表"""
+	def test_1_getStoreClueList(self, value):
+		"""线索门店列表"""
 		# 通过函数名获取apiName参数的值
-		self.apiName = (inspect.stack()[0][3])[5:]
+		self.apiName = (inspect.stack()[0][3])[7:]
 		env = value[self.env_num]
 		# 通过环境参数获得接口url
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
@@ -83,7 +85,7 @@ class CluesTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		sss["networkStoreId"] = 287940
+		sss["networkStoreId"] = sss["networkStoreId_list"][0]
 		sss["restful"] = json.dumps({"networkStoreId": str(sss["networkStoreId"])})
 		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
