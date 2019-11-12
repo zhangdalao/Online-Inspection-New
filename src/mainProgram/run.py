@@ -27,14 +27,14 @@ celery = configure_celery(app)
 
 
 def get_project_robot_URL(projectName=None):
-    json_path = f"{root_path}{sep}data{sep}jsonFiles{sep}{projectName}.json"
-    # 读取json数据文件中的内容
-    with open(json_path, "r", encoding="utf-8") as j:
-        json_data = json.load(j)
-    return json_data
+	json_path = f"{root_path}{sep}data{sep}jsonFiles{sep}{projectName}.json"
+	# 读取json数据文件中的内容
+	with open(json_path, "r", encoding="utf-8") as j:
+		json_data = json.load(j)
+	return json_data
 
 
-# @celery.task(base=QueueOnce)
+@celery.task(base=QueueOnce)
 def start(cases_dir=None, env=None):
 	if not env:
 		sss["env"] = "prod"
@@ -51,13 +51,13 @@ def start(cases_dir=None, env=None):
 		project_name = project_dir.split("test_")[-1]  # xxxx
 		robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
 		suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
-		                                                                                          f'{project_dir}'])
+																								  f'{project_dir}'])
 		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
 		reportFileName = project_name + f'_{now}_result.html'
 	else:
 		# 这里需要补充测试组机器人URL
 		robot_url = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa1' \
-		            '45342159f8fd0065fc4'
+					'45342159f8fd0065fc4'
 		suites_dir = root_path + f'{sep}src{sep}testProject'
 		suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*_test.py')
 		reportFileName = 'All' + f'_{now}_result.html'
@@ -108,7 +108,7 @@ def start(cases_dir=None, env=None):
 		result_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
 	if robot_url:
 		send_link(robot_url, result_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll},'
-	                                     f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
+										 f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
 	return res
 
 
