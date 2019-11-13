@@ -14,7 +14,7 @@ def hello():
 def run_test():
     cases = request.args.get('cases',None)
     env = request.args.get('env',None)
-    start.delay(cases_dir=cases, env=env, kwarg1='cases_dir',kwarg2='env')
+    start.delay(cases_dir=cases, env=env)
     return "自动化测试已启动"
 
 
