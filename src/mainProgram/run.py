@@ -119,4 +119,3 @@ if __name__ == '__main__':
 	# print(os.getcwd())
 	# start('test_ttopen')
 	start()
-# # TODO  根据不同项目启动
