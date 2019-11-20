@@ -51,9 +51,23 @@ class ReAndGuiTest(RunTest):
         cls.GuideTime = guidetime.strftime("%Y-%m-%d %H:%M:%S")
         phone_num = random.randint(00000000, 99999999)
         cls.phone_num = '199' + str(phone_num)
+        # 前三后四
+        hidephone = random.randint(0000, 9999)
+
+        # 前九后二
+        hidephone1 = random.randint(000000000, 999999999)
+
+        # 前五后二
+        hidephone2 = random.randint(00000, 99999)
+        cls.hidephone = '199' + '****' + str(hidephone)
+        cls.hidephone1 = str(hidephone1) + '**'
+        cls.hidephone2 = str(hidephone2) + '****' + '99'
         sss["timestamp"] = cls.timestamp
         sss["GuideTime"] = cls.GuideTime
         sss["phonenum"] = cls.phone_num
+        sss["hidephone"] = cls.hidephone
+        sss["hidephone1"] = cls.hidephone1
+        sss["hidephone2"] = cls.hidephone2
 
     def setUp(self):
         globals()['count'] += 1
