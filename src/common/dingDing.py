@@ -37,8 +37,11 @@ def send_ding(robotUrl, mobile, content=None, runType=None):
 			except Exception:
 				pass
 			finally:
-				while True:
+				num = 0
+				# 如果失败尝试调用3次
+				while num < 3:
 					t = requests.post(robot, json=robot_body)
+					num += 1
 					if t.status_code == 200:
 						break
 					
