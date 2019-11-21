@@ -43,6 +43,17 @@ class StoreTest(RunTest):
         self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 
     def tearDown(self):
+        if self.result:
+            try:
+                self.assertEqual(True, checkOut(self.res, self.expect))
+                self.logger.debug("测试结果         :测试通过！")
+            except Exception as err:
+                self.logger.error("测试结果         :测试失败！")
+                json_dict = self.a.json_data[self.project]["robot_data"]
+                robot_url = json_dict["robot_url"]
+                mobile = json_dict["mobile"]
+                send_ding(robot_url, mobile, content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+                raise err
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
     @ddt.data(*a.get_data_by_api(fieldname, "Detail"))
@@ -60,16 +71,6 @@ class StoreTest(RunTest):
         # 调用接口发起请求
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False, timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "Data"))
     def test_Data(self, value):
@@ -87,16 +88,6 @@ class StoreTest(RunTest):
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘效果异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectList"))
     def test_ProjectList(self, value):
@@ -114,16 +105,6 @@ class StoreTest(RunTest):
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘项目列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "EstateShare"))
     def test_EstateShare(self, value):
@@ -141,16 +122,6 @@ class StoreTest(RunTest):
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘推广楼盘异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "CouponShare"))
     def test_CouponShare(self, value):
@@ -168,16 +139,6 @@ class StoreTest(RunTest):
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘分享奖券异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "PersonalInfoUpdate"))
     def test_PersonalInfoUpdate(self, value):
@@ -195,16 +156,6 @@ class StoreTest(RunTest):
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘编辑个人名片异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectOptions"))
     def test1_ProjectOptions(self, value):
@@ -222,16 +173,6 @@ class StoreTest(RunTest):
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘-添加楼盘列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectAdd"))
     def test2_ProjectAdd(self, value):
@@ -249,16 +190,6 @@ class StoreTest(RunTest):
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘-添加楼盘异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectEdit"))
     def test3_ProjectEdit(self, value):
@@ -276,16 +207,6 @@ class StoreTest(RunTest):
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘-编辑楼盘亮点异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectDelete"))
     def test4_ProjectDelete(self, value):
@@ -303,16 +224,6 @@ class StoreTest(RunTest):
         res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
                          timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"微信推盘-移除楼盘异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
 
 if __name__ == '__main__':
