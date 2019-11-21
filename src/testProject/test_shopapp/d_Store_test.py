@@ -69,8 +69,9 @@ class StoreTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False, timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "Data"))
     def test_Data(self, value):
@@ -85,9 +86,9 @@ class StoreTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectList"))
     def test_ProjectList(self, value):
@@ -102,9 +103,9 @@ class StoreTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "EstateShare"))
     def test_EstateShare(self, value):
@@ -119,9 +120,9 @@ class StoreTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "CouponShare"))
     def test_CouponShare(self, value):
@@ -136,9 +137,9 @@ class StoreTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "PersonalInfoUpdate"))
     def test_PersonalInfoUpdate(self, value):
@@ -153,9 +154,9 @@ class StoreTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectOptions"))
     def test1_ProjectOptions(self, value):
@@ -170,9 +171,9 @@ class StoreTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectAdd"))
     def test2_ProjectAdd(self, value):
@@ -187,9 +188,9 @@ class StoreTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectEdit"))
     def test3_ProjectEdit(self, value):
@@ -204,9 +205,9 @@ class StoreTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectDelete"))
     def test4_ProjectDelete(self, value):
@@ -221,9 +222,9 @@ class StoreTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
 
 if __name__ == '__main__':

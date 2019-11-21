@@ -51,7 +51,7 @@ class LoginTest(RunTest):
         value.append(str_sign_list)
         sss["version"] = sss["versionName"][1:]
         # 调起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
         sss["userId"] = str(sss["userId"])
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))

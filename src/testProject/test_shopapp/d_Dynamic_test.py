@@ -69,9 +69,9 @@ class DynamicTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "List"))
     def test2_List(self, value):
@@ -86,9 +86,10 @@ class DynamicTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False, timeout=10)
-        sss["id"] = res.json()['data']['pageData'][0]['id']
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
+        sss["id"] = self.res['data']['pageData'][0]['id']
 
     @ddt.data(*a.get_data_by_api(fieldname, "Edit"))
     def test3_Edit(self, value):
@@ -103,9 +104,9 @@ class DynamicTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "Zan"))
     def test4_Zan(self, value):
@@ -120,9 +121,9 @@ class DynamicTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "Comment"))
     def test5_Comment(self, value):
@@ -137,9 +138,9 @@ class DynamicTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "Delete"))
     def test6_Delete(self, value):
@@ -154,9 +155,9 @@ class DynamicTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "Share"))
     def test7_Share(self, value):
@@ -188,9 +189,9 @@ class DynamicTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "UserInfo"))
     def test9_UserInfo(self, value):
@@ -205,9 +206,9 @@ class DynamicTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
 
 if __name__ == '__main__':
