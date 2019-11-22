@@ -30,7 +30,7 @@
       "ReferralConfirm":"/app/customer/ddxf/referral/deal",
       "CustomerDetail":"/customer/ddxf/customer/detail?estateId=53101&customerId=8648042&customerMobile=19923923414",
       "SearchGuide": "/app/customer/ddxf/guide/list?branchId=3&pageNo=1&confirmStatus=0&pageSize=20&customerMobile=13883217640",
-      "GuideList":"/customer/ddxf/guide/list?branchId=3&pageNo=1&confirmStatus=0&pageSize=20&estateIds=53101",
+      "GuideList":"/customer/ddxf/guide/list?branchId=3&pageNo=1&confirmStatus=0&pageSize=20&estateIds=2029540",
       "GuideDetail":"/customer/ddxf/guide/12276167",
       "GuideConfirm":"/customer/ddxf/guide/"
     },
