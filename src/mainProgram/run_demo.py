@@ -61,7 +61,7 @@ def start(cases_dir=None, env=None):
 	Name = get_INI.normal_data("Name", project_name)
 	
 	# 获取本次需要执行的所有用例
-	suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*login_test.py')
+	suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*.py')
 	
 	# 脚本运行当前时间
 	now = time.strftime("%Y_%m_%d-%H_%M_%S")
@@ -123,4 +123,4 @@ def start(cases_dir=None, env=None):
 
 
 if __name__ == '__main__':
-	start('test_ddsf', "prod")
+	start()
