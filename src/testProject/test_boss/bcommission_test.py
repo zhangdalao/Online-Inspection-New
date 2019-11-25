@@ -83,7 +83,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionorg"))
@@ -99,7 +99,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionDetail"))
@@ -115,7 +115,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionorderList"))
@@ -131,7 +131,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
         sss["orderId"] = int(sss["orderId"])
 
@@ -148,7 +148,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commission_agreement"))
@@ -164,7 +164,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commission_givebackCarrier"))
@@ -180,7 +180,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionorderlnfo"))
@@ -196,7 +196,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionList"))
@@ -212,7 +212,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionStoreList"))
@@ -228,7 +228,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionBranch"))
@@ -244,7 +244,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionDeal"))
@@ -260,7 +260,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionAccountList"))
@@ -276,7 +276,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionApply"))
@@ -292,7 +292,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionInfo"))
@@ -308,7 +308,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "commissionCancel"))
@@ -324,7 +324,7 @@ class commissionTest(RunTest):
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
 if __name__ == '__main__':

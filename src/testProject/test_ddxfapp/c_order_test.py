@@ -66,7 +66,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "bOrderdetail"))
@@ -82,7 +82,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "cOrderList"))
@@ -97,7 +97,7 @@ class OrderTest(RunTest):
         value.append(str_sign_list)
         # print(value)
         sss["version"] = sss["versionName"][1:]
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "dBookingList"))
@@ -113,7 +113,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
  
     @ddt.data(*a.get_data_by_api(fieldname, "eBookingToOrder"))
@@ -129,7 +129,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
 
@@ -146,7 +146,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "gChecklist"))
@@ -159,7 +159,7 @@ class OrderTest(RunTest):
         str_sign_list = [str(sss["userId"]),str(sss["token"]),self.timestamp, value[self.method_num].upper(), uri]
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "hperformancechange"))
@@ -175,7 +175,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "iperformancelist"))
@@ -191,7 +191,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "jperformencedetail"))
@@ -207,7 +207,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "kamountchange"))
@@ -223,7 +223,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "lamountchangelist"))
@@ -239,7 +239,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "mdatechange"))
@@ -255,7 +255,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ndatachangelist"))
@@ -271,7 +271,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ordercancel"))
@@ -287,7 +287,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "pcancellist"))
@@ -303,7 +303,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "qchangephone"))
@@ -319,7 +319,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "rphonechanglist"))
@@ -335,7 +335,7 @@ class OrderTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
         
     @ddt.data(*a.get_data_by_api(fieldname, "dOrderSign"))
@@ -351,7 +351,7 @@ class OrderTest(RunTest):
         #print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
 

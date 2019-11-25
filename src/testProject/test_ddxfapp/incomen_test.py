@@ -71,7 +71,7 @@ class IncomeTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "bincomelist"))
     def test_bincomelist(self, value):
@@ -91,7 +91,7 @@ class IncomeTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "crejectlist"))
     def test_crejectlist(self, value):
@@ -111,7 +111,7 @@ class IncomeTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "dreturnedlist"))
     def test_dreturnedlist(self, value):
@@ -131,7 +131,7 @@ class IncomeTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "einvoice"))
     def test_einvoice(self, value):
@@ -151,7 +151,7 @@ class IncomeTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "fnoticket"))
     def test_fnoticket(self, value):
@@ -171,7 +171,7 @@ class IncomeTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
     @ddt.data(*a.get_data_by_api(fieldname, "gticket"))
     def test_gticket(self, value):
@@ -188,4 +188,4 @@ class IncomeTest(RunTest):
         # print(value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)

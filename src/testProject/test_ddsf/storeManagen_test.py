@@ -71,7 +71,7 @@ class StoreManageTest(RunTest):
 		# 调用接口发起请求
 		sss["cookies_str"] = ";".join(['{}={}'.format(*_) for _ in sss["cookies"].items()])
 		sss["cityId_list_str"] = ','.join(list(map(lambda x: str(x), sss["city_list"])))
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
 		                         value)
 		
@@ -87,6 +87,6 @@ class StoreManageTest(RunTest):
 		# 调用接口发起请求
 		sss["UserId"] = f'userId={sss["ID"]}'
 		sss["baishan_id"] = sss["city_list"][0]
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
 		                         value)

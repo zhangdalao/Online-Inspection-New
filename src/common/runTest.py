@@ -11,6 +11,7 @@ import re
 import json, time
 from src.common.sign import SignKey
 import os
+from src.common.readConfData import GetDataIni
 
 sss = {}
 
@@ -60,6 +61,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		self.desc = None
 		self.result = None
 		self.res = None
+		self.projectName = None
 	
 	def skipTest(self, reason):
 		"""
@@ -74,12 +76,15 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		获取用例基本信息
 		:return: desc
 		"""
-		return self.api_name, self.desc
+		data_ini = GetDataIni(f"{root_path}{sep}conf{sep}data.ini")
+		self.projectName = data_ini.normal_data("Name", self.projectName)
+		return self.projectName, self.api_name, self.desc
 	
-	def start(self, isSkip_num, apiName_num, url, method_num, headers_num, para_num, data_num, desc_num, isRelate_num,
-	          expect_num, *args, **kw):
+	def start(self, project, isSkip_num, apiName_num, url, method_num, headers_num, para_num, data_num, desc_num,
+	          isRelate_num, expect_num, *args, **kw):
 		"""
 		用例运行主入口
+		:param project:         项目名称
 		:param isSkip_num:      是否跳过列数来判断该用例是否跳过执行
 		:param apiName_num:     接口名称所在列数，获得接口名称
 		:param url:             请求地址
@@ -93,6 +98,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		:return:                API调用返回结果
 		"""
 		
+		self.projectName = project
 		isSkip = args[0][isSkip_num]
 		self.api_name = args[0][apiName_num]
 		method = args[0][method_num]
@@ -121,6 +127,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 					self.logger.debug(f"***全局变量中缺少字段: {i[1:-1]}***")
 		try:
 			# log日志中写入用例执行之前的一些相关数据
+			self.logger.debug(f"项目名称         :{self.projectName}")
 			self.logger.debug(f"用例名称         :{self.api_name}")
 			self.logger.debug(f"用例描述         :{self.desc}")
 			self.logger.debug(f"用例执行时间      :{time_str}")

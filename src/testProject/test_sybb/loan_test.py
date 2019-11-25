@@ -72,7 +72,7 @@ class LoanTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=self.cookies)
 
 	# @ddt.data(*a.get_data_by_api(fieldname, "exportOrdersExcel"))
@@ -85,7 +85,7 @@ class LoanTest(RunTest):
 	# 	uri = self.a.get_apiPath(self.fieldname, self.apiName)
 	# 	url = self.a.get_domains()[env] + uri
 	# 	# 调用接口发起请求
-	# 	self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+	# 	self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 	# 						self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
 	# 						cookies=sss["jgj_cookies"])
 
@@ -99,7 +99,7 @@ class LoanTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,cookies=self.cookies)
 
 	@ddt.data(*a.get_data_by_api(fieldname, "RepayList"))
@@ -112,7 +112,7 @@ class LoanTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
 							cookies=self.cookies)
 
