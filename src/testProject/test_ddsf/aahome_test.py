@@ -71,7 +71,7 @@ class HomeTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 		
 	@ddt.data(*a.get_data_by_api(fieldname, "ProfileInfo"))
@@ -84,7 +84,7 @@ class HomeTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
 	@ddt.data(*a.get_data_by_api(fieldname, "StaffMessage"))
@@ -97,7 +97,7 @@ class HomeTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
 	@ddt.data(*a.get_data_by_api(fieldname, "StaffOrg"))
@@ -110,7 +110,7 @@ class HomeTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
 	@ddt.data(*a.get_data_by_api(fieldname, "SchedulePlanInfo"))
@@ -123,7 +123,7 @@ class HomeTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 		
 	@ddt.data(*a.get_data_by_api(fieldname, "fetchSurveyCity"))
@@ -137,7 +137,7 @@ class HomeTest(RunTest):
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
 		sss["staffId"] = json.dumps({"staffId": sss["ID"]})
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 		
 	@ddt.data(*a.get_data_by_api(fieldname, "homeSurveyCount"))
@@ -151,7 +151,7 @@ class HomeTest(RunTest):
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
 		sss["cityId"] = json.dumps({"cityId": sss["cityId"]})
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 		
 	@ddt.data(*a.get_data_by_api(fieldname, "getUsers"))
@@ -164,5 +164,5 @@ class HomeTest(RunTest):
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
