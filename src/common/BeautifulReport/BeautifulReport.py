@@ -95,6 +95,7 @@ class MakeResultJson:
         :return: self的repr对象, 返回一个构造完成的tr表单
         """
         keys = (
+            'projectName',
             'className',
             'methodName',
             'description',
@@ -345,11 +346,12 @@ class ReportTestResult(unittest.TestResult):
         # print(type(test))  # <class 'events.Events'>
         info = RunTest.getCasePro(test)
         # print('-------info--------', info)
-        method_name = info[0]
-        method_doc = info[1]
+        projectName = info[0]  # 项目名称
+        method_name = info[1]  # 方法名称
+        method_doc = info[2]   # 接口描述
         # print(RunTest.getCasePro(test))  # 查看当前test的属性
         # return class_name, method_name, method_doc
-        return class_name, method_name, method_doc
+        return projectName, class_name, method_name, method_doc
 
 
 class BeautifulReport(ReportTestResult, PATH):

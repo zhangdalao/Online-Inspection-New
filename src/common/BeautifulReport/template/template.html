@@ -7079,11 +7079,15 @@ body.skin-3 {
                 </div>
                 <div class="ibox-content">
                     <div class="input-group panel-heading" style="width: 100%; background-color: ${color-banner}; margin-bottom: 10px; text-align: left; font-family: Consolas;">
-                        <label style="color: snow">测试类:</label>
+                        <label style="color: snow">项目名称:</label>
+                        <select class="chosen-select form-control" data-placeholder="ALL" style="width: 300px;" name="filterProject" id="filterProject">
+                            <option value="">ALL</option>
+                        </select>
+                        <label style="color: snow;margin-left: 20px">测试类名:</label>
                         <select class="chosen-select form-control" data-placeholder="ALL" style="width: 300px;" name="filterClass" id="filterClass">
                             <option value="">ALL</option>
                         </select>
-                        <label style="color: snow;margin-left: 10px;">结果:</label>
+                        <label style="color: snow;margin-left: 20px;">结果:</label>
                         <select class="chosen-select form-control" data-placeholder="ALL" style="width: 300px;" name="filterResult" id="filterResult">
                             <option value="">ALL</option>
                         </select>
@@ -7100,7 +7104,8 @@ body.skin-3 {
                         <thead>
                         <tr>
                             <th>编号</th>
-                            <th>测试类</th>
+                            <th>项目名称</th>
+                            <th>测试类名</th>
                             <th>测试方法</th>
                             <th>用例描述</th>
                             <th>运行时长</th>
@@ -7187,9 +7192,13 @@ body.skin-3 {
         $("#testAll").text(resultData["testAll"]);
         $("#beginTime").text(resultData["beginTime"]);
         $("#totalTime").text(resultData["totalTime"]);
+        var projectNames = [];
         var classNames = [];
         var results = [];
         $.each(resultData["testResult"], function (i, n) {
+            if(projectNames.indexOf(n["projectName"])==-1){
+                projectNames.push(n["projectName"]);
+            }
             if(classNames.indexOf(n["className"])==-1){
                 classNames.push(n["className"]);
             }
@@ -7198,6 +7207,9 @@ body.skin-3 {
             }
         });
 
+        $.each(projectNames, function (i, n) {
+            $("#filterProject").append("<option value='"+n+"' hassubinfo='true'>"+n+"</option>");
+        });
         $.each(classNames, function (i, n) {
             $("#filterClass").append("<option value='"+n+"' hassubinfo='true'>"+n+"</option>");
         });
@@ -7205,19 +7217,20 @@ body.skin-3 {
             $("#filterResult").append("<option value='"+n+"' hassubinfo='true'>"+n+"</option>");
         });
 
+        $("#filterProject").chosen({search_contains: true});
         $("#filterClass").chosen({search_contains: true});
         $("#filterResult").chosen({search_contains: true});
 
         var errorFlag = false;
 
-        function generateResult(className, caseResult) {
+        function generateResult(projectName, className, caseResult) {
             $("#detailBody").children().remove();
             var filterAll = 0;
             var filterOk = 0;
             var filterFail = 0;
             var filterSkip = 0;
             $.each(resultData["testResult"], function (i, n) {
-                if((className=="" || n["className"]==className) && (caseResult=="" || n["status"]==caseResult)){
+                if((projectName=="" || n["projectName"]==projectName) && (className=="" || n["className"]==className) && (caseResult=="" || n["status"]==caseResult)){
                     filterAll += 1;
                     var status = "";
                     if (n["status"] == '成功') {
@@ -7238,6 +7251,7 @@ body.skin-3 {
                     }
                     var tr = "<tr style='font-family: Consolas'>" +
                         "<td>" + (i + 1) + "</td>" +
+                        "<td>" + n["projectName"] + "</td>" +
                         "<td>" + n["className"] + "</td>" +
                         "<td>" + n["methodName"] + "</td>" +
                         "<td>"+n["description"] + "</td>" +
@@ -7252,22 +7266,31 @@ body.skin-3 {
             $("#filterSkip").text(filterSkip);
         }
 
-        generateResult("", "");
+        generateResult("", "", "");
         $("#alert-tips").hide();
         if (errorFlag) {
             $("#alert-tips").show();
         }
 
-        $("#filterClass").on('change', function () {
+        $("#filterProject").on('change', function () {
+            var projectName = $("#filterProject").val();
             var className = $("#filterClass").val();
             var caseResult = $("#filterResult").val();
-            generateResult(className, caseResult);
+            generateResult(projectName, className, caseResult);
+        });
+
+        $("#filterClass").on('change', function () {
+            var projectName = $("#filterProject").val();
+            var className = $("#filterClass").val();
+            var caseResult = $("#filterResult").val();
+            generateResult(projectName, className, caseResult);
         });
 
         $("#filterResult").on('change', function () {
+            var projectName = $("#filterProject").val();
             var className = $("#filterClass").val();
             var caseResult = $("#filterResult").val();
-            generateResult(className, caseResult);
+            generateResult(projectName, className, caseResult);
         });
 
         //$(".chosen-select").trigger("chosen:updated");
