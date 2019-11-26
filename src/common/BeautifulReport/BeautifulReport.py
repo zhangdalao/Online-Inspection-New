@@ -135,7 +135,8 @@ class ReportTestResult(unittest.TestResult):
         self.default_report_name = '自动化测试报告'
         self.sys_stdout = None
         self.sys_stderr = None
-        self.outputBuffer = StringIO()
+        # self.outputBuffer = StringIO()
+        self.outputBuffer = None
         self.fields = {
             "testPass": 0,
             "testResult": [],
@@ -167,6 +168,7 @@ class ReportTestResult(unittest.TestResult):
         :return:
         """
         unittest.TestResult.startTest(self, test)
+        self.outputBuffer = StringIO()
         stdout_redirector.fp = self.outputBuffer
         stderr_redirector.fp = self.outputBuffer
         self.sys_stdout = sys.stdout
