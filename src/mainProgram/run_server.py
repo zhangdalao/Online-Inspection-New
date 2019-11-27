@@ -30,7 +30,7 @@ def run_test():
 	except Exception:
 		res = jsonify({"code": 10002, "success": False, "msg": "自动化测试执行失败! 出现未知错误！"})
 	except ZeroDivisionError:
-		res = jsonify({"code": 10011, "success": True, "msg": "自动化测试结束！根据指定参数未获取到用例！"})
+		res = jsonify({"code": 10011, "success": True, "msg": "根据指定参数未获取到用例！，请核对参数！"})
 	else:
 		res = jsonify({"code": 200, "success": True, "msg": f"{p_name}项目{e_name}环境自动化测试已启动,请耐心等待钉钉推送执行结果！"})
 	return res

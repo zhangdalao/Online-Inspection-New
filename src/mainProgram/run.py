@@ -87,43 +87,38 @@ def start(cases_dir=None, env=None):
 	
 	# 根据第三方库 BeautifulReport 执行用例并生成报告
 	with open(reportDir + sep + reportFileName, "wb"):
-		if suite:
-			beaRep = BeautifulReport(suite)
-			beaRep.report(filename=reportFileName, description=f'{Name}项目 {sss["env"]} 环境接口自动化测试报告',
-			                    report_dir=reportDir)
-			result_dict = beaRep.stopTestRun()
-			casesAll = result_dict.get("testAll")
-			casesPass = result_dict.get("testPass")
-			casesFail = result_dict.get("testFail")
-			# casesError = result_dict.get("testError")
-			casesSkip = result_dict.get("testSkip")
-			if not casesSkip:
-				_pass_rate = ("%.2f%%" % (casesPass / casesAll * 100))
-			else:
-				_pass_rate = ("%.2f%%" % (casesPass / (casesAll - casesSkip) * 100))
-			sleep(3)
-			_platform = platform.platform()
-			if _platform == 'Linux-2.6.32-754.18.2.el6.x86_64-x86_64-with-centos-6.10-Final':
-				ip = '10.0.6.56'
-				link_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
-			elif _platform.startswith("Windows") or _platform.startswith('Darwin'):
-				# 获取本机计算机名称
-				hostname = socket.gethostname()
-				# 获取本机ip
-				ip = socket.gethostbyname(hostname)
-				link_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
-				robot_url = None
-			else:
-				ip = '10.50.255.253'
-				output_dir = '/report/'
-				link_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
-			if robot_url:
-				send_link(robot_url, link_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
-				                                 f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
-			res = {"code": 200, "msg": "用例执行并结束！"}
+		beaRep = BeautifulReport(suite)
+		beaRep.report(filename=reportFileName, description=f'{Name}项目 {sss["env"]} 环境接口自动化测试报告',
+		                    report_dir=reportDir)
+		result_dict = beaRep.stopTestRun()
+		casesAll = result_dict.get("testAll")
+		casesPass = result_dict.get("testPass")
+		casesFail = result_dict.get("testFail")
+		# casesError = result_dict.get("testError")
+		casesSkip = result_dict.get("testSkip")
+		if not casesSkip:
+			_pass_rate = ("%.2f%%" % (casesPass / casesAll * 100))
 		else:
-			res = {"code": 201, "msg": "有效用例条数为0，请确认参数！"}
-	return res
+			_pass_rate = ("%.2f%%" % (casesPass / (casesAll - casesSkip) * 100))
+		sleep(3)
+		_platform = platform.platform()
+		if _platform == 'Linux-2.6.32-754.18.2.el6.x86_64-x86_64-with-centos-6.10-Final':
+			ip = '10.0.6.56'
+			link_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
+		elif _platform.startswith("Windows") or _platform.startswith('Darwin'):
+			# 获取本机计算机名称
+			hostname = socket.gethostname()
+			# 获取本机ip
+			ip = socket.gethostbyname(hostname)
+			link_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
+			robot_url = None
+		else:
+			ip = '10.50.255.253'
+			output_dir = '/report/'
+			link_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
+		if robot_url:
+			send_link(robot_url, link_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
+			                                 f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
 
 
 if __name__ == '__main__':
