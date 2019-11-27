@@ -20,7 +20,7 @@ def run_test():
 		dataIni = GetDataIni()
 		project = cases.split("test_")[-1]
 		p_name = dataIni.normal_data("Name", project)
-		e_name = dataIni.normal_data("Env", env)
+		e_name = dataIni.normal_data("Env", str(env))
 		if cases == "All":
 			cases = None
 		start.delay(cases_dir=cases, env=env)

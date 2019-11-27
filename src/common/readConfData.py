@@ -42,4 +42,4 @@ class GetDataIni:
 	
 if __name__ == '__main__':
 	aa = GetDataIni()
-	print(type(eval(aa.normal_data("project_name", "ddsf"))))
+	print(aa.normal_data("Env", 'None'))
