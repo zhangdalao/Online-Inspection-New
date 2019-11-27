@@ -24,7 +24,8 @@ def run_test():
 		e_name = dataIni.normal_data("Env", str(env))
 		if cases == "All":
 			cases = None
-		start.delay(cases_dir=cases, env=env)
+		# start.delay(cases_dir=cases, env=env)
+		start(cases_dir=cases, env=env)
 	except NoOptionError:
 		res = jsonify({"code": 10001, "success": False, "msg": "自动化测试执行失败！请求参数不存在"})
 	except Exception:
