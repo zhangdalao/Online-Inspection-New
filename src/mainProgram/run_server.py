@@ -11,21 +11,12 @@ def hello():
     return "Hello, World!"
 
 
-# @app.route("/run_test")
-# def run_test():
-#     cases = request.args.get('cases',None)
-#     env = request.args.get('env',None)
-#     start.delay(cases_dir=cases, env=env)
-#     return "自动化测试已启动"
-
-
 @app.route("/run_test")
 def run_test():
     cases = request.args.get('cases', None)
     env = request.args.get('env', None)
-    a = start.delay(cases_dir=cases, env=env)
-    if a["code"] == 200:
-        return jsonify({"code": 200, "msg": "自动化测试已成功执行结束！"})
+    start.delay(cases_dir=cases, env=env)
+    return jsonify({"code": 200, "msg": "自动化测试已启动,请耐心等待钉钉推送执行结果！"})
 
 
 # @app.route("/start_test", methods=["post"])
