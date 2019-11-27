@@ -18,7 +18,8 @@ def run_test():
 		cases = request.args.get('cases', None)
 		env = request.args.get('env', None)
 		dataIni = GetDataIni()
-		p_name = dataIni.normal_data("Name", cases.split("test_")[-1])
+		project = cases.split("test_")[-1]
+		p_name = dataIni.normal_data("Name", project)
 		e_name = dataIni.normal_data("Env", env)
 		if cases == "All":
 			cases = None
