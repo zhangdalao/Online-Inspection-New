@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 
 from src.mainProgram.run import start
 from src.common.readConfData import GetDataIni
+from configparser import *
 
 
 app = Flask(__name__)
@@ -24,7 +25,7 @@ def run_test():
 		if cases == "All":
 			cases = None
 		start.delay(cases_dir=cases, env=env)
-	except KeyError:
+	except NoOptionError:
 		res = jsonify({"code": 10001, "success": False, "msg": "自动化测试执行失败！请求参数不存在"})
 	except Exception:
 		res = jsonify({"code": 10002, "success": False, "msg": "自动化测试执行失败! 出现未知错误！"})

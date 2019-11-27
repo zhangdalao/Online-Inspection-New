@@ -42,4 +42,4 @@ class GetDataIni:
 	
 if __name__ == '__main__':
 	aa = GetDataIni()
-	print(aa.normal_data("Env", 'None'))
+	print(aa.normal_data("Env", 'prod1'))
