@@ -366,7 +366,7 @@ class BeautifulReport(ReportTestResult, PATH):
         self.title = '自动化测试报告'
         self.filename = 'report.html'
 
-    def report(self, description, filename: str = None, report_dir='.', log_path=None, theme='theme_default'):
+    def report(self, description, filename: str = None, report_dir='.', log_path=None, theme='theme_cyan'):
         """
             生成测试报告,并放在当前运行路径下
         :param report_dir: 生成report的文件存储路径

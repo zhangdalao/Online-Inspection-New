@@ -1,6 +1,7 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 from src.mainProgram.run import start
+from src.mainProgram.run_demo import start as s_demo
 
 app = Flask(__name__)
 
@@ -17,6 +18,13 @@ def run_test():
     start.delay(cases_dir=cases, env=env)
     return "自动化测试已启动"
 
+
+@app.route("/start_test", methods=["post"])
+def start_test():
+    cases = request.form.get("cases")
+    env = request.form.get("env")
+    a = s_demo.delay(cases_dir=cases, env=env)
+    return jsonify(a)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=1322)
