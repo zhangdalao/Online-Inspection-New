@@ -17,12 +17,12 @@ def run_test():
 	try:
 		cases = request.args.get('cases', None)
 		env = request.args.get('env', None)
+		dataIni = GetDataIni()
+		p_name = dataIni.normal_data("Name", cases.split("test_")[-1])
+		e_name = dataIni.normal_data("Env", env)
 		if cases == "All":
 			cases = None
 		start.delay(cases_dir=cases, env=env)
-		dataIni = GetDataIni()
-		p_name = dataIni.normal_data("Name", cases)
-		e_name = dataIni.normal_data("Env", env)
 	except KeyError:
 		res = jsonify({"code": 10001, "success": False, "msg": "自动化测试执行失败！请求参数不存在"})
 	except Exception:
