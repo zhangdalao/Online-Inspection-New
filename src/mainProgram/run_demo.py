@@ -65,10 +65,10 @@ def get_cases(cases_dir, env, reg_str):
 
 @celery.task(base=QueueOnce)
 def start(cases_dir, env, reg_str):
-	# if not env:
-	# 	sss["env"] = "prod"
-	# elif env and env.lower() in ["dev", "test", "pre", "prod"]:
-	# 	sss["env"] = env
+	if not env:
+		sss["env"] = "prod"
+	elif env and env.lower() in ["dev", "test", "pre", "prod"]:
+		sss["env"] = env
 	
 	# 判断是否有指定用例文件夹
 	if cases_dir:
@@ -76,13 +76,17 @@ def start(cases_dir, env, reg_str):
 		project_name = project_dir.split("test_")[-1]  # xxxx
 		# 获取指定项目 json 数据中的 robot_url 的地址
 		robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
+		suites_dir = root_path + f'{sep}src{sep}testProject{sep}{project_dir}'
 	else:
 		# 这里需要补充测试组机器人URL
 		robot_url = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa1' \
 		            '45342159f8fd0065fc4'
 		project_name = "All"
-	
-	suites = get_cases(cases_dir, env, reg_str)
+		suites_dir = root_path + f'{sep}src{sep}testProject'
+		
+	if not reg_str:
+		reg_str = "*test.py"
+	suites = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern=f'{reg_str}')
 	# print(suite.countTestCases())
 	get_INI = GetDataIni()
 	Name = get_INI.normal_data("Name", project_name)
@@ -149,4 +153,5 @@ def start(cases_dir, env, reg_str):
 if __name__ == '__main__':
 	# start('test_ddsf', 'prod', "aa_login*")
 	a = get_cases("test_ddsf", "prod", "aa_login*")
-	print(a)
+	# print(a)
+	print(type(a))
