@@ -22,7 +22,7 @@ def run_test():
 		# 从请求中获取请求参数
 		cases_names = data_dict.get('cases')
 		env_name = data_dict.get('env')
-		reg_str = request.args.get("reg_str")
+		reg_str = data_dict.get("reg_str")
 		dataIni = GetDataIni()
 		# 检查必填参数是否填写
 		if cases_names and env_name:
@@ -32,10 +32,10 @@ def run_test():
 				cases = None
 			suite_num = get_cases(cases, env, reg_str).countTestCases()
 			if suite_num == 0:
-				res = jsonify({"code": 201, "success": False, "cases_number": suite_num, "msg": "请确认参数，获取的用例失败"})
+				res = jsonify({"code": 201, "success": False, "cases_count": suite_num, "msg": "请确认参数，获取用例失败!"})
 			else:
 				start.delay(cases_dir=cases, env=env, reg_str=reg_str)
-				res = jsonify({"code": 200, "success": True, "cases_number": suite_num,
+				res = jsonify({"code": 200, "success": True, "cases_count": suite_num,
 				               "msg": f"{cases_names}项目{env_name}环境 自动化测试正在执行，请注意查收钉钉推送消息"})
 		else:
 			res = jsonify({"code": 10000, "success": False, "msg": "缺少必填参数！"})

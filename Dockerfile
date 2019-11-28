@@ -14,7 +14,7 @@ RUN apk add libgcc
 ENV PATH $PATH:/usr/lib/jvm/default-jvm/bin
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/lib/jvm/default-jvm/jre/lib/amd64/server/:/usr/lib/:/lib/
 COPY requirements.txt .
-RUN pip3 install -r requirements.txt
+RUN pip3 install -i https://mirrors.aliyun.com/pypi/simple/ -r requirements.txt
 RUN apk add tzdata && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo "Asia/Shanghai" > /etc/timezone
 RUN apk add nginx
 RUN mkdir /run/nginx
