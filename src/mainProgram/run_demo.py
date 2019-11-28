@@ -35,8 +35,14 @@ def get_project_robot_URL(projectName=None):
 	return json_data
 
 
-@celery.task(base=QueueOnce)
-def start(cases_dir=None, env=None):
+def get_cases(cases_dir, env, reg_str=None):
+	"""
+	:param cases_dir:    指定项目参数，根据指定的项目去获取用例,必填参数
+	:param env:          指定运行环境
+	:param reg_str
+	:return:             返回指定项目的所有用例
+	"""
+	
 	if not env:
 		sss["env"] = "prod"
 	elif env and env.lower() in ["dev", "test", "pre", "prod"]:
@@ -45,23 +51,37 @@ def start(cases_dir=None, env=None):
 	# 判断是否有指定用例文件夹
 	if cases_dir:
 		project_dir = cases_dir  # test_xxxx
+		# 获取指定项目的完整路径
+		suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
+		                                                                                          f'{project_dir}'])
+	else:
+		suites_dir = root_path + f'{sep}src{sep}testProject'
+	# 获取本次需要执行的所有用例
+	if not reg_str:
+		reg_str = "*test.py"
+	suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern=f'{reg_str}')
+	return suite
+
+
+@celery.task(base=QueueOnce)
+def start(cases_dir, env, reg_str=None):
+	
+	# 判断是否有指定用例文件夹
+	if cases_dir:
+		project_dir = cases_dir  # test_xxxx
 		project_name = project_dir.split("test_")[-1]  # xxxx
 		# 获取指定项目 json 数据中的 robot_url 的地址
 		robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
-		suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
-		                                                                                          f'{project_dir}'])
 	else:
 		# 这里需要补充测试组机器人URL
 		robot_url = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa1' \
 		            '45342159f8fd0065fc4'
-		suites_dir = root_path + f'{sep}src{sep}testProject'
 		project_name = "All"
-		
+	
+	suite = get_cases(cases_dir, env=env, reg_str=reg_str)
+	print(suite.countTestCases())
 	get_INI = GetDataIni()
 	Name = get_INI.normal_data("Name", project_name)
-	
-	# 获取本次需要执行的所有用例
-	suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern='*.py')
 	
 	# 脚本运行当前时间
 	now = time.strftime("%Y_%m_%d-%H_%M_%S")
@@ -87,43 +107,38 @@ def start(cases_dir=None, env=None):
 	
 	# 根据第三方库 BeautifulReport 执行用例并生成报告
 	with open(reportDir + sep + reportFileName, "wb"):
-		if suite:
-			beaRep = BeautifulReport(suite)
-			beaRep.report(filename=reportFileName, description=f'{Name}项目 {sss["env"]} 环境接口自动化测试报告',
-			                    report_dir=reportDir)
-			result_dict = beaRep.stopTestRun()
-			casesAll = result_dict.get("testAll")
-			casesPass = result_dict.get("testPass")
-			casesFail = result_dict.get("testFail")
-			# casesError = result_dict.get("testError")
-			casesSkip = result_dict.get("testSkip")
-			if not casesSkip:
-				_pass_rate = ("%.2f%%" % (casesPass / casesAll * 100))
-			else:
-				_pass_rate = ("%.2f%%" % (casesPass / (casesAll - casesSkip) * 100))
-			sleep(3)
-			_platform = platform.platform()
-			if _platform == 'Linux-2.6.32-754.18.2.el6.x86_64-x86_64-with-centos-6.10-Final':
-				ip = '10.0.6.56'
-				link_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
-			elif _platform.startswith("Windows") or _platform.startswith('Darwin'):
-				# 获取本机计算机名称
-				hostname = socket.gethostname()
-				# 获取本机ip
-				ip = socket.gethostbyname(hostname)
-				link_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
-				robot_url = None
-			else:
-				ip = '10.50.255.253'
-				output_dir = '/report/'
-				link_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
-			if robot_url:
-				send_link(robot_url, link_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
-				                                 f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
-			res = {"code": 200, "msg": "自动化测试成功执行并结束！"}
+		beaRep = BeautifulReport(suite)
+		beaRep.report(filename=reportFileName, description=f'{Name}项目 {sss["env"]} 环境接口自动化测试报告',
+		                    report_dir=reportDir)
+		result_dict = beaRep.stopTestRun()
+		casesAll = result_dict.get("testAll")
+		casesPass = result_dict.get("testPass")
+		casesFail = result_dict.get("testFail")
+		# casesError = result_dict.get("testError")
+		casesSkip = result_dict.get("testSkip")
+		if not casesSkip:
+			_pass_rate = ("%.2f%%" % (casesPass / casesAll * 100))
 		else:
-			res = {"code": 201, "msg": "有效用例条数为0，请确认参数！"}
-	return res
+			_pass_rate = ("%.2f%%" % (casesPass / (casesAll - casesSkip) * 100))
+		sleep(3)
+		_platform = platform.platform()
+		if _platform == 'Linux-2.6.32-754.18.2.el6.x86_64-x86_64-with-centos-6.10-Final':
+			ip = '10.0.6.56'
+			link_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
+		elif _platform.startswith("Windows") or _platform.startswith('Darwin'):
+			# 获取本机计算机名称
+			hostname = socket.gethostname()
+			# 获取本机ip
+			ip = socket.gethostbyname(hostname)
+			link_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
+			robot_url = None
+		else:
+			ip = '10.50.255.253'
+			output_dir = '/report/'
+			link_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
+		if robot_url:
+			send_link(robot_url, link_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
+			                                 f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
 
 if __name__ == '__main__':
-	start()
+	start('test_ddsf', 'prod', "aa_login*")

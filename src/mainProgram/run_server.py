@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 
-from src.mainProgram.run import start
+# from src.mainProgram.run import start
+from src.mainProgram.run_demo import *
 from src.common.readConfData import GetDataIni
 from configparser import *
+import json
 
 
 app = Flask(__name__)
@@ -13,27 +15,34 @@ def hello():
 	return "Hello, World!"
 
 
-@app.route("/run_test")
+@app.route("/run_test", methods=["post"])
 def run_test():
 	try:
-		cases = request.args.get('cases', None)
-		env = request.args.get('env', None)
+		data_dict = json.loads(request.get_data())
+		# 从请求中获取请求参数
+		cases_names = data_dict.get('cases')
+		env_name = data_dict.get('env')
+		reg_str = request.args.get("reg_str")
 		dataIni = GetDataIni()
-		project = cases.split("test_")[-1]
-		p_name = dataIni.normal_data("Name", project)
-		e_name = dataIni.normal_data("Env", str(env))
-		if cases == "All":
-			cases = None
-		# start.delay(cases_dir=cases, env=env)
-		start(cases_dir=cases, env=env)
+		# 检查必填参数是否填写
+		if cases_names and env_name:
+			cases = dataIni.normal_data("Project_name", cases_names)
+			env = dataIni.normal_data("Env_name", env_name)
+			if cases == "ALL":
+				cases = None
+			suite_num = get_cases(cases, env, reg_str).countTestCases()
+			if suite_num == 0:
+				res = jsonify({"code": 201, "success": False, "cases_number": suite_num, "msg": "请确认参数，获取的用例失败"})
+			else:
+				start.delay(cases_dir=cases, env=env, reg_str=reg_str)
+				res = jsonify({"code": 200, "success": True, "cases_number": suite_num,
+				               "msg": f"{cases_names}项目{env_name}环境 自动化测试正在执行，请注意查收钉钉推送消息"})
+		else:
+			res = jsonify({"code": 10000, "success": False, "msg": "缺少必填参数！"})
 	except NoOptionError:
-		res = jsonify({"code": 10001, "success": False, "msg": "自动化测试执行失败！请求参数不存在"})
+		res = jsonify({"code": 10001, "success": False, "msg": "自动化测试执行失败！请求参数解析出错！"})
 	except Exception:
 		res = jsonify({"code": 10002, "success": False, "msg": "自动化测试执行失败! 出现未知错误！"})
-	except ZeroDivisionError:
-		res = jsonify({"code": 10011, "success": True, "msg": "根据指定参数未获取到用例！，请核对参数！"})
-	else:
-		res = jsonify({"code": 200, "success": True, "msg": f"{p_name}项目{e_name}环境自动化测试已启动,请耐心等待钉钉推送执行结果！"})
 	return res
 
 
