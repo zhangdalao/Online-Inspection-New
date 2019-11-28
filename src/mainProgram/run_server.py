@@ -15,6 +15,14 @@ def hello():
 	return "Hello, World!"
 
 
+@app.route("/cases_list", methods=["get"])
+def get_projects():
+	dataIni = GetDataIni()
+	names_list = dataIni.cfgB.options("Project_name")
+	res = json.dumps(names_list, ensure_ascii=False)
+	return Response(res, mimetype="application/json")
+
+
 @app.route("/run_test", methods=["post"])
 def run_test():
 	try:
