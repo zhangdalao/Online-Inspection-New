@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 
 from src.mainProgram.run import get_cases, start
 # from src.mainProgram.run_demo import start, get_cases
@@ -13,6 +13,14 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
 	return "Hello, World!"
+
+
+@app.route("/cases_list", methods=["get"])
+def get_projects():
+	dataIni = GetDataIni()
+	names_list = dataIni.cfgB.options("Project_name")
+	res = json.dumps(names_list, ensure_ascii=False)
+	return Response(res, mimetype="application/json")
 
 
 @app.route("/run_test", methods=["post"])
