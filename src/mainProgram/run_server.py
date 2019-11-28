@@ -54,14 +54,6 @@ def run_test():
 	return res
 
 
-@app.route("/run_test/<path:cases_list>", methods=["get"])
-def get_projects(cases_list):
-	if cases_list.split('/')[-1] == "cases_list":
-		dataIni = GetDataIni()
-		names_list = dataIni.cfgB.options("Project_name")
-		res = json.dumps(names_list, ensure_ascii=False)
-		return Response(res, mimetype="application/json")
-
 # @app.route("/start_test", methods=["post"])
 # def start_test():
 #     cases = request.form.get("cases")
