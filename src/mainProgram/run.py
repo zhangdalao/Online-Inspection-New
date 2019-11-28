@@ -88,7 +88,7 @@ def start(cases_dir=None, env=None):
 	# 根据第三方库 BeautifulReport 执行用例并生成报告
 	with open(reportDir + sep + reportFileName, "wb"):
 		beaRep = BeautifulReport(suite)
-		beaRep.report(filename=reportFileName, description=f'{Name}项目 {sss["env"]} 环境接口自动化测试报告',
+		res = beaRep.report(filename=reportFileName, description=f'{Name}项目 {sss["env"]} 环境接口自动化测试报告',
 		                    report_dir=reportDir)
 		result_dict = beaRep.stopTestRun()
 		casesAll = result_dict.get("testAll")
@@ -119,7 +119,7 @@ def start(cases_dir=None, env=None):
 		if robot_url:
 			send_link(robot_url, link_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
 			                                 f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
-
+		return res
 
 if __name__ == '__main__':
 	start()

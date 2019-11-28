@@ -79,7 +79,6 @@ def start(cases_dir, env, reg_str=None):
 		project_name = "All"
 	
 	suite = get_cases(cases_dir, env=env, reg_str=reg_str)
-	print(suite.countTestCases())
 	get_INI = GetDataIni()
 	Name = get_INI.normal_data("Name", project_name)
 	
@@ -108,7 +107,7 @@ def start(cases_dir, env, reg_str=None):
 	# 根据第三方库 BeautifulReport 执行用例并生成报告
 	with open(reportDir + sep + reportFileName, "wb"):
 		beaRep = BeautifulReport(suite)
-		beaRep.report(filename=reportFileName, description=f'{Name}项目 {sss["env"]} 环境接口自动化测试报告',
+		res = beaRep.report(filename=reportFileName, description=f'{Name}项目 {env} 环境接口自动化测试报告',
 		                    report_dir=reportDir)
 		result_dict = beaRep.stopTestRun()
 		casesAll = result_dict.get("testAll")
@@ -139,6 +138,7 @@ def start(cases_dir, env, reg_str=None):
 		if robot_url:
 			send_link(robot_url, link_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
 			                                 f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
+		return res
 
 if __name__ == '__main__':
 	start('test_ddsf', 'prod', "aa_login*")
