@@ -146,5 +146,5 @@ def start(cases_dir, env, reg_str):
 
 if __name__ == '__main__':
 	# start('test_ddsf', 'test', "aa_login*")
-	a = get_cases("test_ddsf", "test", "aa_login*")
-	print(type(a.countTestCases()))
+	a = get_cases("test_ddsf", "prod", "aa_login*")
+	print(a)

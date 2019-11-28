@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 
 # from src.mainProgram.run import start
-from src.mainProgram.run_demo import *
+from src.mainProgram.run_demo import start, get_cases
 from src.common.readConfData import GetDataIni
 from configparser import *
 import json
