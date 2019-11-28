@@ -24,7 +24,7 @@ def get_projects():
 
 
 @app.route("/env_list", methods=["get", "post"])
-def get_projects():
+def get_env():
 	dataIni = GetDataIni()
 	names_list = dataIni.cfgB.options("Env_name")
 	res = json.dumps(names_list, ensure_ascii=False)
