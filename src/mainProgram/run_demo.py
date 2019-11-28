@@ -35,14 +35,13 @@ def get_project_robot_URL(projectName=None):
 	return json_data
 
 
-def get_cases(cases_dir, env, reg_str=None):
+def get_cases(cases_dir, env, reg_str):
 	"""
 	:param cases_dir:    指定项目参数，根据指定的项目去获取用例,必填参数
 	:param env:          指定运行环境
 	:param reg_str
 	:return:             返回指定项目的所有用例
 	"""
-	
 	if not env:
 		sss["env"] = "prod"
 	elif env and env.lower() in ["dev", "test", "pre", "prod"]:
@@ -64,7 +63,11 @@ def get_cases(cases_dir, env, reg_str=None):
 
 
 @celery.task(base=QueueOnce)
-def start(cases_dir, env, reg_str=None):
+def start(cases_dir, env, reg_str):
+	# if not env:
+	# 	sss["env"] = "prod"
+	# elif env and env.lower() in ["dev", "test", "pre", "prod"]:
+	# 	sss["env"] = env
 	
 	# 判断是否有指定用例文件夹
 	if cases_dir:
@@ -78,7 +81,8 @@ def start(cases_dir, env, reg_str=None):
 		            '45342159f8fd0065fc4'
 		project_name = "All"
 	
-	suite = get_cases(cases_dir, env=env, reg_str=reg_str)
+	suite = get_cases(cases_dir, env, reg_str)
+	# print(suite.countTestCases())
 	get_INI = GetDataIni()
 	Name = get_INI.normal_data("Name", project_name)
 	
@@ -141,4 +145,6 @@ def start(cases_dir, env, reg_str=None):
 		return res
 
 if __name__ == '__main__':
-	start('test_ddsf', 'prod', "aa_login*")
+	# start('test_ddsf', 'test', "aa_login*")
+	a = get_cases("test_ddsf", "test", "aa_login*")
+	print(type(a.countTestCases()))
