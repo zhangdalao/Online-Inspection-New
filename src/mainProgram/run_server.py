@@ -26,7 +26,7 @@ def run_test():
 		dataIni = GetDataIni()
 		# 检查必填参数是否填写
 		if cases_names and env_name:
-			cases = dataIni.normal_data("Project_name", cases_names)  # test_ddsf
+			cases = dataIni.normal_data("Project_name", cases_names)  # test_ddsf/ALL
 			env = dataIni.normal_data("Env_name", env_name)           # prod
 			if cases == "ALL":
 				cases = None

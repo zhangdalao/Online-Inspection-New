@@ -51,8 +51,9 @@ def get_cases(cases_dir, env, reg_str):
 	if cases_dir:
 		project_dir = cases_dir  # test_xxxx
 		# 获取指定项目的完整路径
-		suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
-		                                                                                          f'{project_dir}'])
+		# suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
+		#                                                                                           f'{project_dir}'])
+		suites_dir = root_path + f'{sep}src{sep}testProject{sep}{project_dir}'
 	else:
 		suites_dir = root_path + f'{sep}src{sep}testProject'
 	# 获取本次需要执行的所有用例
@@ -81,7 +82,7 @@ def start(cases_dir, env, reg_str):
 		            '45342159f8fd0065fc4'
 		project_name = "All"
 	
-	suite = get_cases(cases_dir, env, reg_str)
+	suites = get_cases(cases_dir, env, reg_str)
 	# print(suite.countTestCases())
 	get_INI = GetDataIni()
 	Name = get_INI.normal_data("Name", project_name)
@@ -93,7 +94,8 @@ def start(cases_dir, env, reg_str):
 	reportFileName = f'{project_name}' + f'_{now}_result.html'
 	
 	# 测试报告存放文件夹地址
-	reportDirName = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + 'output' + sep + 'report' + sep
+	# reportDirName = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + 'output' + sep + 'report' + sep
+	reportDirName = root_path + sep + 'output' + sep + 'report' + sep
 	
 	# 以天为维度生成对应文件夹
 	report_dir = 'report_{_now}'.format(_now=now_day)
@@ -110,7 +112,7 @@ def start(cases_dir, env, reg_str):
 	
 	# 根据第三方库 BeautifulReport 执行用例并生成报告
 	with open(reportDir + sep + reportFileName, "wb"):
-		beaRep = BeautifulReport(suite)
+		beaRep = BeautifulReport(suites)
 		res = beaRep.report(filename=reportFileName, description=f'{Name}项目 {env} 环境接口自动化测试报告',
 		                    report_dir=reportDir)
 		result_dict = beaRep.stopTestRun()
@@ -145,6 +147,6 @@ def start(cases_dir, env, reg_str):
 		return res
 
 if __name__ == '__main__':
-	# start('test_ddsf', 'test', "aa_login*")
+	# start('test_ddsf', 'prod', "aa_login*")
 	a = get_cases("test_ddsf", "prod", "aa_login*")
 	print(a)
