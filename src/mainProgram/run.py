@@ -64,7 +64,7 @@ def get_cases(cases_dir, env, reg_str):
 
 
 @celery.task(base=QueueOnce)
-def start(cases_dir, env, reg_str):
+def start(cases_dir=None, env=None, reg_str=None):
 	if not env:
 		sss["env"] = "prod"
 	elif env and env.lower() in ["dev", "test", "pre", "prod"]:
@@ -153,6 +153,7 @@ def start(cases_dir, env, reg_str):
 
 if __name__ == '__main__':
 	# start('test_ddsf', 'prod', "aa_login*")
-	a = get_cases("test_ddsf", "prod", "aa_login*")
-	# print(a)
-	print(type(a))
+	# a = get_cases("test_ddsf", "prod", "aa_logi*")
+	# print(dir(a))
+	# print(type(a))
+	start()
