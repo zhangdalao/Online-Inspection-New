@@ -66,9 +66,8 @@ def get_cases(cases_dir, env, reg_str):
 @celery.task(base=QueueOnce)
 def start(cases_dir=None, env=None, reg_str=None):
 	if not env:
-		sss["env"] = "prod"
-	elif env and env.lower() in ["dev", "test", "pre", "prod"]:
-		sss["env"] = env
+		env = "prod"
+	sss["env"] = env
 	
 	# 判断是否有指定用例文件夹
 	if cases_dir:
