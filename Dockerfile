@@ -21,6 +21,6 @@ RUN mkdir /run/nginx
 COPY conf/nginx.conf /etc/nginx/
 COPY conf/default.conf /etc/nginx/conf.d/
 COPY . .
-EXPOSE 1322 8000 80
+EXPOSE 65387 8000 80
 ENV TZ Asia/Shanghai
 CMD ./start.sh
