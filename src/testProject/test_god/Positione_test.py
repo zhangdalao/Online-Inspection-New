@@ -42,17 +42,18 @@ class PositionTest(RunTest):
         self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 
     def tearDown(self):
-        if self.result:
+        if self.result and type(self.result) != str:
             try:
                 self.assertEqual(True, checkOut(self.res, self.expect))
                 self.logger.debug("测试结果         :测试通过！")
             except Exception as err:
                 self.logger.error("测试结果         :测试失败！")
-                json_dict = self.a.json_data[self.project]["robot_data"]
-                robot_url = json_dict["robot_url"]
-                mobile = json_dict["mobile"]
-                send_ding(robot_url, mobile, content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+                send_ding(self.robot_url, self.mobile,
+                          content=f"{self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}")
                 raise err
+        elif self.result and type(self.result) == str:
+            send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！\n测试反馈:{self.result}")
+            raise Exception
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
     @ddt.data(*a.get_data_by_api(fieldname, "PositionList"))
@@ -64,7 +65,7 @@ class PositionTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
 
     @ddt.data(*a.get_data_by_api(fieldname, "PositionSearch"))
@@ -76,7 +77,7 @@ class PositionTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
 
     @ddt.data(*a.get_data_by_api(fieldname, "PositionProject"))
@@ -88,7 +89,7 @@ class PositionTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
 
     @ddt.data(*a.get_data_by_api(fieldname, "PositionEdit"))
@@ -100,7 +101,7 @@ class PositionTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
 
 
