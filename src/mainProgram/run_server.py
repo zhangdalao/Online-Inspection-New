@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, Response
-
+from flask_cors import *
 from src.mainProgram.run import get_cases, start
 # from src.mainProgram.run_demo import start, get_cases
 from src.common.readConfData import GetDataIni
@@ -8,6 +8,7 @@ import json
 
 
 app = Flask(__name__)
+CORS(app, supports_credentials=True)
 
 
 @app.route("/")
