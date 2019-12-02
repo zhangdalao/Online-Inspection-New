@@ -69,7 +69,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ConversationList"))
@@ -85,7 +85,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "UntrackList"))
@@ -101,7 +101,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -118,7 +118,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -135,7 +135,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -152,7 +152,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -169,7 +169,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
         print(self.result)
@@ -188,7 +188,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -205,7 +205,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
         sss["linkattachmentId"] = self.result.json()['data'][0]['attachmentId']
@@ -223,7 +223,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -240,7 +240,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
         sss["linkVideoId"] = self.result.json()['data'][0]['videoId']
@@ -258,7 +258,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -275,7 +275,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -292,7 +292,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -309,7 +309,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -326,7 +326,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -343,7 +343,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -360,7 +360,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -377,7 +377,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -394,7 +394,7 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
@@ -411,6 +411,6 @@ class IMTest(RunTest):
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)

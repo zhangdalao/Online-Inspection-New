@@ -64,10 +64,11 @@ def get_cases(cases_dir, env, reg_str):
 
 
 @celery.task(base=QueueOnce)
-def start(cases_dir=None, env=None, reg_str=None):
+def start(cases_dir, env, reg_str):
 	if not env:
-		env = "prod"
-	sss["env"] = env
+		sss["env"] = "prod"
+	elif env and env.lower() in ["dev", "test", "pre", "prod"]:
+		sss["env"] = env
 	
 	# 判断是否有指定用例文件夹
 	if cases_dir:
@@ -82,7 +83,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 		            '45342159f8fd0065fc4'
 		project_name = "All"
 		suites_dir = root_path + f'{sep}src{sep}testProject'
-	
+		
 	if not reg_str:
 		reg_str = "*test.py"
 	suites = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern=f'{reg_str}')
@@ -146,13 +147,11 @@ def start(cases_dir=None, env=None, reg_str=None):
 			link_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
 		if robot_url:
 			send_link(robot_url, link_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
-			                               f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
+			                                 f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
 		return res
-
 
 if __name__ == '__main__':
 	# start('test_ddsf', 'prod', "aa_login*")
-	# a = get_cases("test_ddsf", "prod", "aa_logi*")
-	# print(dir(a))
-	# print(type(a))
-	start()
+	a = get_cases("test_ddsf", "prod", "aa_login*")
+	# print(a)
+	print(type(a))

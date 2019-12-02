@@ -70,7 +70,7 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, cookies=self.cookie_txt)
 
@@ -85,7 +85,7 @@ class Rent_TradeTest(RunTest):
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         sss["signTime"] = int(time.time()) * 1000
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, cookies=self.cookie_txt)
         sss["restful_trade"] = json.dumps({"tradeId": sss["ID8"]})
@@ -100,7 +100,7 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, cookies=self.cookie_txt)
 
@@ -113,7 +113,7 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, cookies=self.cookie_txt)
 
@@ -127,7 +127,7 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, cookies=self.cookie_txt)
         sss["restful_HasReceived"] = json.dumps({"tradeId": sss["ID8"], "receivableId": sss["ID9"]})
@@ -143,7 +143,7 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, cookies=self.cookie_txt)
 
@@ -157,7 +157,7 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, cookies=self.cookie_txt)
         sss["restful_HasPaid"] = json.dumps({"tradeId": sss["ID8"], "payableId": sss["ID10"]})
@@ -173,7 +173,7 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, cookies=self.cookie_txt)
 
@@ -187,7 +187,7 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, cookies=self.cookie_txt)
 
@@ -201,7 +201,7 @@ class Rent_TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, cookies=self.cookie_txt)
 

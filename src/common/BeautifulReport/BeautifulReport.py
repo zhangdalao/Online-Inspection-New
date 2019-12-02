@@ -95,6 +95,7 @@ class MakeResultJson:
         :return: self的repr对象, 返回一个构造完成的tr表单
         """
         keys = (
+            'projectName',
             'className',
             'methodName',
             'description',
@@ -134,7 +135,8 @@ class ReportTestResult(unittest.TestResult):
         self.default_report_name = '自动化测试报告'
         self.sys_stdout = None
         self.sys_stderr = None
-        self.outputBuffer = StringIO()
+        # self.outputBuffer = StringIO()
+        self.outputBuffer = None
         self.fields = {
             "testPass": 0,
             "testResult": [],
@@ -166,6 +168,7 @@ class ReportTestResult(unittest.TestResult):
         :return:
         """
         unittest.TestResult.startTest(self, test)
+        self.outputBuffer = StringIO()
         stdout_redirector.fp = self.outputBuffer
         stderr_redirector.fp = self.outputBuffer
         self.sys_stdout = sys.stdout
@@ -345,11 +348,12 @@ class ReportTestResult(unittest.TestResult):
         # print(type(test))  # <class 'events.Events'>
         info = RunTest.getCasePro(test)
         # print('-------info--------', info)
-        method_name = info[0]
-        method_doc = info[1]
+        projectName = info[0]  # 项目名称
+        method_name = info[1]  # 方法名称
+        method_doc = info[2]   # 接口描述
         # print(RunTest.getCasePro(test))  # 查看当前test的属性
         # return class_name, method_name, method_doc
-        return class_name, method_name, method_doc
+        return projectName, class_name, method_name, method_doc
 
 
 class BeautifulReport(ReportTestResult, PATH):
@@ -362,7 +366,7 @@ class BeautifulReport(ReportTestResult, PATH):
         self.title = '自动化测试报告'
         self.filename = 'report.html'
 
-    def report(self, description, filename: str = None, report_dir='.', log_path=None, theme='theme_default'):
+    def report(self, description, filename: str = None, report_dir='.', log_path=None, theme='theme_cyan'):
         """
             生成测试报告,并放在当前运行路径下
         :param report_dir: 生成report的文件存储路径

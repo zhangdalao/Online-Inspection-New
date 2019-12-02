@@ -65,7 +65,7 @@ class LoginTest(RunTest):
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
         str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num , self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False)
         sss["userId"] = str(sss["userId"])

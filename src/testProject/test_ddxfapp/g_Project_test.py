@@ -63,7 +63,7 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        self.result = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, cookies=sss["cookies"], verify=False)
 

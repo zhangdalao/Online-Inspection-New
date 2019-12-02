@@ -65,9 +65,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "LayoutList"))
     def test1_LayoutList(self, value):
@@ -78,9 +78,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "LayoutDetail"))
     def test2_LayoutDetail(self, value):
@@ -91,9 +91,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "LayoutEdit"))
     def test3_LayoutEdit(self, value):
@@ -104,9 +104,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "QuantityDtail"))
     def test1_QuantityDtail(self, value):
@@ -117,9 +117,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "QuantityEdit"))
     def test2_QuantityEdit(self, value):
@@ -130,9 +130,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ClueList"))
     def test_ClueList(self, value):
@@ -143,9 +143,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ClueAdd"))
     def test_ClueAdd(self, value):
@@ -156,9 +156,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ClueOperationData"))
     def test_ClueOperationData(self, value):
@@ -169,9 +169,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ClueRealtorDayList"))
     def test_ClueRealtorDayList(self, value):
@@ -182,9 +182,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ClueRealtorWeekList"))
     def test_ClueRealtorWeekList(self, value):
@@ -195,9 +195,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ClueRealtorMonList"))
     def test_ClueRealtorMonList(self, value):
@@ -208,9 +208,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
     @ddt.data(*a.get_data_by_api(fieldname, "AddRealtorRecord"))
     def test_AddRealtorRecord(self, value):
@@ -221,9 +221,9 @@ class H5Test(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False,
-                         timeout=10)
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
 
 if __name__ == '__main__':
