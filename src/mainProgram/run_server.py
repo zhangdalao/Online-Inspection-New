@@ -24,7 +24,7 @@ def get_projects():
 	return Response(res, mimetype="application/json")
 
 
-@app.route("/env_list", methods=["get", "post"])
+@app.route("/env_list", methods=["get", "post", "options"])
 def get_env():
 	dataIni = GetDataIni()
 	names_list = dataIni.cfgB.options("Env_name")
@@ -32,7 +32,7 @@ def get_env():
 	return Response(res, mimetype="application/json")
 
 
-@app.route("/run_test", methods=["post"])
+@app.route("/run_test", methods=["post", "options"])
 def run_test():
 	try:
 		data_dict = json.loads(request.get_data())
