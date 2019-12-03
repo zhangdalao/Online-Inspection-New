@@ -8,7 +8,8 @@ import json
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/.*": {"origins": "*.fangdd.net"}})
+# CORS(app, resources={r"/.*": {"origins": "*.fangdd.net"}})
+CORS(app, resources=r"/*")
 
 
 @app.route("/")
@@ -71,5 +72,5 @@ def run_test():
 #     return jsonify(a)
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', port=65387, debug=True)
+	app.run(host='0.0.0.0', port=65387)
 
