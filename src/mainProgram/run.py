@@ -131,8 +131,8 @@ def start(cases_dir=None, env=None, reg_str=None):
 		sleep(3)
 		_platform = platform.platform()
 		if _platform == 'Linux-2.6.32-754.18.2.el6.x86_64-x86_64-with-centos-6.10-Final':
-			ip = 'https://apitest.fangdd.net'
-			link_url = ip + f'{sep}report{sep}{report_dir}{sep}{reportFileName}'
+			ip = '10.0.6.56'
+			link_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
 		elif _platform.startswith("Windows") or _platform.startswith('Darwin'):
 			# 获取本机计算机名称
 			hostname = socket.gethostname()
@@ -141,9 +141,8 @@ def start(cases_dir=None, env=None, reg_str=None):
 			link_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
 			robot_url = None
 		else:
-			ip = '10.50.255.253'
-			output_dir = '/report/'
-			link_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
+			ip = 'https://apitest.fangdd.net/'
+			link_url = ip + f'report{sep}{report_dir}{sep}{reportFileName}'
 		if robot_url:
 			send_link(robot_url, link_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
 			                               f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
