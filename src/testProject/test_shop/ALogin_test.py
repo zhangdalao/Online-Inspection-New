@@ -45,11 +45,8 @@ class LoginTest(RunTest):
     def tearDown(self):
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
-    @ddt.data(*a.get_data_by_api(fieldname, "LoginByMobile"))
-    def test_LoginByMobile(self, value):
-        sss["authCode"] = get_smsCode("prod", 'https://ddxf.fangdd.com/api/boai/boai/user/authCode?mobile=13058019302&inUc=1', 'get', verify=False)
-        # 通过函数名获取apiName参数的值
-        print("验证码" + sss["authCode"])
+    @ddt.data(*a.get_data_by_api(fieldname, "LoginByPass"))
+    def test_LoginByPass(self, value):
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
         env = value[self.env_num]
