@@ -16,7 +16,7 @@ def hello():
 	return "Hello, World!"
 
 
-@app.route("/cases_list", methods=["get", "post"])
+@app.route("/cases_list", methods=["get", "post", "options"])
 def get_projects():
 	dataIni = GetDataIni()
 	names_list = dataIni.cfgB.options("Project_name")
@@ -71,5 +71,5 @@ def run_test():
 #     return jsonify(a)
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', port=65387)
+	app.run(host='0.0.0.0', port=65387, debug=True)
 
