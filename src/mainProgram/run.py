@@ -131,8 +131,8 @@ def start(cases_dir=None, env=None, reg_str=None):
 		sleep(3)
 		_platform = platform.platform()
 		if _platform == 'Linux-2.6.32-754.18.2.el6.x86_64-x86_64-with-centos-6.10-Final':
-			ip = '10.0.6.56'
-			link_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
+			ip = 'https://apitest.fangdd.net'
+			link_url = ip + f'{sep}report{sep}{report_dir}{sep}{reportFileName}'
 		elif _platform.startswith("Windows") or _platform.startswith('Darwin'):
 			# 获取本机计算机名称
 			hostname = socket.gethostname()
