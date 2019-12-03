@@ -42,6 +42,18 @@ class ProjectTest(RunTest):
         self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 
     def tearDown(self):
+        if self.result and type(self.result) != str:
+            try:
+                self.assertEqual(True, checkOut(self.res, self.expect))
+                self.logger.debug("测试结果         :测试通过！")
+            except Exception as err:
+                self.logger.error("测试结果         :测试失败！")
+                send_ding(self.robot_url, self.mobile,
+                          content=f"{self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}")
+                raise err
+        elif self.result and type(self.result) == str:
+            send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！\n测试反馈:{self.result}")
+            raise Exception
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectList"))
@@ -53,18 +65,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目列表异常，接口返回为：{res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectBasEdit"))
     def test_ProjectBasEdit(self, value):
@@ -75,18 +77,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目基本信息编辑异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectBuildinglist"))
     def test_ProjectBuildinglist(self, value):
@@ -97,18 +89,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目楼栋列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectLayoutList"))
     def test_ProjectLayoutList(self, value):
@@ -119,18 +101,9 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目楼栋列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
+
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProjectHouseholdList"))
     def test_ProjectHouseholdList(self, value):
@@ -141,18 +114,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目楼栋列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "BriefEdit"))
     def test_BriefEdit(self, value):
@@ -163,18 +126,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目介绍异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "Links"))
     def test_Links(self, value):
@@ -185,18 +138,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"关联项目查询异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "AddMarket"))
     def test_AddMarket(self, value):
@@ -207,18 +150,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"新增推广方案异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     # @ddt.data(*a.get_data_by_api(fieldname, "SiteProjectEdit"))
     # def test_SiteProjectEdit(self, value):
@@ -229,18 +162,8 @@ class ProjectTest(RunTest):
     #     # 通过环境参数获得接口url
     #     url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
     #     # 调用接口发起请求
-    #     res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+    #     self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
     #                      self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False, timeout=10)
-    #     try:
-    #         self.assertEqual(True, checkOut(self.res, self.expect))
-    #         self.logger.info("测试结果         :测试通过！")
-    #     except Exception as err:
-    #         self.logger.error("测试结果         :测试失败！")
-    #         json_dict = self.a.json_data[self.project]["robot_data"]
-    #         robot_url = json_dict["robot_url"]
-    #         mobile = json_dict["mobile"]
-    #         send_ding(robot_url, mobile, content=f"编辑案场规则异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-    #         raise err
 
     # @ddt.data(*a.get_data_by_api(fieldname, "DynamicEdit"))
     # def test_DynamicEdit(self, value):
@@ -251,18 +174,8 @@ class ProjectTest(RunTest):
     #     # 通过环境参数获得接口url
     #     url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
     #     # 调用接口发起请求
-    #     res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+    #     self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
     #                      self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False, timeout=10)
-    #     try:
-    #         self.assertEqual(True, checkOut(self.res, self.expect))
-    #         self.logger.info("测试结果         :测试通过！")
-    #     except Exception as err:
-    #         self.logger.error("测试结果         :测试失败！")
-    #         json_dict = self.a.json_data[self.project]["robot_data"]
-    #         robot_url = json_dict["robot_url"]
-    #         mobile = json_dict["mobile"]
-    #         send_ding(robot_url, mobile, content=f"编辑动态异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-    #         raise err
 
     # @ddt.data(*a.get_data_by_api(fieldname, "AttachmentAdd"))
     # def test_AttachmentAdd(self, value):
@@ -273,18 +186,8 @@ class ProjectTest(RunTest):
     #     # 通过环境参数获得接口url
     #     url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
     #     # 调用接口发起请求
-    #     res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+    #     self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
     #                      self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-    #     try:
-    #         self.assertEqual(True, checkOut(self.res, self.expect))
-    #         self.logger.info("测试结果         :测试通过！")
-    #     except Exception as err:
-    #         self.logger.error("测试结果         :测试失败！")
-    #         json_dict = self.a.json_data[self.project]["robot_data"]
-    #         robot_url = json_dict["robot_url"]
-    #         mobile = json_dict["mobile"]
-    #         send_ding(robot_url, mobile, content=f"新增附件异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-    #         raise err
 
     # @ddt.data(*a.get_data_by_api(fieldname, "ProAttachmentList"))
     # def test_ProAttachmentList(self, value):
@@ -295,18 +198,8 @@ class ProjectTest(RunTest):
     #     # 通过环境参数获得接口url
     #     url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
     #     # 调用接口发起请求
-    #     res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+    #     self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
     #                      self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False, timeout=10)
-    #     try:
-    #         self.assertEqual(True, checkOut(self.res, self.expect))
-    #         self.logger.info("测试结果         :测试通过！")
-    #     except Exception as err:
-    #         self.logger.error("测试结果         :测试失败！")
-    #         json_dict = self.a.json_data[self.project]["robot_data"]
-    #         robot_url = json_dict["robot_url"]
-    #         mobile = json_dict["mobile"]
-    #         send_ding(robot_url, mobile, content=f"项目资料列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-    #         raise err
 
     # @ddt.data(*a.get_data_by_api(fieldname, "AttachmentRemove"))
     # def test_AttachmentRemove(self, value):
@@ -317,18 +210,8 @@ class ProjectTest(RunTest):
     #     # 通过环境参数获得接口url
     #     url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
     #     # 调用接口发起请求
-    #     res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+    #     self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
     #                      self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-    #     try:
-    #         self.assertEqual(True, checkOut(self.res, self.expect))
-    #         self.logger.info("测试结果         :测试通过！")
-    #     except Exception as err:
-    #         self.logger.error("测试结果         :测试失败！")
-    #         json_dict = self.a.json_data[self.project]["robot_data"]
-    #         robot_url = json_dict["robot_url"]
-    #         mobile = json_dict["mobile"]
-    #         send_ding(robot_url, mobile, content=f"项目资料移除异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-    #         raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "Operation"))
     def test_Operation(self, value):
@@ -339,18 +222,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目运营查询异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "OperationEdit"))
     def test_OperationEdit(self, value):
@@ -361,18 +234,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目运营编辑异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "StockEdit"))
     def test_StockEdit(self, value):
@@ -383,18 +246,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目货量编辑异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "BusinessEdit"))
     def test_BusinessEdit(self, value):
@@ -405,18 +258,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目合作方案编辑异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "LicenseList"))
     def test_LicenseList(self, value):
@@ -427,7 +270,7 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
         try:
             self.assertEqual(True, checkOut(self.res, self.expect))
@@ -449,18 +292,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"风险评估列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "MeterList"))
     def test_MeterList(self, value):
@@ -471,18 +304,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"利润测算表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "UserList"))
     def test_UserList(self, value):
@@ -493,18 +316,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False, timeout=10)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"团队管理列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "TradeList"))
     def test_TradeList(self, value):
@@ -515,18 +328,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"闪佣宝列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "SettlementList"))
     def test_SettlementList(self, value):
@@ -537,18 +340,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"结算规则列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "ThirdMappingList"))
     def test_ThirdMappingList(self, value):
@@ -559,18 +352,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"开发商对接列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "BuggetList"))
     def test_BuggetList(self, value):
@@ -581,18 +364,8 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目预算列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
 
     @ddt.data(*a.get_data_by_api(fieldname, "BuggetList"))
     def test_BuggetList(self, value):
@@ -603,18 +376,5 @@ class ProjectTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
-        try:
-            self.assertEqual(True, checkOut(self.res, self.expect))
-            self.logger.info("测试结果         :测试通过！")
-        except Exception as err:
-            self.logger.error("测试结果         :测试失败！")
-            json_dict = self.a.json_data[self.project]["robot_data"]
-            robot_url = json_dict["robot_url"]
-            mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"项目预算列表异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
-            raise err
-
-if __name__ == '__main__':
-    unittest.main()
