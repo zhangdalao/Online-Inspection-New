@@ -5,6 +5,7 @@ RUN apk add libsodium-dev
 RUN apk add --update \
     curl \
     openjdk8 \
+    bash \
  && rm /var/cache/apk/* \
  && echo "securerandom.source=file:/dev/urandom" >> /usr/lib/jvm/default-jvm/jre/lib/security/java.security \
  && echo "networkaddress.cache.ttl=30" >> /usr/lib/jvm/default-jvm/jre/lib/security/java.security
