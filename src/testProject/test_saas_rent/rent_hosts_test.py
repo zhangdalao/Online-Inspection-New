@@ -41,7 +41,7 @@ class Rent_HostsTest(RunTest):
 		cls.expect_num = cls.a.get_num_name("预期结果")
 		cls.isSkip_num = cls.a.get_num_name("是否跳过该用例")
 		cls.relateData_num = cls.a.get_num_name("接口关联参数")
-		cls.cookie_txt = rent_saas_login()
+		cls.cookie_txt = rent_saas_login(sss["env"])
 
 	def setUp(self):
 		globals()['count'] += 1
