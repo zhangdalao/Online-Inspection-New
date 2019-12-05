@@ -12,7 +12,7 @@ app = Flask(__name__)
 CORS(app, resources=r"/*")
 
 
-@app.route("/")
+@app.route("/", methods=["get", "post"])
 def hello():
 	return "Hello, World!"
 
@@ -73,5 +73,5 @@ def run_test():
 #     return jsonify(a)
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', port=65387)
+	app.run(host='0.0.0.0', port=65387, debug=True)
 
