@@ -39,7 +39,16 @@
     "Rent_List": {
       "get_RentEstateList": "/saas/getRentEstateList"
     },
-    "Rent_Guide": {
+    "Rent_Trade": {
+      "get_RentTradeList": "/saas/getRentTradeList",
+      "create_RentTrade": "/saas/createOrEditRentTrade",
+      "confirm_RentAchievement":"/saas/confirmRentAchievement",
+      "get_RentTradeDetail": "/saas/getRentTradeDetail",
+      "create_ShouldReceive":"/saas/createOrEditShouldReceive",
+      "create_HasReceived": "/saas/createOrEditHasReceived",
+      "create_ShouldPay": "/saas/createOrEditShouldPay",
+      "create_HasPaid": "/saas/createOrEditHasPaid",
+      "close_RentTrade": "/saas/closeRentTrade",
       "add_CustomerGuide": "/saas/postAddCustomerGuide"
     },
     "Rent_Datalist": {
