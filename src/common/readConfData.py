@@ -43,4 +43,5 @@ class GetDataIni:
 if __name__ == '__main__':
 	aa = GetDataIni()
 	# print(aa.normal_data("Env", 'prod1'))
-	print(aa.cfgB.options("Project_name"))
+	# print(aa.cfgB.options("Env_name"))
+	print(eval(aa.normal_data("Env_name", "1"))[0])
