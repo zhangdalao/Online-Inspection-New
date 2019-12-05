@@ -38,14 +38,15 @@ def run_test():
 	try:
 		data_dict = json.loads(request.get_data())
 		# 从请求中获取请求参数
-		cases_names = data_dict.get('cases')
-		env_name = data_dict.get('env')
+		cases_names = data_dict.get('cases')   # "多多商服"
+		env_name = data_dict.get('env')        # 1 ->int
 		reg_str = data_dict.get("reg_str")
 		dataIni = GetDataIni()
 		# 检查必填参数是否填写
 		if cases_names and env_name:
 			cases = dataIni.normal_data("Project_name", cases_names)  # test_ddsf/ALL
-			env = dataIni.normal_data("Env_name", env_name)           # prod
+			# 前端传过来的是 int 类型，INI配置文件中是默认为字符串的，需要处理下
+			env = dataIni.normal_data("Env_name", str(env_name))           # prod
 			if cases == "ALL":
 				cases = None
 			suite_num = get_cases(cases, env, reg_str).countTestCases()
