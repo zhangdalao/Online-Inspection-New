@@ -77,7 +77,10 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		:return: desc
 		"""
 		data_ini = GetDataIni(f"{root_path}{sep}conf{sep}data.ini")
-		self.projectName = data_ini.normal_data("Name", self.projectName)
+		if self.projectName:
+			self.projectName = data_ini.normal_data("Name", self.projectName)
+		else:
+			self.projectName = "None"
 		return self.projectName, self.api_name, self.desc
 	
 	def start(self, project, isSkip_num, apiName_num, url, method_num, headers_num, para_num, data_num, desc_num,

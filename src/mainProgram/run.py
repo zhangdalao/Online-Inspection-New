@@ -6,20 +6,20 @@
 import os, sys
 import json
 from flask import Flask
-from src.common.runTest import sss
-
-sep = os.sep
-root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
-sys.path.append(root_path)
-
-import unittest
-from src.common.BeautifulReport import BeautifulReport
-from src.common.dingDing import send_link
 from time import sleep
 import socket
 import time
 from celery_once import QueueOnce
 import platform
+import unittest
+
+sep = os.sep
+root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
+sys.path.append(root_path)
+
+from src.common.runTest import sss
+from src.common.BeautifulReport import BeautifulReport
+from src.common.dingDing import send_link
 from src.common.configure_celery import configure_celery
 from src.common.readConfData import GetDataIni
 
