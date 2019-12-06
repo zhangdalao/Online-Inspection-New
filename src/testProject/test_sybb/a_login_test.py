@@ -66,7 +66,12 @@ class LoginTest(RunTest):
 
 	@ddt.data(*a.get_data_by_api(fieldname, "Login"))
 	def test_Login(self, value):
-		sss["sms_code"] = get_smsCode("prod", 'https://jr.fangdd.com/jgj/api/user/smgsend', 'post', json={"mobile":"13058019302","type":1})
+		if sss["env"] == "prod":
+			sss["sms_code"] = get_smsCode("prod", 'https://jr.fangdd.com/jgj/api/user/smgsend', 'post', json={"mobile":"13058019302","type":1})
+		elif sss["env"] == "pre":
+			sss["sms_code"] = get_smsCode("pre", 'https://jr.fangdd.com.cn/jgj/api/user/smgsend', 'post', json={"mobile":"13682521706","type":1})
+		elif sss["env"] == "test":
+			sss["sms_code"] = get_smsCode("pre", 'https://jr.fangdd.net/jgj/api/user/smgsend', 'post', json={"mobile":"13682521706","type":1})
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
 		# 获取测试环境参数
