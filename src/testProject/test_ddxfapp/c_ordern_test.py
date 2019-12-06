@@ -6,6 +6,7 @@ import ddt
 import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
+import random
 
 count = 0
 
@@ -61,9 +62,9 @@ class OrderTest(RunTest):
         url = self.a.get_domains()[env] + uri
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
         str_sign_list = [str(sss["userId"]),str(sss["token"]),self.timestamp, value[self.method_num].upper(), uri]
-        # print(str_sign_list)
+        #print("签名",str_sign_list)
         value.append(str_sign_list)
-        # print(value)
+        print("签名",value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
@@ -314,13 +315,14 @@ class OrderTest(RunTest):
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri   #a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
         str_sign_list = [str(sss["userId"]),str(sss["token"]),self.timestamp, value[self.method_num].upper(), uri]
-        # print(str_sign_list)
+        print(str_sign_list)
         value.append(str_sign_list)
-        # print(value)
+        print("qianming",value)
         sss["version"] = sss["versionName"][1:]
         # # # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+
 
     @ddt.data(*a.get_data_by_api(fieldname, "rphonechanglist"))
     def test_rphonechanglist(self,value):
@@ -353,6 +355,28 @@ class OrderTest(RunTest):
         # # # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+
+    @ddt.data(*a.get_data_by_api(fieldname, "sreceiptmoney"))
+    def test_sreceiptmoney(self, value):
+        self.desc = value[self.desc_num]
+        self.apiName = (inspect.stack()[0][3])[5:]  # 表示读取列表中的第一个元素（字典元素)的第三个元素？？？？？但是第三个应该是 请求头啊
+        env = value[self.env_num]
+        uri = self.a.get_apiPath(self.fieldname, self.apiName)
+        url = self.a.get_domains()[env] + uri  # a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
+        paymentDoc = random.randint(123456,678901)
+        print(paymentDoc)
+        sss["paymentDoc"] = paymentDoc
+        str_sign_list = [str(sss["userId"]), str(sss["token"]), self.timestamp, value[self.method_num].upper(), uri]
+        # print(str_sign_list)
+        value.append(str_sign_list)
+        # print(value)
+        sss["version"] = sss["versionName"][1:]
+        # # # 调起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value)
+
+
 
 
 if __name__ == '__main__':

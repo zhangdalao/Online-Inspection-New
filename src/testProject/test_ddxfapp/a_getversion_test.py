@@ -8,6 +8,7 @@ from src.common.runTest import *
 from src.common.dingDing import send_ding
 
 count = 0
+sss["Hostname"] = "shopapi.fangdd.com"
 
 @ddt.ddt
 class GetVersionTest(RunTest):
@@ -45,7 +46,7 @@ class GetVersionTest(RunTest):
         env = value[self.env_num]
         # 通过环境参数获得接口url
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri   #a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
+        url = "https://shopapi.fangdd.com" + uri   #a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
         try:
             host = self.a.get_domains()[env][8:]
