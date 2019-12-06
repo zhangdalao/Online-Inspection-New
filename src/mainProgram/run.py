@@ -6,20 +6,20 @@
 import os, sys
 import json
 from flask import Flask
-from src.common.runTest import sss
-
-sep = os.sep
-root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
-sys.path.append(root_path)
-
-import unittest
-from src.common.BeautifulReport import BeautifulReport
-from src.common.dingDing import send_link
 from time import sleep
 import socket
 import time
 from celery_once import QueueOnce
 import platform
+import unittest
+
+sep = os.sep
+root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
+sys.path.append(root_path)
+
+from src.common.runTest import sss
+from src.common.BeautifulReport import BeautifulReport
+from src.common.dingDing import send_link
 from src.common.configure_celery import configure_celery
 from src.common.readConfData import GetDataIni
 
@@ -141,9 +141,8 @@ def start(cases_dir=None, env=None, reg_str=None):
 			link_url = "http://" + ip + f':8686{sep}report{sep}{report_dir}{sep}{reportFileName}'
 			robot_url = None
 		else:
-			ip = '10.50.255.253'
-			output_dir = '/report/'
-			link_url = "http://" + ip + f':1323{output_dir}{report_dir}{sep}{reportFileName}'
+			ip = 'https://apitest.fangdd.net/'
+			link_url = ip + f'report{sep}{report_dir}{sep}{reportFileName}'
 		if robot_url:
 			send_link(robot_url, link_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
 			                               f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
@@ -151,8 +150,8 @@ def start(cases_dir=None, env=None, reg_str=None):
 
 
 if __name__ == '__main__':
-	start('test_shop', 'pre')
+	# start('test_ddsf', 'prod', "aa_login*")
 	# a = get_cases("test_ddsf", "prod", "aa_logi*")
 	# print(dir(a))
 	# print(type(a))
-	# start()
+	start()
