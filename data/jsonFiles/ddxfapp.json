@@ -1,43 +1,41 @@
 {
   "ddxfapp":{
     "robot_data":{
-      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=06fc833f73ad232ce00e5e2ee3d63ec299d72fd19fed82245cd6b083938f1616",
+      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=f92c4b9a7b375e6172f54d0cd20559e32837b7fca166ddf1cdb4a013c6e425d0",
       "mobile":["18652980686"]
     },
     "domain":{
-      "test": "https://shopapi.fangdd.net",
-      "pre" : "https://shopapi.fangdd.com.cn",
-      "prod" : "https://shopapi.fangdd.com",
-      "shop-test":"https://ddxf.fangdd.net",
-      "shop-pre":"https://ddxf.fangdd.com.cn",
-      "shop-prod":"https://ddxf.fangdd.com"
+      "test": "https://ddxf.fangdd.net",
+      "pre" : "https://ddxf.fangdd.com.cn",
+      "prod" : "https://ddxf.fangdd.com"
     },
     "GetVersion":{
        "version":"/ddxf/app/upgrade?appId=com.fangdd.ddxf&platform=1"
     },
     "Login":{
-       "ByPassword":"/boai/boai/user/login"
+       "ByPassword":"/app/boai/boai/user/login"
     },
     "Order":{
-        "aOrder":"/ddxf/order",
-        "bOrderdetail":"/trade/commission/#orderId#",
-        "cOrderList":"/ddxf/order/purchase?houseIds=53101&branchId=3&pageNo=0&orderStatus=0&pageSize=10",
-        "dBookingList":"/ddxf/order/booking?branchId=3&pageNo=0&pageSize=10",
-        "eBookingToOrder":"/ddxf/order/deal/status/#bookingId#",
+        "aOrder":"/app/ddxf/order",
+        "bOrderdetail":"/app/trade/commission/#orderId#",
+        "cOrderList":"/app/ddxf/order/purchase?houseIds=53101&branchId=3&pageNo=0&orderStatus=0&pageSize=10",
+        "dBookingList":"/app/ddxf/order/booking?branchId=3&pageNo=0&pageSize=10",
+        "eBookingToOrder":"/app/ddxf/order/deal/status/#bookingId#",
         "fChange":"/app/trade/settlement/order/ticket",
         "gChecklist":"/app/ddxf/work/audit/list?pageNo=0&pageSize=10&auditStatus=1",
-        "hperformancechange":"/ddxf/order/appeal/contrib",
-        "iperformancelist":"/ddxf/work/audit/list?auditStatus=1&processType=2&pageNo=0&branchId=3&pageSize=15&businessName=#orderId2#",
-        "jperformencedetail":"/ddxf/order/appeal/contrib/#performanceId#",
-        "kamountchange":"/ddxf/complaint/contract",
+        "hperformancechange":"/app/ddxf/order/appeal/contrib",
+        "iperformancelist":"/app/ddxf/work/audit/list?auditStatus=1&processType=2&pageNo=0&branchId=3&pageSize=15&businessName=#orderId2#",
+        "jperformencedetail":"/app/ddxf/order/appeal/contrib/#performanceId#",
+        "kamountchange":"/app/ddxf/complaint/contract",
         "lamountchangelist":"/app/ddxf/work/audit/list?branchId=3&processType=11&auditStatus=1&pageNo=0&pageSize=15",
-        "mdatechange":"/ddxf/complaint/date",
+        "mdatechange":"/app/ddxf/complaint/date",
         "ndatachangelist":"/app/ddxf/work/audit/list?branchId=3&processType=27&pageNo=0&pageSize=15&auditStatus=1",
-        "ordercancel":"/ddxf/order/purchase/#orderId5#",
+        "ordercancel":"/app/ddxf/order/purchase/#orderId5#",
         "pcancellist":"/app/ddxf/work/audit/list?auditStatus=1&branchId=3&processType=15&pageNo=0&pageSize=15",
         "qchangephone":"/app/ddxf/complaint/customer/mobile/change",
         "rphonechanglist":"/app/ddxf/work/audit/list?pageSize=15&processType=3&branchId=3&pageNo=0&auditStatus=1",
-        "dOrderSign":"/ddxf/order/deal/status/#orderId#"
+        "dOrderSign":"/app/ddxf/order/deal/status/#orderId#",
+        "sreceiptmoney": "/app/trade/receipt/ticket"
     },
     "WebLogin":{
         "WebLogin":"/api/login/account"
@@ -60,7 +58,21 @@
         "money":"/api/trade/receipt/ticket",
         "nmoneyconfirmlist":"/api/trade/receipt/ticket?pageNo=1&pageSize=10&ticketStatus=1",
         "nmoneyconfirm":"/api/trade/receipt/ticket/status",
-        "oticketcheck":"/api/trade/receipt/advance/ticket/approve"
+        "oticketcheck":"/api/trade/receipt/advance/ticket/approve",
+        "paxpensereferal": "/api/trade/budget/cost/expense/detail/36057",
+        "pexpensereferal":"/api/trade/cost/expense/referral/",
+        "qexpendlist":"/api/trade/cost/expense/referral?pageNo=1&pageSize=10",
+        "rexpenddetail": "/api/trade/cost/expense/referral/#expendId#",
+        "sexpendcheck": "/api/trade/cost/expense/referral/approve",
+        "texpendpayment": "/api/trade/cost/expense/payment/ticket",
+        "uexpendpaylist": "/api/trade/cost/expense/payment/ticket?pageNo=1&pageSize=10",
+        "vexpendpaydetail": "/api/trade/cost/expense/payment/ticket/#paymentId#",
+        "wexpendpaycheck": "/api/trade/cost/expense/payment/ticket/approve",
+        "xabuget": "/api/trade/budget/exceed/ticket",
+        "ybugetlist": "/api/trade/budget/exceed/ticket?pageNo=1&pageSize=10",
+        "ycbugetdetdail": "/api/trade/budget/exceed/ticket/#budgetId#",
+        "ydbugetdetcheck": "/api/trade/budget/exceed/ticket/approve",
+        "yereceiptconfirm": "/api/trade/receipt/ticket/status"
     },
     "Org":{
          "userdetail":"/api/login/user",
@@ -82,16 +94,17 @@
           "auserlist":"/api/boai/boai/user/project/configs?projectId=10636&pageNo=1&pageSize=20"
     },
     "Check":{
-          "auditchange":"/ddxf/work/audit"
+          "auditchange":"/app/ddxf/work/audit"
     },
     "Income":{
-         "aincomelist":"/api/projectManager/project/receipt?branchId=3",
-         "bincomelist":"/trade/receipt/project/statistics?estateId=53101",
-         "crejectlist":"/trade/receivable/confirmation/reject/list?projectId=10636",
-         "dreturnedlist":"/trade/receipt/advance/ticket?estateName=%E6%B1%87%E4%B8%B0%E5%AE%B6%E5%9B%AD&pageNo=0&projectId=10636&pageSize=20&estateId=53101",
-         "einvoice":"/trade/receipt/invoice?pageNo=1&estateId=53101&ticketStatus=4&pageSize=20&projectId=10636",
-         "fnoticket":"/trade/receipt/advance/ticket?pageSize=20&ticketStatus=4&pageNo=1&estateId=53101",
-         "gticket":"/trade/receipt/ticket?pageNo=1&estateId=53101&pageSize=20"
+         "aincomelist":"/app/api/projectManager/project/receipt?branchId=3",
+         "bincomelist":"/app/trade/receipt/project/statistics?estateId=53101",
+         "crejectlist":"/app/trade/receivable/confirmation/reject/list?projectId=10636",
+         "dreturnedlist":"/app/trade/receipt/advance/ticket?estateName=%E6%B1%87%E4%B8%B0%E5%AE%B6%E5%9B%AD&pageNo=0&projectId=10636&pageSize=20&estateId=53101",
+         "einvoice":"/app/trade/receipt/invoice?pageNo=1&estateId=53101&ticketStatus=4&pageSize=20&projectId=10636",
+         "fnoticket":"/app/trade/receipt/advance/ticket?pageSize=20&ticketStatus=4&pageNo=1&estateId=53101",
+         "gticket":"/app/trade/receipt/ticket?pageNo=1&estateId=53101&pageSize=20",
+         "hrefund": "/app/ddxf/order/refund/#orderId#"
     }
   }
 }
