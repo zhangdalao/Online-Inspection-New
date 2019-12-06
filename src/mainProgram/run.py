@@ -116,7 +116,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 	# 根据第三方库 BeautifulReport 执行用例并生成报告
 	with open(reportDir + sep + reportFileName, "wb"):
 		beaRep = BeautifulReport(suites)
-		res = beaRep.report(filename=reportFileName, description=f'{Name}项目 {env} 环境接口自动化测试报告',
+		res = beaRep.report(filename=reportFileName, description=f'{Name}{env}环境自动化测试报告',
 		                    report_dir=reportDir)
 		result_dict = beaRep.stopTestRun()
 		casesAll = result_dict.get("testAll")
