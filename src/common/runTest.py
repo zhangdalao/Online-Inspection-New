@@ -260,7 +260,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 									self.logger.debug(f"依赖数据缓存成功    :{a[0]}-->{a[1]}, 数据值为:{relate_value[0]}")
 								else:
 									self.logger.debug("返回数据中指定的关联数据获取失败！")
-					elif relateDatas:
+					if relateDatas:
 						for _dict in relateDatas:
 							for _key in _dict:
 								a = [_key, _dict[_key]]
