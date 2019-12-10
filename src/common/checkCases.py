@@ -14,7 +14,10 @@ class CheckCases:
 	
 	def __init__(self, project=None, env=None):
 		
-		self.pro = project.split("test_")[-1]
+		if project != "ALL":
+			self.pro = project.split("test_")[-1]
+		else:
+			self.pro = project
 		self.env = env
 		root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
 		# xlsx表格数据地址
@@ -72,6 +75,6 @@ class CheckCases:
 				return True
 
 if __name__ == '__main__':
-	a = CheckCases("ALL", "pre")
+	a = CheckCases("ALL", "prod")
 	# print(a.get_sheetData_list())
 	print(a.check_cases())
