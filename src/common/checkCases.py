@@ -63,15 +63,15 @@ class CheckCases:
 		# for sheet in data_list:
 		# 	env_data_set = set(sheet.sheet_author.ncols(api_env_num))
 		new_data = map(lambda x: set(x.col_values(api_env_num)), data_list)
-		# new = list(new_data)
+		new = list(new_data)
 		# print(new)
-		for i in new_data:
+		for i in new:
 			if not i.__contains__(self.env):
 				continue
 			else:
 				return True
 
 if __name__ == '__main__':
-	a = CheckCases("test_ddsf", "pre")
+	a = CheckCases("ALL", "pre")
 	# print(a.get_sheetData_list())
 	print(a.check_cases())
