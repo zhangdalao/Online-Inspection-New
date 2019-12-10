@@ -35,34 +35,6 @@ def get_project_robot_URL(projectName=None):
 	return json_data
 
 
-def get_cases(cases_dir, env, reg_str):
-	"""
-	:param cases_dir:    指定项目参数，根据指定的项目去获取用例,必填参数
-	:param env:          指定运行环境
-	:param reg_str
-	:return:             返回指定项目的所有用例
-	"""
-	if not env:
-		sss["env"] = "prod"
-	elif env and env.lower() in ["dev", "test", "pre", "prod"]:
-		sss["env"] = env
-	
-	# 判断是否有指定用例文件夹
-	if cases_dir:
-		project_dir = cases_dir  # test_xxxx
-		# 获取指定项目的完整路径
-		# suites_dir = os.path.abspath(os.path.join(os.getcwd(), "..%s.." % sep)) + sep + sep.join(['src', 'testProject',
-		#                                                                                           f'{project_dir}'])
-		suites_dir = root_path + f'{sep}src{sep}testProject{sep}{project_dir}'
-	else:
-		suites_dir = root_path + f'{sep}src{sep}testProject'
-	# 获取本次需要执行的所有用例
-	if not reg_str:
-		reg_str = "*test.py"
-	suite = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern=f'{reg_str}')
-	return suite
-
-
 @celery.task(base=QueueOnce)
 def start(cases_dir=None, env=None, reg_str=None):
 	if not env:
@@ -70,7 +42,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 	sss["env"] = env
 	
 	# 判断是否有指定用例文件夹
-	if cases_dir:
+	if cases_dir and cases_dir != "ALL":
 		project_dir = cases_dir  # test_xxxx
 		project_name = project_dir.split("test_")[-1]  # xxxx
 		# 获取指定项目 json 数据中的 robot_url 的地址
