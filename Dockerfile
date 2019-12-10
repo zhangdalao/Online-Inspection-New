@@ -1,4 +1,4 @@
-FROM docker.esf.fangdd.net/fdd-inspection:1
+FROM docker.esf.fangdd.net/fdd-inspection:2
 COPY requirements.txt .
 RUN pip3 install -i https://mirrors.aliyun.com/pypi/simple/ -r requirements.txt
 RUN apk add nginx
