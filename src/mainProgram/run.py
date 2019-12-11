@@ -41,24 +41,44 @@ def start(cases_dir=None, env=None, reg_str=None):
 		env = "prod"
 	sss["env"] = env
 	
-	# 判断是否有指定用例文件夹
-	if cases_dir and cases_dir != "ALL":
+	if not reg_str:
+		reg_str = "*test.py"
+	
+	# 新房项目列表
+	xf_list = ["test_ddxfapp", "test_shop", "test_shopapp"]
+	
+	# 判断项目是属于新房项目
+	if cases_dir in xf_list:
 		project_dir = cases_dir  # test_xxxx
 		project_name = project_dir.split("test_")[-1]  # xxxx
 		# 获取指定项目 json 数据中的 robot_url 的地址
-		robot_url = get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]
-		suites_dir = root_path + f'{sep}src{sep}testProject{sep}{project_dir}'
-	else:
+		robot_url = [get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]]
+		suites_dir = root_path + f'{sep}src{sep}testProject{sep}test_ddxf{sep}{project_dir}'
+	# 判断项目是否是新房
+	elif cases_dir == "test_ddxf":
+		robot_url = []
+		for i in xf_list:
+			project_name = i.split("test_")[-1]
+			robot_url.append(get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"])
+		project_name = "ddxf"
+		suites_dir = root_path + f'{sep}src{sep}testProject{sep}test_ddxf'
+	# 判断是否是所有项目
+	elif not cases_dir or cases_dir == "ALL":
 		# 这里需要补充测试组机器人URL
-		robot_url = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa1' \
-		            '45342159f8fd0065fc4'
+		robot_url = ['https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa'
+		             '145342159f8fd0065fc4']
 		project_name = "All"
 		suites_dir = root_path + f'{sep}src{sep}testProject'
+	# 指定普通单个项目
+	else:
+		project_dir = cases_dir  # test_xxxx
+		project_name = project_dir.split("test_")[-1]  # xxxx
+		# 获取指定项目 json 数据中的 robot_url 的地址
+		robot_url = [get_project_robot_URL(project_name)[project_name]["robot_data"]["robot_url"]]
+		suites_dir = root_path + f'{sep}src{sep}testProject{sep}{project_dir}'
 	
-	if not reg_str:
-		reg_str = "*test.py"
 	suites = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern=f'{reg_str}')
-	# print(suite.countTestCases())
+	# # print(suite.countTestCases())
 	get_INI = GetDataIni()
 	Name = get_INI.normal_data("Name", project_name)
 	
@@ -88,7 +108,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 	# 根据第三方库 BeautifulReport 执行用例并生成报告
 	with open(reportDir + sep + reportFileName, "wb"):
 		beaRep = BeautifulReport(suites)
-		res = beaRep.report(filename=reportFileName, description=f'{Name}{env}环境自动化测试报告',
+		res = beaRep.report(filename=reportFileName, description=f'{Name}项目{env}环境自动化测试报告',
 		                    report_dir=reportDir)
 		result_dict = beaRep.stopTestRun()
 		casesAll = result_dict.get("testAll")
@@ -115,9 +135,11 @@ def start(cases_dir=None, env=None, reg_str=None):
 		else:
 			ip = 'https://apitest.fangdd.net/'
 			link_url = ip + f'report{sep}{report_dir}{sep}{reportFileName}'
+			
 		if robot_url:
-			send_link(robot_url, link_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
-			                               f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
+			for url in robot_url:
+				send_link(url, link_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
+				                               f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
 		return res
 
 
@@ -126,4 +148,6 @@ if __name__ == '__main__':
 	# a = get_cases("test_ddsf", "prod", "aa_logi*")
 	# print(dir(a))
 	# print(type(a))
+	# a = start("test_shopapp", "prod", "*login*")
+	# print(a)
 	start()
