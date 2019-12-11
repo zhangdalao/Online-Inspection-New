@@ -39,7 +39,7 @@ def run_test():
 	try:
 		data_dict = json.loads(request.get_data())
 		# 从请求中获取请求参数
-		cases_names = data_dict.get('cases')   # "多多商服/全部"
+		cases_names = data_dict.get('cases')   # "多多商服/全部/多多新房"
 		env_num = data_dict.get('env')        # 1 ->int
 		reg_str = data_dict.get("reg_str")
 		dataIni = GetDataIni()
@@ -48,11 +48,15 @@ def run_test():
 			cases = dataIni.normal_data("Project_name", cases_names)  # test_ddsf/ALL
 			# 前端传过来的是 int 类型，INI配置文件中是默认为字符串的，需要处理下
 			env_data = eval(dataIni.normal_data("Env_name", str(env_num)))          # ["prod", "正式环境"]  -> list
-			# if cases == "ALL":
-			# 	cases = None
-			# suite_num = get_cases(cases, env_data[0], reg_str).countTestCases()
-			# if suite_num == 0:
-			check = CheckCases(cases, env_data[0]).check_cases()
+			
+			if cases == "test_ddxf":
+				# check = True
+				check_shop = CheckCases("test_shop", env_data[0]).check_cases()
+				check_shopapp = CheckCases("test_shopapp", env_data[0]).check_cases()
+				check_ddxfapp = CheckCases("test_shopapp", env_data[0]).check_cases()
+				check = check_shop or check_ddxfapp or check_shopapp
+			else:
+				check = CheckCases(cases, env_data[0]).check_cases()
 			if not check:
 				res = jsonify({"code": 201, "success": False, "cases_count": 0, "msg": "请确认参数，获取用例失败!"})
 			else:
