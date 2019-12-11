@@ -81,6 +81,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 	suites = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern=f'{reg_str}')
 	# # print(suite.countTestCases())
 	get_INI = GetDataIni()
+	env_name = get_INI.normal_data("Env", env)
 	Name = get_INI.normal_data("Name", project_name)
 	
 	# 脚本运行当前时间
@@ -109,7 +110,8 @@ def start(cases_dir=None, env=None, reg_str=None):
 	# 根据第三方库 BeautifulReport 执行用例并生成报告
 	with open(reportDir + sep + reportFileName, "wb"):
 		beaRep = BeautifulReport(suites)
-		res = beaRep.report(filename=reportFileName, description=f'{Name}项目{env}环境自动化测试报告',
+		title = f'{Name}{env_name}环境自动化测试报告'
+		res = beaRep.report(filename=reportFileName, description=title,
 		                    report_dir=reportDir)
 		result_dict = beaRep.stopTestRun()
 		casesAll = result_dict.get("testAll")
@@ -139,7 +141,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 			
 		if robot_url:
 			for url in robot_url:
-				send_link(url, link_url, f'房多多接口自动化测试报告(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
+				send_link(url, link_url, f'{title}(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
 				                               f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
 		return res
 

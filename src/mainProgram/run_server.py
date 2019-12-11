@@ -53,7 +53,7 @@ def run_test():
 				# check = True
 				check_shop = CheckCases("test_shop", env_data[0]).check_cases()
 				check_shopapp = CheckCases("test_shopapp", env_data[0]).check_cases()
-				check_ddxfapp = CheckCases("test_shopapp", env_data[0]).check_cases()
+				check_ddxfapp = CheckCases("test_ddxfapp", env_data[0]).check_cases()
 				check = check_shop or check_ddxfapp or check_shopapp
 			else:
 				check = CheckCases(cases, env_data[0]).check_cases()
