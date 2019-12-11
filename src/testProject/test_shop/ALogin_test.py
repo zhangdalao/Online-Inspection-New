@@ -21,7 +21,7 @@ class LoginTest(RunTest):
     # 获取当前文件路径god
     project = os.path.dirname(__file__)[-4:]
     # 读取xls中god列
-    a = ReadData(project,"shop")
+    a = ReadData(project, project)
     # 通过类名获取模块名
     fieldname = sys._getframe().f_code.co_name[:-4]
 
