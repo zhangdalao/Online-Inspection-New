@@ -85,7 +85,7 @@ def makeCall(phoneNum, env=None):
 	:return:
 	"""
 	
-	if env== "prod" and phoneNum.isdigit() and len(phoneNum) == 11:
+	if env == "prod" and phoneNum.isdigit() and len(phoneNum) == 11:
 		accessKeyId = "LTAI4FpbudWJvDGc1N9TZ5Q9"
 		accessSecret = "IbSPM3X2l6Ldq06rKy35NQVebQabYc"
 		
