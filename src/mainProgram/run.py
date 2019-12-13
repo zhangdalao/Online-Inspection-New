@@ -116,9 +116,10 @@ def start(cases_dir=None, env=None, reg_str=None):
 		result_dict = beaRep.stopTestRun()
 		casesAll = result_dict.get("testAll")
 		casesPass = result_dict.get("testPass")
-		casesFail = result_dict.get("testFail")
-		# casesError = result_dict.get("testError")
 		casesSkip = result_dict.get("testSkip")
+		# casesFail = result_dict.get("testFail")
+		casesFail = result_dict.get("testAll") - result_dict.get("testPass") - result_dict.get("testSkip")
+		# casesError = result_dict.get("testError")
 		if not casesSkip:
 			_pass_rate = ("%.2f%%" % (casesPass / casesAll * 100))
 		else:

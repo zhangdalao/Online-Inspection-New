@@ -7187,7 +7187,8 @@ body.skin-3 {
     $(function () {
         $("#testName").text(resultData["testName"]);
         $("#testPass").text(resultData["testPass"]);
-        $("#testFail").text(resultData["testFail"]);
+{#        $("#testFail").text(resultData["testFail"]);#}
+        $("#testFail").text(resultData["testAll"]-resultData["testSkip"]-resultData["testPass"]);
         $("#testSkip").text(resultData["testSkip"]);
         $("#testAll").text(resultData["testAll"]);
         $("#beginTime").text(resultData["beginTime"]);
