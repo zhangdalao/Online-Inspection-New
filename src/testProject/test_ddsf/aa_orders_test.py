@@ -1,23 +1,21 @@
 # -*- coding=utf-8 -*-
 # Author: BoLin Chen
-# @Date : 2019-08-08
+# @Date : 2019-12-12
 
 
 import inspect
 import ddt
 from src.common.runTest import *
 from src.common.dingDing import send_ding
-from src.common.sms_code import get_smsCode
-import requests
-import os, sys
 from src.common.read_data import ReadData
+import os, sys, json
 
 count = 0
 
 
 @ddt.ddt
-class LoginTest(RunTest):
-	"""登录模块"""
+class OrdersTest(RunTest):
+	"""首页模块"""
 	
 	# 通过文件名夹获取project参数的值
 	project = os.path.dirname(__file__)[-4:]
@@ -29,7 +27,7 @@ class LoginTest(RunTest):
 	json_dict = a.json_data[project]["robot_data"]
 	robot_url = json_dict["robot_url"]
 	mobile = json_dict["mobile"]
-
+	
 	@classmethod
 	def setUpClass(cls):
 		cls.env_num = cls.a.get_num_name("环境")
@@ -42,8 +40,13 @@ class LoginTest(RunTest):
 		cls.expect_num = cls.a.get_num_name("预期结果")
 		cls.isSkip_num = cls.a.get_num_name("是否跳过该用例")
 		cls.relateData_num = cls.a.get_num_name("接口关联参数")
-		cls.result = None
-	
+		if sss["env"] == "test":
+			sss["assignId"] = None
+			sss["restful"] = None
+		else:
+			sss["assignId"] = 107
+			sss["restful"] = json.dumps({"ticketId": 119})
+		
 	def setUp(self):
 		globals()['count'] += 1
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
@@ -62,42 +65,31 @@ class LoginTest(RunTest):
 			send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！\n测试反馈:{self.result}")
 			raise Exception
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
-
-	@ddt.data(*a.get_data_by_api(fieldname, "ByPassword"))
-	def test_ByPassword(self, value):
+	
+	@ddt.data(*a.get_data_by_api(fieldname, "workOrdersList"))
+	def test_workOrdersList(self, value):
+		"""代办工单列表"""
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
-		# 获取测试环境参数
 		env = value[self.env_num]
 		# 通过环境参数获得接口url
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
 		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-		if self.res["code"] == 200:
-			sss["cookies"] = requests.utils.dict_from_cookiejar(self.result.cookies)
-			# print(sss["cookies"])
-			sss["ID_str"] = str(sss["ID"])
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num,  self.expect_num, value)
 		
-	@ddt.data(*a.get_data_by_api(fieldname, "ByVerifyCode"))
-	def test_ByVerifyCode(self, value):
-		# 将获取的手机验证码存放在变量 sss 中
-		if value[self.desc_num] == '验证码正确登录':
-			sss["sms_code"] = get_smsCode(value[self.env_num], 'https://ddsf.fangdd.com/data/sendSmsCode', 'post',
-			                              json=[{"mobile": "13058019302", "device": "sid.13058019302"},
-			                                    {"systemSource": "DD_COMMERCIAL"}])
+	@ddt.data(*a.get_data_by_api(fieldname, "disposeWorkOrder"))
+	def test_disposeWorkOrder(self, value):
+		"""处理工单进入群聊"""
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
-		# 获取测试环境参数
 		env = value[self.env_num]
 		# 通过环境参数获得接口url
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
+		print(sss["cookies"])
 		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-		
-		
-if __name__ == '__main__':
-	a = LoginTest()
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+		                         cookies=sss["cookies"])
