@@ -24,10 +24,13 @@ class Rent_GuideTest(RunTest):
     project = os.path.dirname(__file__)[-9:]
     print(project)
     # 读取文件实例化
-    a = ReadData(project, 'saas_rent')
+    a = ReadData(project, project)
     # 通过类名获取fieldname的值
     fieldname = sys._getframe().f_code.co_name[:-4]
-    print(fieldname)
+    # 获取项目名后，获取机器人相关配置
+    json_dict = a.json_data[project]["robot_data"]
+    robot_url = json_dict["robot_url"]
+    mobile = json_dict["mobile"]
 
     @classmethod
     def setUpClass(cls):
@@ -48,17 +51,18 @@ class Rent_GuideTest(RunTest):
         self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 
     def tearDown(self):
-        if self.result:
+        if self.result and type(self.result) != str:
             try:
                 self.assertEqual(True, checkOut(self.res, self.expect))
                 self.logger.debug("测试结果         :测试通过！")
             except Exception as err:
                 self.logger.error("测试结果         :测试失败！")
-                json_dict = self.a.json_data[self.project]["robot_data"]
-                robot_url = json_dict["robot_url"]
-                mobile = json_dict["mobile"]
-                send_ding(robot_url, mobile, content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+                send_ding(self.robot_url, self.mobile,
+                          content=f"【{sss['env']}】{self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}")
                 raise err
+        elif self.result and type(self.result) == str:
+            send_ding(self.robot_url, self.mobile, content=f"【{sss['env']}】{self.desc}测试失败！\n测试反馈:{self.result}")
+            raise Exception
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
     @ddt.data(*a.get_data_by_api(fieldname, "add_CustomerGuide"))  # 接口对应的名称
