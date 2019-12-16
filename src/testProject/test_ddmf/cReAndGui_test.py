@@ -11,7 +11,7 @@ from src.common.read_data import ReadData
 import ddt
 import sys
 from src.common.runTest import *
-from src.common.dingDing import send_ding
+from src.common.dingDing import *
 import urllib3
 
 count = 0
@@ -81,10 +81,12 @@ class ReAndGuiTest(RunTest):
             except Exception as err:
                 self.logger.error("测试结果         :测试失败！")
                 send_ding(self.robot_url, self.mobile,
-                          content=f"{self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}")
+                          content=f"【{sss['env']}】{self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}", runType=1)
+                if self.apiName in ["batchreferral", "guide"]:   # 当报错时，判断是不是报备或者带看接口，是的话需要语音报警
+                    makeCall(self.mobile[0], sss["env"])
                 raise err
         elif self.result and type(self.result) == str:
-            send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！\n测试反馈:{self.result}")
+            send_ding(self.robot_url, self.mobile, content=f"【{sss['env']}】{self.desc}测试失败！\n测试反馈:{self.result}", runType=1)
             raise Exception
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
