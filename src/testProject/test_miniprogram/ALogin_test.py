@@ -27,6 +27,9 @@ class LoginTest(RunTest):
     a = ReadData(project, 'miniprogram')
     # 通过类名获取fieldname的值
     fieldname = sys._getframe().f_code.co_name[:-4]
+    json_dict = a.json_data[project]["robot_data"]
+    robot_url = json_dict["robot_url"]
+    mobile = json_dict["mobile"]
 
     @classmethod
     def setUpClass(cls):
