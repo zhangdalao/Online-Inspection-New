@@ -1,8 +1,8 @@
 {
   "ddxfapp":{
     "robot_data":{
-      "robot_url":"",
-      "mobile":[""]
+      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=f92c4b9a7b375e6172f54d0cd20559e32837b7fca166ddf1cdb4a013c6e425d0",
+      "mobile":["18652980686"]
     },
     "domain":{
       "test": "https://ddxf.fangdd.net",
