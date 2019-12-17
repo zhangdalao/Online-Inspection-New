@@ -34,14 +34,31 @@ def get_env():
 	return Response(res, mimetype="application/json")
 
 
-@app.route("/env_name", methods=["get", "post", "options"])
-def get_env_name():
+@app.route("/env_name_json", methods=["get", "post", "options"])
+def get_env_name_json():
 	dataIni = GetDataIni()
 	method = request.method.lower()
 	if method == "get":
 		param = request.args.get("envId")
 	else:
 		param = str(json.loads(request.get_data()).get("envId"))
+	if dataIni.cfgB.options("Env_name").__contains__(param):
+		env_name = eval(dataIni.normal_data("Env_name", param))[-1]
+		res = {"msg": True, "options": param, "env_name": env_name}
+	else:
+		res = {"msg": f"The <envId={param}> is invalid!"}
+	response = json.dumps(res, ensure_ascii=False)
+	return Response(response,  mimetype="application/json")
+
+
+@app.route("/env_name_url_form", methods=["get", "post", "options"])
+def get_env_name_url_form():
+	dataIni = GetDataIni()
+	method = request.method.lower()
+	if method == "get":
+		param = request.args.get("envId")
+	else:
+		param = str(request.form.get("envId"))
 	if dataIni.cfgB.options("Env_name").__contains__(param):
 		env_name = eval(dataIni.normal_data("Env_name", param))[-1]
 		res = {"msg": True, "options": param, "env_name": env_name}
