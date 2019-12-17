@@ -1,8 +1,8 @@
 {
   "ddxfapp":{
     "robot_data":{
-      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=f92c4b9a7b375e6172f54d0cd20559e32837b7fca166ddf1cdb4a013c6e425d0",
-      "mobile":["18652980686"]
+      "robot_url":"",
+      "mobile":[""]
     },
     "domain":{
       "test": "https://ddxf.fangdd.net",
@@ -59,9 +59,12 @@
         "nmoneyconfirmlist":"/api/trade/receipt/ticket?pageNo=1&pageSize=10&ticketStatus=1",
         "nmoneyconfirm":"/api/trade/receipt/ticket/status",
         "oticketcheck":"/api/trade/receipt/advance/ticket/approve",
+        "ouexpenselist1": "/api/trade/budget/18219/list?pageNo=1&pageSize=10&projectId=18219",
+        "ouexpenselist": "/api/trade/budget/15157/list?pageNo=1&pageSize=10&projectId=15157",
         "paxpensereferal": "/api/trade/budget/cost/expense/detail/36057",
+        "paxpensereferaltest" : "/api/trade/budget/cost/expense/detail/49701",
         "pexpensereferal":"/api/trade/cost/expense/referral/",
-        "qexpendlist":"/api/trade/cost/expense/referral?pageNo=1&pageSize=10",
+        "qexpendlist": "/api/trade/cost/expense/referral?pageNo=1&pageSize=10",
         "rexpenddetail": "/api/trade/cost/expense/referral/#expendId#",
         "sexpendcheck": "/api/trade/cost/expense/referral/approve",
         "texpendpayment": "/api/trade/cost/expense/payment/ticket",

@@ -154,4 +154,4 @@ if __name__ == '__main__':
 	# print(type(a))
 	# a = start("test_shopapp", "prod", "*login*")
 	# print(a)
-	start()
+	start("test_ddxfapp", "test")
