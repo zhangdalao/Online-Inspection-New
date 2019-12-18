@@ -2,6 +2,7 @@
 import requests
 from aliyunsdkcore.client import AcsClient
 from aliyunsdkdyvmsapi.request.v20170525.SingleCallByTtsRequest import SingleCallByTtsRequest
+from src.mainProgram.run import sss
 
 
 # 推送钉钉消息调用方法（消息内容@手机号，手机号）
@@ -21,7 +22,7 @@ def send_ding(robotUrl, mobile, content=None, runType=None):
 		robot_body = {
 			"msgtype": "text",
 			"text": {
-				"content": content
+				"content": f"【{sss['env_name']}】"+content
 			},
 			"at": {
 				"atMobiles": mobile,

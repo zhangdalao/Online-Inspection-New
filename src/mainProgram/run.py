@@ -41,6 +41,11 @@ def start(cases_dir=None, env=None, reg_str=None):
 		env = "prod"
 	sss["env"] = env
 	
+	# 配置文件实例化
+	get_INI = GetDataIni()
+	env_name = get_INI.normal_data("Env", env)
+	sss["env_name"] = env_name
+	
 	if not reg_str:
 		reg_str = "*test.py"
 	
@@ -80,8 +85,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 	
 	suites = unittest.defaultTestLoader.discover(start_dir=suites_dir, pattern=f'{reg_str}')
 	# # print(suite.countTestCases())
-	get_INI = GetDataIni()
-	env_name = get_INI.normal_data("Env", env)
+
 	Name = get_INI.normal_data("Name", project_name)
 	
 	# 脚本运行当前时间
@@ -110,7 +114,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 	# 根据第三方库 BeautifulReport 执行用例并生成报告
 	with open(reportDir + sep + reportFileName, "wb"):
 		beaRep = BeautifulReport(suites)
-		title = f'{Name}{env_name}环境自动化测试报告'
+		title = f'{Name}{env_name}自动化测试报告'
 		res = beaRep.report(filename=reportFileName, description=title,
 		                    report_dir=reportDir)
 		result_dict = beaRep.stopTestRun()
