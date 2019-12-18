@@ -2,7 +2,7 @@
 import requests
 from aliyunsdkcore.client import AcsClient
 from aliyunsdkdyvmsapi.request.v20170525.SingleCallByTtsRequest import SingleCallByTtsRequest
-from src.mainProgram.run import sss
+from src.common.runTest import sss
 
 
 # 推送钉钉消息调用方法（消息内容@手机号，手机号）
