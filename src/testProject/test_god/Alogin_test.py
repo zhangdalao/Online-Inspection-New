@@ -23,6 +23,9 @@ class LoginTest(RunTest):
     a = ReadData(project,"god")
     # 通过类名获取login模块名
     fieldname = sys._getframe().f_code.co_name[:-4]
+    json_dict = a.json_data[project]["robot_data"]
+    robot_url = json_dict["robot_url"]
+    mobile = json_dict["mobile"]
 
     @classmethod
     def setUpClass(cls):
