@@ -1,0 +1,35 @@
+{
+  "ddjj":{
+    "robot_data":{
+      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=9af5f411c795b125d1fac1f0c02aace5bca804f85832e73e3c51fd311df8d384",
+      "mobile":["18520585851"]
+    },
+    "domain":{
+      "test": "https://ddjj.fangdd.net",
+      "pre" : "https://ddjj.fangdd.com.cn",
+      "prod" : "https://ddjj.fangdd.com"
+    },
+    "Login":{
+        "ByPassword": "/user/login"
+      },
+    "commission": {
+        "aCommissionStatistic": "/saas/getCommissionStatistic",
+        "bcommissionorg": "/saas/getArmOrgList",
+        "cCommissionList": "/saas/factoring-queryxfCommissionList",
+        "dCommissionFactoringInfo": "/saas/factoring-queryxfCommissionFactoringInfo",
+        "exfProtocolList": "/saas/xfProtocolList",
+        "fxfProtocolInfo": "/saas/xfProtocolInfo",
+        "gReferralList": "/saas/searchReferralList",
+        "hGuideList": "/saas/searchGuideList",
+        "iOrderList": "/saas/searchOrderList",
+        "jAcountList": "/saas/getCommissionAcountList",
+        "kOperator": "/saas/getIsCommissionOperator",
+        "lProjectList": "/saas/getSettlementProjectList",
+        "mApplyProtocolUrl": "/saas/getApplyProtocolUrl",
+        "nSettlementList": "/saas/getSettlementList",
+        "oBankAcountList": "/saas/getSettlementBankAcountList",
+        "paddFastSettlement": "/saas/factoring-addFastSettlement",
+        "qFactoringCancel": "/saas/factoring-queryxfCommissionFactoringCancel"
+    }
+  }
+}
