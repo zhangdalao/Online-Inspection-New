@@ -1,8 +1,4 @@
-# -*- coding=utf-8 -*-
-# Author: Yuan Luo
-# @Date : 2019-09-23
-
-
+__author__ = 'fdd'
 import os
 import inspect
 from src.common.read_data import ReadData
@@ -10,19 +6,14 @@ import ddt
 import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
-from src.common.sms_code import *
-count = 0
 
+count = 0
+sss["Hostname"] = "shopapi.fangdd.com"
 
 @ddt.ddt
-class LoginTest(RunTest):
-    """登录商户系统"""
-
-    # 获取当前文件路径god
-    project = os.path.dirname(__file__)[-4:]
-    # 读取xls中god列
-    a = ReadData(project,"shop")
-    # 通过类名获取模块名
+class GetVersionTest(RunTest):
+    project = os.path.dirname(__file__)[-7:]
+    a = ReadData(project, project)
     fieldname = sys._getframe().f_code.co_name[:-4]
 
     @classmethod
@@ -37,6 +28,9 @@ class LoginTest(RunTest):
         cls.expect_num = cls.a.get_num_name("预期结果")
         cls.isSkip_num = cls.a.get_num_name("是否跳过该用例")
         cls.relateData_num = cls.a.get_num_name("接口关联参数")
+        t = time.time()
+        cls.timestamp = str(round(t * 1000))
+        sss["timestamp"] = cls.timestamp
 
     def setUp(self):
         globals()['count'] += 1
@@ -45,29 +39,33 @@ class LoginTest(RunTest):
     def tearDown(self):
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
-    @ddt.data(*a.get_data_by_api(fieldname, "LoginByPass"))
-    def test_LoginByPass(self, value):
-        self.apiName = (inspect.stack()[0][3])[5:]
-        # 获取测试环境参数
+    @ddt.data(*a.get_data_by_api(fieldname, "version"))
+    def test_version(self, value):
+        self.apiName = (inspect.stack()[0][3])[5:]  #表示读取列表中的第一个元素（字典元素)的第三个元素？？？？？但是第三个应该是 请求头啊
+        #  获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
-        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
-        # 调用接口发起请求
-        res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                         self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
-        print(res)
+        uri = self.a.get_apiPath(self.fieldname, self.apiName)
+        url = "https://shopapi.fangdd.com" + uri   #a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
+        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
         try:
+            host = self.a.get_domains()[env][8:]
+            sss["host"] = host
+
+            str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
+            value.append(str_sign_list)
+            # 调起请求
+            res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
+
             self.assertEqual(True, checkOut(self.res, self.expect))
-            sss["cookies"] = requests.utils.dict_from_cookiejar(res.cookies)
             self.logger.info("测试结果         :测试通过！")
         except Exception as err:
             self.logger.error("测试结果         :测试失败！")
             json_dict = self.a.json_data[self.project]["robot_data"]
             robot_url = json_dict["robot_url"]
             mobile = json_dict["mobile"]
-            send_ding(robot_url, mobile, content=f"登录异常，接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+            #send_ding(robot_url, mobile, content=f"测试失败！！！接口返回为：{err}, 接口预期结果为：{self.expect}")
             raise err
-
 
 if __name__ == '__main__':
     unittest.main()

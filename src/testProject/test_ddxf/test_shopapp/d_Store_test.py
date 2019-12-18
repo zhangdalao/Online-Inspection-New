@@ -15,12 +15,15 @@ count = 0
 
 
 @ddt.ddt
-class ManagerHomeTest(RunTest):
-    """项目经理工作台相关用例"""
+class StoreTest(RunTest):
+    """微信推盘相关用例"""
 
     project = os.path.dirname(__file__)[-7:]
     a = ReadData(project, project)
     fieldname = sys._getframe().f_code.co_name[:-4]
+    json_dict = a.json_data[project]["robot_data"]
+    robot_url = json_dict["robot_url"]
+    mobile = json_dict["mobile"]
 
     @classmethod
     def setUpClass(cls):
@@ -43,21 +46,23 @@ class ManagerHomeTest(RunTest):
         self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 
     def tearDown(self):
-        if self.result:
+        if self.result and type(self.result) != str:
             try:
                 self.assertEqual(True, checkOut(self.res, self.expect))
                 self.logger.debug("测试结果         :测试通过！")
             except Exception as err:
+                print(sss["env"])
                 self.logger.error("测试结果         :测试失败！")
-                json_dict = self.a.json_data[self.project]["robot_data"]
-                robot_url = json_dict["robot_url"]
-                mobile = json_dict["mobile"]
-                send_ding(robot_url, mobile, content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
+                send_ding(self.robot_url, self.mobile,
+                          content=f"【{sss['env']}环境】 {self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}")
                 raise err
+        elif self.result and type(self.result) == str:
+            send_ding(self.robot_url, self.mobile, content=f"【{sss['env']}】环境 {self.desc}测试失败！\n测试反馈:{self.result}")
+            raise Exception
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
-    @ddt.data(*a.get_data_by_api(fieldname, "CircleMes"))
-    def test_CircleMes(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "Detail"))
+    def test_Detail(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
@@ -73,8 +78,8 @@ class ManagerHomeTest(RunTest):
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
-    @ddt.data(*a.get_data_by_api(fieldname, "ManagerWorkTable"))
-    def test_ManagerWorkTable(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "Data"))
+    def test_Data(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
@@ -90,8 +95,8 @@ class ManagerHomeTest(RunTest):
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
-    @ddt.data(*a.get_data_by_api(fieldname, "AuditData"))
-    def test_AuditData(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "ProjectList"))
+    def test_ProjectList(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
@@ -107,8 +112,8 @@ class ManagerHomeTest(RunTest):
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
-    @ddt.data(*a.get_data_by_api(fieldname, "GuideCouponsList"))
-    def test_GuideCouponsList(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "EstateShare"))
+    def test_EstateShare(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
@@ -124,8 +129,8 @@ class ManagerHomeTest(RunTest):
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
-    @ddt.data(*a.get_data_by_api(fieldname, "OrderCouponList"))
-    def test_OrderCouponList(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "CouponShare"))
+    def test_CouponShare(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
@@ -141,8 +146,8 @@ class ManagerHomeTest(RunTest):
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
-    @ddt.data(*a.get_data_by_api(fieldname, "ShareCouponList"))
-    def test_ShareCouponList(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "PersonalInfoUpdate"))
+    def test_PersonalInfoUpdate(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
@@ -158,77 +163,8 @@ class ManagerHomeTest(RunTest):
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
-    @ddt.data(*a.get_data_by_api(fieldname, "CommissionsList"))
-    def test_CommissionsList(self, value):
-        # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
-        # 获取测试环境参数
-        env = value[self.env_num]
-        # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
-        # 调用接口发起请求
-        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
-                                 value, verify=False, timeout=10)
-
-    @ddt.data(*a.get_data_by_api(fieldname, "ReceiptList"))
-    def test_ReceiptList(self, value):
-        # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
-        # 获取测试环境参数
-        env = value[self.env_num]
-        # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
-        # 调用接口发起请求
-        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
-                                 value, verify=False, timeout=10)
-
-    @ddt.data(*a.get_data_by_api(fieldname, "CompanyData"))
-    def test_CompanyData(self, value):
-        # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
-        # 获取测试环境参数
-        env = value[self.env_num]
-        # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
-        # 调用接口发起请求
-        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
-                                 value, verify=False, timeout=10)
-
-    @ddt.data(*a.get_data_by_api(fieldname, "ReferralList"))
-    def test1_ReferralList(self, value):
-        # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[6:]
-        # 获取测试环境参数
-        env = value[self.env_num]
-        # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
-        # 调用接口发起请求
-        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
-                                 value, verify=False, timeout=10)
-        sss["referralIds"] = self.res['data']['pageData'][0]['referralId']
-
-    @ddt.data(*a.get_data_by_api(fieldname, "ReferralConfirm"))
-    def test2_ReferralConfirm(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "ProjectOptions"))
+    def test1_ProjectOptions(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
@@ -244,8 +180,8 @@ class ManagerHomeTest(RunTest):
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
-    @ddt.data(*a.get_data_by_api(fieldname, "CustomerDetail"))
-    def test3_CustomerDetail(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "ProjectAdd"))
+    def test2_ProjectAdd(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
@@ -261,26 +197,8 @@ class ManagerHomeTest(RunTest):
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
-    @ddt.data(*a.get_data_by_api(fieldname, "GuideList"))
-    def test1_GuideList(self, value):
-        # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[6:]
-        # 获取测试环境参数
-        env = value[self.env_num]
-        # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
-        # 调用接口发起请求
-        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
-                                 value, verify=False, timeout=10)
-        sss["guideId"] = self.res['data']['pageData'][0]['guideId']
-
-    @ddt.data(*a.get_data_by_api(fieldname, "GuideDetail"))
-    def test2_GuideDetail(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "ProjectEdit"))
+    def test3_ProjectEdit(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
@@ -296,14 +214,14 @@ class ManagerHomeTest(RunTest):
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
-    @ddt.data(*a.get_data_by_api(fieldname, "GuideConfirm"))
-    def test3_GuideConfirm(self, value):
+    @ddt.data(*a.get_data_by_api(fieldname, "ProjectDelete"))
+    def test4_ProjectDelete(self, value):
         # 通过函数名获取apiName参数的值
         self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
-        uri = self.a.get_apiPath(self.fieldname, self.apiName)+str(sss["guideId"])+"/confirm"
+        uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
         str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]

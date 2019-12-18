@@ -9,6 +9,7 @@ from src.common.runTest import *
 from src.common.dingDing import send_ding
 from src.common.read_data import ReadData
 import os, sys
+from src.common.support import *
 
 
 count = 0
@@ -41,6 +42,10 @@ class HomeTest(RunTest):
 		cls.expect_num = cls.a.get_num_name("预期结果")
 		cls.isSkip_num = cls.a.get_num_name("是否跳过该用例")
 		cls.relateData_num = cls.a.get_num_name("接口关联参数")
+		
+		sss["fddRole"] = "sf"
+		sss["sf_code"] = sss["fddRole"] + "-" + sss["ID_str"]
+		sss["date_str"] = getTime()
 
 	def setUp(self):
 		globals()['count'] += 1
@@ -163,6 +168,77 @@ class HomeTest(RunTest):
 		# 通过环境参数获得接口url
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+		
+	@ddt.data(*a.get_data_by_api(fieldname, "imAccount"))
+	def test_imAccount(self, value):
+		"""商服IM角色确认"""
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+		
+	@ddt.data(*a.get_data_by_api(fieldname, "agendaItemTodo"))
+	def test_agendaItemTodo(self, value):
+		"""首页待办日程及完成情况"""
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+		
+	@ddt.data(*a.get_data_by_api(fieldname, "metricCore"))
+	def test_metricCore(self, value):
+		"""首页日程指标及完成情况"""
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+		
+	@ddt.data(*a.get_data_by_api(fieldname, "undoTicket"))
+	def test_undoTicket(self, value):
+		"""待办工单总数"""
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		sss["cookies"]["userId"] = sss["ID_str"]
+		print("sss:", sss)
+		sss["cookies_str"] = ";".join(['{}={}'.format(*_) for _ in sss["cookies"].items()])
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+		
+	@ddt.data(*a.get_data_by_api(fieldname, "undoTicket"))
+	def test_undoTicket(self, value):
+		"""待办工单总数"""
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		sss["cookies"]["userId"] = sss["ID_str"]
+		print("sss:", sss)
+		sss["cookies_str"] = ";".join(['{}={}'.format(*_) for _ in sss["cookies"].items()])
 		# 调用接口发起请求
 		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)

@@ -1,5 +1,8 @@
 # coding=utf-8
 import requests
+from aliyunsdkcore.client import AcsClient
+from aliyunsdkdyvmsapi.request.v20170525.SingleCallByTtsRequest import SingleCallByTtsRequest
+from src.mainProgram.run import sss
 
 
 # 推送钉钉消息调用方法（消息内容@手机号，手机号）
@@ -19,7 +22,7 @@ def send_ding(robotUrl, mobile, content=None, runType=None):
 		robot_body = {
 			"msgtype": "text",
 			"text": {
-				"content": content
+				"content": f"【{sss['env_name']}】"+content
 			},
 			"at": {
 				"atMobiles": mobile,
@@ -75,11 +78,42 @@ def send_link(robot_url, result_path, tittle='测试报告', text='点击查看�
 		return False
 
 
+# 报警电话调用方法 (**慎用**只限于线上环境核心业务！！)
+def makeCall(phoneNum, env=None):
+	"""
+	:param phoneNum:        需要通知人的电话号码，必填参数  字符串格式
+	:param env:             环境，必须是线上环境才支持电话警告
+	:return:
+	"""
+	
+	if env == "prod" and phoneNum.isdigit() and len(phoneNum) == 11:
+		accessKeyId = "LTAI4FpbudWJvDGc1N9TZ5Q9"
+		accessSecret = "IbSPM3X2l6Ldq06rKy35NQVebQabYc"
+		
+		client = AcsClient(accessKeyId, accessSecret, 'cn-hangzhou')
+		
+		request = SingleCallByTtsRequest()
+		request.set_accept_format('json')
+		
+		request.set_CalledShowNumber("055162153901")
+		request.set_CalledNumber(phoneNum)
+		request.set_TtsCode("TTS_179160339")
+		
+		response = client.do_action_with_exception(request)
+		# python2:  print(response)
+		# print(str(response, encoding='utf-8'))
+		return str(response, encoding='utf-8')
+	else:
+		return "参数有误，报警电话暂只支持线上环境核心业务！"
+	
+
 if __name__ == '__main__':
 	
-	robot_url = 'https://oapi.dingtalk.com/robot/send?access_token=c41f688c4e87a482459697c9675d7a12dc6ebfbec9c242ccf' \
-				'2b498bcece2644a'
-	result_path = 'http://localhost:63342/api_automate_test/output/report/report_2019_09_11-17_14_43/2019_09_11-17_' \
-				  '14_43_result.html'
-	# print(send_ding(robot_url, ["18682236985", "17770035302", "15890608240"], "糟糕出错啦！"))
-	print(send_link(robot_url, result_path))
+	# robot_url = 'https://oapi.dingtalk.com/robot/send?access_token=c41f688c4e87a482459697c9675d7a12dc6ebfbec9c242ccf' \
+	# 			'2b498bcece2644a'
+	# result_path = 'http://localhost:63342/api_automate_test/output/report/report_2019_09_11-17_14_43/2019_09_11-17_' \
+	# 			  '14_43_result.html'
+	# # print(send_ding(robot_url, ["18682236985", "17770035302", "15890608240"], "糟糕出错啦！"))
+	# print(send_link(robot_url, result_path))
+	res = makeCall("18682236985", "prod")
+	print(res)

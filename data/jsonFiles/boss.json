@@ -15,29 +15,29 @@
     "commission":{
         "commissionReport": "/boss/data/boss-commissionReport",
         "commissionorg": "/boss/data/commission-org",
-        "commissionDetail": "/boss/data/commission-commissionDetail?orgDptId=80097657&orgDptType=1",
-        "commissionorderList": "/boss/data/commission-orderList?pageNo=1&pageSize=20&orgDptId=80097657&orgDptType=1",
+        "commissionDetail": "/boss/data/commission-commissionDetail",
+        "commissionorderList": "/boss/data/commission-orderList",
         "commission_agreementList": "/boss/data/commission-agreementList",
-        "commission_agreement": "/boss/data/commission-agreementInfo?agreementSignId=9271",
+        "commission_agreement": "/boss/data/commission-agreementInfo",
         "commission_givebackCarrier": "/boss/data/commission-givebackCarrier",
         "commissionorderlnfo": "/boss/data/commission-orderInfo",
-        "commissionList": "/boss/data/commission-commissionList?pageNo=1&pageSize=20&dptId=80097657&dptType=1&commissionApplyStatus=0",
+        "commissionList": "/boss/data/commission-commissionList",
         "commissionStoreList": "/boss/data/commission-commissionStoreList",
-        "commissionBranch": "/boss/data/commission-commissionBranch?dptId=80118432&dptType=3",
-        "commissionDeal": "/boss/data/commission-commissionDeal?pageNo=1&pageSize=20&branchId=3&dptId=80118432&dptType=3",
-        "commissionAccountList": "/boss/data/commission-commissionAccountList?dptId=80118432&dptType=3",
+        "commissionBranch": "/boss/data/commission-commissionBranch",
+        "commissionDeal": "/boss/data/commission-commissionDeal",
+        "commissionAccountList": "/boss/data/commission-commissionAccountList",
         "commissionApply": "/boss/data/commission-commissionApply",
-        "commissionInfo": "/boss/data/commission-commissionInfo?has_commissionId=1e0f99e83b4af8d8b809bd2e1920505e",
+        "commissionInfo": "/boss/data/commission-commissionInfo",
         "commissionCancel": "/boss/data/commission-commissionCancel"
     },
     "dataBoard": {
-        "dataBoardStatistic": "/boss/data/dataBoard-businessTypeStatistic?dptId=80097657&dptType=1&businessType=0&startDate=2019-05-01&endDate=2019-07-31",
-        "dataBoardDailyStatistic": "/boss/data/dataBoard-businessTypeDailyStatistic?dptType=1&dptId=80097657&businessType=0&startDate=2019-05-01&endDate=2019-07-31",
-        "dataBoardRank": "/boss/data/dataBoard-businessTypeRank?dptType=1&dptId=80097657&businessType=0&sortObject=0&pageNo=1&pageSize=10&startDate=2019-05-01&endDate=2019-07-31",
-        "preparereferralList": "/boss/data/prepare-preparereferralList?dptType=1&dptId=80097657&pageNo=1&pageSize=20&startDate=2019-05-01&endDate=2019-07-31",
-        "prepareGuidList": "/boss/data/prepare-prepareGuidList?dptType=1&dptId=80097657&startDate=2019-05-01&endDate=2019-07-31&pageNo=1&pageSize=20",
-        "prepareOrderList": "/boss/data/prepare-prepareOrderList?dptType=1&dptId=80097657&purchaseDateStart=1556640000000&purchaseDateEnd=1564502400000&pageNo=1&pageSize=20&receivableConfirmationFlag=false",
-        "prepareDtail": "/boss/data/prepare-prepareDtail?triangleId=9182856"
+        "dataBoardStatistic": "/boss/data/dataBoard-businessTypeStatistic",
+        "dataBoardDailyStatistic": "/boss/data/dataBoard-businessTypeDailyStatistic",
+        "dataBoardRank": "/boss/data/dataBoard-businessTypeRank",
+        "preparereferralList": "/boss/data/prepare-preparereferralList",
+        "prepareGuidList": "/boss/data/prepare-prepareGuidList",
+        "prepareOrderList": "/boss/data/prepare-prepareOrderList",
+        "prepareDtail": "/boss/data/prepare-prepareDtail"
 
     }
   }

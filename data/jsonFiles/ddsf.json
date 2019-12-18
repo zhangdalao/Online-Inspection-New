@@ -22,8 +22,19 @@
       "CityList": "/ioux/queryCityList",
       "fetchSurveyCity": "/data/fetchSurveyCity",
       "homeSurveyCount": "/data/homeSurveyCount",
-      "getUsers": "/data/getUsers"
+      "getUsers": "/data/getUsers",
+      "imAccount": "/data/imAccount",
+      "agendaItemTodo": "/data/agendaItemTodo",
+      "agendaPlan": "/data/agendaPlan",
+      "metricCore":"/data/metricCore",
+      "undoTicket": "/data/undoTicket"
     },
+    "Visit":{
+      "searchNearbyStore":"/data/searchNearbyStore",
+      "groupSearch":"/data/groupSearch",
+      "RecordPage":"/data/listVisitRecordPage"
+    },
+
     "Store":{
       "StoreList":"/data/getStoreList",
       "OrgStore":"/data/getOrgStoreResource",
@@ -67,16 +78,12 @@
       "AchievementList":"/ioux/getAchievementList"
     },
     "Orders":{
-      "orders": "/api/orders",
-      "contract":"/api/contract",
-      "contract-operate-logs":""
+      "workOrdersList":"/data/getWorkOrderList",
+      "disposeWorkOrder":"/data/disposeWorkOrder"
     },
     "Clues":{
       "getStoreClueList":"/data/getStoreClueList",
       "getStoreClueDetail":"/data/getStoreClueDetail"
-    },
-    "VisitRecord":{
-      "RecordPage":"/data/listVisitRecordPage"
     },
     "MapSource":{
       "CityDistrict":"/data/getCityDistrictInfoList",

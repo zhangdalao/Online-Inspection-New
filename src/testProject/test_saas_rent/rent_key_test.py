@@ -27,7 +27,10 @@ class Rent_keyTest(RunTest):
 	a = ReadData(project,'saas_rent')
 	# 通过类名获取fieldname的值
 	fieldname = sys._getframe().f_code.co_name[:-4]
-	# print(fieldname)
+	# 获取项目名后，获取机器人相关配置
+	json_dict = a.json_data[project]["robot_data"]
+	robot_url = json_dict["robot_url"]
+	mobile = json_dict["mobile"]
 
 	@classmethod
 	def setUpClass(cls):
@@ -49,6 +52,18 @@ class Rent_keyTest(RunTest):
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
 
 	def tearDown(self):
+		if self.result and type(self.result) != str:
+			try:
+				self.assertEqual(True, checkOut(self.res, self.expect))
+				self.logger.debug("测试结果         :测试通过！")
+			except Exception as err:
+				self.logger.error("测试结果         :测试失败！")
+				send_ding(self.robot_url, self.mobile,
+				          content=f"【{sss['env']}】{self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}")
+				raise err
+		elif self.result and type(self.result) == str:
+			send_ding(self.robot_url, self.mobile, content=f"【{sss['env']}】{self.desc}测试失败！\n测试反馈:{self.result}")
+			raise Exception
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
 	@ddt.data(*a.get_data_by_api(fieldname, "add_rent_key"))  #接口对应的名称
@@ -60,22 +75,11 @@ class Rent_keyTest(RunTest):
 		# 通过环境参数获得接口url
 		url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
 		# 调用接口发起请求
-		res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 		                    self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,cookies=self.cookie_txt)
 		sss["ID6"] = str(sss["ID6"])
-		try:
-			self.assertEqual(True, checkOut(self.res, self.expect))
-			sss["restful"] = json.dumps({"keyId": sss["ID6"]})
-			c= type(sss["restful"])
-			# print('类型为：',c)
-			self.logger.info("测试结果         :测试通过！")
-		except Exception as err:
-			self.logger.error("测试结果         :测试失败！")
-			json_dict = self.a.json_data[self.project]["robot_data"]
-			robot_url = json_dict["robot_url"]
-			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"添加钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
-			raise err
+		sss["restful"] = json.dumps({"keyId": sss["ID6"]})
+
 
 	@ddt.data(*a.get_data_by_api(fieldname, "borrow_rent_key"))  # 接口对应的名称
 	def test_02_borrow_rent_key(self, value):
@@ -86,19 +90,10 @@ class Rent_keyTest(RunTest):
 		# 通过环境参数获得接口url
 		url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
 		# 调用接口发起请求
-		res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 						 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
 						 cookies=self.cookie_txt)
-		try:
-			self.assertEqual(True, checkOut(self.res, self.expect))
-			self.logger.info("测试结果         :测试通过！")
-		except Exception as err:
-			self.logger.error("测试结果         :测试失败！")
-			json_dict = self.a.json_data[self.project]["robot_data"]
-			robot_url = json_dict["robot_url"]
-			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"借用钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
-			raise err
+
 
 	@ddt.data(*a.get_data_by_api(fieldname, "return_rent_key"))  # 接口对应的名称
 	def test_03_return_rent_key(self, value):
@@ -109,19 +104,10 @@ class Rent_keyTest(RunTest):
 		# 通过环境参数获得接口url
 		url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
 		# 调用接口发起请求
-		res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 						 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
 						 cookies=self.cookie_txt)
-		try:
-			self.assertEqual(True, checkOut(self.res, self.expect))
-			self.logger.info("测试结果         :测试通过！")
-		except Exception as err:
-			self.logger.error("测试结果         :测试失败！")
-			json_dict = self.a.json_data[self.project]["robot_data"]
-			robot_url = json_dict["robot_url"]
-			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"归还钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
-			raise err
+
 
 	@ddt.data(*a.get_data_by_api(fieldname, "edit_rent_key_info"))  # 接口对应的名称
 	def test_04_edit_rent_key_info(self, value):
@@ -132,19 +118,10 @@ class Rent_keyTest(RunTest):
 		# 通过环境参数获得接口url
 		url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
 		# 调用接口发起请求
-		res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 						 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
 						 cookies=self.cookie_txt)
-		try:
-			self.assertEqual(True, checkOut(self.res, self.expect))
-			self.logger.info("测试结果         :测试通过！")
-		except Exception as err:
-			self.logger.error("测试结果         :测试失败！")
-			json_dict = self.a.json_data[self.project]["robot_data"]
-			robot_url = json_dict["robot_url"]
-			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"编辑钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
-			raise err
+
 
 	@ddt.data(*a.get_data_by_api(fieldname, "cancel_rent_key"))  # 接口对应的名称
 	def test_05_cancel_rent_key(self, value):
@@ -155,19 +132,10 @@ class Rent_keyTest(RunTest):
 		# 通过环境参数获得接口url
 		url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
 		# 调用接口发起请求
-		res = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 						 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
 						 cookies=self.cookie_txt)
-		try:
-			self.assertEqual(True, checkOut(self.res, self.expect))
-			self.logger.info("测试结果         :测试通过！")
-		except Exception as err:
-			self.logger.error("测试结果         :测试失败！")
-			json_dict = self.a.json_data[self.project]["robot_data"]
-			robot_url = json_dict["robot_url"]
-			mobile = json_dict["mobile"]
-			send_ding(robot_url, mobile, content=f"注销钥匙异常！接口返回为：{res}, 接口预期结果为：{self.expect}")
-			raise err
+
 
 if __name__ == '__main__':
 	unittest.main()

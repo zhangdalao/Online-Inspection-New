@@ -77,6 +77,8 @@ class LoginTest(RunTest):
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 		if self.res["code"] == 200:
 			sss["cookies"] = requests.utils.dict_from_cookiejar(self.result.cookies)
+			# print(sss["cookies"])
+			sss["ID_str"] = str(sss["ID"])
 		
 	@ddt.data(*a.get_data_by_api(fieldname, "ByVerifyCode"))
 	def test_ByVerifyCode(self, value):
