@@ -16,9 +16,11 @@ def send_ding(robotUrl, mobile, content=None, runType=None):
 	"""
 	if robotUrl and content and mobile:
 		# 巡检测试组机器人地址
-		robot = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa145342159f8fd0065fc4'
+		robot = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa14534' \
+		        '2159f8fd0065fc4'
 		# 调试群机器人
-		robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=06fc833f73ad232ce00e5e2ee3d63ec299d72fd19fed82245cd6b083938f1616'
+		robot_test = 'https://oapi.dingtalk.com/robot/send?access_token=06fc833f73ad232ce00e5e2ee3d63ec299d72fd19fed' \
+		             '82245cd6b083938f1616'
 		robot_body = {
 			"msgtype": "text",
 			"text": {
