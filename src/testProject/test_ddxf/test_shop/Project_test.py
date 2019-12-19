@@ -230,9 +230,9 @@ class ProjectTest(RunTest):
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
 
     @ddt.data(*a.get_data_by_api(fieldname, "AttachmentAdd"))
-    def test_AttachmentAdd(self, value):
+    def test1_AttachmentAdd(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -242,9 +242,9 @@ class ProjectTest(RunTest):
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=sss["cookies"], verify=False)
 
     @ddt.data(*a.get_data_by_api(fieldname, "ProAttachmentList"))
-    def test_ProAttachmentList(self, value):
+    def test2_ProAttachmentList(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
@@ -255,9 +255,9 @@ class ProjectTest(RunTest):
         sss["attachmentId"] = self.res['data'][0]['attachmentId']
 
     @ddt.data(*a.get_data_by_api(fieldname, "AttachmentRemove"))
-    def test_AttachmentRemove(self, value):
+    def test3_AttachmentRemove(self, value):
         # 通过函数名获取apiName参数的值
-        self.apiName = (inspect.stack()[0][3])[5:]
+        self.apiName = (inspect.stack()[0][3])[6:]
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
