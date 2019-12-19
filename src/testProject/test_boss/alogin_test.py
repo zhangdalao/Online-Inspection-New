@@ -45,6 +45,8 @@ class LoginTest(RunTest):
         t = time.time()
         cls.timestamp = str(round(t * 1000))
         sss["timestamp"] = cls.timestamp
+        dir_name = os.path.dirname(__file__)
+        cls.txt_path = os.path.join(dir_name, 'commission.txt')
 
     def setUp(self):
         globals()['count'] += 1
@@ -81,7 +83,7 @@ class LoginTest(RunTest):
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
                             self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
         cookies = requests.utils.dict_from_cookiejar(self.result.cookies)
-        with open('commission.txt', 'w', encoding='utf-8') as f:
+        with open(self.txt_path, 'w', encoding='utf-8') as f:
             f.write('deviceId=' + cookies['deviceId'] + '; userId=' + cookies['userId'] + '; FENXIAO-SESSION-TOKEN=' +
                     cookies['FENXIAO-SESSION-TOKEN'] + '\n')
 
