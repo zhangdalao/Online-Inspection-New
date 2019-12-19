@@ -1,7 +1,7 @@
 {
   "sybb":{
     "robot_data":{
-    "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=06fc833f73ad232ce00e5e2ee3d63ec299d72fd19fed82245cd6b083938f1616",
+    "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=ceba4e3d684f63c6faa06d4e196b71cc78d2bd25181c0335e6e2db0756e81fa5",
     "mobile":["13682521706"]
     },
     "domain":{
@@ -15,66 +15,50 @@
       },
     "Factoring":{
       "Changechannel": "/jgj/api/factoring/changeOrderChannel",
-      "OrderList":"/jgj/api/factoring/queryInitialOrderList?pageIndex=1&pageSize=10&orderId=1777557&merchantIdList%5B%5D=3",
-      "OrderStatus0":"/jgj/api/factoring/queryInitialOrderList?pageIndex=1&pageSize=10&auditStatus=0&merchantIdList%5B%5D=3",
-      "OrderStatus2":"/jgj/api/factoring/queryInitialOrderList?pageIndex=1&pageSize=10&auditStatus=2&merchantIdList%5B%5D=3",
-      "OrderStatus4":"/jgj/api/factoring/queryInitialOrderList?pageIndex=1&pageSize=10&auditStatus=4&merchantIdList%5B%5D=3",
-      "Orderproject":"/jgj/api/factoring/queryInitialOrderList?pageIndex=1&pageSize=10&orderId=&projectId=18219&merchantIdList%5B%5D=3",
-      "Ordersummary":"/jgj/api/factoring/getOrderAuditSummary?pageIndex=1&pageSize=10&merchantIdList%5B%5D=3",
-      "OrderManage":"/jgj/api/factoring/queryInitialOrderList?pageIndex=1&pageSize=10&merchantIdList%5B%5D=3&factoringStatusList%5B%5D=0&auditStatus=4",
-      "OrderchannelId":"/jgj/api/factoring/queryInitialOrderList?pageIndex=1&pageSize=10&merchantIdList%5B%5D=3&channelId=0&auditStatus=4",
-      "Orderid":"/jgj/api/factoring/queryInitialOrderList?pageIndex=1&pageSize=10&merchantIdList%5B%5D=3&orderId=1777557&auditStatus=4",
-      "OrderprogramId":"/jgj/api/factoring/queryInitialOrderList?pageIndex=1&pageSize=10&merchantIdList%5B%5D=3&programId=2332120&auditStatus=4",
-      "OrderInfo":"/jgj/api/factoring/getCommissionOrderInfo/1777557/2332120",
-      "HouseInfo":"/jgj/api/factoring/getCommissionHouseInfo/1777557/2332120",
-      "AgentInfo":"/jgj/api/factoring/getCommissionAgentInfo/1777557/2332120",
-      "AttachmentInfo":"/jgj/api/factoring/getCommissionAttachmentInfo?programId=2332120",
-      "OrderLogs":"/jgj/api/factoring/getCommissionOrderLogs/2332120",
-      "ProjectInfo":"/jgj/api/factoring/getProjectInfo/18219",
-      "ProjectRepayPlan":"/jgj/api/factoring/getCommissionProjectRepayPlan/18219/2332120",
-      "StoreQuota":"/jgj/api/factoring/queryStoreQuota/80173243",
-      "ProjectApplyInfo":"/jgj/api/factoring/getProjectApplyInfo/1528"
+      "1_OrderList":"/jgj/api/factoring/queryInitialOrderList",
+      "Ordersummary":"/jgj/api/factoring/getOrderAuditSummary",
+      "OrderManage":"/jgj/api/factoring/queryInitialOrderList",
+      "OrderprogramId":"/jgj/api/factoring/queryInitialOrderList",
+      "2_OrderInfo":"/jgj/api/factoring/getCommissionOrderInfo/#orderId#/#programId#",
+      "HouseInfo":"/jgj/api/factoring/getCommissionHouseInfo/#orderId#/#programId#",
+      "AgentInfo":"/jgj/api/factoring/getCommissionAgentInfo/#orderId#/#programId#",
+      "AttachmentInfo":"/jgj/api/factoring/getCommissionAttachmentInfo",
+      "OrderLogs":"/jgj/api/factoring/getCommissionOrderLogs/#programId#",
+      "ProjectInfo":"/jgj/api/factoring/getProjectInfo/#projectId#",
+      "3_ProjectRepayPlan":"/jgj/api/factoring/getCommissionProjectRepayPlan/#projectId#/#programId#",
+      "ProjectApplyInfo":"/jgj/api/factoring/getProjectApplyInfo/#projectApplyId#"
       },
     "Project":{
-      "ProjectList": "/jgj/api/factoring/getProjectApplyList?pageIndex=1&pageSize=10&merchantIdList%5B%5D=3",
+      "1_ProjectList": "/jgj/api/factoring/getProjectApplyList",
       "ProjecEdit":"/jgj/api/factoring/patchProjectFinanceEdit",
-      "Projectname":"/jgj/api/factoring/getProjectApplyList?pageIndex=1&pageSize=10&houseName=%E4%B8%AD%E9%93%81%E4%B8%96%E7%BA%AA%E6%98%A5%E5%9F%8E&merchantIdList%5B%5D=3",
-      "Projectstatus3":"/jgj/api/factoring/getProjectApplyList?pageIndex=1&pageSize=10&auditStatus=3&merchantIdList%5B%5D=3",
-      "Projectstatus4":"/jgj/api/factoring/getProjectApplyList?pageIndex=1&pageSize=10&auditStatus=4&merchantIdList%5B%5D=3",
-      "ProjectAudited":"/jgj/api/factoring/getProjectApplyAuditedList?pageIndex=1&pageSize=10&merchantIdList%5B%5D=3",
-      "Projectcity":"/jgj/api/factoring/getProjectApplyAuditedList?pageIndex=1&pageSize=10&houseCityId=10204&merchantIdList%5B%5D=3",
-      "ProjectInfo":"/jgj/api/factoring/getProjectApplyInfo/1291",
-      "ProjectBalance":"/jgj/api/factoring/getProjectBalanceRuleList/18219",
-      "ProjectAttachment":"/jgj/api/factoring/getProjectAttachment/18219",
-      "ProjectCommission":"/jgj/api/factoring/getProjectCommissionInfo/1291",
-      "ProjectLogs":"/jgj/api/factoring/getProjectLogs/1291",
-      "Projectdeveloper":"/jgj/api/factoring/getProjectInfo/18219"
-      },
-    "BalanceRule":{
-      "BalanceRuleList": "/jgj/api/factoring/getBalanceRuleList?pageIndex=1&pageSize=10&houseName=%E4%B8%AD%E9%93%81%E4%B8%96%E7%BA%AA%E6%98%A5%E5%9F%8E&merchantIdList%5B%5D=3",
-      "BalanceRuleEdit":"/jgj/api/factoring/patchBalanceRuleEdit"
+      "ProjectAudited":"/jgj/api/factoring/getProjectApplyAuditedList",
+      "ProjectInfo":"/jgj/api/factoring/getProjectApplyInfo/#applyId#",
+      "ProjectBalance":"/jgj/api/factoring/getProjectBalanceRuleList/#projectId#",
+      "ProjectAttachment":"/jgj/api/factoring/getProjectAttachment/#projectId#",
+      "ProjectCommission":"/jgj/api/factoring/getProjectCommissionInfo/#applyId#",
+      "ProjectLogs":"/jgj/api/factoring/getProjectLogs/#applyId#",
+      "Projectdeveloper":"/jgj/api/factoring/getProjectInfo/#projectId#"
       },
     "Store":{
       "StoreAuditing": "/jgj/api/factoring/queryStoreAuditing?auditStatus=0&pageIndex=1",
       "StoreAudited":"/jgj/api/factoring/queryStoreAudited?enterpriseName=80173243&pageIndex=1"
       },
     "Loan":{
-      "LoanOrderList": "/jgj/api/factoring/queryLoanOrderList?channelId=4&developerRepayStatus=0&merchantIdList%5B%5D=3",
-      "exportOrdersExcel":"/jgj/api/factoring/exportOrdersExcel?businessOrderId=1740385&merchantIdList%5B%5D=3",
-      "merchantIdList":"/jgj/api/factoring/queryCharges?repayServiceChargeStatus=0&pageIndex=1&merchantIdList%5B%5D=3",
-      "RepayList":"/jgj/api/factoring/getCommissionRepayList?pageIndex=1&pageSize=10&repayStatus=0&merchantIdList%5B%5D=3"
+      "LoanOrderList": "/jgj/api/factoring/queryLoanOrderList",
+      "merchantIdList":"/jgj/api/factoring/queryCharges",
+      "RepayList":"/jgj/api/factoring/getCommissionRepayList"
       },
     "RepayBills":{
-      "RepayBills": "/jgj/api/factoring/queryRepayBills?pageIndex=1&pageSize=10&payerIdList%5B%5D=3"
+      "RepayBills": "/jgj/api/factoring/queryRepayBills"
       },
     "Payments":{
-      "Payments": "/jgj/api/payments/queryPayments?pageIndex=1&pageSize=10&merchantIdList%5B%5D=3&paymentStatus=0&bizBillTypeList%5B%5D=1"
+      "Payments": "/jgj/api/payments/queryPayments"
       },
     "Report": {
-      "HouseRepayDetail": "/jgj/api/factoring/getHouseHistoryRepayDetailBySubscribeTime?year=2019&houseId=53239",
-      "HouseRepayAnalysis": "/jgj/api/factoring/getHouseHistoryRepayAnalysis?year=2019&houseId=53239",
-      "CityRepayDetail": "/jgj/api/factoring/getCityHistoryRepayDetailBySubscribeTime?year=2019&cityId=2475",
-      "CityRepayAnalysis": "/jgj/api/factoring/getCityHistoryRepayAnalysis?year=2019&cityId=2475"
+      "HouseRepayDetail": "/jgj/api/factoring/getHouseHistoryRepayDetailBySubscribeTime",
+      "HouseRepayAnalysis": "/jgj/api/factoring/getHouseHistoryRepayAnalysis",
+      "CityRepayDetail": "/jgj/api/factoring/getCityHistoryRepayDetailBySubscribeTime",
+      "CityRepayAnalysis": "/jgj/api/factoring/getCityHistoryRepayAnalysis"
     }
   }
 }
