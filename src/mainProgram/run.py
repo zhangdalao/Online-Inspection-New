@@ -156,6 +156,6 @@ if __name__ == '__main__':
 	# a = get_cases("test_ddsf", "prod", "aa_logi*")
 	# print(dir(a))
 	# print(type(a))
-	# a = start("test_shopapp", "prod", "*login*")
+	start("test_shop", "prod")
 	# print(a)
-	start()
+	# start()
