@@ -38,7 +38,7 @@
       "List":"/ddxf/project?dataType=3&date=1561910400000&onlineStatus=2&pageNo=0&pageSize=5&sortOrder=3",
       "SearchProject": "/app/projectoperation/projectManager/projectList?pageNo=0&pageSize=6&searchKey=%E4%B8%AD%E9%93%81",
       "Detail":"/ddxf/project/22987",
-      "WechatGroup":"/app/personal/ddxf/project/22987/wechatGroup/validWcg",
+      "WechatGroup":"/app/personal/ddxf/project/22987/wechatGroup/",
       "Wechat":"/app/personal/ddxf/project/22987/wechatGroup/list",
       "WechatEdit":"/app/personal/ddxf/project/22987/wechatGroup/",
       "WechatRemove":"/app/personal/ddxf/project/22987/wechatGroup/",
