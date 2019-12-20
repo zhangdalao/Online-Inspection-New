@@ -12,7 +12,7 @@ def configure_celery(app):
     celery.conf.beat_schedule = {
         'online-inspection': {
             'task': 'src.mainProgram.run.start',
-            'schedule': crontab(minute=30)
+            'schedule': crontab(minute=30, hour='6-23')
         },
     }
     celery.conf.ONCE = {
