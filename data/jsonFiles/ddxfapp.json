@@ -94,9 +94,14 @@
          "quserlist":"/api/boai/boai/user/users?orgId=3&orgType=2&pageNo=1&pageSize=10"
     },
     "Project":{
-          "auserlist":"/api/boai/boai/user/project/configs?projectId=10636&pageNo=1&pageSize=20"
+          "auserlist":"/api/boai/boai/user/project/configs?projectId=10636&pageNo=1&pageSize=20",
+          "buserisorno":"/api/boai/boai/user/org/project/team/users?accountName=19924519340&projectId=10636",
+          "cadduser": "/api/boai/boai/user/project/config/",
+          "dgitup": "/api/boai/boai/user/project/config?userId=6760821&projectId=10636",
+          "ebugetlist": "/api/trade/budget/10636/list"
     },
     "Check":{
+          "arefund": "/app/trade/refund-developer",
           "auditchange":"/app/ddxf/work/audit"
     },
     "Income":{
