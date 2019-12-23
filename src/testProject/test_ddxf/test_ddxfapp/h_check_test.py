@@ -53,6 +53,25 @@ class CheckTest(RunTest):
                 raise err
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
+    @ddt.data(*a.get_data_by_api(fieldname, "arefund"))
+    def test_arefund(self, value):
+        self.desc = value[self.desc_num]
+        self.apiName = (inspect.stack()[0][3])[5:]
+        env = value[self.env_num]
+
+        uri = self.a.get_apiPath(self.fieldname, self.apiName)
+        url = self.a.get_domains()[env] + uri
+        str_sign_list = [str(sss["userId"]), str(sss["token"]), self.timestamp, value[self.method_num].upper(), uri]
+        # print(str_sign_list)
+        value.append(str_sign_list)
+        # print(value)
+        sss["version"] = sss["versionName"][1:]
+        # # # 调起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+                                 self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value)
+
     @ddt.data(*a.get_data_by_api(fieldname, "auditchange"))
     def test_auditchange(self, value):
         self.desc = value[self.desc_num]
