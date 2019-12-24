@@ -13,7 +13,8 @@
       "version":"/ddxf/app/upgrade?appId=com.fangdd.ddxf&platform=1"
     },
     "Login":{
-       "ByPassword":"/boai/boai/user/login"
+       "ByPassword":"/boai/boai/user/login",
+        "H5Login": "/h5/data/user-loginapp"
     },
     "ManagerHome":{
       "CircleMes":"/ddxf/house/circle/message?houseId=0&pageNo=0&pageSize=10&type=2",
@@ -146,17 +147,23 @@
     "H5":{
       "StoreRange":"/h5/data/operation-storeRange",
       "LayoutList":"/h5/data/project-layoutList?projectId=22987",
-      "LayoutDetail":"/h5/data/project-layoutDetail?layoutId=544429",
+      "LayoutDetail":"/h5/data/project-layoutDetail?layoutId=",
       "LayoutEdit":"/h5/data/project-updateLayout",
-      "QuantityDtail":"/h5/data/project-quantityDetail",
-      "QuantityEdit":"/h5/data/project-updateQuantity",
+      "QuantityDtail":"/h5/data/projectQuantityDetail",
+      "QuantityEdit":"/h5/data/projectUpdateQuantity",
       "ClueList":"/h5/data/clue-queryMerchantClueList?pageNo=1&pageSize=10",
       "ClueAdd":"/h5/data/clue-addClue",
       "ClueOperationData":"/h5/data/clue-operationData?estateId=2029540&projectId=22987&dateType=1&startTime=2019-10-09+00:00:00&endTime=2019-10-09+23:59:59",
-      "ClueRealtorDayList":"h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=1&startTime=2019-10-09+00:00:00&endTime=2019-10-09+23:59:59&sortType=1&pageNo=1&pageSize=10",
-      "ClueRealtorWeekList":"/h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=2&startTime=2019-10-07+00:00:00&endTime=2019-10-13+23:59:59&sortType=1&pageNo=1&pageSize=10",
-      "ClueRealtorMonList":"/h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=3&startTime=2019-10-01+00:00:00&endTime=2019-10-31+23:59:59&sortType=1&pageNo=1&pageSize=10",
-      "AddRealtorRecord":"/h5/data/clue-addRealtorRecord"
+      "ClueRealtorDayList":"/h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=1&pageSize=10&pageNo=1&startTime=2019-12-24+00:00:00&endTime=2019-12-24+23:59:59&sortType=2",
+      "ClueRealtorWeekList":"/h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=2&pageSize=10&pageNo=1&startTime=2019-12-23+00:00:00&endTime=2019-12-29+23:59:59&sortType=2",
+      "ClueRealtorMonList":"/h5/data/clue-getRealtorList?estateId=2029540&projectId=22987&dateType=3&pageSize=10&pageNo=1&startTime=2019-12-01+00:00:00&endTime=2019-12-31+23:59:59&sortType=2",
+      "AddRealtorRecord":"/h5/data/clue-addRealtorRecord",
+      "TotalStatistics": "/h5/data/getTotalStatistics?estateId=2029540&dateType=3&startTime=2019-06-24+00:00:00&endTime=2019-12-24+23:59:59",
+      "StoreMonList": "/h5/data/clue-getStoreList?estateId=2029540&dateType=3&startTime=2019-12-01+00:00:00&endTime=2019-12-31+23:59:59&sortType=1&pageNo=1&pageSize=10",
+      "StoreWeekList": "/h5/data/clue-getStoreList?estateId=2029540&dateType=2&startTime=2019-12-23+00:00:00&endTime=2019-12-29+23:59:59&sortType=1&pageNo=1&pageSize=10",
+      "StoreDayList": "/h5/data/clue-getStoreList?estateId=2029540&dateType=1&startTime=2019-12-24+00:00:00&endTime=2019-12-24+23:59:59&sortType=1&pageNo=1&pageSize=10",
+      "StoreDetail":"/h5/data/storeInfo?estateId=2029540&projectId=22987&storeId=80545140&dateType=3&startTime=2019-12-01+00:00:00&endTime=2019-12-31+23:59:59",
+      "StoreDetailData":"/h5/data/getStatistics?estateId=2029540&projectId=22987&storeId=80545140&dateType=3&startTime=2019-06-24+00:00:00&endTime=2019-12-24+23:59:59"
     },
     "IM":{
       "UnreadNumber":"/app/ddxf/user/reddot/unread",
