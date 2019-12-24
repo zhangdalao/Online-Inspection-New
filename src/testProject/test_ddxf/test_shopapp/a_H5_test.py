@@ -86,6 +86,9 @@ class H5Test(RunTest):
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
+        sss["layoutId"]=self.res['data'][0]['layoutId']
+        sss["layoutName"]=self.res['data'][0]['layoutName']
+        sss["sequenceNo"] = self.res['data'][0]['sequenceNo']
 
     @ddt.data(*a.get_data_by_api(fieldname, "LayoutDetail"))
     def test2_LayoutDetail(self, value):
@@ -94,7 +97,7 @@ class H5Test(RunTest):
         # 获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
-        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)+str(sss["layoutId"])
         # 调用接口发起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
@@ -230,6 +233,80 @@ class H5Test(RunTest):
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
                                  value, verify=False, timeout=10)
 
+    @ddt.data(*a.get_data_by_api(fieldname, "TotalStatistics"))
+    def test_TotalStatistics(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
 
-if __name__ == '__main__':
-    unittest.main()
+    @ddt.data(*a.get_data_by_api(fieldname, "StoreMonList"))
+    def test_StoreMonList(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
+
+    @ddt.data(*a.get_data_by_api(fieldname, "StoreWeekList"))
+    def test_StoreWeekList(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
+
+    @ddt.data(*a.get_data_by_api(fieldname, "StoreDayList"))
+    def test_StoreDayList(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
+
+    @ddt.data(*a.get_data_by_api(fieldname, "StoreDetail"))
+    def test_StoreDetail(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
+
+    @ddt.data(*a.get_data_by_api(fieldname, "StoreDetailData"))
+    def test_StoreDetailData(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, verify=False, timeout=10)
