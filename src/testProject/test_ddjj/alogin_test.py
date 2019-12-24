@@ -11,9 +11,10 @@ import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
 import requests
+import urllib3
 
 count = 0
-
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 @ddt.ddt
 class LoginTest(RunTest):
@@ -45,8 +46,6 @@ class LoginTest(RunTest):
         t = time.time()
         cls.timestamp = str(round(t * 1000))
         sss["timestamp"] = cls.timestamp
-        dir_name = os.path.dirname(__file__)
-        cls.txt_path = os.path.join(dir_name, 'commission.txt')
 
     def setUp(self):
         globals()['count'] += 1
@@ -81,12 +80,9 @@ class LoginTest(RunTest):
         value.append(str_sign_list)
         # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                            self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        cookies = requests.utils.dict_from_cookiejar(self.result.cookies)
-        with open(self.txt_path, 'w', encoding='utf-8') as f:
-            f.write('deviceId=' + cookies['deviceId'] + '; userId=' + cookies['userId'] + '; FENXIAO-SESSION-TOKEN=' +
-                    cookies['FENXIAO-SESSION-TOKEN'] + '\n')
-
+                            self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
+        sss["cookie"] = requests.utils.dict_from_cookiejar(self.result.cookies)
+        sss['userId'] = str(sss['userId'])
 
 if __name__ == '__main__':
     unittest.main()

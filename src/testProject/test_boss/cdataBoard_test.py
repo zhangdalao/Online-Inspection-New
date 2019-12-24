@@ -44,7 +44,9 @@ class dataBoardTest(RunTest):
         cls.relateData_num = cls.a.get_num_name("接口关联参数")
         t = time.time()
         cls.timestamp = str(round(t * 1000))
-        with open('commission.txt', 'r', encoding='utf-8') as f:
+        dir_name = os.path.dirname(__file__)
+        txt_path = os.path.join(dir_name, 'commission.txt')
+        with open(txt_path, 'r', encoding='utf-8') as f:
             lines = list(f)
             cookie = lines[0].strip('\n')
         cls.cookies = cookie

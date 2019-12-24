@@ -1,8 +1,4 @@
-# -*- coding=utf-8 -*-
-# Author: BoLin Chen
-# @Date : 2019-08-08
-
-
+__author__ = 'fdd'
 import os
 import inspect
 from src.common.read_data import ReadData
@@ -10,20 +6,14 @@ import ddt
 import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
-import requests
+import time
 
 count = 0
 
-
 @ddt.ddt
-class LoginTest(RunTest):
-    """登录模块"""
-
-    # 通过文件名夹获取project参数的值
+class ChargeRegionsTest(RunTest):
     project = os.path.dirname(__file__)[-4:]
-    # 读取文件实例化
     a = ReadData(project, project)
-    # 通过类名获取fieldname的值
     fieldname = sys._getframe().f_code.co_name[:-4]
     # 获取项目名后，获取机器人相关配置
     json_dict = a.json_data[project]["robot_data"]
@@ -42,11 +32,6 @@ class LoginTest(RunTest):
         cls.expect_num = cls.a.get_num_name("预期结果")
         cls.isSkip_num = cls.a.get_num_name("是否跳过该用例")
         cls.relateData_num = cls.a.get_num_name("接口关联参数")
-        t = time.time()
-        cls.timestamp = str(round(t * 1000))
-        sss["timestamp"] = cls.timestamp
-        dir_name = os.path.dirname(__file__)
-        cls.txt_path = os.path.join(dir_name, 'commission.txt')
 
     def setUp(self):
         globals()['count'] += 1
@@ -67,26 +52,35 @@ class LoginTest(RunTest):
             raise Exception
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
-    @ddt.data(*a.get_data_by_api(fieldname, "ByPassword"))
-    def test_ByPassword(self, value):
-        # 通过函数名获取apiName参数的值
+    @ddt.data(*a.get_data_by_api(fieldname, "get_chargeregions"))
+    def test_get_chargeregions(self, value):
         self.apiName = (inspect.stack()[0][3])[5:]
-        # 获取测试环境参数
+        #  获取测试环境参数
         env = value[self.env_num]
         # 通过环境参数获得接口url
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
-        url = self.a.get_domains()[env] + uri
-        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
-        value.append(str_sign_list)
+        url = self.a.get_domains()[env] + uri   #a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
         # 调起请求
-        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
-                            self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
-        cookies = requests.utils.dict_from_cookiejar(self.result.cookies)
-        with open(self.txt_path, 'w', encoding='utf-8') as f:
-            f.write('deviceId=' + cookies['deviceId'] + '; userId=' + cookies['userId'] + '; FENXIAO-SESSION-TOKEN=' +
-                    cookies['FENXIAO-SESSION-TOKEN'] + '\n')
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
 
+    @ddt.data(*a.get_data_by_api(fieldname, "update_chargeregions"))
+    def test_update_chargeregions(self, value):
+        self.apiName = (inspect.stack()[0][3])[5:]
+        #  获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        uri = self.a.get_apiPath(self.fieldname, self.apiName)
+        url = self.a.get_domains()[env] + uri   #a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
+        # 调起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
 
-if __name__ == '__main__':
-    unittest.main()
+    @ddt.data(*a.get_data_by_api(fieldname, "get_teamregions"))
+    def test_get_teamregions(self, value):
+        self.apiName = (inspect.stack()[0][3])[5:]
+        #  获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        uri = self.a.get_apiPath(self.fieldname, self.apiName)
+        url = self.a.get_domains()[env] + uri   #a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
+        # 调起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)

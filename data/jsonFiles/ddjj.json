@@ -1,0 +1,35 @@
+{
+  "ddjj":{
+    "robot_data":{
+      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=9af5f411c795b125d1fac1f0c02aace5bca804f85832e73e3c51fd311df8d384",
+      "mobile":["18520585851"]
+    },
+    "domain":{
+      "test": "https://ddjj.fangdd.net",
+      "pre" : "https://ddjj.fangdd.com.cn",
+      "prod" : "https://ddjj.fangdd.com"
+    },
+    "Login":{
+        "ByPassword": "/user/login"
+      },
+    "commission": {
+        "aCommissionStatistic": "/fenxiao/saas/getCommissionStatistic",
+        "bcommissionorg": "/fenxiao/saas/getArmOrgList",
+        "cCommissionList": "/fenxiao/saas/factoring-queryxfCommissionList",
+        "dCommissionFactoringInfo": "/fenxiao/saas/factoring-queryxfCommissionFactoringInfo",
+        "exfProtocolList": "/fenxiao/saas/xfProtocolList",
+        "fxfProtocolInfo": "/fenxiao/saas/xfProtocolInfo",
+        "gReferralList": "/fenxiao/saas/searchReferralList",
+        "hGuideList": "/fenxiao/saas/searchGuideList",
+        "iOrderList": "/fenxiao/saas/searchOrderList",
+        "jAcountList": "/fenxiao/saas/getCommissionAcountList",
+        "kOperator": "/fenxiao/saas/getIsCommissionOperator",
+        "lProjectList": "/fenxiao/saas/getSettlementProjectList",
+        "mApplyProtocolUrl": "/fenxiao/saas/getApplyProtocolUrl",
+        "nSettlementList": "/fenxiao/saas/getSettlementList",
+        "oBankAcountList": "/fenxiao/saas/getSettlementBankAcountList",
+        "paddFastSettlement": "/fenxiao/saas/factoring-addFastSettlement",
+        "qFactoringCancel": "/fenxiao/saas/factoring-queryxfCommissionFactoringCancel"
+    }
+  }
+}
