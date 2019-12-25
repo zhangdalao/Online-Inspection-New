@@ -6,6 +6,8 @@ import ddt
 import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
+import redis
+from redis.sentinel import Sentinel
 import time
 
 count = 0
@@ -23,21 +25,29 @@ class ExpansionListTest(RunTest):
     sss["Restful_estateId2"] = json.dumps({"estateId":"1041394"})
     sss["Restful_estateId3"] = json.dumps({"estateId": "22374"})
     #查看线上签约信息
-    sss["Restful_signId"] = json.dumps({"estateId": "22374", "signId": "32"})
+    sss["Restful_signId"] = json.dumps({"estateId": "22374", "signId": "116"})
     #查看测试环境签约信息
     sss["Restful_signId_test"] = json.dumps({"estateId": "889", "signId": "66"})
 
-    # 读取签约结束日期时间戳
-    sep = os.sep
-    root_path = os.path.abspath(os.path.join(__file__, f"..{sep}"))
-    filePath = f"{root_path}{sep}remark.txt"
-    with open(filePath, 'r') as f:
-        sign_end_time = f.read()  # 读取签约结束时间戳
-    sss["sign_end_time"]= int(sign_end_time)
-    # 写入新的签约时间戳，以备下次使用
-    with open(filePath, 'r+') as f:  # 打开文件
+    # #
+    SENTINEADDRESS = [('10.50.255.117', 26380), ('10.50.255.118', 26380), ('10.50.255.119', 26380)]
+    # 尝试连接最长时间单位毫秒, 1000毫秒为1秒
+    MYSETINEL = Sentinel(SENTINEADDRESS, socket_timeout=3000)
+    # 通过哨兵获取从数据库连接实例,用于数据读取
+    SLAVE = MYSETINEL.slave_for('redis.bp.fdd', socket_timeout=3000)
+    # 通过哨兵获取主数据库连接实例，用于数据写入
+    MASTER = MYSETINEL.master_for('redis.bp.fdd', socket_timeout=3000)
+    # 读取redis中的签约时间戳
+    sign_end_time = SLAVE.get('market_dev.ddxf.bp.fdd:sign_end_time')
+    if sign_end_time is None:
+        # 初始化一个时间戳
+        MASTER.setex('market_dev.ddxf.bp.fdd:sign_end_time', '86400', 1582819199999)
+        sss["sign_end_time"] = 1582819199999
+    else:
+        sss["sign_end_time"] = int(sign_end_time)
         new_end_time = int(sign_end_time) + 86400000
-        f.write(str(new_end_time))
+        # 将新的时间戳写入redis中，有效期1天
+        MASTER.setex('market_dev.ddxf.bp.fdd:sign_end_time', '86400', new_end_time)
 
     @classmethod
     def setUpClass(cls):
