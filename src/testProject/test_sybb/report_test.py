@@ -117,5 +117,230 @@ class ReportTest(RunTest):
 							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
 							cookies=self.cookies)
 
+	@ddt.data(*a.get_data_by_api(fieldname, "RepayList"))
+	def test_RepayList(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "RepayStatistics"))
+	def test_RepayStatistics(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "RepayWard"))
+	def test_RepayWard(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "getPenalty"))
+	def test_getPenalty(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "PenaltyStatistics"))
+	def test_PenaltyStatistics(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "AmountFunnelReport"))
+	def test_AmountFunnelReport(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "OrderFunnelReport"))
+	def test_OrderFunnelReport(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "ReleaseRepayAmount"))
+	def test_ReleaseRepayAmount(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "CityRankRelease"))
+	def test_CityRankRelease(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "OverdueRepayAmount"))
+	def test_OverdueRepayAmount(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "CityRankOverdue"))
+	def test_CityRankOverdue(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "AgentReport"))
+	def test_AgentReport(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "NewFactoringAgent"))
+	def test_NewFactoringAgent(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "ChannelReport"))
+	def test_ChannelReport(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "MerchantReport"))
+	def test_MerchantReport(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
 if __name__ == '__main__':
 	unittest.main()
