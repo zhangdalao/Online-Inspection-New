@@ -32,7 +32,8 @@ def send_ding(robotUrl, mobile, content=None, runType=None):
 			}
 		}
 		# 判断如果本地调试模式或者运行环境为测试环境只会往调试群发告警
-		if runType or sss["env_name"] in ["test", "pre", "prod"]:
+		# if runType or sss["env"] in ["test", "pre", "prod"]:
+		if runType or sss["env"] in ["test"]:
 			requests.post(robot_test, json=robot_body)
 		# 非调试模式下，判断此时报错的群是不是巡检测试群
 		elif str(robotUrl).strip() != robot:

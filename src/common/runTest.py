@@ -183,6 +183,9 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			# 当存在 params 参数时，这里参数已经被激活处理，直接拼接在 host+path+params 得到准确 url
 			if self.params:
 				self.params = eval(self.params)
+				for i in self.params.keys():
+					if self.params[i] is None:
+						self.params[i] = ''
 				url = url + "?" + '&'.join(['{}={}'.format(*_) for _ in self.params.items()])
 			if self.expect:
 				self.expect = eval(self.expect)

@@ -62,8 +62,8 @@ class PaymentsTest(RunTest):
 			raise Exception
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
-	@ddt.data(*a.get_data_by_api(fieldname, "Payments"))
-	def test_Payments(self, value):
+	@ddt.data(*a.get_data_by_api(fieldname, "1_Payments"))
+	def test_1_Payments(self, value):
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
 		# 获取测试环境参数
@@ -74,6 +74,51 @@ class PaymentsTest(RunTest):
 		# 调用接口发起请求
 		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
 							self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "2_PaymentInfo"))
+	def test_2_PaymentInfo(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "queryEnums"))
+	def test_queryEnums(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
+
+	@ddt.data(*a.get_data_by_api(fieldname, "Materials"))
+	def test_Materials(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+								 self.headers_num, self.para_num,
+								 self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+								 cookies=self.cookies)
 
 
 if __name__ == '__main__':
