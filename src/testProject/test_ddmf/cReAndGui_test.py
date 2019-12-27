@@ -81,12 +81,12 @@ class ReAndGuiTest(RunTest):
             except Exception as err:
                 self.logger.error("测试结果         :测试失败！")
                 send_ding(self.robot_url, self.mobile,
-                          content=f"【{sss['env']}】{self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}", runType=1)
+                          content=f"{self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}")
                 if self.apiName in ["batchreferral", "guide"]:   # 当报错时，判断是不是报备或者带看接口，是的话需要语音报警
                     makeCall(self.mobile[0], sss["env"])
                 raise err
         elif self.result and type(self.result) == str:
-            send_ding(self.robot_url, self.mobile, content=f"【{sss['env']}】{self.desc}测试失败！\n测试反馈:{self.result}", runType=1)
+            send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！\n测试反馈:{self.result}")
             raise Exception
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 
@@ -100,7 +100,7 @@ class ReAndGuiTest(RunTest):
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri, ""]
+        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
@@ -116,7 +116,7 @@ class ReAndGuiTest(RunTest):
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri, ""]
+        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
@@ -132,7 +132,7 @@ class ReAndGuiTest(RunTest):
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri, ""]
+        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
@@ -148,7 +148,7 @@ class ReAndGuiTest(RunTest):
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri, ""]
+        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
@@ -164,7 +164,7 @@ class ReAndGuiTest(RunTest):
         uri = self.a.get_apiPath(self.fieldname, self.apiName) + str(sss["triangleId"])
         url = self.a.get_domains()[env] + uri
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri, ""]
+        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
@@ -180,7 +180,7 @@ class ReAndGuiTest(RunTest):
         uri = self.a.get_apiPath(self.fieldname, self.apiName) + str(sss["guideId"])
         url = self.a.get_domains()[env] + uri
         # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
-        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri, ""]
+        str_sign_list = [str(sss["userId"]), sss["token"], self.timestamp, value[self.method_num].upper(), uri]
         value.append(str_sign_list)
         # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,

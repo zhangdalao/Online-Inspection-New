@@ -42,7 +42,6 @@ def checkOut(res, exp) -> bool:
 
 
 class RunTest(unittest.TestCase, unittest.SkipTest):
-	
 	def __init__(self, methodName='runTest'):
 		super(RunTest, self).__init__(methodName)
 		
@@ -117,37 +116,37 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		# 这里定义的 变量sss 作为全局变量在后面的
 		global sss
 		
-		# 先对 url 做处理
-		re_str = '#\w+#'
-		# 使用正则获取 uri 中参数化的字段列表
-		re_list_uri = re.findall(re_str, url)
-		if re_list_uri:
-			for i in re_list_uri:
-				i_value = sss.get(i[1:-1])
-				if i_value:
-					url = url.replace(i, str(i_value))
-				else:
-					self.logger.debug(f"***全局变量中缺少字段: {i[1:-1]}***")
-		try:
-			# log日志中写入用例执行之前的一些相关数据
-			self.logger.debug(f"项目名称         :{self.projectName}")
-			self.logger.debug(f"用例名称         :{self.api_name}")
-			self.logger.debug(f"用例描述         :{self.desc}")
-			self.logger.debug(f"用例执行时间      :{time_str}")
-			self.logger.debug(' 请求信息 '.center(80, '-'))
-			self.logger.debug(f"用例请求方法      :{method}")
-			self.logger.debug(f"接口地址         :{url}")
-		except Exception as e:
-			self.logger.error('错误信息   : %s' % e)
-		# 根据是否跳过参数判断用例是否执行
+		# log日志中写入用例执行之前的一些接口基础数据
+		self.logger.debug(f"项目名称         :{self.projectName}")
+		self.logger.debug(f"用例名称         :{self.api_name}")
+		self.logger.debug(f"用例描述         :{self.desc}")
+		self.logger.debug(f"用例执行时间      :{time_str}")
+		self.logger.debug(' 请求信息 '.center(80, '-'))
+		
+		# 判断用例是否执行
 		if isSkip and str(isSkip).strip() == "是":
 			self.logger.debug(f"是否跳过         :{isSkip}")
 			self.skipTest('skip case')
 			return False
-		# 如果该接口关联类型只是关联输出
-		# elif isRelate and isRelate["relateType"] == "relateOut":
+		
 		else:
 			self.logger.debug("是否跳过         :否")
+			self.logger.debug(f"用例请求方法      :{method}")
+		# 用例不跳过时，按顺序执行代码
+		try:
+			# 定义替换字符
+			re_str = '#\w+#'
+			# 使用正则获取 host+path 中动态参数的字段列表
+			re_list_uri = re.findall(re_str, url)
+			# 最先替换 path 中动态参数，因为path + params 可能会参与加密
+			if re_list_uri:
+				for i in re_list_uri:
+					i_value = sss.get(i[1:-1])
+					if i_value:
+						url = url.replace(i, str(i_value))
+					else:
+						self.logger.debug(f"***全局变量中缺少字段: {i[1:-1]}***")
+			
 			# 使用正则获取headers中参数化的字段列表
 			re_list_header = re.findall(re_str, self.headers)
 			# 使用正则获取params中参数化的字段列表
@@ -159,119 +158,126 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			if re_list_header:
 				# 对headers中参数化的字段进行激活赋值
 				for m in re_list_header:
-					# self.headers = self.headers.replace(m, "f'{data[\"%s\"]}'" % (m[1:-1]))
 					_str = f'data[\"{m[1:-1]}\"]'
 					self.headers = self.headers.replace(m, _str)
 			if re_list_params:
 				# 对params中参数化的字段进行激活赋值
 				for n in re_list_params:
-					# self.params = self.params.replace(n, "f'{data[\"%s\"]}'" % (n[1:-1]))
 					_str = f'data[\"{n[1:-1]}\"]'
 					self.params = self.params.replace(n, _str)
 			if re_list_body:
 				# 对请求体中参数化的字段进行激活赋值
 				for o in re_list_body:
-					# self.body = self.body.replace(o, "f'{data[\"%s\"]}'" % (o[1:-1]))
 					_str = f'data[\"{o[1:-1]}\"]'
 					self.body = self.body.replace(o, _str)
 			if re_list_expect:
 				# 对预期结果中参数化的字段进行激活赋值
 				for p in re_list_expect:
-					# self.expect = self.expect.replace(p, "f'{data[\"%s\"]}'" % (p[1:-1]))
 					_str = f'data[\"{p[1:-1]}\"]'
 					self.expect = self.expect.replace(p, _str)
-					
+			# 将 sss 的值赋值给 data 变量
 			data = sss
-			try:
-				# 先对 body/params 和预期结果做类型转换
-				if self.body:
-					self.body = eval(self.body)
-				if self.params:
-					self.params = eval(self.params)
-				if self.expect:
-					self.expect = eval(self.expect)
-				if type(args[0][-1]) == list:
-					if self.body:
-						# 对请求体中文转 json 后加密失败做处理
-						args[0][-1].append(json.dumps(self.body))
-					else:
-						args[0][-1].append(str(self.body).replace("\'", '\"'))
-					# 对其中的 path 存在动态参数进行解决
-					for m in args[0][-1]:
-						if m.__contains__('/') and re.findall(re_str, m):
-							m_num = args[0][-1].index(m)
-							uri_str_list = re.findall(re_str, m)
-							for i in uri_str_list:
-								i_value = sss.get(i[1:-1])
-								if i_value:
-									m = m.replace(i, str(i_value))
-							args[0][-1][m_num] = m
-					_str = ''.join(args[0][-1])
-					data['sign_key'] = SignKey(_str).sign()
-					args[0].pop()
-			# try:
-				if self.headers:
-					# 对激活后的 headers做类型转换
-					self.headers = eval(self.headers)
-				self.logger.debug(f"header          :{self.headers}")
-				self.logger.debug(f"请求体           :{self.body}")
-				self.logger.debug(f"请求参数         :{self.params}")
-				response = self.method.run_main(url, method, self.headers, self.params, self.body, **kw)
-				self.res = response.json()
-				self.logger.debug(f"响应结果         :{self.res}")
-				self.logger.debug(f"预期结果         :{self.expect}")
-			except KeyError as krr:
-				error_value = str(krr)
-				response = f"获取动态参数{error_value}失败!"
-				self.logger.error(f"{response}")
-				# raise krr
-			except ValueError as vrr:
-				error_value = str(vrr)
-				response = f"返回结果转换失败！  "
-				self.logger.error(f'{response}')
-				self.logger.error(f"返回结果为: {error_value} ")
-				self.logger.error(error_value)
-				# raise vrr
-			except TypeError as trr:
-				error_value = str(trr)
-				response = f"预期结果获取指定值失败！ {error_value}"
-				self.logger.error(f'{response}')
-				# raise trr
-			except Exception as err:
-				error_value = str(err)
-				response = f"请求时出现未知异常！  {error_value}"
-				self.logger.error(f'{response}')
-				self.logger.error(error_value)
-				# raise err
-			else:
-				if type(isRelate) == dict:
-					relateData = isRelate.get("relateData")
-					relateDatas = isRelate.get("relateDatas")
-					# relateData = isRelate["relateData"]
-					# 将需要提供依赖的数据缓存
-					if relateData:
-						for _dict in relateData:
-							for _key in _dict:
-								a = [_key, _dict[_key]]
-								relate_value = jsonpath(self.res, expr=f"$..{a[0]}")
-								if relate_value:
-									# 这里如果 relate_value 存在的话类型其实是列表，所以取单个值使用需要注意
-									sss[a[1]] = relate_value[0]
-									self.logger.debug(f"依赖数据缓存成功    :{a[0]}-->{a[1]}, 数据值为:{relate_value[0]}")
-								else:
-									self.logger.debug("返回数据中指定的关联数据获取失败！")
-					if relateDatas:
-						for _dict in relateDatas:
-							for _key in _dict:
-								a = [_key, _dict[_key]]
-								relate_value = jsonpath(self.res, expr=f"$..{a[0]}")
-								if relate_value:
-									# 这里如果 relate_value 存在的话类型其实是列表，所以取所有值使用需要注意
-									sss[a[1]] = relate_value
-									self.logger.debug(f"依赖数据缓存成功    :{a[0]}-->{a[1]}, 数据值为:{relate_value}")
-								else:
-									self.logger.debug("返回数据中指定的关联数据获取失败！")
-			finally:
-				return response
+			# 先对 body/params/expect 做类型转换
+			if self.body:
+				self.body = eval(self.body)
+			# 当存在 params 参数时，这里参数已经被激活处理，直接拼接在 host+path+params 得到准确 url
+			if self.params:
+				self.params = eval(self.params)
+				for i in self.params.keys():
+					if self.params[i] is None:
+						self.params[i] = ''
+				url = url + "?" + '&'.join(['{}={}'.format(*_) for _ in self.params.items()])
+			if self.expect:
+				self.expect = eval(self.expect)
+			self.logger.debug(f"接口地址         :{url}")
 		
-# TODO  需要把断言封装详细一点，类型与值做区分
+			# 判断该接口是否有加密操作
+			if type(args[0][-1]) == list:
+				# 通过环境确定 url 中 host 后缀进行切割，从而拿到完整的 path
+				suffix = {"test": ".net", "pre": ".com.cn", "prod": ".com"}
+				path = url.split(suffix[sss["env"]])[-1]
+				args[0][-1][-1] = path
+				if self.body:
+					# 对请求体中文转 json 后加密失败做处理
+					args[0][-1].append(json.dumps(self.body))
+				else:
+					args[0][-1].append(str(self.body).replace("\'", '\"'))
+				# 对其中的 path 存在动态参数进行解决
+				for m in args[0][-1]:
+					if m.__contains__('/') and re.findall(re_str, m):
+						m_num = args[0][-1].index(m)
+						uri_str_list = re.findall(re_str, m)
+						for i in uri_str_list:
+							i_value = sss.get(i[1:-1])
+							if i_value:
+								m = m.replace(i, str(i_value))
+						args[0][-1][m_num] = m
+				_str = ''.join(args[0][-1])
+				data['sign_key'] = SignKey(_str).sign()
+				args[0].pop()
+			# try:
+			if self.headers:
+				# 对激活后的 headers做类型转换
+				self.headers = eval(self.headers)
+			self.logger.debug(f"header          :{self.headers}")
+			self.logger.debug(f"请求体           :{self.body}")
+			self.logger.debug(f"请求参数         :{self.params}")
+			response = self.method.run_main(url, method, self.headers, self.body, **kw)
+			self.res = response.json()
+			self.logger.debug(f"响应结果         :{self.res}")
+			self.logger.debug(f"预期结果         :{self.expect}")
+		except KeyError as krr:
+			error_value = str(krr)
+			response = f"获取动态参数{error_value}失败!"
+			self.logger.error(f"{response}")
+		# raise krr
+		except ValueError as vrr:
+			error_value = str(vrr)
+			response = f"返回结果转换失败！  "
+			self.logger.error(f'{response}')
+			self.logger.error(f"返回结果为: {error_value} ")
+			self.logger.error(error_value)
+		# raise vrr
+		except TypeError as trr:
+			error_value = str(trr)
+			response = f"预期结果获取指定值失败！ {error_value}"
+			self.logger.error(f'{response}')
+		# raise trr
+		except Exception as err:
+			error_value = str(err)
+			response = f"请求时出现未知异常！  {error_value}"
+			self.logger.error(f'{response}')
+			self.logger.error(error_value)
+		# raise err
+		else:
+			if type(isRelate) == dict:
+				relateData = isRelate.get("relateData")
+				relateDatas = isRelate.get("relateDatas")
+				# relateData = isRelate["relateData"]
+				# 将需要提供依赖的数据缓存
+				if relateData:
+					for _dict in relateData:
+						for _key in _dict:
+							a = [_key, _dict[_key]]
+							relate_value = jsonpath(self.res, expr=f"$..{a[0]}")
+							if relate_value:
+								# 这里如果 relate_value 存在的话类型其实是列表，所以取单个值使用需要注意
+								sss[a[1]] = relate_value[0]
+								self.logger.debug(f"依赖数据缓存成功    :{a[0]}-->{a[1]}, 数据值为:{relate_value[0]}")
+							else:
+								self.logger.debug("返回数据中指定的关联数据获取失败！")
+				if relateDatas:
+					for _dict in relateDatas:
+						for _key in _dict:
+							a = [_key, _dict[_key]]
+							relate_value = jsonpath(self.res, expr=f"$..{a[0]}")
+							if relate_value:
+								# 这里如果 relate_value 存在的话类型其实是列表，所以取所有值使用需要注意
+								sss[a[1]] = relate_value
+								self.logger.debug(f"依赖数据缓存成功    :{a[0]}-->{a[1]}, 数据值为:{relate_value}")
+							else:
+								self.logger.debug("返回数据中指定的关联数据获取失败！")
+		finally:
+			return response
+			
+			# TODO  需要把断言封装详细一点，类型与值做区分
