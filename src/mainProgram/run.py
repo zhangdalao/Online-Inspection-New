@@ -150,18 +150,18 @@ def start(cases_dir=None, env=None, reg_str=None):
 			
 		if robot_url:
 			# 单个项目非正式环境只会发送到单个项目群
-			if project_name != "ALL" and env != "prod":
+			if project_name and project_name != "ALL" and env != "prod":
 				for url in robot_url:
 					send_link(url, link_url, f'{title}(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
 					                               f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
 			# 单个项目正式环境会发到巡检群和各自项目群
-			elif project_name != "ALL" and env == "prod":
+			elif project_name and project_name != "ALL" and env == "prod":
 				robot_url.append(test_robot)
 				for url in robot_url:
 					send_link(url, link_url, f'{title}(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
 				                               f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
 			# 所有项目 不区分环境，均会发送到巡检群
-			elif project_name == "ALL":
+			elif not project_name or project_name == "ALL":
 				send_link(test_robot, link_url, f'{title}(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
 				                         f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
 		return res
