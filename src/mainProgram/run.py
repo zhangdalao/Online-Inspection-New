@@ -51,6 +51,9 @@ def start(cases_dir=None, env=None, reg_str=None):
 	
 	# 新房项目列表
 	xf_list = ["test_ddxfapp", "test_shop", "test_shopapp"]
+	# 巡检测试群机器人地址
+	test_robot = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712' \
+	             'cb9aa145342159f8fd0065fc4'
 	
 	# 判断项目是属于新房项目
 	if cases_dir in xf_list:
@@ -71,8 +74,9 @@ def start(cases_dir=None, env=None, reg_str=None):
 	# 判断是否是所有项目
 	elif not cases_dir or cases_dir == "ALL":
 		# 这里需要补充测试组机器人URL
-		robot_url = ['https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa'
-		             '145342159f8fd0065fc4']
+		robot_url = [test_robot]
+		# robot_url = ['https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712cb9aa'
+		#              '145342159f8fd0065fc4']
 		project_name = "All"
 		suites_dir = root_path + f'{sep}src{sep}testProject'
 	# 指定普通单个项目
@@ -145,9 +149,21 @@ def start(cases_dir=None, env=None, reg_str=None):
 			link_url = ip + f'report{sep}{report_dir}{sep}{reportFileName}'
 			
 		if robot_url:
-			for url in robot_url:
-				send_link(url, link_url, f'{title}(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
+			# 单个项目非正式环境只会发送到单个项目群
+			if project_name != "ALL" and env != "prod":
+				for url in robot_url:
+					send_link(url, link_url, f'{title}(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
+					                               f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
+			# 单个项目正式环境会发到巡检群和各自项目群
+			elif project_name != "ALL" and env == "prod":
+				robot_url.append(test_robot)
+				for url in robot_url:
+					send_link(url, link_url, f'{title}(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
 				                               f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
+			# 所有项目 不区分环境，均会发送到巡检群
+			elif project_name == "ALL":
+				send_link(test_robot, link_url, f'{title}(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
+				                         f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
 		return res
 
 

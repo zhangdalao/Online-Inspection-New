@@ -14,10 +14,10 @@ class CheckCases:
 	
 	def __init__(self, project=None, env=None):
 		
-		if project != "ALL":
+		if project and project != "ALL":
 			self.pro = project.split("test_")[-1]
 		else:
-			self.pro = project
+			self.pro = "ALL"
 		self.env = env
 		root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
 		# xlsx表格数据地址
@@ -73,8 +73,47 @@ class CheckCases:
 				continue
 			else:
 				return True
+			
+	def counter_cases(self):
+		cases_info_dict = {}
+		if self.pro == "ALL":
+			data_list = list(self.form_data.values())
+		else:
+			data_list = self.get_sheetData_list()
+		if len(data_list) == 1:
+			data_dict = {}
+			api_name_num = self.get_num_name("接口名称")
+			api_name_data = map(lambda x: set(x.col_values(api_name_num)), data_list)
+			api_name_data_list = list(api_name_data)
+			data_dict["api_name_count"] = len(api_name_data_list[0])
+			cases_list_count = data_list[0].nrows - 1
+			data_dict["cases_count"] = cases_list_count
+			cases_info_dict[self.pro] = data_dict
+		elif len(data_list) > 1:
+			for k, v in self.form_data.items():
+				data_dict = {}
+				api_name_num = self.get_num_name("接口名称")
+				api_name_data = map(lambda x: set(x.col_values(api_name_num)), [v])
+				api_name_data_list = list(api_name_data)
+				data_dict["api_name_count"] = len(api_name_data_list[0])
+				cases_list_count = [v][0].nrows - 1
+				data_dict["cases_count"] = cases_list_count
+				cases_info_dict[k] = data_dict
+		return cases_info_dict
+		
 
 if __name__ == '__main__':
-	a = CheckCases("ALL", "prod")
+	# a = CheckCases("ALL", "prod")
 	# print(a.get_sheetData_list())
-	print(a.check_cases())
+	# print(a.check_cases())
+	# a = CheckCases("ALL")
+	# print(a.form_data)
+	a = CheckCases()
+	print(a.counter_cases())
+	api_count = 0
+	cases_count = 0
+	for i in a.counter_cases().items():
+		api_count += i[-1]["api_name_count"]
+		cases_count += i[-1]["cases_count"]
+	print(f"接口个数总计：{api_count}")
+	print(f"用例条数总计：{cases_count}")
