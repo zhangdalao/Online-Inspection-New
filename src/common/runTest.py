@@ -61,6 +61,9 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		self.result = None
 		self.res = None
 		self.projectName = None
+		
+		# 这里定义的 变量sss 作为全局变量在后面的
+		global sss
 	
 	def skipTest(self, reason):
 		"""
@@ -113,8 +116,8 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 		self.expect = str(args[0][expect_num]).strip()
 		time_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 		
-		# 这里定义的 变量sss 作为全局变量在后面的
-		global sss
+		# # 这里定义的 变量sss 作为全局变量在后面的
+		# global sss
 		
 		# log日志中写入用例执行之前的一些接口基础数据
 		self.logger.debug(f"项目名称         :{self.projectName}")
