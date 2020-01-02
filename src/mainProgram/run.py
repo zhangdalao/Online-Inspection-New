@@ -119,8 +119,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 	with open(reportDir + sep + reportFileName, "wb"):
 		beaRep = BeautifulReport(suites)
 		title = f'{Name}{env_name}自动化测试报告'
-		res = beaRep.report(filename=reportFileName, description=title,
-							report_dir=reportDir)
+		res = beaRep.report(filename=reportFileName, description=title, report_dir=reportDir)
 		result_dict = beaRep.stopTestRun()
 		casesAll = result_dict.get("testAll")
 		casesPass = result_dict.get("testPass")

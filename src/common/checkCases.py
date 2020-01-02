@@ -103,17 +103,18 @@ class CheckCases:
 		
 
 if __name__ == '__main__':
-	# a = CheckCases("ALL", "prod")
+	a = CheckCases("test_ddmf", "prod")
 	# print(a.get_sheetData_list())
-	# print(a.check_cases())
+	print(a.check_cases())
 	# a = CheckCases("ALL")
 	# print(a.form_data)
-	a = CheckCases()
-	print(a.counter_cases())
-	api_count = 0
-	cases_count = 0
-	for i in a.counter_cases().items():
-		api_count += i[-1]["api_name_count"]
-		cases_count += i[-1]["cases_count"]
-	print(f"接口个数总计：{api_count}")
-	print(f"用例条数总计：{cases_count}")
+	# # 统计用例条数及接口个数
+	# a = CheckCases()
+	# print(a.counter_cases())
+	# api_count = 0
+	# cases_count = 0
+	# for i in a.counter_cases().items():
+	# 	api_count += i[-1]["api_name_count"]
+	# 	cases_count += i[-1]["cases_count"]
+	# print(f"接口个数总计：{api_count}")
+	# print(f"用例条数总计：{cases_count}")
