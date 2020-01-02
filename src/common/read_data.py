@@ -25,6 +25,7 @@ class ReadData:
 		self.logger.info(" 测试数据初始化 start! ".center(100, '='))
 		sep = os.sep
 		try:
+			self.logger.info(f"此次用例执行环境参数为：{sss['env']}")
 			# 获得项目根目录
 			root_path = os.path.abspath(os.path.join(__file__, f"..{sep}..{sep}.."))
 			self.logger.info(f"获取项目根目录正常 :{root_path}")
@@ -152,13 +153,13 @@ class ReadData:
 	
 	# 根据传入的模块名称和接口名称过滤出需要的ddt测试数据
 	# def get_data_by_api(self, fieldName=None, api_name=None, env=None) -> list:
-	def get_data_by_api(self, fieldName=None, api_name=None, env=sss["env"]) -> list:
+	def get_data_by_api(self, fieldName=None, api_name=None) -> list:
 		"""
-		:param env:               运行环境, 默认为None
 		:param fieldName:         模块名称，默认为None
 		:param api_name:          接口名称，默认为None
 		:return:                  根据模块名称和接口名称进行二次筛选，返回用于单个接口进行ddt的测试数据
 		"""
+		env = sss["env"]
 		test_data_list = []
 		# 根据传入的模块名称获取模块测试数据
 		data = self.get_module_data(fieldName=fieldName)

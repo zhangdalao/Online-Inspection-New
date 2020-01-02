@@ -53,7 +53,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 	xf_list = ["test_ddxfapp", "test_shop", "test_shopapp"]
 	# 巡检测试群机器人地址
 	test_robot = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712' \
-	             'cb9aa145342159f8fd0065fc4'
+				 'cb9aa145342159f8fd0065fc4'
 	
 	# 判断项目是属于新房项目
 	if cases_dir in xf_list:
@@ -120,7 +120,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 		beaRep = BeautifulReport(suites)
 		title = f'{Name}{env_name}自动化测试报告'
 		res = beaRep.report(filename=reportFileName, description=title,
-		                    report_dir=reportDir)
+							report_dir=reportDir)
 		result_dict = beaRep.stopTestRun()
 		casesAll = result_dict.get("testAll")
 		casesPass = result_dict.get("testPass")
@@ -132,6 +132,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 			_pass_rate = ("%.2f%%" % (casesPass / casesAll * 100))
 		else:
 			_pass_rate = ("%.2f%%" % (casesPass / (casesAll - casesSkip) * 100))
+		content = f'{title}(通过率:{_pass_rate}) \n 用例总数:{casesAll}, 通过:{casesPass},失败:{casesFail},跳过:{casesSkip}'
 		sleep(3)
 		_platform = platform.platform()
 		if _platform == 'Linux-2.6.32-754.18.2.el6.x86_64-x86_64-with-centos-6.10-Final':
@@ -152,22 +153,19 @@ def start(cases_dir=None, env=None, reg_str=None):
 			# 单个项目非正式环境只会发送到单个项目群
 			if project_name != "All" and env != "prod":
 				for url in robot_url:
-					send_link(url, link_url, f'{title}(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
-					                               f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
+					send_link(url, link_url, content)
 			# 单个项目正式环境会发到巡检群和各自项目群
 			elif project_name != "All" and env == "prod":
 				robot_url.append(test_robot)
 				for url in robot_url:
-					send_link(url, link_url, f'{title}(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
-				                               f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
+					send_link(url, link_url, content)
 			# 所有项目 不区分环境，均会发送到巡检群
 			elif project_name == "All":
-				send_link(test_robot, link_url, f'{title}(通过率:{_pass_rate}) \n 用例总数:{casesAll}, '
-				                         f'通过:{casesPass},失败:{casesFail},跳过:{casesSkip}')
+				send_link(test_robot, link_url, content)
 		return res
 
 
 if __name__ == '__main__':
 	# start('test_sybb', 'pre')#, "a_login*"
 	# start("test_shop", "prod")
-	start()
+	start(cases_dir='test_ddsf', reg_str="aa_login*")
