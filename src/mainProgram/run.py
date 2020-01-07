@@ -167,4 +167,5 @@ def start(cases_dir=None, env=None, reg_str=None):
 if __name__ == '__main__':
 	# start('test_sybb', 'pre')#, "a_login*"
 	# start("test_shop", "prod")
-	start(cases_dir='test_ddsf', reg_str="aa_login*")
+	start('test_ddxfapp', 'pre')
+

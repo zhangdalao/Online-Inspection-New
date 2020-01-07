@@ -41,6 +41,10 @@
         "WebLogin":"/api/login/account"
     },
     "Trade":{
+        "aaposliest": "/api/trade/receipt/ticket",
+        "abcheck": "/api/trade/receipt/ticket/status",
+        "abdchange": "/api/composition/pc/order/appeal/pos",
+        "abedetail": "/api/composition/pc/order/appeal/pos/change?orderType=2&orderId=#orderId7#",
         "accoutlist1":"/api/trade/report/order/purchase/summary?pageNo=1&pageSize=10",
         "accoutlist2":"/api/trade/receipt/projects?pageNo=1&pageSize=10",
         "breceivable":"/api/composition/pc/additional/receivable",
