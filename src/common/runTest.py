@@ -12,6 +12,7 @@ import json, time
 from src.common.sign import SignKey
 import os
 from src.common.readConfData import GetDataIni
+import traceback
 
 sss = {}
 
@@ -233,6 +234,7 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			error_value = str(krr)
 			response = f"获取动态参数{error_value}失败!"
 			self.logger.error(f"{response}")
+			self.logger.error(f"报错信息         :{str(traceback.format_exc())}")
 		# raise krr
 		except ValueError as vrr:
 			error_value = str(vrr)
@@ -240,17 +242,20 @@ class RunTest(unittest.TestCase, unittest.SkipTest):
 			self.logger.error(f'{response}')
 			self.logger.error(f"返回结果为: {error_value} ")
 			self.logger.error(error_value)
+			self.logger.error(f"报错信息         :{str(traceback.format_exc())}")
 		# raise vrr
 		except TypeError as trr:
 			error_value = str(trr)
 			response = f"预期结果获取指定值失败！ {error_value}"
 			self.logger.error(f'{response}')
+			self.logger.error(f"报错信息         :{str(traceback.format_exc())}")
 		# raise trr
 		except Exception as err:
 			error_value = str(err)
 			response = f"请求时出现未知异常！  {error_value}"
 			self.logger.error(f'{response}')
 			self.logger.error(error_value)
+			self.logger.error(f"报错信息         :{str(traceback.format_exc())}")
 		# raise err
 		else:
 			if type(isRelate) == dict:
