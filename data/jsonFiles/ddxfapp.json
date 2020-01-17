@@ -24,7 +24,7 @@
         "fChange":"/app/trade/settlement/order/ticket",
         "gChecklist":"/app/ddxf/work/audit/list?pageNo=0&pageSize=10&auditStatus=1",
         "hperformancechange":"/app/ddxf/order/appeal/contrib",
-        "iperformancelist":"/app/ddxf/work/audit/list?auditStatus=1&processType=2&pageNo=0&branchId=3&pageSize=15&businessName=#orderId2#",
+        "iperformancelist":"/app/ddxf/work/audit/list?auditStatus=1&processType=2&pageNo=0&branchId=3&pageSize=15&businessName=#bookingId#",
         "jperformencedetail":"/app/ddxf/order/appeal/contrib/#performanceId#",
         "kamountchange":"/app/ddxf/complaint/contract",
         "lamountchangelist":"/app/ddxf/work/audit/list?branchId=3&processType=11&auditStatus=1&pageNo=0&pageSize=15",
@@ -41,6 +41,10 @@
         "WebLogin":"/api/login/account"
     },
     "Trade":{
+        "aaposliest": "/api/trade/receipt/ticket",
+        "abcheck": "/api/trade/receipt/ticket/status",
+        "abdchange": "/api/composition/pc/order/appeal/pos",
+        "abedetail": "/api/composition/pc/order/appeal/pos/change?orderType=2&orderId=#orderId#",
         "accoutlist1":"/api/trade/report/order/purchase/summary?pageNo=1&pageSize=10",
         "accoutlist2":"/api/trade/receipt/projects?pageNo=1&pageSize=10",
         "breceivable":"/api/composition/pc/additional/receivable",

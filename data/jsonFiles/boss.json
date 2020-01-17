@@ -22,7 +22,7 @@
         "commission_givebackCarrier": "/boss/data/commission-givebackCarrier",
         "commissionorderlnfo": "/boss/data/commission-orderInfo",
         "commissionList": "/boss/data/commission-commissionList",
-        "commissionStoreList": "/boss/data/commission-commissionStoreList",
+        "commissionStoreList": "/boss/data/commission-commissionEnterpriseList",
         "commissionBranch": "/boss/data/commission-commissionBranch",
         "commissionDeal": "/boss/data/commission-commissionDeal",
         "commissionAccountList": "/boss/data/commission-commissionAccountList",

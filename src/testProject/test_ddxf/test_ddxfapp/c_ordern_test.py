@@ -146,6 +146,8 @@ class OrderTest(RunTest):
         value.append(str_sign_list)
         # print(value)
         sss["version"] = sss["versionName"][1:]
+        receivableAmount = random.randint(10,1000)
+        sss["receivableAmount"] = receivableAmount
         # # # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
@@ -223,6 +225,8 @@ class OrderTest(RunTest):
         value.append(str_sign_list)
         # print(value)
         sss["version"] = sss["versionName"][1:]
+        contractAmount = random.randint(50000,100000)
+        sss["contractAmount"] = contractAmount
         # # # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
@@ -319,6 +323,8 @@ class OrderTest(RunTest):
         value.append(str_sign_list)
         print("qianming",value)
         sss["version"] = sss["versionName"][1:]
+        customerMobile = random.randint(18000000000,18900000000)
+        sss["customerMobile"] = str(customerMobile)
         # # # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)

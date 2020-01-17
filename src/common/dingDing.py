@@ -31,13 +31,14 @@ def send_ding(robotUrl, mobile, content=None, runType=None):
 				"isAtAll": False
 			}
 		}
-		if runType:
-			# 当申明了非巡检执行时，则为本地调式模式，报错信息仅仅给调试机器人发送
-			r = requests.post(robot_test, json=robot_body)
+		# 判断如果本地调试模式或者运行环境为测试环境只会往调试群发告警
+		# if runType or sss["env"] in ["test", "pre", "prod"]:
+		if runType or sss["env"] in ["test"]:
+			requests.post(robot_test, json=robot_body)
 		# 非调试模式下，判断此时报错的群是不是巡检测试群
 		elif str(robotUrl).strip() != robot:
 			try:
-				r = requests.post(robotUrl, json=robot_body)
+				requests.post(robotUrl, json=robot_body)
 				# 给巡检机器人测试组发送报错提示
 			except Exception:
 				pass

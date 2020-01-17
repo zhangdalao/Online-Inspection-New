@@ -79,7 +79,8 @@ class LoginTest(RunTest):
 			sss["cookies"] = requests.utils.dict_from_cookiejar(self.result.cookies)
 			# print(sss["cookies"])
 			sss["ID_str"] = str(sss["ID"])
-		
+			
+	@unittest.SkipTest
 	@ddt.data(*a.get_data_by_api(fieldname, "ByVerifyCode"))
 	def test_ByVerifyCode(self, value):
 		# 将获取的手机验证码存放在变量 sss 中
