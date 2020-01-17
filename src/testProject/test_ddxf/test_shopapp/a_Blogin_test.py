@@ -30,6 +30,7 @@ class LoginTest(RunTest):
         t = time.time()
         cls.timestamp = str(round(t * 1000))
         sss["timestamp"] = cls.timestamp
+        sss["mfhost"] = "https://api-realtor.fangdd.com"
 
     def setUp(self):
         globals()['count'] += 1
@@ -80,3 +81,20 @@ class LoginTest(RunTest):
                          self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
         sss["cookies"] = self.res.cookies
         sss["H5cookies"] = ";".join(['{}={}'.format(*_) for _ in sss["cookies"].items()])
+
+    @ddt.data(*a.get_data_by_api(fieldname, "MfLogin"))
+    def test_MfLogin(self, value):
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+        # 通过环境参数获得接口url
+        uri = self.a.get_apiPath(self.fieldname, self.apiName)
+        url = str(sss["mfhost"]) + uri
+        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
+        str_sign_list = [self.timestamp, value[self.method_num].upper(), uri]
+        value.append(str_sign_list)
+        # 调起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num, self.para_num,
+                            self.data_num, self.desc_num, self.relateData_num, self.expect_num, value, verify=False)
+        sss['mfuserId'] = str(sss['mfuserId'])
