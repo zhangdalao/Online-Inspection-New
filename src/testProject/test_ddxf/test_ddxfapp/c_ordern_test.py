@@ -369,7 +369,7 @@ class OrderTest(RunTest):
         env = value[self.env_num]
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri  # a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
-        paymentDoc = random.randint(123456,678901)
+        paymentDoc = random.randint(18652980686,19952980686)
         print(paymentDoc)
         sss["paymentDoc"] = paymentDoc
         str_sign_list = [str(sss["userId"]), str(sss["token"]), self.timestamp, value[self.method_num].upper(), uri]
@@ -389,7 +389,8 @@ class OrderTest(RunTest):
         env = value[self.env_num]
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri  # a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
-        paymentDoc = random.randint(123456, 678901)
+        t = time.time()
+        paymentDoc = round(t * 1000)
         print(paymentDoc)
         sss["paymentDoc"] = paymentDoc
         str_sign_list = [str(sss["userId"]), str(sss["token"]), self.timestamp, value[self.method_num].upper(), uri]

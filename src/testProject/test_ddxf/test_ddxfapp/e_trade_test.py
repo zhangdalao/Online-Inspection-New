@@ -34,6 +34,7 @@ class TradeTest(RunTest):
         cls.timestamp = str(round(t * 1000))
         sss["timestamp"] = cls.timestamp
 
+
         cls.result = None
         cls.desc = None
 
@@ -67,11 +68,12 @@ class TradeTest(RunTest):
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         #获取当前时间戳
-        ts = datetime.datetime.now().timestamp()
-        sss["paymentTime"] = ts
-        #获取凭证号
-        paymentId = random.randint(384728348,9284348594399)
-        sss["paymentDoc"] = paymentId
+        ts = time.time()
+        paymenttime = round(ts*1000)
+        sss["paymentTime"] = paymenttime
+        #获取凭证号,考虑用时间戳来弄
+        #paymentId = random.randint(384728348,9284348594399)
+        sss["paymentDoc"] = paymenttime
         # 调用接口发起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
                                  self.headers_num,
