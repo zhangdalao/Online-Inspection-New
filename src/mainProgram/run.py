@@ -35,7 +35,7 @@ def get_project_robot_URL(projectName=None):
 	return json_data
 
 
-# @celery.task(base=QueueOnce)
+@celery.task(base=QueueOnce)
 def start(cases_dir=None, env=None, reg_str=None):
 	if not env:
 		env = "prod"
