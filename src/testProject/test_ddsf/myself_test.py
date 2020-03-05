@@ -60,10 +60,10 @@ class MyselfTest(RunTest):
 			except Exception as err:
 				self.logger.error("测试结果         :测试失败！")
 				send_ding(self.robot_url, self.mobile,
-				          content=f"{self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}", runType=1)
+				          content=f"{self.desc}测试失败！\n接口返回为：{self.res}, 预期结果为：{self.expect}")
 				raise err
 		elif self.result and type(self.result) == str:
-			send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！\n测试反馈:{self.result}", runType=1)
+			send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！\n测试反馈:{self.result}")
 			raise Exception
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 	

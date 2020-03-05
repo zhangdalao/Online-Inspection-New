@@ -68,8 +68,7 @@
       "listHouse": "/data/listHouseByCondition",
       "XfdkStoreData": "/data/getXfdkStoreData",
       "HouseDetail": "/data/getHouseDetail",
-      "ConfigList": "/data/activityConfigList",
-      "ShareTemplate": "/data/getShareTemplate"
+      "ConfigList": "/data/activityConfigList"
     },
     "WorkRank":{
       "PullNewAgentRank": "/data/getPullNewAgentRank",
