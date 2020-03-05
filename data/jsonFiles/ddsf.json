@@ -1,7 +1,7 @@
 {
   "ddsf":{
     "robot_data":{
-      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=f1fcce84f078571df980b5c1017f4ed675bae0bf99eec95f3422a0247b360adf",
+      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=a3828e9a8a8ac0e4440e1326b32007d301d247a48c5390f98d9318612035e8c1",
       "mobile":["18682236985"]
     },
     "domain":{
@@ -54,8 +54,16 @@
       "getOrgNetCardData":"/data/getOrgNetCardData",
       "listStoreOrCompanyAgent":"/data/listStoreOrCompanyAgent"
     },
-    "Myself":{},
+    "Myself":{
+      "cardBrowser": "/data/personalCardBrowseNum",
+      "personalCardBrowseData": "/data/personalCardBrowseData"
+    },
     "NewHouse":{
+      "queryEstates":"/data/queryEstates",
+      "getEstateXfData":"/data/getEstateXfData",
+      "getEstateDetail":"/data/getEstateDetail",
+      "deleteRecommendEstate":"/data/deleteRecommendEstate",
+      "addRecommendEstate":"/addRecommendEstate",
       "listCity": "/data/listCity",
       "listHouse": "/data/listHouseByCondition",
       "XfdkStoreData": "/data/getXfdkStoreData",
