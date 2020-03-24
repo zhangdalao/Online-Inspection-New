@@ -117,6 +117,12 @@
          "fnoticket":"/app/trade/receipt/advance/ticket?pageSize=20&ticketStatus=4&pageNo=1&estateId=53101",
          "gticket":"/app/trade/receipt/ticket?pageNo=1&estateId=53101&pageSize=20",
          "hrefund": "/app/ddxf/order/refund/#orderId#"
+    },
+    "Authority":{
+         "alogin": "/app/boai/boai/user/login",
+         "aopratemajordomo": "/app/projectoperation/projectManager/projectList?dataType=3&sortOrder=3&onlineStatus=1&pageNo=0&pageSize=10&branchId=3"
+
+
     }
   }
 }
