@@ -123,7 +123,7 @@ class commissionTest(RunTest):
         self.apiName = (inspect.stack()[0][3])[5:]
         # 获取测试环境参数
         env = value[self.env_num]
-
+        #添加一行注释
         # 通过环境参数获得接口url
         url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
         # 调用接口发起请求
