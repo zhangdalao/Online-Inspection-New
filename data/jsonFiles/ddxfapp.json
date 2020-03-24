@@ -119,10 +119,29 @@
          "hrefund": "/app/ddxf/order/refund/#orderId#"
     },
     "Authority":{
-         "alogin": "/app/boai/boai/user/login",
-         "aopratemajordomo": "/app/projectoperation/projectManager/projectList?dataType=3&sortOrder=3&onlineStatus=1&pageNo=0&pageSize=10&branchId=3"
-
-
+         "alogin": "/api/login/account",
+         "projectlist": "/api/project/project/list?pageNo=1&pageSize=10",
+         "bugetlist": "/api/trade/budget/10636/list?pageNo=1&pageSize=10&projectId=10636",
+         "shanyongbaodetail": "/api/trade/factoring/project/detail/2374",
+         "clearingform": "/api/trade/settlement/530127",
+         "bookinglist": "/api/composition/pc/booking/order/list?pageNo=1&pageSize=10",
+         "receptlist": "/api/trade/receipt/ticket?pageNo=1&pageSize=10&ticketType=1",
+         "refundlist": "/api/composition/pc/receipt/refund/customer/page?pageNo=1&pageSize=10&orderType=1",
+         "commissionlist": "/api/composition/pc/purchase/order/BVkx3y6J/develop/receipt",
+         "expectrefundlist": "/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10&estateId=63666",
+         "confirmlist": "/api/composition/pc/purchase/confirm/list?pageNo=1&pageSize=10&estateId=63666",
+         "invoicelist": "/api/trade/receipt/invoice?pageNo=1&pageSize=10&estateId=63666",
+         "huikuanlist": "/api/trade/receipt/ticket?pageNo=1&pageSize=10&estateId=63666&ticketType=0",
+         "badditionlist": "/api/composition/pc/additional/receivable?pageNo=1&pageSize=10&estateId=63666",
+         "badmittancelist": "/api/trade/factoring/auditing/list?pageNo=0&pageSize=10",
+         "applylist": "/api/trade/payment-applies/commissions?pageNo=1&pageSize=10"
+    },
+    "commission": {
+         "amountnormal": "/api/cost/cost/commission/settle-detail",
+         "bamoumtfactor": "/api/cost/cost/commission/factoring-detail",
+         "crepaydetail": "/api/cost/cost/commission/repay-detail",
+         "drecoverabledetail": "/api/cost/cost/commission/recoverable-detail",
+         "ededucedetail": "/api/cost/cost/commission/deduce-detail"
     }
   }
 }
