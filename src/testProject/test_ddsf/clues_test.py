@@ -74,7 +74,8 @@ class CluesTest(RunTest):
 		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
 		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
 		                         value)
-		
+	
+	@unittest.SkipTest
 	@ddt.data(*a.get_data_by_api(fieldname, "getStoreClueDetail"))
 	def test_getStoreClueDetail(self, value):
 		"""获取门店线索详情"""
