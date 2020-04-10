@@ -59,6 +59,7 @@ class StoreManageTest(RunTest):
 			raise Exception
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 		
+	@unittest.SkipTest
 	@ddt.data(*a.get_data_by_api(fieldname, "ResponsibilityStore"))
 	def test_ResponsibilityStore(self, value):
 		"""责任田分类分级"""
