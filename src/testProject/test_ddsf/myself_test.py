@@ -1,22 +1,25 @@
 # -*- coding=utf-8 -*-
 # Author: BoLin Chen
-# @Date : 2019-10-28
+# @Date : 2020-03-03
 
 
 import inspect
 import ddt
 from src.common.runTest import *
 from src.common.dingDing import send_ding
-import json
-from src.common.read_data import ReadData
+from src.common.sms_code import get_smsCode
+import requests
 import os, sys
+from src.common.read_data import ReadData
+import json
+from src.common.support import *
 
 count = 0
 
 
 @ddt.ddt
-class CluesTest(RunTest):
-	"""地图找店模块"""
+class MyselfTest(RunTest):
+	"""个人中心模块"""
 	
 	# 通过文件名夹获取project参数的值
 	project = os.path.dirname(__file__)[-4:]
@@ -41,7 +44,10 @@ class CluesTest(RunTest):
 		cls.expect_num = cls.a.get_num_name("预期结果")
 		cls.isSkip_num = cls.a.get_num_name("是否跳过该用例")
 		cls.relateData_num = cls.a.get_num_name("接口关联参数")
-	
+		cls.result = None
+		sss["restful"] = json.dumps({"staffId": sss["ID"]})
+		sss["date"] = getTime()
+		
 	def setUp(self):
 		globals()['count'] += 1
 		self.logger.debug("...start %s case %s...".center(80, '#') % (self.fieldname, count))
@@ -61,33 +67,41 @@ class CluesTest(RunTest):
 			raise Exception
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
 	
-	@ddt.data(*a.get_data_by_api(fieldname, "getStoreClueList"))
-	def test_1_getStoreClueList(self, value):
-		"""线索门店列表"""
-		# 通过函数名获取apiName参数的值
-		self.apiName = (inspect.stack()[0][3])[7:]
-		env = value[self.env_num]
-		# 通过环境参数获得接口url
-		uri = self.a.get_apiPath(self.fieldname, self.apiName)
-		url = self.a.get_domains()[env] + uri
-		# 调用接口发起请求
-		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
-		                         value)
-	
-	@unittest.SkipTest
-	@ddt.data(*a.get_data_by_api(fieldname, "getStoreClueDetail"))
-	def test_getStoreClueDetail(self, value):
-		"""获取门店线索详情"""
+	@ddt.data(*a.get_data_by_api(fieldname, "cardBrowser"))
+	def test_cardBrowser(self, value):
 		# 通过函数名获取apiName参数的值
 		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
 		env = value[self.env_num]
 		# 通过环境参数获得接口url
 		uri = self.a.get_apiPath(self.fieldname, self.apiName)
 		url = self.a.get_domains()[env] + uri
 		# 调用接口发起请求
-		sss["networkStoreId"] = sss["networkStoreId_list"][0]
-		sss["restful"] = json.dumps({"networkStoreId": str(sss["networkStoreId"])})
+
 		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
-		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
-		                         value)
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+		                         cookies=sss["cookies"])
+		self.assertLessEqual(self.res["data"]["todayViewNum"], self.res["data"]["totalViewNum"])
+		
+	@ddt.data(*a.get_data_by_api(fieldname, "personalCardBrowseData"))
+	def test_personalCardBrowseData(self, value):
+		# 通过函数名获取apiName参数的值
+		self.apiName = (inspect.stack()[0][3])[5:]
+		# 获取测试环境参数
+		env = value[self.env_num]
+		# 通过环境参数获得接口url
+		uri = self.a.get_apiPath(self.fieldname, self.apiName)
+		url = self.a.get_domains()[env] + uri
+		# 调用接口发起请求
+
+		self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+		                         self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value,
+		                         cookies=sss["cookies"])
+		# if len(self.res["data"]["pageData"]) >= 1:
+		# 	# print(self.res["data"]["pageData"][0]["actionTime"])
+		# 	self.assertEqual(timeToDate(self.res["data"]["pageData"][0]["actionTime"]), sss["date"])
+		if self.res["data"]["pageInfo"]["total"] > self.res["data"]["pageInfo"]["pageSize"]:
+			self.assertEqual(len(self.res["data"]["pageData"]), 20)
+		else:
+			self.assertEqual(len(self.res["data"]["pageData"]), self.res["data"]["pageInfo"]["total"])
+

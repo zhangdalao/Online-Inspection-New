@@ -7,6 +7,8 @@ import sys
 from src.common.runTest import *
 from src.common.dingDing import send_ding
 import time
+import datetime
+import random
 
 count = 0
 
@@ -32,6 +34,7 @@ class TradeTest(RunTest):
         cls.timestamp = str(round(t * 1000))
         sss["timestamp"] = cls.timestamp
 
+
         cls.result = None
         cls.desc = None
 
@@ -52,6 +55,78 @@ class TradeTest(RunTest):
                 send_ding(robot_url, mobile, content=f"{self.desc}测试失败！接口返回为：{self.res}, 接口预期结果为：{self.expect}")
                 raise err
         self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
+
+    @ddt.data(*a.get_data_by_api(fieldname, "aaposliest"))
+    def test_aaposliest(self, value):
+        #关联pos单
+        self.desc = value[self.desc_num]
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        #获取当前时间戳
+        ts = time.time()
+        paymenttime = round(ts*1000)
+        sss["paymentTime"] = paymenttime
+        #获取凭证号,考虑用时间戳来弄
+        #paymentId = random.randint(384728348,9284348594399)
+        sss["paymentDoc"] = paymenttime
+        # 调用接口发起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+                                 self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=sss["cookies"], verify=False)
+
+    @ddt.data(*a.get_data_by_api(fieldname, "abcheck"))
+    def test_abcheck(self, value):
+        self.desc = value[self.desc_num]
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+                                 self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=sss["cookies"], verify=False)
+
+    @ddt.data(*a.get_data_by_api(fieldname, "abdchange"))
+    def test_abdchange(self, value):
+        self.desc = value[self.desc_num]
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+                                 self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=sss["cookies"], verify=False)
+
+    @ddt.data(*a.get_data_by_api(fieldname, "abedetail"))
+    def test_abedetail(self, value):
+        self.desc = value[self.desc_num]
+        # 通过函数名获取apiName参数的值
+        self.apiName = (inspect.stack()[0][3])[5:]
+        # 获取测试环境参数
+        env = value[self.env_num]
+
+        # 通过环境参数获得接口url
+        url = self.a.get_domains()[env] + self.a.get_apiPath(self.fieldname, self.apiName)
+        # 调用接口发起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num,
+                                 self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num,
+                                 value, cookies=sss["cookies"], verify=False)
 
     @ddt.data(*a.get_data_by_api(fieldname, "accoutlist1"))
     def test_accoutlist1(self, value):

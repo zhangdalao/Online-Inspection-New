@@ -146,6 +146,8 @@ class OrderTest(RunTest):
         value.append(str_sign_list)
         # print(value)
         sss["version"] = sss["versionName"][1:]
+        receivableAmount = random.randint(10,1000)
+        sss["receivableAmount"] = receivableAmount
         # # # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
@@ -223,6 +225,8 @@ class OrderTest(RunTest):
         value.append(str_sign_list)
         # print(value)
         sss["version"] = sss["versionName"][1:]
+        contractAmount = random.randint(50000,100000)
+        sss["contractAmount"] = contractAmount
         # # # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
@@ -319,6 +323,8 @@ class OrderTest(RunTest):
         value.append(str_sign_list)
         print("qianming",value)
         sss["version"] = sss["versionName"][1:]
+        customerMobile = random.randint(18000000000,18900000000)
+        sss["customerMobile"] = str(customerMobile)
         # # # 调起请求
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
@@ -363,7 +369,8 @@ class OrderTest(RunTest):
         env = value[self.env_num]
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri  # a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
-        paymentDoc = random.randint(123456,678901)
+        t = time.time()
+        paymentDoc = round(t * 1000)
         print(paymentDoc)
         sss["paymentDoc"] = paymentDoc
         str_sign_list = [str(sss["userId"]), str(sss["token"]), self.timestamp, value[self.method_num].upper(), uri]
@@ -383,9 +390,10 @@ class OrderTest(RunTest):
         env = value[self.env_num]
         uri = self.a.get_apiPath(self.fieldname, self.apiName)
         url = self.a.get_domains()[env] + uri  # a.get_domains是字典，因为有好几个环境，根据测试环境来获得域名，域名+uri就是访问地址
-        paymentDoc = random.randint(123456, 678901)
+        '''t = time.time()
+        paymentDoc = round(t * 1000)
         print(paymentDoc)
-        sss["paymentDoc"] = paymentDoc
+        sss["paymentDoc"] = paymentDoc'''
         str_sign_list = [str(sss["userId"]), str(sss["token"]), self.timestamp, value[self.method_num].upper(), uri]
         # print(str_sign_list)
         value.append(str_sign_list)

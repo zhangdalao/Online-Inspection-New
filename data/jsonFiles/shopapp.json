@@ -14,21 +14,26 @@
     },
     "Login":{
        "ByPassword":"/boai/boai/user/login",
-        "H5Login": "/h5/data/user-loginapp"
+        "H5Login": "/h5/data/user-loginapp",
+        "MfLogin": "/user/users/login"
     },
     "ManagerHome":{
       "CircleMes":"/ddxf/house/circle/message?houseId=0&pageNo=0&pageSize=10&type=2",
       "ManagerWorkTable":"/api/projectManager/projectList?dataType=3&sortOrder=3&onlineStatus=1",
       "AuditData":"/api/projectManager/index/data",
+      "SopMon": "/app/project/sop/user/month/score?startTime=1577808000000&endTime=1580486399999",
       "GuideCouponsList":"/api/projectManager/project/coupons?branchId=3&couponType=1",
       "OrderCouponList":"/api/projectManager/project/coupons?branchId=3&couponType=2",
       "ShareCouponList": "/app/projectoperation/projectManager/project/coupons?couponType=3&branchId=3",
       "CommissionsList":"/api/projectManager/project/commissions?branchId=3",
       "ReceiptList":"/api/projectManager/project/receipt?branchId=3",
       "CompanyData":"/ddxf/index/data",
+      "Referral": "/distribution/custs/referral/batch",
       "SearchReferral": "/app/customer/ddxf/referral/list?branchId=3&pageNo=1&pageSize=20&dealStatus=0&customerMobile=13883217640",
       "ReferralList":"/customer/ddxf/referral/list?branchId=3&pageNo=1&pageSize=20&dealStatus=0&estateIds=53101",
       "ReferralConfirm":"/app/customer/ddxf/referral/deal",
+      "Guide": "/distribution/custs/guide/5614562/",
+      "Upcert": "/distribution/custs/guide/cert/5614562/",
       "CustomerDetail":"/customer/ddxf/customer/detail?estateId=53101&customerId=8648042&customerMobile=19923923414",
       "SearchGuide": "/app/customer/ddxf/guide/list?branchId=3&pageNo=1&confirmStatus=0&pageSize=20&customerMobile=13883217640",
       "GuideList":"/customer/ddxf/guide/list?branchId=3&pageNo=1&confirmStatus=0&pageSize=20&estateIds=53101",
@@ -45,6 +50,7 @@
       "WechatRemove":"/app/personal/ddxf/project/22987/wechatGroup/",
       "ProjectShare":"/project/ddxf/share/22987?shareSource=1",
       "Projecttemplate":"/project/ddxf/share/project/22987/poster/templates",
+      "ProjectSop": "/app/project/sop/project/list?startTime=1578844800000&projectIds=10636&endTime=1579449599999",
       "CustomerList":"/customer/ddxf/customer?houseId=2029540&branchId=3&pageNo=0&pageSize=20",
       "MarketList":"/project/project/market/a/list?projectId=22987",
       "SettlmentList":"/trade/settlement?onlyBaseInfo=1&projectId=22987&pageNo=0&pageSize=20",
@@ -163,7 +169,13 @@
       "StoreWeekList": "/h5/data/clue-getStoreList?estateId=2029540&dateType=2&startTime=2019-12-23+00:00:00&endTime=2019-12-29+23:59:59&sortType=1&pageNo=1&pageSize=10",
       "StoreDayList": "/h5/data/clue-getStoreList?estateId=2029540&dateType=1&startTime=2019-12-24+00:00:00&endTime=2019-12-24+23:59:59&sortType=1&pageNo=1&pageSize=10",
       "StoreDetail":"/h5/data/storeInfo?estateId=2029540&projectId=22987&storeId=80545140&dateType=3&startTime=2019-12-01+00:00:00&endTime=2019-12-31+23:59:59",
-      "StoreDetailData":"/h5/data/getStatistics?estateId=2029540&projectId=22987&storeId=80545140&dateType=3&startTime=2019-06-24+00:00:00&endTime=2019-12-24+23:59:59"
+      "StoreDetailData":"/h5/data/getStatistics?estateId=2029540&projectId=22987&storeId=80545140&dateType=3&startTime=2019-06-24+00:00:00&endTime=2019-12-24+23:59:59",
+      "UserSop": "/h5/data/userMonthSop?startTime=1577808000000&endTime=1580486399000",
+      "UserWeekSop":"/h5/data/userWeekSop?startTime=1578240000000&endTime=1578844799000",
+      "UserSopHelp": "/h5/sop/help/usersop?SSR_JSON=true",
+      "ProjectMonthSop": "/h5/data/projectMonthSop?startTime=1577808000000&endTime=1580486399000&projectId=18219",
+      "ProjectSopHelp": "/h5/sop/help/projectsop?SSR_JSON=true",
+      "SopProjectInfo": "/h5/data/sopProjectInfo?projectId=18219&startTime=1578844800000&endTime=1579449599000"
     },
     "IM":{
       "UnreadNumber":"/app/ddxf/user/reddot/unread",
@@ -187,7 +199,9 @@
       "CoupeSend": "/app/projectoperation/im/mass/send",
       "ProjectSend": "/app/projectoperation/im/mass/send",
       "AttachmentSend": "/app/projectoperation/im/mass/send",
-      "VideoSend": "/app/projectoperation/im/mass/send"
+      "VideoSend": "/app/projectoperation/im/mass/send",
+      "ImAutoList": "/app/project/project/question/imAuto/agent_xf_project-3136475-10636/list",
+      "ImAutoEdit": "/app/project/project/question/edit"
     },
     "TestCase": {
       "ImCount": "/app/projectoperation/im/untrack/count",

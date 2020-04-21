@@ -64,7 +64,8 @@ class Rent_HostsTest(RunTest):
 			send_ding(self.robot_url, self.mobile, content=f"{self.desc}测试失败！\n测试反馈:{self.result}")
 			raise Exception
 		self.logger.debug("...end %s case %s...".center(80, '#') % (self.fieldname, count))
-
+	
+	@unittest.SkipTest
 	@ddt.data(*a.get_data_by_api(fieldname, "update_Rent_Hosts"))  #接口对应的名称
 	def test_01_update_Rent_Hosts(self, value):
 		# 通过函数名获取apiName参数的值

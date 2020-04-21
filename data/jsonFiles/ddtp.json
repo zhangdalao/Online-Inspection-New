@@ -53,6 +53,18 @@
       "point_store": "/app/market_dev/maps/points?leftTopLat=24.499112733362857&rightBottomLng=118.09863164930822&storeCooperating=true&leftTopLng=118.09142594901263&cityId=9393&rightBottomLat=24.48624270688756&estateCooperating=true&activeType=LAST_SIX_MONTH_ACTIVE",
       "map_estate_data": "/app/market_dev/maps/estate-data?estateId=55365",
       "map_store_data": "/app/market_dev/maps/store-data?networkStoreId=314112"
+    },
+    "Package": {
+      "package_list": "/h5/data/getPackages",
+      "packageEstates_list": "/h5/data/getPackageEstates",
+      "getPackagesCities": "/h5/data/getPackagesCities",
+      "packageEstatesDetail": "/h5/data/getPackageEstatesDetail",
+      "getPackagesFollows": "/h5/data/getPackagesFollows",
+      "addAdvice": "/h5/data/feedbackAdvice",
+      "getCityMarketUsers": "/h5/data/getCityMarketUsers",
+      "allotFollowUser": "/h5/data/allotFollowUser",
+      "addProgress": "/h5/data/feedbackProgress",
+      "getSurveyInfo": "/h5/data/getSurveyInfo"
     }
   }
 }

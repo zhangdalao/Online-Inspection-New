@@ -24,7 +24,7 @@
         "fChange":"/app/trade/settlement/order/ticket",
         "gChecklist":"/app/ddxf/work/audit/list?pageNo=0&pageSize=10&auditStatus=1",
         "hperformancechange":"/app/ddxf/order/appeal/contrib",
-        "iperformancelist":"/app/ddxf/work/audit/list?auditStatus=1&processType=2&pageNo=0&branchId=3&pageSize=15&businessName=#orderId2#",
+        "iperformancelist":"/app/ddxf/work/audit/list?auditStatus=1&processType=2&pageNo=0&branchId=3&pageSize=15&businessName=#bookingId#",
         "jperformencedetail":"/app/ddxf/order/appeal/contrib/#performanceId#",
         "kamountchange":"/app/ddxf/complaint/contract",
         "lamountchangelist":"/app/ddxf/work/audit/list?branchId=3&processType=11&auditStatus=1&pageNo=0&pageSize=15",
@@ -41,6 +41,10 @@
         "WebLogin":"/api/login/account"
     },
     "Trade":{
+        "aaposliest": "/api/trade/receipt/ticket",
+        "abcheck": "/api/trade/receipt/ticket/status",
+        "abdchange": "/api/composition/pc/order/appeal/pos",
+        "abedetail": "/api/composition/pc/order/appeal/pos/change?orderType=2&orderId=#orderId#",
         "accoutlist1":"/api/trade/report/order/purchase/summary?pageNo=1&pageSize=10",
         "accoutlist2":"/api/trade/receipt/projects?pageNo=1&pageSize=10",
         "breceivable":"/api/composition/pc/additional/receivable",
@@ -113,6 +117,31 @@
          "fnoticket":"/app/trade/receipt/advance/ticket?pageSize=20&ticketStatus=4&pageNo=1&estateId=53101",
          "gticket":"/app/trade/receipt/ticket?pageNo=1&estateId=53101&pageSize=20",
          "hrefund": "/app/ddxf/order/refund/#orderId#"
+    },
+    "Authority":{
+         "alogin": "/api/login/account",
+         "projectlist": "/api/project/project/list?pageNo=1&pageSize=10",
+         "bugetlist": "/api/trade/budget/10636/list?pageNo=1&pageSize=10&projectId=10636",
+         "shanyongbaodetail": "/api/trade/factoring/project/detail/2374",
+         "clearingform": "/api/trade/settlement/530127",
+         "bookinglist": "/api/composition/pc/booking/order/list?pageNo=1&pageSize=10",
+         "receptlist": "/api/trade/receipt/ticket?pageNo=1&pageSize=10&ticketType=1",
+         "refundlist": "/api/composition/pc/receipt/refund/customer/page?pageNo=1&pageSize=10&orderType=1",
+         "commissionlist": "/api/composition/pc/purchase/order/BVkx3y6J/develop/receipt",
+         "expectrefundlist": "/api/trade/receipt/advance/ticket?pageNo=1&pageSize=10&estateId=63666",
+         "confirmlist": "/api/composition/pc/purchase/confirm/list?pageNo=1&pageSize=10&estateId=63666",
+         "invoicelist": "/api/trade/receipt/invoice?pageNo=1&pageSize=10&estateId=63666",
+         "huikuanlist": "/api/trade/receipt/ticket?pageNo=1&pageSize=10&estateId=63666&ticketType=0",
+         "badditionlist": "/api/composition/pc/additional/receivable?pageNo=1&pageSize=10&estateId=63666",
+         "badmittancelist": "/api/trade/factoring/auditing/list?pageNo=0&pageSize=10",
+         "applylist": "/api/trade/payment-applies/commissions?pageNo=1&pageSize=10"
+    },
+    "commission": {
+         "amountnormal": "/api/cost/cost/commission/settle-detail",
+         "bamoumtfactor": "/api/cost/cost/commission/factoring-detail",
+         "crepaydetail": "/api/cost/cost/commission/repay-detail",
+         "drecoverabledetail": "/api/cost/cost/commission/recoverable-detail",
+         "ededucedetail": "/api/cost/cost/commission/deduce-detail"
     }
   }
 }
