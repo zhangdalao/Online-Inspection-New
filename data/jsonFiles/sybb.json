@@ -2,7 +2,7 @@
   "sybb":{
     "robot_data":{
     "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=9932e58b4ddc16ee3fc7ffa163d59153ad9cf11e78991b90a6e4d704d3277607",
-    "mobile":["13682521706"]
+    "mobile":["18998932990"]
     },
     "domain":{
       "test": "https://jr.fangdd.net",
@@ -90,8 +90,8 @@
       "RepayWard":"/jgj/api/factoring/getRepayWardList",
       "getPenalty":"/jgj/api/factoring/getPenaltyList",
       "PenaltyStatistics":"/jgj/api/factoring/getPenaltyStatistics",
-      "AmountFunnelReport":"/jgj/api/factoring/getFinanceAmountFunnelReport/2019",
-      "OrderFunnelReport":"/jgj/api/factoring/getFinanceOrderFunnelReport/2019",
+      "AmountFunnelReport":"/jgj/api/factoring/getFinanceAmountFunnelReport/?startDate=2020-01-01&endDate=2020-04-21",
+      "OrderFunnelReport":"/jgj/api/factoring/getFinanceOrderFunnelReport/?startDate=2020-01-01&endDate=2020-04-21",
       "ReleaseRepayAmount":"/jgj/api/factoring/getReleaseRepayAmount",
       "CityRankRelease":"/jgj/api/factoring/getCityRankReleaseList",
       "OverdueRepayAmount":"/jgj/api/factoring/getOverdueRepayAmount",
