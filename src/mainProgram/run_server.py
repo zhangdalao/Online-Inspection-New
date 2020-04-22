@@ -94,7 +94,8 @@ def run_test():
 			if not check:
 				res = jsonify({"code": 201, "success": False, "cases_count": 0, "msg": "请确认参数，获取用例失败!"})
 			else:
-				start.delay(cases_dir=cases, env=env_data[0], reg_str=reg_str)
+				# start.delay(cases_dir=cases, env=env_data[0], reg_str=reg_str)
+				start.apply_async(args=[cases, env_data[0], reg_str])
 				res = jsonify({"code": 200, "success": True, "msg": f"{cases_names}项目{env_data[1]}环境 "
 				                                                    f"自动化测试正在执行，请注意查收钉钉推送消息"})
 		else:
