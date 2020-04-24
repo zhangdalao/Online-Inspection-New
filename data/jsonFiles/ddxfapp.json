@@ -1,8 +1,8 @@
 {
   "ddxfapp":{
     "robot_data":{
-      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=f92c4b9a7b375e6172f54d0cd20559e32837b7fca166ddf1cdb4a013c6e425d0",
-      "mobile":["18652980686"]
+      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=254c4e03abc0c89b4922e86cb8f67c0a01fe68de2b9f7b27596eddc378b400c5",
+      "mobile":["13883217640"]
     },
     "domain":{
       "test": "https://ddxf.fangdd.net",
@@ -79,6 +79,11 @@
         "ybugetlist": "/api/trade/budget/exceed/ticket?pageNo=1&pageSize=10",
         "ycbugetdetdail": "/api/trade/budget/exceed/ticket/#budgetId#",
         "ydbugetdetcheck": "/api/trade/budget/exceed/ticket/approve",
+        "zaddbusiness": "/api/project/project/business/add",
+        "zbaddbuscontract": "/api/project/project/business/contract/add",
+        "zdaddbudgetplan": "/api/trade/budget",
+        "zebugetplancheck": "/api/trade/budget/#budgetplanId#/approve",
+        "zfdelbusiness": "/api/project/project/business/2",
         "yereceiptconfirm": "/api/trade/receipt/ticket/status"
     },
     "Org":{
