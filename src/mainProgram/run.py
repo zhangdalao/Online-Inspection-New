@@ -166,6 +166,6 @@ def start(cases_dir=None, env=None, reg_str=None):
 
 if __name__ == '__main__':
 	# start('test_sybb', 'prod')#, "a_login*"
-	start("test_ddxfapp", "prod")
-	# start()
+	# start("test_ddxfapp", "prod")
+	start()
 
