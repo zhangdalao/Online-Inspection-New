@@ -17,6 +17,7 @@
     },
     "Order":{
         "aOrder":"/app/ddxf/order",
+        "aPurOrder":"/app/trade/order/purchase",
         "bOrderdetail":"/app/trade/commission/#orderId#",
         "cOrderList":"/app/ddxf/order/purchase?houseIds=53101&branchId=3&pageNo=0&orderStatus=0&pageSize=10",
         "dBookingList":"/app/ddxf/order/booking?branchId=3&pageNo=0&pageSize=10",
