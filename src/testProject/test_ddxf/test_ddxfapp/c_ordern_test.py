@@ -70,6 +70,25 @@ class OrderTest(RunTest):
         self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
                                  self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
 
+    @ddt.data(*a.get_data_by_api(fieldname, "aPurOrder"))
+    def test_aPurOrder(self, value):
+        self.desc = value[self.desc_num]
+        self.apiName = (inspect.stack()[0][3])[5:]
+        env = value[self.env_num]
+
+        uri = self.a.get_apiPath(self.fieldname, self.apiName)
+        url = self.a.get_domains()[env] + uri
+        # ***需要加密的数据在此处添加到列表中即可，反之则不用写这一步***
+        str_sign_list = [str(sss["userId"]),str(sss["token"]),self.timestamp, value[self.method_num].upper(), uri]
+        #print("签名",str_sign_list)
+        value.append(str_sign_list)
+        print("签名",value)
+        sss["version"] = sss["versionName"][1:]
+        # # # 调起请求
+        self.result = self.start(self.project, self.isSkip_num, self.apiName_num, url, self.method_num, self.headers_num,
+                                 self.para_num, self.data_num, self.desc_num, self.relateData_num, self.expect_num, value)
+        time.sleep(3)
+
     @ddt.data(*a.get_data_by_api(fieldname, "bOrderdetail"))
     def test_bOrderdetail(self,value):
         self.desc = value[self.desc_num]
