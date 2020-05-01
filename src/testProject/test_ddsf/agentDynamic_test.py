@@ -30,7 +30,7 @@ class AgentDynamicTest(RunTest):
 	mobile = json_dict["mobile"]
 	
 	sss['cityIds'] = ["121", "852", "1406", "10204"]
-	data_dict = {"estateId": 51443, "storeId": 82200915, "dynamicTags": 12, "reVisitType": 3}
+	data_dict = {"estateId": 53101, "storeId": 82200915, "dynamicTags": 7, "reVisitType": 3}
 	sss.update(data_dict)
 	
 	@classmethod
