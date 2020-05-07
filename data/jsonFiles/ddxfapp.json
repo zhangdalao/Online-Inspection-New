@@ -1,13 +1,13 @@
 {
   "ddxfapp":{
     "robot_data":{
-      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=254c4e03abc0c89b4922e86cb8f67c0a01fe68de2b9f7b27596eddc378b400c5",
-      "mobile":["13883217640"]
+      "robot_url":"https://oapi.dingtalk.com/robot/send?access_token=f92c4b9a7b375e6172f54d0cd20559e32837b7fca166ddf1cdb4a013c6e425d0",
+      "mobile":["18652980686"]
     },
     "domain":{
-      "test": "https://ddxf.fangdd.net",
-      "pre" : "https://ddxf.fangdd.com.cn",
-      "prod" : "https://ddxf.fangdd.com"
+        "test": "https://ddxf.fangdd.net",
+        "pre" : "https://ddxf.fangdd.com.cn",
+        "prod" : "https://ddxf.fangdd.com"
     },
     "GetVersion":{
        "version":"/ddxf/app/upgrade?appId=com.fangdd.ddxf&platform=1"
@@ -147,7 +147,8 @@
          "bamoumtfactor": "/api/cost/cost/commission/factoring-detail",
          "crepaydetail": "/api/cost/cost/commission/repay-detail",
          "drecoverabledetail": "/api/cost/cost/commission/recoverable-detail",
-         "ededucedetail": "/api/cost/cost/commission/deduce-detail"
+         "ededucedetail": "/api/cost/cost/commission/deduce-detail",
+         "fOrder": "/app/ddxf/order"
     }
   }
 }

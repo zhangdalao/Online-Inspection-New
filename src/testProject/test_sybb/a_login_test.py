@@ -73,6 +73,7 @@ class LoginTest(RunTest):
 		elif sss["env"] == "test":
 			sss["sms_code"] = get_smsCode("test", 'https://jr.fangdd.net/jgj/api/user/smgsend', 'post', json={"mobile":"13682521706","type":1})
 		# 通过函数名获取apiName参数的值
+		print("sss等于",sss)
 		self.apiName = (inspect.stack()[0][3])[5:]
 		# 获取测试环境参数
 		env = value[self.env_num]

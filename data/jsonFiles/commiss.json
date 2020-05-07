@@ -1,0 +1,88 @@
+{
+  "commiss": {
+    "robot_data": {
+      "robot_url": "https://oapi.dingtalk.com/robot/send?access_token=f92c4b9a7b375e6172f54d0cd20559e32837b7fca166ddf1cdb4a013c6e425d0",
+      "mobile": [
+        "18652980686"
+      ]
+    },
+    "domain": {
+      "commiss": {
+        "test": "https://ddxf.fangdd.net",
+        "pre": "https://ddxf.fangdd.com.cn",
+        "prod": "https://ddxf.fangdd.com"
+      },
+      "syb": {
+        "test": "https://jr.fangdd.net",
+        "pre": "https://jr.fangdd.com.cn",
+        "prod": "https://jr.fangdd.com"
+      },
+      "ddmf": {
+        "test": "https://ddjj.fangdd.net",
+        "pre": "https://ddjj.fangdd.com.cn",
+        "prod": "https://ddjj.fangdd.com"
+      }
+    },
+    "GetVersion": {
+      "version": "/ddxf/app/upgrade?appId=com.fangdd.ddxf&platform=1"
+    },
+    "Order": {
+      "ByPassword": "/app/boai/boai/user/login",
+      "cOrder": "/app/trade/order/purchase/",
+      "dOrderSign": "/app/ddxf/order/deal/status/#orderId#",
+      "dOrderSign1": "/app/ddxf/order/deal/status/#orderId1#",
+      "eaddconfirm":"/api/composition/pc/purchase/confirm/add",
+      "fconfirm":"/api/composition/pc/purchase/confirm/approve",
+      "gticket":"/api/trade/receipt/advance/ticket",
+      "gticketdetail":"/api/trade/receipt/advance/ticket/#ticketId1#",
+      "hvioce":"/api/trade/receipt/invoice/",
+      "ivioceconfirm":"/api/trade/receipt/invoice/status",
+      "jmoney":"/api/trade/receipt/ticket",
+      "kmoneyconfirm":"/api/trade/receipt/ticket/status",
+      "lconfirmlist": "/api/trade/commission/applyInfo?orderId=#orderId#&commissionType=2&programType=1",
+      "mconfirmget": "/api/trade/commission/apply",
+      "mdcheckcommiss": "/api/cost/cost/commission/#orderId#",
+      "napplylist": "/api/cost/cost/commission/query/applyInfo?orderId=#orderId1#&commissionType=2&programType=2",
+      "nfactoring": "/api/cost/cost/commission/factoring/apply",
+      "ofactoringamuont": "/api/cost/cost/commission/#orderId1#"
+    },
+    "WebLogin":{
+        "WebLogin":"/api/login/account"
+    },
+    "ddmf": {
+      "aaloginddmf": "/user/login",
+      "acommissionstatistic": "/fenxiao/saas/getCommissionStatistic",
+      "bcommissionorg": "/fenxiao/saas/getArmOrgList",
+      "cCommissionList": "/fenxiao/saas/factoring-queryxfCommissionList",
+      "dCommissionFactoringInfo": "/fenxiao/saas/factoring-queryxfCommissionFactoringInfo",
+      "exfProtocolList": "/fenxiao/saas/xfProtocolList",
+      "fxfProtocolInfo": "/fenxiao/saas/xfProtocolInfo",
+      "gReferralList": "/fenxiao/saas/searchReferralList",
+      "hGuideList": "/fenxiao/saas/searchGuideList",
+      "iOrderList": "/fenxiao/saas/searchOrderList",
+      "jAcountList": "/fenxiao/saas/getCommissionAcountList",
+      "kOperator": "/fenxiao/saas/getIsCommissionOperator",
+      "lProjectList": "/fenxiao/saas/getSettlementProjectList",
+      "mApplyProtocolUrl": "/fenxiao/saas/getApplyProtocolUrl",
+      "nSettlementList": "/fenxiao/saas/commissionDealList",
+      "oBankAcountList": "/fenxiao/saas/getSettlementBankAcountList",
+      "paddFastSettlement": "/fenxiao/saas/factoring-addCommissionApply",
+      "pbgetthebussinessId": "/fenxiao/saas/factoring-queryxfCommissionInfo",
+      "qupload":"/fenxiao/saas/factoring-auditCommission"
+    },
+    "Login": {
+      "1Smgsend": "/jgj/api/user/smgsend",
+      "Login": "/jgj/api/user/login",
+      "Mchecklist": "/jgj/api/factoring/queryInitialOrderList",
+      "Nfactoring": "/jgj/api/factoring/orderBussinessAcceptance",
+      "Ngfactoring": "/jgj/api/factoring/orderAcceptance",
+      "Oacheckcommiss": "/api/cost/cost/commission/#orderId1#",
+      "Ochangechanel": "/jgj/api/factoring/changeOrderChannel",
+      "Odcheckfactoring": "/api/cost/cost/commission/#orderId1#"
+    },
+    "xfcheck": {
+      "agetcommission": "/api/cost/cost/commission/#orderId#",
+      "bcheck": "/api/cost/cost/request/ticket/approve"
+    }
+  }
+}
