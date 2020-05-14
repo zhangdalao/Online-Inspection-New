@@ -50,7 +50,7 @@ def start(cases_dir=None, env=None, reg_str=None):
 		reg_str = "*test.py"
 	
 	# 新房项目列表
-	xf_list = ["test_ddxfapp", "test_shop", "test_shopapp","test_commiss"]
+	xf_list = ["test_ddxfapp", "test_shop", "test_shopapp", "test_commiss"]
 	# 巡检测试群机器人地址
 	test_robot = 'https://oapi.dingtalk.com/robot/send?access_token=d852c17cf61d26bfbaf8d0d8d4927632f9b1712' \
 				 'cb9aa145342159f8fd0065fc4'

@@ -21,7 +21,7 @@ class SignKey:
 
     def sign(self):
         # jar_path = f"{root_path}{sep}src{sep}common{sep}fdd-1.1-SNAPSHOT-jar-with-dependencies.jar"
-        jar_path = (r"../common/fdd-1.1-SNAPSHOT-jar-with-dependencies.jar")
+        jar_path = r"../common/fdd-1.1-SNAPSHOT-jar-with-dependencies.jar"
         _platform = platform.platform()
         if not jpype.isJVMStarted():
             if _platform == 'Linux-2.6.32-754.18.2.el6.x86_64-x86_64-with-centos-6.10-Final':
@@ -29,7 +29,7 @@ class SignKey:
             elif _platform.startswith("Windows") or _platform.startswith('Darwin'):
                 startJVM(jpype.getDefaultJVMPath(), "-ea", "-Djava.class.path=%s" % jar_path)
             else:
-                jar_path = (r"/src/common/fdd-1.1-SNAPSHOT-jar-with-dependencies.jar")
+                jar_path = r"/src/common/fdd-1.1-SNAPSHOT-jar-with-dependencies.jar"
                 startJVM(r"/usr/lib/jvm/default-jvm/jre/lib/amd64/server/libjvm.so", "-ea", "-Djava.class.path=%s" % jar_path)
         instance = JPackage('com').fangddd.ddsign
         key = instance.SignUtil.generateSign(self.req)
